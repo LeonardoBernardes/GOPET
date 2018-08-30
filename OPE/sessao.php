@@ -13,8 +13,8 @@ include_once(dirname( __FILE__ ) .'\mysql_conexao\conexao_mysql.php');
 // session_start inicia a sessão
 session_start();
 // as variáveis login e senha recebem os dados digitados na página anterior
-$login = $_POST['login'];
-$senha = $_POST['senha'];
+$login = mysqli_real_escape_string($_POST['login']);
+$senha = mysqli_real_escape_string($_POST['senha']) ;
 
 
 $sql="  SELECT 

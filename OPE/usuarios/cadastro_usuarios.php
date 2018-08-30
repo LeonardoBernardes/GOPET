@@ -21,7 +21,6 @@ $logado = $_SESSION['login'];
 <form method="post" action="cadastrar_usuarios.php" id="formlogin" name="formlogin" >
     <fieldset id="fie">
         <legend>Dados Usuários</legend><br/>
-
         <label>NOME : </label> 
         <input type="text" name="nome" id="nome"><br/>
         <label>Sobrenome : </label> 

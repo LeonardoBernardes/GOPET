@@ -8,7 +8,7 @@
  */
 
 $servername = "localhost:3306";
-$username = "";
+$username = "root";
 $database = "gopet";
 $password = "";
 

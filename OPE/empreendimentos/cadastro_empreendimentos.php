@@ -4,7 +4,7 @@
  * @Author: Leonardo.Bernardes 
  * @Date: 2018-08-14 01:26:29 
  * @Last Modified by: Leonardo.Bernardes
- * @Last Modified time: 2018-08-30 01:41:57
+ * @Last Modified time: 2018-08-30 19:23:41
  */
 include_once(dirname( __FILE__ ) .'\..\mysql_conexao\conexao_mysql.php');
 session_start();
@@ -100,7 +100,7 @@ if(!empty($row2)){
         $endereco_img = $row5->emim_endereco;
     }
     //Criar Funcao para trazer local host como variavel
-    $endereco_img = str_replace('\\', '/',"http://localhost/".'PHP/OPE/empreendimentos/'.$endereco_img);
+    $endereco_img = str_replace('\\', '/',"http://localhost/".'PHP/GOPET/OPE/empreendimentos/'.$endereco_img);
 }//var_dump(str_replace('/', '\'',$endereco_img));     
 ?>
 <form method="post" action="cadastrar_empreendimento.php" id="formlogin" name="formlogin" enctype="multipart/form-data" >

@@ -4,7 +4,7 @@
  * @Author: Leonardo.Bernardes 
  * @Date: 2018-08-14 01:34:11 
  * @Last Modified by: Leonardo.Bernardes
- * @Last Modified time: 2018-08-21 19:44:21
+ * @Last Modified time: 2018-08-30 19:32:40
  */
 
 include_once(dirname( __FILE__ ) .'\mysql_conexao\conexao_mysql.php');
@@ -35,6 +35,6 @@ $sql2 = "   INSERT INTO
 //echo $sql2;
 $c2 = mysqli_query($conn, $sql2);
 
-header('location:..\OPE\index.php');
+header('location:..\GOPET\OPE\index.php');
 
 ?>

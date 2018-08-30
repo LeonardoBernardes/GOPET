@@ -3,7 +3,7 @@
  * @Author: Leonardo.Bernardes 
  * @Date: 2018-08-15 01:26:47 
  * @Last Modified by: Leonardo.Bernardes
- * @Last Modified time: 2018-08-30 01:39:46
+ * @Last Modified time: 2018-08-30 19:24:19
  */
 include_once(dirname( __FILE__ ) .'\..\..\mysql_conexao\conexao_mysql.php');
 session_start();
@@ -78,7 +78,7 @@ while ($row = mysqli_fetch_object($result)) {
     }
     if(!empty($endereco_img)){
     //Criar Funcao para trazer local host como variavel
-    $endereco_img = str_replace('\\', '/',"http://localhost/".'PHP/OPE/empreendimentos/produtos/'.$endereco_img);
+    $endereco_img = str_replace('\\', '/',"http://localhost/".'PHP/GOPET/OPE/empreendimentos/produtos/'.$endereco_img);
     }
     
 

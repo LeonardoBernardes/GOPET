@@ -4,7 +4,7 @@
  * @Author: Leonardo.Bernardes 
  * @Date: 2018-08-13 18:11:37 
  * @Last Modified by: Leonardo.Bernardes
- * @Last Modified time: 2018-08-28 19:23:42
+ * @Last Modified time: 2018-08-30 19:31:59
  */
 
 //include_once('C:\wamp\www\PHP\OPE\mysql_conexao\conexao_mysql.php');
@@ -46,11 +46,11 @@ if(mysqli_num_rows($result) > 0)
 
        //var_dump($row);
         if($row->grup_id == 1){
-            header('location:..\OPE\administradores\home_administradores.php');
+            header('location:..\GOPET\OPE\administradores\home_administradores.php');
         }elseif($row->grup_id == 2 || $row->grup_id == 4){
-            header('location:..\OPE\empreendimentos\home_empreendimento.php');
+            header('location:..\GOPET\OPE\empreendimentos\home_empreendimento.php');
         }elseif($row->grup_id == 3 ){
-            header('location:..\OPE\usuarios\home_usuarios.php');
+            header('location:..\GOPET\OPE\usuarios\home_usuarios.php');
         }
     }
 

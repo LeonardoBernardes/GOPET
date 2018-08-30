@@ -3,7 +3,7 @@
  * @Author: Leonardo.Bernardes 
  * @Date: 2018-08-15 19:39:29 
  * @Last Modified by: Leonardo.Bernardes
- * @Last Modified time: 2018-08-21 19:49:32
+ * @Last Modified time: 2018-08-30 19:28:57
  */
 include_once(dirname( __FILE__ ) .'\..\..\mysql_conexao\conexao_mysql.php');
 session_start();
@@ -37,10 +37,35 @@ $sql="  SELECT
 $result =  mysqli_query($conn, $sql);
 $row = mysqli_fetch_object($result);
 
+// Retorna imagem se possuir cadastrada
+$sql3=" SELECT 
+            seim_endereco
+        FROM 
+            servicos_imagens 
+        WHERE 
+            empr_id = $row->empr_id
+            AND serv_id = $row->serv_id";
+    //echo $sql3;
+$result4 =  mysqli_query($conn, $sql3);
+$row5 = mysqli_fetch_object($result4);
+
+$endereco_img = '';
+if(!empty($row5)){
+    $endereco_img = $row5->prim_endereco;
+}
+if(!empty($endereco_img)){
+//Criar Funcao para trazer local host como variavel
+$endereco_img = str_replace('\\', '/',"http://localhost/".'PHP/GOPET/OPE/empreendimentos/servicos/'.$endereco_img);
+}
+
+
 ?>
-<form method="post" action="update_servicos.php?id=<?= $serv_id ?>" id="formlogin" name="formlogin" >
+<form method="post" action="update_servicos.php?id=<?= $serv_id ?>" id="formlogin" name="formlogin" enctype="multipart/form-data">
     <fieldset id="fie">
         <legend>Atualizar Serviço</legend><br/>
+        <label>Imagem : </label> 
+        <img src="<?php echo $endereco_img ?>" style="width:400px; heigth:50px;" alt='Foto de exibição' /><br />
+        <input type="file" name="imagem" id="imagem" > <br/>
         <label>Nome : </label> 
         <input type="text" name="nome" id="nome" value="<?php echo ($row->serv_nome) ? $row->serv_nome : "" ?>"><br/>
         <label>Descrição : </label> 

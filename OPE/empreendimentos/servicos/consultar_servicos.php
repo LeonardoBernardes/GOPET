@@ -3,7 +3,7 @@
  * @Author: Leonardo.Bernardes 
  * @Date: 2018-08-15 01:26:47 
  * @Last Modified by: Leonardo.Bernardes
- * @Last Modified time: 2018-08-30 19:30:51
+ * @Last Modified time: 2018-08-30 19:43:57
  */
 include_once(dirname( __FILE__ ) .'\..\..\mysql_conexao\conexao_mysql.php');
 session_start();
@@ -71,7 +71,7 @@ while ($row = mysqli_fetch_object($result)) {
 
     $endereco_img = '';
     if(!empty($row5)){
-        $endereco_img = $row5->prim_endereco;
+        $endereco_img = $row5->seim_endereco;
     }
     if(!empty($endereco_img)){
     //Criar Funcao para trazer local host como variavel

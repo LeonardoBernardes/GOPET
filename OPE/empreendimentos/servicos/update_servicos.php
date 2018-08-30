@@ -3,7 +3,7 @@
  * @Author: Leonardo.Bernardes 
  * @Date: 2018-08-15 19:51:19 
  * @Last Modified by: Leonardo.Bernardes
- * @Last Modified time: 2018-08-21 19:51:43
+ * @Last Modified time: 2018-08-30 20:02:26
  */
 
 include_once(dirname( __FILE__ ) .'\..\..\mysql_conexao\conexao_mysql.php');
@@ -18,6 +18,7 @@ session_start();
     }
  
 $logado = $_SESSION['login'];
+$foto = $_FILES["imagem"];
 
 $serv_id = $_GET['id'];
 $serv_nome = ($_POST['nome']) ? $_POST['nome'] : "";
@@ -27,6 +28,18 @@ $serv_promocao = ($_POST['promocao']) ? $_POST['promocao'] : 0;
 $serv_valor_promocao = ($_POST['valor_promocao']) ? $_POST['valor_promocao'] : 0;
 $serv_status = ($_POST['status']) ? $_POST['status'] : 0;
 
+$sql="  SELECT 
+            serv_id,
+            empr_id
+        FROM 
+            `servicos` 
+        WHERE 
+            `serv_id` = '$serv_id' 
+        ";
+//echo $sql;
+//break;
+$result =  mysqli_query($conn, $sql);
+$row = mysqli_fetch_object($result);
 
 
 $sql ="  UPDATE 
@@ -43,7 +56,116 @@ $sql ="  UPDATE
         ";
 
 $result =  mysqli_query($conn, $sql);
-header('location:..\servicos\consultar_servicos.php');
+
+
+// Se a foto estiver sido selecionada
+if (!empty($foto["name"])) {
+            
+    //   Controle de tamanho de imagens
+        // Largura máxima em pixels
+        $largura = 3000;
+        // Altura máxima em pixels
+        $altura = 3000;
+        // Tamanho máximo do arquivo em bytes
+        $tamanho = 45000;
+    
+        $error = array();
+    
+        // Verifica se o arquivo é uma imagem
+        if(!preg_match("/^image\/(pjpeg|jpeg|png|gif|bmp)$/", $foto["type"])){
+            $error[1] = "Isso não é uma imagem.";
+            } 
+    
+        // Pega as dimensões da imagem
+        $dimensoes = getimagesize($foto["tmp_name"]);
+    
+        // Verifica se a largura da imagem é maior que a largura permitida
+        if($dimensoes[0] > $largura) {
+            $error[2] = "A largura da imagem não deve ultrapassar ".$largura." pixels";
+        }
+    
+        // Verifica se a altura da imagem é maior que a altura permitida
+        if($dimensoes[1] > $altura) {
+            $error[3] = "Altura da imagem não deve ultrapassar ".$altura." pixels";
+        }
+        
+        // Verifica se o tamanho da imagem é maior que o tamanho permitido
+        if($foto["size"] > $tamanho) {
+                $error[4] = "A imagem deve ter no máximo ".$tamanho." bytes";
+        }
+    
+        // Se não houver nenhum erro
+        if (count($error) == 0) {
+        
+            // Pega extensão da imagem
+            preg_match("/\.(gif|bmp|png|jpg|jpeg){1}$/i", $foto["name"], $ext);
+    
+            // Gera um nome único para a imagem
+            $nome_imagem = md5(uniqid(time())) . "." . $ext[1];
+    
+            // Caminho de onde ficará a imagem
+            $caminho_imagem = "servicos_imagens/" . $nome_imagem;
+    
+            // Faz o upload da imagem para seu respectivo caminho
+            move_uploaded_file($foto["tmp_name"], $caminho_imagem);
+        
+            $sql_verifica ="SELECT
+                                seim_id,
+                                empr_id
+                            FROM 
+                                servicos_imagens
+                            WHERE
+                                serv_id = $serv_id
+                            ";
+            $v = mysqli_query($conn, $sql_verifica);
+            $row4 = mysqli_fetch_object($v);
+            if(empty($row4)){
+            // Insere os dados no banco
+                $sql = "INSERT INTO 
+                            servicos_imagens
+                                (
+                                    seim_endereco, 
+                                    seim_data_cadastro, 
+                                    empr_id,
+                                    serv_id
+                                ) 
+                            VALUES 
+                                (
+                                    '".$caminho_imagem."', 
+                                    '2018-08-28',
+                                    $row->empr_id,
+                                    $row->prod_id
+                                )
+                        ";
+               
+                $c3 = mysqli_query($conn, $sql);
+            }else{
+                $sql = "    UPDATE 
+                                servicos_imagens 
+                            SET 
+                                prim_endereco = '".$caminho_imagem."', 
+                                prim_data_atualizacao = '2018-08-28' 
+                            WHERE 
+                                empr_id = $row->empr_id
+                                AND serv_id = $row->serv_id
+                        ";
+           echo $sql;
+                $c3 = mysqli_query($conn, $sql);
+            }
+        }
+    
+        // Se houver mensagens de erro, exibe-as
+        if (count($error) != 0) {
+            foreach ($error as $erro) {
+                echo $erro . "<br />";
+            }
+        }
+    }
+
+
+
+
+//header('location:..\servicos\consultar_servicos.php');
 //echo $prod_id;
 
 

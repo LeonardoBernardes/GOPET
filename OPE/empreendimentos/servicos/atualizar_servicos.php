@@ -3,7 +3,7 @@
  * @Author: Leonardo.Bernardes 
  * @Date: 2018-08-15 19:39:29 
  * @Last Modified by: Leonardo.Bernardes
- * @Last Modified time: 2018-08-30 19:28:57
+ * @Last Modified time: 2018-08-30 19:44:21
  */
 include_once(dirname( __FILE__ ) .'\..\..\mysql_conexao\conexao_mysql.php');
 session_start();
@@ -26,7 +26,8 @@ $sql="  SELECT
             serv_valor_total,
             serv_promocao,
             serv_valor_promocao,
-            serv_status
+            serv_status,
+            empr_id
         FROM 
             `servicos` 
         WHERE 
@@ -51,7 +52,7 @@ $row5 = mysqli_fetch_object($result4);
 
 $endereco_img = '';
 if(!empty($row5)){
-    $endereco_img = $row5->prim_endereco;
+    $endereco_img = $row5->seim_endereco;
 }
 if(!empty($endereco_img)){
 //Criar Funcao para trazer local host como variavel

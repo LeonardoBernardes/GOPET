@@ -54,7 +54,7 @@
         <h3 id="titulo_cadastrar">Criar uma conta</h3>
         <hr>
         <form method="post" action="cadastrar_login.php" id="formlogin" name="formlogin" >
-            <fieldset id="fie">
+            <fieldset>
                 <legend>Cadastrar-se</legend><br/>
                 <label>Login:</label>
                 <input type="text" name="login" id="login"><br/>

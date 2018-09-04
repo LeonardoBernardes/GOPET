@@ -3,7 +3,7 @@
  * @Author: Leonardo.Bernardes 
  * @Date: 2018-08-15 19:39:29 
  * @Last Modified by: Leonardo.Bernardes
- * @Last Modified time: 2018-08-21 19:53:38
+ * @Last Modified time: 2018-09-03 00:54:22
  */
 include_once(dirname( __FILE__ ) .'\..\..\mysql_conexao\conexao_mysql.php');
 session_start();
@@ -18,6 +18,7 @@ session_start();
  
 $logado = $_SESSION['login'];
 $even_id = $_GET['id'];
+$ativado = $desativado ='';
 
 $sql="  SELECT 
             even_id,
@@ -35,10 +36,39 @@ $sql="  SELECT
 $result =  mysqli_query($conn, $sql);
 $row = mysqli_fetch_object($result);
 
+if($row->even_status == 1){
+    $ativado = "selected";
+}else{
+    $desativado = "selected";
+}
+
+// Retorna imagem se possuir cadastrada
+$sql3=" SELECT 
+            evim_endereco
+        FROM 
+            eventos_imagens 
+        WHERE 
+            even_id = $row->even_id";
+    //echo $sql3;
+$result4 =  mysqli_query($conn, $sql3);
+$row5 = mysqli_fetch_object($result4);
+
+$endereco_img = '';
+if(!empty($row5)){
+    $endereco_img = $row5->evim_endereco;
+}
+if(!empty($endereco_img)){
+//Criar Funcao para trazer local host como variavel
+$endereco_img = str_replace('\\', '/',"http://localhost/".'PHP/GOPET/OPE/empreendimentos/eventos/'.$endereco_img);
+}
+
 ?>
-<form method="post" action="update_eventos.php?id=<?= $even_id ?>" id="formlogin" name="formlogin" >
+<form method="post" action="update_eventos.php?id=<?= $even_id ?>" id="formlogin" name="formlogin" enctype="multipart/form-data">
     <fieldset id="fie">
         <legend>Atualizar Evento</legend><br/>
+        <label>Imagem : </label> 
+        <img src="<?php echo $endereco_img ?>" style="width:400px; heigth:50px;" alt='Foto de exibição' /><br />
+        <input type="file" name="imagem" id="imagem" > <br/>
         <label>Nome : </label> 
         <input type="text" name="nome" id="nome" value="<?php echo ($row->even_nome) ? $row->even_nome : "" ?>"><br/>
         <label>Descrição : </label> 
@@ -47,8 +77,8 @@ $row = mysqli_fetch_object($result);
         <input type="text" name="data_realizacao" id="data_realizacao" value="<?php echo ($row->even_data_realizacao) ? $row->even_data_realizacao : "" ?>"><br/>
         <label>Status : </label> 
         <select name="status">
-            <option value="1">Ativo</option>
-            <option value="0" selected>Desativado</option>
+            <option value="1" <?php echo $ativado ?>>Ativo</option>
+            <option value="0" <?php echo $desativado ?>>Desativado</option>
         </select>
         <input type="submit" value="Atualizar Evento">
         

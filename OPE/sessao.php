@@ -4,7 +4,7 @@
  * @Author: Leonardo.Bernardes 
  * @Date: 2018-08-13 18:11:37 
  * @Last Modified by: Leonardo.Bernardes
- * @Last Modified time: 2018-08-30 19:35:45
+ * @Last Modified time: 2018-09-03 00:05:11
  */
 
 //include_once('C:\wamp\www\PHP\OPE\mysql_conexao\conexao_mysql.php');
@@ -43,6 +43,7 @@ if(mysqli_num_rows($result) > 0)
         $_SESSION['login'] = $login;
         $_SESSION['senha'] = $senha;
         $_SESSION['grup_id'] = $row->grup_id;
+       
 
        //var_dump($row);
         if($row->grup_id == 1){

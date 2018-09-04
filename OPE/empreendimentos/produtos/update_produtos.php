@@ -3,7 +3,7 @@
  * @Author: Leonardo.Bernardes 
  * @Date: 2018-08-15 19:51:19 
  * @Last Modified by: Leonardo.Bernardes
- * @Last Modified time: 2018-08-30 01:52:50
+ * @Last Modified time: 2018-09-04 01:19:20
  */
 
 include_once(dirname( __FILE__ ) .'\..\..\mysql_conexao\conexao_mysql.php');
@@ -53,7 +53,8 @@ $sql ="  UPDATE
             prod_valor_total = $prod_valor_total,
             prod_promocao = $prod_promocao,
             prod_valor_promocao = $prod_valor_promocao,
-            prod_status = $prod_status
+            prod_status = $prod_status,
+            prod_data_atualizacao = NOW()
         WHERE 
             prod_id = $prod_id
         ";
@@ -134,7 +135,7 @@ if (!empty($foto["name"])) {
                             VALUES 
                                 (
                                     '".$caminho_imagem."', 
-                                    '2018-08-28',
+                                    NOW(),
                                     $row->empr_id,
                                     $row->prod_id
                                 )
@@ -146,7 +147,7 @@ if (!empty($foto["name"])) {
                                 produtos_imagens 
                             SET 
                                 prim_endereco = '".$caminho_imagem."', 
-                                prim_data_atualizacao = '2018-08-28' 
+                                prim_data_atualizacao = NOW() 
                             WHERE 
                                 empr_id = $row->empr_id
                                 AND prod_id = $row->prod_id

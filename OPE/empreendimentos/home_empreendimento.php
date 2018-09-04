@@ -3,7 +3,7 @@
  * @Author: Leonardo.Bernardes 
  * @Date: 2018-08-14 20:59:32 
  * @Last Modified by: Leonardo.Bernardes
- * @Last Modified time: 2018-08-28 20:06:08
+ * @Last Modified time: 2018-09-03 00:41:18
  */
 include_once(dirname( __FILE__ ) .'\..\mysql_conexao\conexao_mysql.php');
 session_start();
@@ -43,6 +43,8 @@ $row2 = mysqli_fetch_object($result);
         
         <?php   if($_SESSION['grup_id'] == 4){ ?>
                     <a href="..\empreendimentos\cadastro_empreendimentos.php">Dados</a>
+                    <a href="..\empreendimentos\funcionarios\cadastro_funcionarios.php">Cadastrar funcionários</a>
+                    <a href="..\empreendimentos\funcionarios\consultar_funcionarios.php">Consultar funcionários</a>
         <?php   } ?>
 
     <?php   if($_SESSION['logi_status'] == 1){ 

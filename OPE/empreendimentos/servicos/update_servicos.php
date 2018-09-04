@@ -3,7 +3,7 @@
  * @Author: Leonardo.Bernardes 
  * @Date: 2018-08-15 19:51:19 
  * @Last Modified by: Leonardo.Bernardes
- * @Last Modified time: 2018-08-30 20:02:26
+ * @Last Modified time: 2018-09-04 01:20:54
  */
 
 include_once(dirname( __FILE__ ) .'\..\..\mysql_conexao\conexao_mysql.php');
@@ -19,8 +19,8 @@ session_start();
  
 $logado = $_SESSION['login'];
 $foto = $_FILES["imagem"];
-
 $serv_id = $_GET['id'];
+
 $serv_nome = ($_POST['nome']) ? $_POST['nome'] : "";
 $serv_descricao = ($_POST['descricao']) ? $_POST['descricao'] : "";
 $serv_valor_total = ($_POST['valor_total']) ? $_POST['valor_total'] : "";
@@ -50,7 +50,8 @@ $sql ="  UPDATE
             serv_valor_total = $serv_valor_total,
             serv_promocao = $serv_promocao,
             serv_valor_promocao = $serv_valor_promocao,
-            serv_status = $serv_status
+            serv_status = $serv_status,
+            serv_data_atualizacao = NOW()
         WHERE 
             serv_id = $serv_id
         ";
@@ -132,9 +133,9 @@ if (!empty($foto["name"])) {
                             VALUES 
                                 (
                                     '".$caminho_imagem."', 
-                                    '2018-08-28',
+                                    NOW(),
                                     $row->empr_id,
-                                    $row->prod_id
+                                    $row->serv_id
                                 )
                         ";
                
@@ -143,13 +144,13 @@ if (!empty($foto["name"])) {
                 $sql = "    UPDATE 
                                 servicos_imagens 
                             SET 
-                                prim_endereco = '".$caminho_imagem."', 
-                                prim_data_atualizacao = '2018-08-28' 
+                                seim_endereco = '".$caminho_imagem."', 
+                                seim_data_atualizacao = NOW() 
                             WHERE 
                                 empr_id = $row->empr_id
                                 AND serv_id = $row->serv_id
                         ";
-           echo $sql;
+          // echo $sql;
                 $c3 = mysqli_query($conn, $sql);
             }
         }
@@ -165,7 +166,7 @@ if (!empty($foto["name"])) {
 
 
 
-//header('location:..\servicos\consultar_servicos.php');
+header('location:..\servicos\consultar_servicos.php');
 //echo $prod_id;
 
 

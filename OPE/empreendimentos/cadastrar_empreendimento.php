@@ -4,7 +4,7 @@
  * @Author: Leonardo.Bernardes 
  * @Date: 2018-08-14 01:34:11 
  * @Last Modified by: Leonardo.Bernardes
- * @Last Modified time: 2018-08-29 20:59:48
+ * @Last Modified time: 2018-09-04 01:14:39
  */
 
  include_once(dirname( __FILE__ ) .'\..\mysql_conexao\conexao_mysql.php');
@@ -69,7 +69,7 @@ if(empty($row2)){
                             '$empr_slogan',
                             '$empr_responsavel',
                             0,
-                            '1998-11-20'
+                            NOW()
                         )";
     //echo $sql2;
     $c2 = mysqli_query($conn, $sql2);
@@ -110,7 +110,7 @@ else{
                     empr_objetivo =  '$empr_objetivo',
                     empr_slogan = '$empr_slogan',
                     empr_responsavel = '$empr_responsavel',
-                    empr_data_atualizacao = '1998-11-20'   
+                    empr_data_atualizacao = NOW()   
                         
                 WHERE 
                     empr_id = $row2->empr_id";
@@ -148,7 +148,7 @@ if(empty($row3)){
                             $emen_numero,
                             '$emen_complemento',
                             $emen_cep,
-                            '1998-11-20',
+                            NOW(),
                             $row2->empr_id
                         )";
     //echo $sql4;
@@ -167,7 +167,7 @@ if(empty($row3)){
                     emen_numero = '$emen_numero',
                     emen_complemento = '$emen_complemento',
                     emen_cep = '$emen_cep',
-                    emen_data_atualizacao = '2018-08-22 00:38:00'   
+                    emen_data_atualizacao = NOW()   
                         
                 WHERE 
                     empr_id = $row2->empr_id";
@@ -247,7 +247,7 @@ if(empty($row3)){
                         VALUES 
                             (
                                 '".$caminho_imagem."', 
-                                '2018-08-28',
+                                NOW(),
                                 $row2->empr_id
                             )
                     ";
@@ -258,7 +258,7 @@ if(empty($row3)){
                         SET  
                             
                                 emim_endereco = '".$caminho_imagem."', 
-                                emim_data_atualizacao = '2018-08-28' 
+                                emim_data_atualizacao = NOW() 
             
                              
                         WHERE empr_id = $row2->empr_id

@@ -3,7 +3,7 @@
  * @Author: Leonardo.Bernardes 
  * @Date: 2018-08-15 19:51:19 
  * @Last Modified by: Leonardo.Bernardes
- * @Last Modified time: 2018-08-30 01:32:45
+ * @Last Modified time: 2018-09-04 01:18:21
  */
 
 include_once(dirname( __FILE__ ) .'\..\..\mysql_conexao\conexao_mysql.php');
@@ -68,7 +68,7 @@ $sql3 = "   INSERT INTO
                         $prod_promocao,
                         $prod_valor_promocao,
                         $prod_status,
-                        '1998-11-20'
+                        NOW()
                     )";
 //echo $sql3;
 $c2 = mysqli_query($conn, $sql3);
@@ -155,7 +155,7 @@ if (!empty($foto["name"])) {
                             VALUES 
                                 (
                                     '".$caminho_imagem."', 
-                                    '2018-08-28',
+                                    NOW(),
                                     $row3->empr_id,
                                     $row3->prod_id
                                 )
@@ -167,7 +167,7 @@ if (!empty($foto["name"])) {
                                 produtos_imagens 
                             SET 
                                 prim_endereco = '".$caminho_imagem."', 
-                                prim_data_atualizacao = '2018-08-28' 
+                                prim_data_atualizacao = NOW() 
                             WHERE 
                                 empr_id = $row3->empr_id
                                 AND prod_id = $row3->prod_id

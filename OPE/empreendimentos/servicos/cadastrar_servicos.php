@@ -3,7 +3,7 @@
  * @Author: Leonardo.Bernardes 
  * @Date: 2018-08-15 19:51:19 
  * @Last Modified by: Leonardo.Bernardes
- * @Last Modified time: 2018-08-30 19:18:13
+ * @Last Modified time: 2018-09-04 01:19:57
  */
 
 include_once(dirname( __FILE__ ) .'\..\..\mysql_conexao\conexao_mysql.php');
@@ -65,7 +65,7 @@ $sql3 = "   INSERT INTO
                          $serv_promocao,
                          $serv_valor_promocao,
                          $serv_status,
-                        '1998-11-20'
+                         NOW()
                     )";
 //echo $sql3;
 $c2 = mysqli_query($conn, $sql3);
@@ -148,7 +148,7 @@ if (!empty($foto["name"])) {
                             VALUES 
                                 (
                                     '".$caminho_imagem."', 
-                                    '2018-08-28',
+                                    NOW(),
                                     $row3->empr_id,
                                     $row3->serv_id
                                 )
@@ -160,7 +160,7 @@ if (!empty($foto["name"])) {
                                 servicos_imagens 
                             SET 
                                 seim_endereco = '".$caminho_imagem."', 
-                                seim_data_atualizacao = '2018-08-28' 
+                                seim_data_atualizacao = NOW() 
                             WHERE 
                                 empr_id = $row3->empr_id
                                 AND serv_id = $row3->serv_id

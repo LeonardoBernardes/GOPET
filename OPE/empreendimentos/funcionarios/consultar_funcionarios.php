@@ -3,7 +3,7 @@
  * @Author: Leonardo.Bernardes 
  * @Date: 2018-08-15 01:26:47 
  * @Last Modified by: Leonardo.Bernardes
- * @Last Modified time: 2018-08-30 23:44:40
+ * @Last Modified time: 2018-09-03 00:42:22
  */
 include_once(dirname( __FILE__ ) .'\..\..\mysql_conexao\conexao_mysql.php');
 session_start();
@@ -38,75 +38,59 @@ $row2 = mysqli_fetch_object($result);
 
 //Pega todos os eventos  daquele empreendimento
 $sql2 = "SELECT
-            even_id
+            logi_id
         FROM
-            empreendimentos_x_eventos
+            login_x_empreendimentos
         WHERE
-            empr_id  = $row2->empr_id   
+            empr_id  = $row2->empr_id 
+            AND grup_id = 2  
     ";
     //echo $sql2;
 $result = mysqli_query($conn, $sql2);
 while($row2 = mysqli_fetch_object($result)){
 
     if(!isset($ids)){
-        $ids = $row2->even_id;
+        $ids = $row2->logi_id;
     }
-    $ids = $ids.",".$row2->even_id;
+    $ids = $ids.",".$row2->logi_id;
     
 
 }
 //var_dump($ids);
 $sql="  SELECT 
-            even_id,
-            even_nome,
-            even_descricao,
-            even_data_realizacao,
-            even_status
+            logi_id,
+            logi_nome,
+            logi_senha,
+            logi_email,
+            logi_data_cadastro,
+            logi_data_atualizacao,
+            logi_status
         FROM 
-            `eventos` 
+            `login` 
         WHERE 
-            `even_id` in ($ids) 
+            `logi_id` in ($ids) 
         ";
 //echo $sql;
 //break;
 $result =  mysqli_query($conn, $sql);
 while ($row = mysqli_fetch_object($result)) {
 
-    if($row->even_status == 0){
+    if($row->logi_status == 0){
         $status = "DESATIVADO";
     }else{
         $status = "ATIVADO";
     }
 
-    $sql3=" SELECT 
-                evim_endereco
-            FROM 
-                eventos_imagens 
-            WHERE 
-                even_id = $row->even_id";
-    //echo $sql3;
-    $result4 =  mysqli_query($conn, $sql3);
-    $row5 = mysqli_fetch_object($result4);
-
-
-    $endereco_img = '';
-    if(!empty($row5)){
-        $endereco_img = $row5->evim_endereco;
-    }
-    if(!empty($endereco_img)){
-    //Criar Funcao para trazer local host como variavel
-    $endereco_img = str_replace('\\', '/',"http://localhost/".'PHP/GOPET/OPE/empreendimentos/eventos/'.$endereco_img);
-    }
-
 
     $results .='<tr>
-                    <td>'.$row->even_id.'</td>
-                    <td><img src="'.$endereco_img.'"/></td>
-                    <td>'.$row->even_nome.'</td>
-                    <td>'.$row->even_descricao.'</td>
-                    <td>'.$row->even_data_realizacao.'</td>
+                    <td>'.$row->logi_id.'</td>
+                    <td>'.$row->logi_nome.'</td>
+                    <td>'.$row->logi_senha.'</td>
+                    <td>'.$row->logi_email.'</td>
+                    <td>'.$row->logi_data_cadastro.'</td>
+                    <td>'.$row->logi_data_atualizacao.'</td>
                     <td>'.$status.'</td>
-                    <td><a href="..\eventos\atualizar_eventos.php?id='.$row->even_id.'"> Editar</a></td>
+                    <td><a href="..\funcionarios\atualizar_funcionarios.php?id='.$row->logi_id.'"> Editar</a></td>
                 </tr>';
 //echo $results;
 }
@@ -134,8 +118,10 @@ while ($row = mysqli_fetch_object($result)) {
     <tr>
         <th>ID</th>    
         <th>Nome</th>
-        <th>Descrição</th>
-        <th>Data de realização</th>
+        <th>Senha</th>
+        <th>Email</th>
+        <th>Data Cadastro</th>
+        <th>Data Atualização</th>
         <th>Status</th>
         <th>Editar</th>
     </tr>

@@ -4,7 +4,7 @@
  * @Author: Leonardo.Bernardes 
  * @Date: 2018-08-14 01:34:11 
  * @Last Modified by: Leonardo.Bernardes
- * @Last Modified time: 2018-08-30 19:35:07
+ * @Last Modified time: 2018-09-04 01:21:15
  */
 
 include_once(dirname( __FILE__ ) .'\mysql_conexao\conexao_mysql.php');
@@ -30,7 +30,7 @@ $sql2 = "   INSERT INTO
                     '$logi_email',
                     '$logi_senha',
                     0, 
-                    '2018-08-13 18:35:00', 
+                    NOW(), 
                     $grupo_id)";
 //echo $sql2;
 $c2 = mysqli_query($conn, $sql2);

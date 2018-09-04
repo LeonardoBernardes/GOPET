@@ -3,7 +3,7 @@
  * @Author: Leonardo.Bernardes 
  * @Date: 2018-08-15 01:59:04 
  * @Last Modified by: Leonardo.Bernardes
- * @Last Modified time: 2018-08-21 19:55:06
+ * @Last Modified time: 2018-09-04 01:10:12
  */
 
 include_once(dirname( __FILE__ ) .'\..\mysql_conexao\conexao_mysql.php');
@@ -38,6 +38,7 @@ if($row->logi_status == 0){
 $sql2="  UPDATE 
             login
             SET logi_status = 1
+            logi_data_atualizacao = NOW()
         WHERE logi_id = $logi_id
         ";
 
@@ -45,6 +46,7 @@ $sql2="  UPDATE
     $sql2="  UPDATE 
             login
             SET logi_status = 0
+            logi_data_atualizacao = NOW()
         WHERE logi_id = $logi_id
         ";
 }

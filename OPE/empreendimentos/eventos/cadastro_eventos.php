@@ -3,7 +3,7 @@
  * @Author: Leonardo.Bernardes 
  * @Date: 2018-08-15 19:39:29 
  * @Last Modified by: Leonardo.Bernardes
- * @Last Modified time: 2018-08-21 19:53:30
+ * @Last Modified time: 2018-08-30 23:24:39
  */
 include_once(dirname( __FILE__ ) .'\..\..\mysql_conexao\conexao_mysql.php');
 session_start();
@@ -22,9 +22,12 @@ $logado = $_SESSION['login'];
 
 
 ?>
-<form method="post" action="cadastrar_eventos.php" id="formlogin" name="formlogin" >
+<form method="post" action="cadastrar_eventos.php" id="formlogin" name="formlogin" enctype="multipart/form-data">
     <fieldset id="fie">
         <legend>Cadastrar Evento</legend><br/>
+        <label>Imagem : </label> 
+        <img src="" style="width:400px; heigth:50px;" alt='Foto de exibição' /><br />
+        <input type="file" name="imagem" id="imagem" > <br/>
         <label>Nome : </label> 
         <input type="text" name="nome" id="nome"><br/>
         <label>Descrição : </label> 

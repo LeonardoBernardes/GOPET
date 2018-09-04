@@ -4,7 +4,7 @@
  * @Author: Leonardo.Bernardes 
  * @Date: 2018-08-14 01:34:11 
  * @Last Modified by: Leonardo.Bernardes
- * @Last Modified time: 2018-08-21 19:54:58
+ * @Last Modified time: 2018-09-04 01:10:31
  */
 
 include_once(dirname( __FILE__ ) .'\..\mysql_conexao\conexao_mysql.php');
@@ -30,7 +30,7 @@ $sql2 = "  INSERT INTO
             VALUES 
                 ( 
                     '$grup_descricao',
-                    '2018-08-14 18:30:00'
+                    NOW()
                 ) ";
 //echo $sql2;
 $c2 = mysqli_query($conn, $sql2);

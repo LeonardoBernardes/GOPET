@@ -3,7 +3,7 @@
  * @Author: Leonardo.Bernardes 
  * @Date: 2018-08-15 19:39:29 
  * @Last Modified by: Leonardo.Bernardes
- * @Last Modified time: 2018-08-30 19:39:14
+ * @Last Modified time: 2018-09-03 00:56:28
  */
 include_once(dirname( __FILE__ ) .'\..\..\mysql_conexao\conexao_mysql.php');
 session_start();
@@ -18,6 +18,7 @@ session_start();
  
 $logado = $_SESSION['login'];
 $prod_id = $_GET['id'];
+$ativado = $desativado ='';
 
 $sql="  SELECT 
             prod_id,
@@ -38,6 +39,12 @@ $sql="  SELECT
 //break;
 $result =  mysqli_query($conn, $sql);
 $row = mysqli_fetch_object($result);
+
+if($row->prod_status == 1){
+    $ativado = "selected";
+}else{
+    $desativado = "selected";
+}
 
 // Retorna imagem se possuir cadastrada
 $sql3=" SELECT 
@@ -84,8 +91,8 @@ $endereco_img = str_replace('\\', '/',"http://localhost/".'PHP/GOPET/OPE/empreen
         <input type="text" name="valor_promocao" id="valor_promocao" value="<?php echo ($row->prod_valor_promocao) ? $row->prod_valor_promocao : "" ?>"><br/>
         <label>Status : </label> 
         <select name="status">
-            <option value="1">Ativo</option>
-            <option value="0" selected>Desativado</option>
+            <option value="1" <?php echo $ativado ?>>Ativo</option>
+            <option value="0" <?php echo $desativado ?>>Desativado</option>
         </select>
         <input type="submit" value="Atualizar Produto">
         

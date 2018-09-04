@@ -16,10 +16,9 @@
         <input type="text" name="email" id="email"><br/>
         <label>TIPO DE USUÁRIO : </label>      
         <select name="tipo_usuario">
-            <option value="1">ADMINISTRADOR</option>
-            <option value="2">EMPREENDIMENTOS</option>
+            <!--option value="">ADMINISTRADOR</option-->
+            <option value="4">EMPREENDIMENTOS</option>
             <option value="3">USUÁRIOS</option>
-            <option value="4">ADMINISTRADOR DE EMPREENDIMENTOS</option>
         </select> 
         <label>SENHA : </label> 
         <input type="password" name="senha" id="senha"><br/>

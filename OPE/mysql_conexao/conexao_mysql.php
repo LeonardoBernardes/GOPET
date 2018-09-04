@@ -4,11 +4,11 @@
  * @Author: Leonardo Bernardes 
  * @Date: 2018-08-09 01:02:40 
  * @Last Modified by: Leonardo.Bernardes
- * @Last Modified time: 2018-08-30 18:44:50
+ * @Last Modified time: 2018-09-04 18:34:31
  */
 
 $servername = "localhost:3306";
-$username = "";
+$username = "leonardobs";
 $database = "gopet";
 $password = "";
 

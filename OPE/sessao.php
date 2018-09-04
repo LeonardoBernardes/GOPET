@@ -35,9 +35,7 @@ $result =  mysqli_query($conn, $sql);
 
 if(mysqli_num_rows($result) > 0)
 {
-   
     while ($row = mysqli_fetch_object($result)) {
-
         $_SESSION['logi_id'] = $row->logi_id;
         $_SESSION['logi_status'] = $row->logi_status;
         $_SESSION['login'] = $login;

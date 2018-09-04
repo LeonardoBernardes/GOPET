@@ -9,10 +9,10 @@
 
 include_once(dirname( __FILE__ ) .'\mysql_conexao\conexao_mysql.php');
 
-$logi_nome = ($_POST['login']) ? $_POST['login'] : "";
-$logi_email = ($_POST['email']) ? $_POST['email'] : "";
-$logi_senha = ($_POST['senha']) ? $_POST['senha'] : "";
-$grupo_id = ($_POST['tipo_usuario']) ? $_POST['tipo_usuario'] : "";
+$logi_nome = mysqli_real_escape_string($_POST['login']) ? $_POST['login'] : "");
+$logi_email = mysqli_real_escape_string(($_POST['email']) ? $_POST['email'] : "");
+$logi_senha = mysqli_real_escape_string(($_POST['senha']) ? $_POST['senha'] : "");
+$grupo_id = mysqli_real_escape_string(($_POST['tipo_usuario']) ? $_POST['tipo_usuario'] : "");
 
 $sql2 = "   INSERT INTO 
                 login 

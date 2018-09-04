@@ -9,25 +9,91 @@
 <!doctype html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="static/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="static/estilo.css">
+    <title>Gopet</title>
 </head>
 <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <a class="navbar-brand logo" href="#" ><img src="static/imagens/gopet.png" alt="gopet"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">O projeto</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Contas
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#card_login">Login</a>
+                        <a class="dropdown-item" href="cadastro_login.php">Criar uma conta</a>
+                    </div>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
+            </form>
+        </div>
+    </nav>
+<div class="one_page home">
+    <div class="card_titulo p-4">
+        <h1>GOPET</h1>
+        <br>
+        <h2>Sistema para conectar pessoas e animais</h2>
+    </div>
+</div>
+<div class="one_page projeto">
 
-    <form method="post" action="sessao.php" id="formlogin" name="formlogin" >
-        <fieldset id="fie">
-            <a href="cadastro_login.php">CADASTRAR-SE</a>
-            <legend>LOGIN</legend><br />
-            <label>NOME : </label>
-            <input type="text" name="login" id="login"/><br/>
-            <label>SENHA :</label>
-            <input type="password" name="senha" id="senha"/><br />
-            <input type="submit" value="LOGAR  "  />
-        </fieldset>
-    </form>
+</div>
 
+
+<!-- Modal login -->
+<div class="modal fade" id="card_login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body text-center">
+                <form method="post" action="sessao.php" id="formlogin" name="formlogin" >
+                    <fieldset id="login_form">
+                        <label>Nome : </label>
+                        <input type="text" name="login" id="login"/><br/>
+                        <label>Senha :</label>
+                        <input type="password" name="senha" id="senha"/><br/>
+                        <label>Lembrar senha</label>
+                        <input type="checkbox" name="lembrar_senha">
+                    </fieldset>
+            </div>
+            <div class="modal-footer">
+                <a href="cadastro_login.php" class="btn btn-danger">Cadastre-se</a>
+                <input type="submit" value="Login" class="btn btn-success"/>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Optional JavaScript -->
+<script src="static/jquery.js"></script>
+<script src="static/bootstrap/js/bootstrap.js"></script>
 </body>
 </html>
+
+

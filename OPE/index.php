@@ -77,8 +77,6 @@
                         <input type="text" name="login" id="login"/><br/>
                         <label>Senha :</label>
                         <input type="password" name="senha" id="senha"/><br/>
-                        <label>Lembrar senha</label>
-                        <input type="checkbox" name="lembrar_senha">
                     </fieldset>
             </div>
             <div class="modal-footer">

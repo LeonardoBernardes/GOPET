@@ -18,6 +18,7 @@ session_start();
  
 $logado = $_SESSION['login'];
 
+
 unset ($_SESSION['login']);
 unset ($_SESSION['senha']);
 

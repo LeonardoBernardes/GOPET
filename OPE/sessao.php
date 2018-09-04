@@ -4,7 +4,7 @@
  * @Author: Leonardo.Bernardes 
  * @Date: 2018-08-13 18:11:37 
  * @Last Modified by: Leonardo.Bernardes
- * @Last Modified time: 2018-09-03 00:05:11
+ * @Last Modified time: 2018-09-04 18:46:17
  */
 
 //include_once('C:\wamp\www\PHP\OPE\mysql_conexao\conexao_mysql.php');
@@ -27,7 +27,7 @@ $sql="  SELECT
             `logi_nome` = '$login' 
             AND `logi_senha`= '$senha'
         ";
-//echo $sql;
+
 //break;
 $result =  mysqli_query($conn, $sql);
 
@@ -35,9 +35,7 @@ $result =  mysqli_query($conn, $sql);
 
 if(mysqli_num_rows($result) > 0)
 {
-   
     while ($row = mysqli_fetch_object($result)) {
-
         $_SESSION['logi_id'] = $row->logi_id;
         $_SESSION['logi_status'] = $row->logi_status;
         $_SESSION['login'] = $login;
@@ -58,7 +56,7 @@ if(mysqli_num_rows($result) > 0)
 }else{
   unset ($_SESSION['login']);
   unset ($_SESSION['senha']);
-  header('location:index.php');
+  //header('location:index.php');
    
 }
 ?>

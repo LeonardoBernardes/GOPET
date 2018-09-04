@@ -1,0 +1,26 @@
+.one_page{
+    min-height: 100vh;
+}
+.home{
+    background-image: url("../static/imagens/zoio.jpg");
+    background-position: top;
+    background-size: cover;
+}
+.logo{
+    width: 15%;
+}
+.logo img{
+   width: 100%;
+}
+.card_titulo h1{
+    font-size: 5rem!important;
+}
+.card_titulo{
+    position: absolute;
+    top:25vh;
+    left: 50px;
+    border-radius: 1em;
+}
+#titulo_cadastrar{
+    font-size: 40px!important;
+}

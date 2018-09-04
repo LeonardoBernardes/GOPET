@@ -3,7 +3,7 @@
  * @Author: Leonardo.Bernardes 
  * @Date: 2018-08-15 19:51:19 
  * @Last Modified by: Leonardo.Bernardes
- * @Last Modified time: 2018-09-04 01:15:44
+ * @Last Modified time: 2018-09-04 19:14:09
  */
 
 include_once(dirname( __FILE__ ) .'\..\..\mysql_conexao\conexao_mysql.php');
@@ -197,6 +197,6 @@ if (!empty($foto["name"])) {
 }
 
 
-//header('location:..\eventos\consultar_eventos.php');
+header('location:..\eventos\consultar_eventos.php');
 
 ?>

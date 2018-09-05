@@ -38,7 +38,7 @@
         <h2 class="input-group-text" ><legend>Cadastrar-se</legend></h2>
         <div class="text-center border col-12" "input-group text-center">
             <form method="post" action="cadastrar_login.php" id="formlogin" name="formlogin" >
-                <fieldset id="fie">
+                <fieldset id="fie"><br>
                     <label >Login  </label> 
                     <input class="input-group-text btn-lg btn-block" type="text" name="login" id="login"><br/>
                     <label>E-mail </label> 

@@ -52,7 +52,7 @@
                     <label>Senha </label> 
                     <input class="input-group-text btn-lg btn-block" type="password" name="senha" id="senha"><br/>
 
-                    <input class="btn btn-success btn-lg btn-block" type="submit" value="CADASTRAR">
+                    <input class="btn btn-success btn-lg btn-block" type="submit" value="Cadastrar">
                     <hr>
                     <p>Deseja se Logar? <a href="index.php">clique aqui</a></p>
                 </fieldset>

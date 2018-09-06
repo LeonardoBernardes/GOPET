@@ -57,6 +57,7 @@ $row2 = mysqli_fetch_object($result);
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
+                
                  <?php   if($_SESSION['grup_id'] == 4){ ?>
                    <li class="nav-item active">
                     <a class="nav-link" href="..\empreendimentos\cadastro_empreendimentos.php">Dados</a>

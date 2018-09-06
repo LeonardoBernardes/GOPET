@@ -119,9 +119,9 @@ if(!empty($row2)){
     <div class="container login-empreendimento"  >
     <form method="post" action="cadastrar_empreendimento.php" id="formlogin" name="formlogin" enctype="multipart/form-data" >
     <fieldset id="fie">
-        <h2 class="alert alert-danger"><legend>Dados Empreendimento</legend></h2><br>
+        <h2 class="btn btn-dark btn-sm btn-block"><legend>Dados Empreendimento</legend></h2><br>
         <img src="<?php echo $endereco_img ?>" style="width:250px; heigth:50px;" alt='Foto de exibição' /><br />
-        <input type="file" name="logo" id="logo" > <br/>
+        <input class="btn btn-primary" type="file" name="logo" id="logo" > <br/>
         <div class="form-row">
             <div class="col">
                 <label>Nome </label> 
@@ -136,7 +136,7 @@ if(!empty($row2)){
                 <input class="form-control form-control-sm" type="text" name="data_abertura" id="data_abertura" value='<?php echo $empr_dt_abertura ?>'>
             </div>
                <div class="col"> 
-                    <label>Responsavel : </label> 
+                    <label>Responsavel </label> 
                     <input class="form-control form-control-sm" type="text" name="responsavel" id="responsavel" value='<?php echo $empr_responsavel ?>'>
                </div>
         </div>
@@ -147,7 +147,7 @@ if(!empty($row2)){
        
         <fieldset id="fie"><br><hr>
         
-        <h2 class="alert alert-danger"><legend>Endereço</legend></h2> 
+        <h2 class="btn btn-dark btn-sm btn-block"><legend>Endereço</legend></h2> 
         <div class="form-row">
             <div class="col">
                <label>Cidade</label> 
@@ -188,11 +188,10 @@ if(!empty($row2)){
             </div>
         </fieldset>
         <hr>
-        <input class="btn btn-success btn-lg btn-block" type="submit" value="Salvar Dados"><hr>
-         <a class="btn btn-dark btn-lg btn-block" href="../empreendimentos/home_empreendimento.php"> Voltar</a>
+        <input class="btn btn-success btn-sm btn-block" type="submit" value="Salvar Dados"><hr>
+         <a class="btn btn-dark btn-sm btn-block" href="../empreendimentos/home_empreendimento.php"> Voltar</a>
     </fieldset>
     
 </form>
     </div>
 </div>
-<a href="..\logaut.php">LOGAUT</a>

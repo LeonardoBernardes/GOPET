@@ -3,7 +3,7 @@
  * @Author: Leonardo.Bernardes 
  * @Date: 2018-09-04 19:14:28 
  * @Last Modified by: Leonardo.Bernardes
- * @Last Modified time: 2018-09-04 20:32:49
+ * @Last Modified time: 2018-09-05 21:33:39
  */
 
 include_once(dirname( __FILE__ ) .'\..\mysql_conexao\conexao_mysql.php');
@@ -33,9 +33,18 @@ $logi_id = $_SESSION['logi_id'];
         <input type="radio" name="tipo_cadastro" value="proprio"> Próprio
         <br/>
         
-        <label>Imagem : </label> 
-        <img src="" style="width:400px; heigth:50px;" alt='Foto de exibição' /><br />
-        <input type="file" name="imagem" id="imagem" > <br/>
+        <label>Imagem 1: </label> 
+            <img src="" style="width:400px; heigth:50px;" alt='Foto de exibição' /><br />
+        <input type="file" name="imagem1" id="imagem1" > <br/>
+
+        <label>Imagem 2: </label> 
+            <img src="" style="width:400px; heigth:50px;" alt='Foto de exibição' /><br />
+         <input type="file" name="imagem2" id="imagem2" > <br/>
+
+        <label>Imagem 3: </label> 
+            <img src="" style="width:400px; heigth:50px;" alt='Foto de exibição' /><br />
+        <input type="file" name="imagem3" id="imagem3" > <br/>
+
 
         <label>Nome / Apelido : </label> 
         <input type="text" name="nome" id="nome"><br/>
@@ -65,7 +74,13 @@ $logi_id = $_SESSION['logi_id'];
         </select> 
         <br/>
         <label>Restrição de Adoção : </label> 
-        <input type="text" name="restricao" id="restricao"><br/>
+        <input type="text" name="restricao" id="restricao">
+        <br/>
+        <label>Castrado : </label>
+        <input type="radio" name="castracao" value="2"> NÃO INDENTIFICADO
+        <input type="radio" name="castracao" value="1"> SIM
+        <input type="radio" name="castracao" value="0"> NÃO
+        <br/>     
         <fieldset id="fie">
             <legend>Endereço</legend><br/>
         

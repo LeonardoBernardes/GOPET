@@ -73,6 +73,15 @@ while ($row = mysqli_fetch_object($result)) {
 <!DOCTYPE html>
 <html>
     <head>
+        <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../static/estilo.css">
+    <title>Gopet</title> 
+       
         <style>
             table, th, td {
                 border: 1px solid black;
@@ -88,20 +97,17 @@ while ($row = mysqli_fetch_object($result)) {
     </head>
 <body>
 
-<h2>Left-align Headings</h2>
-<p>To left-align the table headings, use the CSS text-align property.</p>
-
-<table style="width:100%">
-    <tr>
-        <th>ID</th>    
-        <th>Nome Login</th>
-        <th>Email</th> 
-        <th>Status</th>
-        <th>Grupo</th>
-        <th>Editar</th>
+<table class="table" style="width:100%">
+    <tr class="thead-dark">
+        <th scope="col">ID</th>    
+        <th scope="col">Nome Login</th>
+        <th scope="col">Email</th> 
+        <th scope="col">Status</th>
+        <th scope="col">Grupo</th>
+        <th scope="col">Editar</th>
     </tr>
     <?php echo $results ?>
 </table>
-<a href="..\administradores\home_administradores.php"> Voltar</a>
+<a class="btn btn-dark" href="..\administradores\home_administradores.php"> Voltar</a>
 </body>
 </html>

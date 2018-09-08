@@ -98,6 +98,14 @@ while ($row = mysqli_fetch_object($result)) {
 <!DOCTYPE html>
 <html>
     <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../../static/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../../static/estilo.css">
+    <title>Gopet</title>
         <style>
             table, th, td {
                 border: 1px solid black;
@@ -112,20 +120,22 @@ while ($row = mysqli_fetch_object($result)) {
         </style>
     </head>
 <body>
-<table style="width:100%">
+<table class="table" style="width:100%">
+   <thead class="thead-dark">
     <tr>
-        <th>ID</th>   
-        <th>imagem</th>  
-        <th>Nome</th>
-        <th>Descrição</th>
-        <th>Valor Total</th> 
-        <th>Possuí Promoção ?</th>
-        <th>Valor Promoção</th>
-        <th>Status</th>
-        <th>Editar</th>
+        <th scope="col">ID</th>   
+        <th scope="col">imagem</th>  
+        <th scope="col">Nome</th>
+        <th scope="col">Descrição</th>
+        <th scope="col">Valor Total</th> 
+        <th scope="col">Possuí Promoção ?</th>
+        <th scope="col">Valor Promoção</th>
+        <th scope="col">Status</th>
+        <th scope="col">Editar</th>
     </tr>
+    </thead>
     <?php echo $results ?>
 </table>
-<a href="..\home_empreendimento.php"> Voltar</a>
+<a class="btn btn-dark" href="..\home_empreendimento.php"> Voltar</a>
 </body>
 </html>

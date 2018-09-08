@@ -6,6 +6,11 @@
     background-position: top;
     background-size: cover;
 }
+.home_empreendimento{
+    background-image: url("../static/imagens/cao-aventura.jpg");
+    background-position: top;
+    background-size: cover;    
+}
 
 
 .logo{
@@ -51,8 +56,9 @@
     background-size: cover;
 }
 
-
-
+#cadastro_animal_card{
+    background: rgba(255, 255, 255, 0.60);
+}
 
 .login-empreendimento{
     padding: 2%;

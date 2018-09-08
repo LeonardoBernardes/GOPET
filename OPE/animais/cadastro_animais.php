@@ -42,19 +42,26 @@ $logi_id = $_SESSION['logi_id'];
         <h2 class="btn btn-dark btn-sm btn-block"><legend>Cadastrar Animal</legend></h2><br>
 <form method="post" action="cadastrar_animais.php?logi_id=<?php echo $logi_id ?>&grupo=<?php echo $grup_id ?>" id="formlogin" name="formlogin" >
     <fieldset id="fie">
-        <input type="radio" name="tipo_cadastro" value="resgate"> Resgate
+        <input type="radio" aria-label="Radio button for following text input" name="tipo_cadastro" value="resgate"> Resgate
         <input type="radio" name="tipo_cadastro" value="doacao"> Doação
         <input type="radio" name="tipo_cadastro" value="proprio"> Próprio
         <br/>
-            <label>Imagem 1: </label> 
-            <img src="" style="width:100px; heigth:50px;" alt='Foto de exibição' /><br />
-            <input type="file" name="imagem1" id="imagem1" > <br/>
+           <div class="card-group">
+           <div id="cadastro_animal_card" class="card">
+           <label>Imagem 1: </label> 
+            <img class="card-img-top" src="" style="width:100px; heigth:50px;" alt='Foto de exibição' /><br />
+            <input class="card-img-top" type="file" name="imagem1" id="imagem1" > <br/>
+            </div>
+               <div id="cadastro_animal_card" class="card">
             <label>Imagem 2: </label> 
             <img src="" style="width:100px; heigth:50px;" alt='Foto de exibição' /><br />
              <input type="file" name="imagem2" id="imagem2" > <br/>
+        </div>
+           <div id="cadastro_animal_card" class="card">
             <label>Imagem 3: </label> 
             <img src="" style="width:100px; heigth:50px;" alt='Foto de exibição' /><br />
             <input type="file" name="imagem3" id="imagem3" > <br/>
+            </div></div>
         <hr>
         <div class="form-row">
         <div class="col">
@@ -97,23 +104,22 @@ $logi_id = $_SESSION['logi_id'];
         <input class="form-control form-control-sm" type="text" name="restricao" id="restricao">
         </div>
         </div>
-        <label>Castrado : </label>
-        <div class="form-check form-check-inline">
-        <input  class="form-check-input" type="radio" name="castracao" value="2"> Não indentificado
+        <div class="form-row">
+        <div class="col">
+        <label>Cadastro  </label> 
+        <select class="form-control form-control-sm" name="categoria">
+            <option name="castracao" value="2">Não indentificado</option>
+            <option name="castracao" value="1">Sim</option>
+            <option name="castracao" value="0">Não</option>
+        </select>
         </div>
-         <div class="form-check form-check-inline">
-        <input class="form-check-label" type="radio" name="castracao" value="1"> SIM
+        <div class="col">
+        <label>Gênero  </label> 
+        <select class="form-control form-control-sm" name="categoria">
+            <option name="genero" value="femea">Macho</option>
+            <option type="radio" name="genero" value="macho">Fêmea</option>
+        </select>
         </div>
-         <div class="form-check form-check-inline">
-        <input class="form-check-label"type="radio" name="castracao" value="0"> NÃO
-        </div>
-        <br>
-        <label>Gênero: </label>
-        <div class="form-check form-check-inline">
-        <input  class="form-check-input" type="radio" name="genero" value="femea"> Fêmea
-        </div>
-        <div class="form-check form-check-inline">
-        <input  class="form-check-input" type="radio" name="genero" value="macho"> Macho
         </div>
         <hr/>     
         <fieldset id="fie">
@@ -158,7 +164,13 @@ $logi_id = $_SESSION['logi_id'];
              </div>
         </fieldset>
         <input  class="btn btn-success btn-sm btn-block" type="submit" value="Cadastrar">
-        <a class="btn btn-dark btn-sm btn-block" href="../empreendimentos/home_empreendimento.php"> Voltar</a>
+      <!--  
+       criar validação se tiver como empreendimento volta para pagina de home_empreendimento
+       <a class="btn btn-dark btn-sm btn-block" href="../administradores/home_empreendimento.php"> Voltar</a> 
+       se tiver como administrador volta para home_administrador
+      <a class="btn btn-dark btn-sm btn-block" href="../administradores/home_administradores.php"> Voltar</a> -->
+      
     </fieldset>
 </form>
         </fieldset></form></div></div>
+        

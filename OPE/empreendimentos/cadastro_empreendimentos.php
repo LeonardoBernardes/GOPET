@@ -120,8 +120,13 @@ if(!empty($row2)){
     <form method="post" action="cadastrar_empreendimento.php" id="formlogin" name="formlogin" enctype="multipart/form-data" >
     <fieldset id="fie">
         <h2 class="btn btn-dark btn-sm btn-block"><legend>Dados Empreendimento</legend></h2><br>
+        <div class="card-group">
+       <div id="cadastro_animal_card" class="card">
         <img src="<?php echo $endereco_img ?>" style="width:250px; heigth:50px;" alt='Foto de exibição' /><br />
-        <input class="btn btn-primary" type="file" name="logo" id="logo" > <br/>
+        <input type="file" name="logo" id="logo" > <br/>
+            </div>
+            </div>
+        <hr>
         <div class="form-row">
             <div class="col">
                 <label>Nome </label> 

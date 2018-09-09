@@ -3,7 +3,7 @@
  * @Author: Leonardo.Bernardes 
  * @Date: 2018-08-14 20:59:32 
  * @Last Modified by: Leonardo.Bernardes
- * @Last Modified time: 2018-09-06 01:52:14
+ * @Last Modified time: 2018-09-08 23:27:18
  */
 include_once(dirname( __FILE__ ) .'\..\mysql_conexao\conexao_mysql.php');
 session_start();
@@ -20,13 +20,53 @@ $logado = $_SESSION['login'];
 
 
 ?>
-    <fieldset id="fie">
-        <span>GOPET </span><br/>
-            <a href="..\administradores\cadastro_grupos.php">Criar Grupo</a>
-            <a href="..\administradores\ativa_usuarios.php">Ativar Usuários</a>
-            <a href="..\administradores\ativa_empreendimentos.php">Ativar Empreendimentos</a>
-            <!--a href="..\animais\cadastro_animais.php">Cadastrar Animais</a>
-            <a href="..\animais\consultar_animais.php">Consultar Animais</a-->
-    </fieldset>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<a href="..\logaut.php">LOGAUT</a>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../static/estilo.css">
+    <title>Gopet</title>
+</head>
+  
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <a class="navbar-brand logo" href="#" ><img src="../static/imagens/gopet.png" alt="gopet"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                
+ 
+            <li class="nav-item active">
+                <a class="nav-link" href="..\administradores\cadastro_grupos.php">Criar Grupo</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="..\administradores\ativa_usuarios.php">Ativar Usuários</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="..\administradores\ativa_empreendimentos.php">Ativar Empreendimentos</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="..\animais\cadastro_animais.php">Cadastrar Animais</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="..\animais\consultar_animais.php">Consultar Animais</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="..\logaut.php">Logaut</a>
+            </li>
+     
+            </ul>
+        </div>
+</nav>
+
+<!-- MEIO -->
+<div class="one_page home">
+<div class="card_titulo p-4">
+    <h2>Sua pagina como Administrador</h2>
+    </div>
+</div>
+

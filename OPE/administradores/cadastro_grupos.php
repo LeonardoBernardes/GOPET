@@ -26,14 +26,31 @@ $result =  mysqli_query($conn, $sql);
 
 
 ?>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../static/estilo.css">
+    <title>Gopet</title>
+</head>
+
+<div id="formulario_empreendimento">
+    <div class="container login-empreendimento"  >
+    <form method="post" action="cadastrar_empreendimento.php" id="formlogin" name="formlogin" enctype="multipart/form-data" >
+    <fieldset id="fie">
+        <h2 class="btn btn-dark btn-sm btn-block"><legend>Cadastrar Grupos</legend></h2><br>
+        <div class="form-row">
+            <div class="col">
 <form method="post" action="cadastrar_grupos.php" id="formlogin" name="formlogin" >
     <fieldset id="fie">
-        <legend>Cadastrar Grupos</legend><br/>
-        <label>NOME DO GRUPO : </label> 
-        <input type="text" name="nome" id="nome"><br/>
-        <input type="submit" value="Salvar Dados">
+        <br/>
+        <label>Nome do Grupo </label> 
+        <input class="form-control form-control-sm" type="text" name="nome" id="nome"><br/>
+        <input class="btn btn-success btn-sm btn-block" type="submit" value="Salvar Dados"><hr>
         
     </fieldset>
-    <a href="..\administradores\home_administradores.php"> Voltar</a>
+    <a class="btn btn-dark btn-sm btn-block" href="..\administradores\home_administradores.php"> Voltar</a>
 </form>
-<a href="..\logaut.php">LOGAUT</a>

@@ -38,34 +38,91 @@ $row2 = mysqli_fetch_object($result);
 
 //var_dump($_SESSION);
 ?>
-    <fieldset id="fie">
-        <span>GOPET </span><br/>
-        
-        <?php   if($_SESSION['grup_id'] == 4){ ?>
-                    <a href="..\empreendimentos\cadastro_empreendimentos.php">Dados</a>
-                    <a href="..\empreendimentos\funcionarios\cadastro_funcionarios.php">Cadastrar funcionários</a>
-                    <a href="..\empreendimentos\funcionarios\consultar_funcionarios.php">Consultar funcionários</a>
+   
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../static/estilo.css">
+    <title>Gopet</title>
+</head>
+  
+   <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <a class="navbar-brand logo" href="#" ><img src="../static/imagens/gopet.png" alt="gopet"></a>
+        <!-- quando a tela ficar menor irá aparecer um botão -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                
+                 <?php   if($_SESSION['grup_id'] == 4){ ?>
+                   <li class="nav-item">
+                    <a class="nav-link" href="..\empreendimentos\cadastro_empreendimentos.php">Dados</a>
+                    </li>
+                    <li class="nav-item">                    
+                    <a class="nav-link" href="..\empreendimentos\funcionarios\cadastro_funcionarios.php">Cadastrar funcionários</a>
+                    </li>
+                    <li class="nav-item">     
+                    <a class="nav-link" href="..\empreendimentos\funcionarios\consultar_funcionarios.php">Consultar funcionários</a>
+                    </li>
         <?php   } ?>
 
     <?php   if($_SESSION['logi_status'] == 1){ 
 
                 if(!empty($row2)){
             
-            ?>
-                    <a href="..\empreendimentos\produtos\cadastro_produtos.php">Cadastrar Produtos</a>
+            ?>       
+                    <li class="nav-item">  
+                    <a class="nav-link" href="..\empreendimentos\produtos\cadastro_produtos.php">Cadastrar Produtos</a>
+                    </li>
+                    <li class="nav-item">  
                     <!-- Só exibir se tiver um cadastro ativo (Farei depois) -->
-                    <a href="..\empreendimentos\produtos\consultar_produtos.php">Consultar Produtos</a>
-                    <a href="..\empreendimentos\servicos\cadastro_servicos.php">Cadastrar Serviços</a>
+                    <a class="nav-link" href="..\empreendimentos\produtos\consultar_produtos.php">Consultar Produtos</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="..\empreendimentos\servicos\cadastro_servicos.php">Cadastrar Serviços</a>
                     <!-- Só exibir se tiver um cadastro ativo (Farei depois) -->
-                    <a href="..\empreendimentos\servicos\consultar_servicos.php">Consultar Serviços</a>
-                    <a href="..\empreendimentos\eventos\cadastro_eventos.php">Cadastrar Eventos</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="..\empreendimentos\servicos\consultar_servicos.php">Consultar Serviços</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="..\empreendimentos\eventos\cadastro_eventos.php">Cadastrar Eventos</a>
+                    </li>
+                    <li class="nav-item">
                     <!-- Só exibir se tiver um cadastro ativo (Farei depois) -->
-                    <a href="..\empreendimentos\eventos\consultar_eventos.php">Consultar Eventos</a>
-                    <a href="..\animais\cadastro_animais.php">Cadastrar Animais</a>
-                    <a href="..\animais\consultar_animais.php">Consultar Animais</a>
+                    <a class="nav-link" href="..\empreendimentos\eventos\consultar_eventos.php">Consultar Eventos</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="..\animais\cadastro_animais.php">Cadastrar Animais</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="..\animais\consultar_animais.php">Consultar Animais</a>
+                    </li>
+                    
+
                     <?php 
                 }
             } ?>
-    </fieldset>
+                    
+                    <li class="nav-item active">
+                    <a class="nav-link" href="..\logaut.php">Logaut</a>
+                    </li>
+            </ul>
+            </div>
+            </nav>
+            
+<!-- MEIO -->
+<div class="one_page home_empreendimento">
+<div class="card_titulo p-4">
+        <h2>Sua pagina de Empreendimento</h2>
+    </div>
+</div>
 
-<a href="..\logaut.php">LOGAUT</a>
+     
+    
+

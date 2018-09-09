@@ -4,7 +4,7 @@
  * @Author: Leonardo.Bernardes 
  * @Date: 2018-08-14 01:34:11 
  * @Last Modified by: Leonardo.Bernardes
- * @Last Modified time: 2018-09-04 01:14:39
+ * @Last Modified time: 2018-09-07 00:51:04
  */
 
  include_once(dirname( __FILE__ ) .'\..\mysql_conexao\conexao_mysql.php');
@@ -263,7 +263,7 @@ if(empty($row3)){
                              
                         WHERE empr_id = $row2->empr_id
                     ";
-                    echo $sql;
+               //     echo $sql;
             $c3 = mysqli_query($conn, $sql);
         }
     }

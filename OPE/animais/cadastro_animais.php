@@ -3,7 +3,7 @@
  * @Author: Leonardo.Bernardes 
  * @Date: 2018-09-04 19:14:28 
  * @Last Modified by: Leonardo.Bernardes
- * @Last Modified time: 2018-09-05 21:33:39
+ * @Last Modified time: 2018-09-08 23:13:08
  */
 
 include_once(dirname( __FILE__ ) .'\..\mysql_conexao\conexao_mysql.php');
@@ -24,27 +24,18 @@ $logi_id = $_SESSION['logi_id'];
 
  
 ?>
-<form method="post" action="cadastrar_animais.php?logi_id=<?php echo $logi_id ?>&grupo=<?php echo $grup_id ?>" id="formlogin" name="formlogin" >
+<form method="post" action="cadastrar_animais.php" id="formlogin" name="formlogin" enctype="multipart/form-data">
     <fieldset id="fie">
         <legend>Cadastrar Animal</legend><br/>
 
-        <input type="radio" name="tipo_cadastro" value="resgate"> Resgate
-        <input type="radio" name="tipo_cadastro" value="doacao"> Doação
-        <input type="radio" name="tipo_cadastro" value="proprio"> Próprio
+        <input type="radio" name="tipo_cadastro" value="2"> Resgate
+        <input type="radio" name="tipo_cadastro" value="1"> Doação
+        <input type="radio" name="tipo_cadastro" value="3"> Próprio
         <br/>
         
         <label>Imagem 1: </label> 
             <img src="" style="width:400px; heigth:50px;" alt='Foto de exibição' /><br />
         <input type="file" name="imagem1" id="imagem1" > <br/>
-
-        <label>Imagem 2: </label> 
-            <img src="" style="width:400px; heigth:50px;" alt='Foto de exibição' /><br />
-         <input type="file" name="imagem2" id="imagem2" > <br/>
-
-        <label>Imagem 3: </label> 
-            <img src="" style="width:400px; heigth:50px;" alt='Foto de exibição' /><br />
-        <input type="file" name="imagem3" id="imagem3" > <br/>
-
 
         <label>Nome / Apelido : </label> 
         <input type="text" name="nome" id="nome"><br/>

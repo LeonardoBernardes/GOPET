@@ -3,7 +3,7 @@
  * @Author: Leonardo.Bernardes 
  * @Date: 2018-08-14 19:42:14 
  * @Last Modified by: Leonardo.Bernardes
- * @Last Modified time: 2018-08-21 19:55:54
+ * @Last Modified time: 2018-09-07 00:28:11
  */
 include_once(dirname( __FILE__ ) .'\..\mysql_conexao\conexao_mysql.php');
 session_start();
@@ -15,6 +15,8 @@ session_start();
     }
  
 $logado = $_SESSION['login'];
+$logi_id = $_SESSION['logi_id'];
+$grup_id = $_SESSION['grup_id'];
 
 $usua_nome = ($_POST['nome']) ? $_POST['nome'] : "";
 $usua_sobrenome = ($_POST['sobrenome']) ? $_POST['sobrenome'] : "";
@@ -46,17 +48,27 @@ $sql = "   INSERT INTO
 $c2 = mysqli_query($conn, $sql);
 
 
+$query= " SELECT max(usua_id) as usua_id from usuarios ";
+//echo $query;
+$result = mysqli_query($conn, $query);
+$row2 = mysqli_fetch_object($result);
 
-$sql2="  SELECT 
-            logi_id 
-        FROM 
-            `login` 
-        WHERE 
-            `logi_nome` = '$_SESSION["login"]' 
-            AND `logi_senha`= '$_SESSION["senha"]'
-        ";
-//echo $sql;
-//break;
-$result =  mysqli_query($conn, $sql2);
+$sql3 = "   INSERT INTO 
+                login_x_usuarios 
+                    (
+                        logi_id,
+                        usua_id,
+                        grup_id   
+                    )
+            VALUES 
+                    (
+                        $logi_id,
+                        $row2->usua_id,
+                        $grup_id
+                    )";
+//echo $sql3;
+$c3 = mysqli_query($conn, $sql3);
+//echo $sql2;
+header('location:..\home_usuarios.php');
 
 ?>

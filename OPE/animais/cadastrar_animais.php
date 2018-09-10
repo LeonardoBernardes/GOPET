@@ -3,7 +3,7 @@
  * @Author: Leonardo.Bernardes 
  * @Date: 2018-09-04 19:14:28 
  * @Last Modified by: Leonardo.Bernardes
- * @Last Modified time: 2018-09-08 23:22:31
+ * @Last Modified time: 2018-09-10 00:10:04
  */
 
 include_once(dirname( __FILE__ ) .'\..\mysql_conexao\conexao_mysql.php');
@@ -16,7 +16,7 @@ session_start();
     }
  
 // Imagens do animal
-$imagem = $_FILES["imagem1"];  
+$foto = $_FILES["imagem1"];  
 
 
 
@@ -77,6 +77,7 @@ $sql = "INSERT INTO
                 '$anim_castracao',
                 NOW()
             )";
+//echo $sql;
 $result = mysqli_query($conn, $sql);
 
 //Busca do ultimo animal cadastrado (Correção futura)
@@ -154,7 +155,7 @@ elseif($grup_id == 4 ||$grup_id == 2){
 
 
 //Incluir imagens de animais
-if(!empty($imagem1)){
+if(!empty($foto)){
     
     //Controle de tamanho de imagens
 
@@ -200,7 +201,7 @@ if(!empty($imagem1)){
         $nome_imagem = md5(uniqid(time())) . "." . $ext[1];
 
         // Caminho de onde ficará a imagem
-        $caminho_imagem = "logo_empresas/" . $nome_imagem;
+        $caminho_imagem = "animais_imagens/" . $nome_imagem;
 
         // Faz o upload da imagem para seu respectivo caminho
         move_uploaded_file($foto["tmp_name"], $caminho_imagem);
@@ -210,11 +211,13 @@ if(!empty($imagem1)){
                         FROM 
                             animais_fotos
                         WHERE
-                            anim_id = $id_animal->$anim_id
+                            anim_id = $id_animal->anim_id
                         ";
+        //echo $sql_verifica;
         $v = mysqli_query($conn, $sql_verifica);
         $row4 = mysqli_fetch_object($v);
         if(empty($row4)){
+            //echo "true";
             // Insere os dados no banco
             $sql = "INSERT INTO 
                         animais_fotos
@@ -227,9 +230,10 @@ if(!empty($imagem1)){
                             (
                                 '".$caminho_imagem."', 
                                 NOW(),
-                                $id_animal->$anim_id
+                                $id_animal->anim_id
                             )
             ";
+            //echo $sql;
             $c3 = mysqli_query($conn, $sql);
         }else{
             $sql = "UPDATE 
@@ -237,7 +241,7 @@ if(!empty($imagem1)){
                     SET  
                         anfo_endereco = '".$caminho_imagem."', 
                         anfo_data_atualizacao = NOW() 
-                    WHERE anim_id = $id_animal->$anim_id
+                    WHERE anim_id = $id_animal->anim_id
                 ";
                 //     echo $sql;
                 $c3 = mysqli_query($conn, $sql);
@@ -250,12 +254,7 @@ if(!empty($imagem1)){
             echo $erro . "<br />";
         }
     }
-
-
-
-
-
-
+}
 
 
 //Cadastro de endereço de animais

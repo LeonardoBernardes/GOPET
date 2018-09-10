@@ -3,7 +3,7 @@
  * @Author: Leonardo.Bernardes 
  * @Date: 2018-09-04 19:14:28 
  * @Last Modified by: Leonardo.Bernardes
- * @Last Modified time: 2018-09-08 23:26:24
+ * @Last Modified time: 2018-09-09 23:57:06
  */
 
 include_once(dirname( __FILE__ ) .'\..\mysql_conexao\conexao_mysql.php');
@@ -37,7 +37,7 @@ $logi_id = $_SESSION['logi_id'];
 
 <div id="formulario_empreendimento">
     <div class="container login-empreendimento"  >
-    <form method="post" action="cadastrar_empreendimento.php" id="formlogin" name="formlogin" enctype="multipart/form-data" >
+    <form method="post" action="cadastrar_animais.php" id="formlogin" name="formlogin" enctype="multipart/form-data" >
     <fieldset id="fie">
         <h2 class="btn btn-dark btn-sm btn-block"><legend>Cadastrar Animal</legend></h2><br>
 <form method="post" action="cadastrar_animais.php?logi_id=<?php echo $logi_id ?>&grupo=<?php echo $grup_id ?>" id="formlogin" name="formlogin" >
@@ -98,8 +98,8 @@ $logi_id = $_SESSION['logi_id'];
         </div>
         <div class="form-row">
         <div class="col">
-        <label>Cadastro  </label> 
-        <select class="form-control form-control-sm" name="categoria">
+        <label>Castrado  </label> 
+        <select class="form-control form-control-sm" name="castracao">
             <option name="castracao" value="2">Não indentificado</option>
             <option name="castracao" value="1">Sim</option>
             <option name="castracao" value="0">Não</option>
@@ -107,7 +107,7 @@ $logi_id = $_SESSION['logi_id'];
         </div>
         <div class="col">
         <label>Gênero  </label> 
-        <select class="form-control form-control-sm" name="categoria">
+        <select class="form-control form-control-sm" name="genero">
             <option name="genero" value="femea">Macho</option>
             <option type="radio" name="genero" value="macho">Fêmea</option>
         </select>

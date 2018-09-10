@@ -104,17 +104,33 @@ if(!empty($row2)){
 }//var_dump(str_replace('/', '\'',$endereco_img));     
 ?>
 
+   
+<body>
 <head>
+    
+    <!-- Icone da Pagina & Titulo -->
+    <link rel="icon" href="../static/imagens/icon_preto.png">
+    <title>GoPet</title>
+   
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    
+    
+    
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="../static/estilo.css">
-    <title>Gopet</title>
+    
+    <!--icones legais para colocar no site https://fontawesome.com/icons?d=gallery -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    
+    <!-- GOPET CSS -->
+        <link rel="stylesheet" href="../static/estilo.css">
+    
+    
 </head>
-
+       
+    
 <div id="formulario_empreendimento">
     <div class="container login-empreendimento"  >
     <form method="post" action="cadastrar_empreendimento.php" id="formlogin" name="formlogin" enctype="multipart/form-data" >
@@ -199,4 +215,10 @@ if(!empty($row2)){
     
 </form>
     </div>
-</div>
+    </div>
+<?php
+    
+include_once "../menu_footer/footer.php" 
+    
+?>    
+    </body>

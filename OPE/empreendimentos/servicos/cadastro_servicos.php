@@ -32,7 +32,10 @@ $logado = $_SESSION['login'];
     <link rel="stylesheet" href="../../static/estilo.css">
     <title>Gopet</title>
 </head>
-<div id="formulario_empreendimento">
+
+<body id="formulario_empreendimento"> 
+
+<div>
     <div class="container login-empreendimento"  >
     <form method="post" action="cadastrar_empreendimento.php" id="formlogin" name="formlogin" enctype="multipart/form-data" >
     <fieldset id="fie">
@@ -86,3 +89,9 @@ $logado = $_SESSION['login'];
     
 </form>
 <a class="btn btn-dark btn-sm btn-block" href="..\home_empreendimento.php"> Voltar</a>
+
+        </fieldset>
+        </form>
+        </div>
+        </div>
+</body>

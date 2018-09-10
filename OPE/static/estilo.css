@@ -7,7 +7,7 @@
     background-size: cover;
 }
 .home_empreendimento{
-    background-image: url("../static/imagens/cao-aventura.jpg");
+    background-image: url("../static/imagens/beach.jpg");
     background-position: top;
     background-size: cover;    
 }
@@ -33,11 +33,22 @@
 }
 .login-form{
     padding: 2%;
+    margin-top: 6%;
+    margin-bottom: 6%;
     box-shadow: 0px 0px 10px 1px grey;
     border-radius: 3px;
-    padding-bottom: 50px;
     background: rgba(255, 255, 255, 0.60);
     max-width: 368px
+}
+
+.login-empreendimento{
+    padding: 2%;
+    margin-top: 6%;
+    margin-bottom: 6%;
+    box-shadow: 0px 0px 10px 1px grey;
+    border-radius: 3px;
+    background: rgba(255, 255, 255, 0.60);
+    max-width: 1000px;
 }
 
 #formulario_empreendimento{
@@ -60,11 +71,4 @@
     background: rgba(255, 255, 255, 0.60);
 }
 
-.login-empreendimento{
-    padding: 2%;
-    box-shadow: 0px 0px 10px 1px grey;
-    border-radius: 3px;
-    padding-bottom: 50px;
-    background: rgba(255, 255, 255, 0.60);
-    max-width: 1000px;
-}
+

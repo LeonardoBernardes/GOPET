@@ -75,7 +75,7 @@
                     <a class="nav-link" href="..\animais\cadastro_animais.php">Cadastrar Animais</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="..\animais\consultar_animais.php">Consultar Animais</a>
+                    <a class="nav-link" href="..\animais\consultar_animais.php">Meus Animais</a>
                     </li>
                     
 

@@ -35,7 +35,9 @@ $logi_id = $_SESSION['logi_id'];
     <title>Gopet</title>
 </head>
 
-<div id="formulario_empreendimento">
+<body id="formulario_empreendimento">
+
+<div>
     <div class="container login-empreendimento"  >
     <form method="post" action="cadastrar_empreendimento.php" id="formlogin" name="formlogin" enctype="multipart/form-data" >
     <fieldset id="fie">
@@ -164,5 +166,5 @@ $logi_id = $_SESSION['logi_id'];
       
     </fieldset>
 </form>
-        </fieldset></form></div></div>
+        </fieldset></form></div></div></body>
         

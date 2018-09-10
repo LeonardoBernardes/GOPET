@@ -18,7 +18,11 @@
     <link rel="stylesheet" href="../../static/estilo.css">
     <title>Gopet</title>
 </head>
-<div id="formulario_funcionario">
+
+<body id="formulario_funcionario">
+
+
+<div>
     <div class="container login-form"  >
         <h2 class="alert alert-warning" ><legend>Cadastrar Funcionário</legend></h2>
         <form method="post" action="cadastrar_funcionarios.php" id="formlogin" name="formlogin" >
@@ -38,3 +42,6 @@
         </form>
     </div>
 </div>
+
+
+</body>

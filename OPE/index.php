@@ -19,81 +19,32 @@
     <title>Gopet</title>
 </head>
 
-<body>
-   <!-- Menu -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-        <a class="navbar-brand logo" href="#" ><img src="static/imagens/gopet.png" alt="gopet"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#home">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">O projeto</a>
-                </li>
-                 <li class="nav-item">
-                    <a class="nav-link" href="#" data-toggle="modal" data-target="#card_login">Login</a>
-                </li>
-                <li>
-                    <a class="nav-link" href="cadastro_login.php">Criar uma conta</a>
-                </li>
-            </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Search">
-                
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
-            </form>
-        </div>
-     </nav>
-      <!-- fim Menu -->
+<body class="one_page home">
+  
+<?php
+    
+include_once "menu_footer/menu_principal.php" 
+    
+?>
     
      <!-- MEIO -->
-<div class="one_page home">
+<div>
     <div class="card_titulo p-4">
         <h1>GOPET</h1>
-        <br>
-        <h2>Sistema para conectar pessoas e animais</h2>
     </div>
 </div>
 <div class="one_page projeto">
 
-</div>
- <!-- FIM Menu -->
+</div> 
+
  
 
-<!-- Modal login -->
-<div class="modal fade" id="card_login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Login</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body text-center">
-                <form method="post" action="sessao.php" id="formlogin" name="formlogin" >
-                    <fieldset id="login_form">
-                        <label>Nome </label><br>
-                        <input class="form-control" type="text" name="login" id="login"/><br/>
-                        <label>Senha </label><br>
-                        <input class="form-control" type="password" name="senha" id="senha"/><br/>
-                    </fieldset>
-                    <br>
-                    <input class="btn btn-outline-success btn-sm btn-block" type="submit" value="Login"/>
-                    <hr>
-                    <p>Deseja se Cadastra-se? <a href="cadastro_login.php">clique aqui</a></p>
-                    <div class="modal-footer">
-                        
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
+<?php
+    
+include_once "menu_footer/footer.php" 
+    
+?>
+
 
 <!-- Optional JavaScript -->
 <script src="static/jquery.js"></script>

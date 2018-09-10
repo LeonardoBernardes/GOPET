@@ -37,7 +37,9 @@ $result =  mysqli_query($conn, $sql);
     <title>Gopet</title>
 </head>
 
-<div id="formulario_empreendimento">
+<body id="formulario_empreendimento">
+
+<div>
     <div class="container login-empreendimento"  >
     <form method="post" action="cadastrar_empreendimento.php" id="formlogin" name="formlogin" enctype="multipart/form-data" >
     <fieldset id="fie">
@@ -54,3 +56,5 @@ $result =  mysqli_query($conn, $sql);
     </fieldset>
     <a class="btn btn-dark btn-sm btn-block" href="..\administradores\home_administradores.php"> Voltar</a>
 </form>
+            </div></div></fieldset></form></div></div>
+</body>

@@ -4,36 +4,18 @@
 
 <html lang="pt-br">
 
-<head>
-    
-    <!-- Icone da Pagina & Titulo -->
-    <link rel="icon" href="./imagens/icon_preto.png">
-    <title>GoPet</title>
-   
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
-    
-    
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="../OPE/static/bootstrap/css/bootstrap.css">
-    
-    <!--icones legais para colocar no site https://fontawesome.com/icons?d=gallery -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
-    
-    <!-- GOPET CSS -->
-        <link rel="stylesheet" href="static/estilo.css">
-    
-    <!-- Icone da Pagina -->
-    <link rel="icon" href="static/imagens/icon_preto.png">
-    
-</head>
 
-<body>
+<?php
+    
+include_once "menu_footer/menu_principal.php" 
+    
+?>
+<body class="formulario_login">
+
+
 
 <!-- Cadastro -->
-<div class="formulario_login">
+<div >
     <div class="container login-form"  >
         <h2 class="input-group-text" ><legend>Cadastrar-se</legend></h2>
         <div class="text-center border col-12" "input-group text-center">
@@ -64,9 +46,15 @@
 
 
 <!-- Footer -->
+<footer>
+<?php
     
+include_once "menu_footer/footer.php" 
     
+?>    
+</footer>
 
 </body>
+
 </html>
 

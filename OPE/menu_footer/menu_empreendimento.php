@@ -84,7 +84,7 @@
             } ?>
                     
                     <li class="nav-item active">
-                    <a class="nav-link" href="..\logaut.php">Logaut</a>
+                    <a class="nav-link" href="..\logaut.php">SAIR</a>
                     </li>
             </ul>
             </div>

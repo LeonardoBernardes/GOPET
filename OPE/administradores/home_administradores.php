@@ -3,7 +3,7 @@
  * @Author: Leonardo.Bernardes 
  * @Date: 2018-08-14 20:59:32 
  * @Last Modified by: Leonardo.Bernardes
- * @Last Modified time: 2018-09-08 23:27:18
+ * @Last Modified time: 2018-09-10 18:38:37
  */
 include_once(dirname( __FILE__ ) .'\..\mysql_conexao\conexao_mysql.php');
 session_start();
@@ -56,7 +56,7 @@ $logado = $_SESSION['login'];
                 <a class="nav-link" href="..\animais\consultar_animais.php">Consultar Animais</a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="..\logaut.php">Logaut</a>
+                <a class="nav-link" href="..\logaut.php">SAIR</a>
             </li>
      
             </ul>

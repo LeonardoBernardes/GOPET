@@ -1,0 +1,585 @@
+create database gopet;
+
+CREATE TABLE `usuarios` (
+  `usua_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `usua_cpf` varchar(15) NOT NULL,
+  `usua_nome` varchar(20) NOT NULL,
+  `usua_sobrenome` varchar(60) NOT NULL,
+  `usua_dt_nascimento` date NOT NULL,
+  `usua_status` tinyint(1) NOT NULL COMMENT '0 = Desativado\n1 = Ativado',
+  `usua_data_cadastro` datetime NOT NULL,
+  `usua_data_atualizacao` datetime DEFAULT NULL,
+  PRIMARY KEY (`usua_id`),
+  UNIQUE KEY `usua_cpf_UNIQUE` (`usua_cpf`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `empreendimentos` (
+  `empr_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `empr_cnpj` varchar(18) NOT NULL,
+  `empr_nome` varchar(60) NOT NULL,
+  `empr_dt_abertura` date NOT NULL,
+  `empr_objetivo` varchar(120) NOT NULL,
+  `empr_slogan` varchar(80) DEFAULT NULL,
+  `empr_responsavel` varchar(60) DEFAULT NULL,
+  `empr_status` tinyint(1) NOT NULL COMMENT '0 = desativado\n1 = ativado',
+  `empr_logo` varchar(255) DEFAULT NULL,
+  `empr_data_cadastro` datetime NOT NULL,
+  `empr_data_atualizacao` datetime DEFAULT NULL,
+  PRIMARY KEY (`empr_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `eventos` (
+  `even_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `even_nome` varchar(40) NOT NULL,
+  `even_descricao` varchar(120) NOT NULL,
+  `even_data_realizacao` datetime NOT NULL,
+  `even_status` tinyint(1) NOT NULL COMMENT '0 = Encerrado\n1 = Ativo\n2 = Cancelado',
+  `even_data_cadastro` datetime NOT NULL,
+  `even_data_atualizacao` datetime DEFAULT NULL,
+  PRIMARY KEY (`even_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `planos` (
+  `plan_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `plan_nome` varchar(30) NOT NULL,
+  `plan_descricao` varchar(120) NOT NULL,
+  `plan_valor_total` decimal(9,2) NOT NULL,
+  `plan_promocao` tinyint(1) DEFAULT NULL COMMENT '0 = Caso não tenha desconto\n1 = Tenha desconto',
+  `plan_promocao_porcentagem` decimal(3,0) DEFAULT NULL,
+  `plan_valor_promocao` decimal(9,2) DEFAULT NULL COMMENT 'Valor da promocao\n',
+  `plan_status` tinyint(1) NOT NULL COMMENT '0 = Desativado\n1 = Ativado',
+  `plan_tipo` tinyint(1) NOT NULL COMMENT '1 = plano para usuarios\n2 = plano para empreendimentos',
+  `plan_data_cadastro` datetime NOT NULL,
+  `plan_data_atualizacao` datetime DEFAULT NULL,
+  PRIMARY KEY (`plan_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+CREATE TABLE `animais` (
+  `anim_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `anim_nome` varchar(60) NOT NULL,
+  `anim_ra` int(20) DEFAULT NULL,
+  `anim_idade` varchar(45) DEFAULT NULL,
+  `anim_porte` varchar(45) NOT NULL COMMENT '1 = mini\n2 = pequeno\n3 = medio\n4 = grande\n5 = muito grande',
+  `anim_genero` varchar(45) NOT NULL COMMENT '1 = macho\n2 = femea\n3 = outro',
+  `anim_categoria` varchar(45) NOT NULL COMMENT 'cachorro, gato, papagaio e etc',
+  `anim_restricao_doacao` varchar(255) NOT NULL,
+  `anim_castracao` tinyint(1) NOT NULL COMMENT '0 = não foi castrado\n1 = foi castrado',
+  `anim_data_cadastro` datetime NOT NULL,
+  `anim_data_atualizacao` datetime DEFAULT NULL,
+  PRIMARY KEY (`anim_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `empreendimentos_tipos` (
+  `emti_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `emti_descricao` varchar(40) NOT NULL COMMENT 'ONG, Pet shop, Veterinário, Hospital e etc.',
+  PRIMARY KEY (`emti_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `grupos` (
+  `grup_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `grup_descricao` varchar(20) NOT NULL,
+  `grup_data_cadastro` datetime NOT NULL,
+  `grup_data_atualizacao` datetime DEFAULT NULL,
+  PRIMARY KEY (`grup_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+
+
+
+CREATE TABLE `usuarios_x_eventos` (
+  `usev_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `usev_data_cadastro` datetime NOT NULL,
+  `usev_data_atualizacao` datetime DEFAULT NULL,
+  `usua_id` int(10) unsigned NOT NULL,
+  `even_id` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`usev_id`,`usua_id`,`even_id`),
+  KEY `fk_usuarios_x_eventos_usuarios1_idx` (`usua_id`),
+  KEY `fk_usuarios_x_eventos_eventos1_idx` (`even_id`),
+  CONSTRAINT `fk_usuarios_x_eventos_fk_eventos` FOREIGN KEY (`even_id`) REFERENCES `eventos` (`even_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_usuarios_x_eventos_fk_usuarios` FOREIGN KEY (`usua_id`) REFERENCES `usuarios` (`usua_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+CREATE TABLE `usuarios_x_animais` (
+  `usan_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `usan_flag` tinyint(1) NOT NULL COMMENT '1 = Doacao\n2 = Resgate\n3 = Proprio',
+  `usan_data_cadastro` datetime NOT NULL,
+  `usan_data_atualizacao` datetime DEFAULT NULL,
+  `usua_id` int(10) unsigned NOT NULL,
+  `anim_id` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`usan_id`,`usua_id`,`anim_id`),
+  KEY `fk_usuarios_x_animais_usuarios1_idx` (`usua_id`),
+  KEY `fk_usuarios_x_animais_animais1_idx` (`anim_id`),
+  CONSTRAINT `fk_usuarios_x_animais_animais1` FOREIGN KEY (`anim_id`) REFERENCES `animais` (`anim_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_usuarios_x_animais_fk_usuarios` FOREIGN KEY (`usua_id`) REFERENCES `usuarios` (`usua_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+CREATE TABLE `usuarios_questoes_saude` (
+  `usqs_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `usqs_tipo` varchar(20) NOT NULL COMMENT 'Doença física, mental, cronica, contagiosas e etc.',
+  `usqs_descricao` varchar(80) NOT NULL,
+  `usqs_status` tinyint(1) NOT NULL COMMENT '0 = Caso essa doença tem acabado\n1 = Caso ainda esteja com a doença',
+  `usqs_data_cadastro` datetime NOT NULL,
+  `usqs_data_atualizacao` datetime DEFAULT NULL,
+  `usua_id` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`usqs_id`,`usua_id`),
+  KEY `fk_usuarios_questoes_saude_usuarios1_idx` (`usua_id`),
+  CONSTRAINT `fk_usuarios_questoes_saude_fk_usuarios` FOREIGN KEY (`usua_id`) REFERENCES `usuarios` (`usua_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+
+
+
+CREATE TABLE `usuarios_enderecos` (
+  `usen_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `usen_logradouro` varchar(80) NOT NULL,
+  `usen_numero` decimal(7,0) NOT NULL,
+  `usen_complemento` varchar(40) DEFAULT NULL,
+  `usen_pais` varchar(5) NOT NULL,
+  `usen_estado` varchar(5) NOT NULL,
+  `usen_cidade` varchar(60) NOT NULL,
+  `usen_bairro` varchar(60) NOT NULL,
+  `usen_cep` decimal(8,0) NOT NULL,
+  `usen_data_cadastro` datetime NOT NULL,
+  `usen_data_atualizacao` datetime DEFAULT NULL,
+  `usua_id` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`usen_id`,`usua_id`),
+  KEY `fk_usuarios_enderecos_usuarios_idx` (`usua_id`),
+  CONSTRAINT `fk_usuarios_enderecos_fk_usuarios` FOREIGN KEY (`usua_id`) REFERENCES `usuarios` (`usua_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `usuarios_contatos` (
+  `usco_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `usco_tipo` varchar(45) NOT NULL COMMENT 'Email, Telefone ou Celular',
+  `usco_nome_contato` varchar(40) NOT NULL,
+  `usco_numero_tel` decimal(8,0) DEFAULT NULL,
+  `usco_numero_cel` decimal(9,0) DEFAULT NULL,
+  `usco_email` varchar(100) DEFAULT NULL,
+  `usco_status` tinyint(1) NOT NULL COMMENT '0 = endereco de contato desativado\n1 = endereco de contato ativado',
+  `usco_data_cadastro` datetime NOT NULL,
+  `usco_data_atualizacao` datetime DEFAULT NULL,
+  `usua_id` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`usco_id`,`usua_id`),
+  KEY `fk_usuarios_contatos_usuarios1_idx` (`usua_id`),
+  CONSTRAINT `fk_usuarios_contatos_fk_usuarios` FOREIGN KEY (`usua_id`) REFERENCES `usuarios` (`usua_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+CREATE TABLE `servicos` (
+  `serv_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `serv_nome` varchar(60) NOT NULL,
+  `serv_descricao` varchar(120) NOT NULL,
+  `serv_valor_total` decimal(9,2) NOT NULL,
+  `serv_promocao` tinyint(1) NOT NULL COMMENT '0 = desativado\n1 = ativado',
+  `serv_valor_promocao` decimal(9,2) DEFAULT NULL,
+  `serv_promocao_porcentagem` decimal(3,0) DEFAULT NULL,
+  `serv_status` tinyint(1) NOT NULL,
+  `serv_data_cadastro` datetime NOT NULL,
+  `serv_data_atualizacao` datetime DEFAULT NULL,
+  `empr_id` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`serv_id`,`empr_id`),
+  KEY `fk_empreendimentos_servicos_empreendimentos1_idx` (`empr_id`),
+  CONSTRAINT `fk_servicos_fk_empreendimentos` FOREIGN KEY (`empr_id`) REFERENCES `empreendimentos` (`empr_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+
+
+CREATE TABLE `produtos` (
+  `prod_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `prod_nome` varchar(60) NOT NULL,
+  `prod_marca` varchar(60) NOT NULL,
+  `prod_descricao` varchar(120) NOT NULL,
+  `prod_valor_total` decimal(9,2) NOT NULL,
+  `prod_valor_promocao` decimal(9,2) DEFAULT NULL,
+  `prod_promocao` tinyint(1) NOT NULL DEFAULT '0' COMMENT '0 = desativado\n1 = ativado',
+  `prod_promocao_porcentagem` decimal(3,0) DEFAULT NULL,
+  `prod_status` tinyint(1) NOT NULL COMMENT '0 = desativado\n1 = Ativado',
+  `prod_data_cadastro` datetime NOT NULL,
+  `prod_data_atualizacao` datetime DEFAULT NULL,
+  `empr_id` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`prod_id`,`empr_id`),
+  KEY `fk_produtos_empreendimentos1_idx` (`empr_id`),
+  CONSTRAINT `fk_produtos_fk_empreendimentos` FOREIGN KEY (`empr_id`) REFERENCES `empreendimentos` (`empr_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `planos_imagens` (
+  `plim_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `plim_endereco` varchar(255) NOT NULL,
+  `plim_data_cadastro` datetime NOT NULL,
+  `plim_data_atualizacao` datetime DEFAULT NULL,
+  `plan_id` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`plim_id`,`plan_id`),
+  KEY `fk_planos_imagens_planos1_idx` (`plan_id`),
+  CONSTRAINT `fk_planos_imagens_fk_planos` FOREIGN KEY (`plan_id`) REFERENCES `planos` (`plan_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+
+CREATE TABLE `login` (
+  `logi_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `logi_nome` varchar(20) NOT NULL,
+  `logi_senha` varchar(255) NOT NULL,
+  `logi_email` varchar(100) NOT NULL,
+  `logi_data_cadastro` datetime NOT NULL,
+  `logi_data_atualizacao` datetime DEFAULT NULL,
+  `logi_status` tinyint(1) NOT NULL,
+  `grup_id` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`logi_id`,`grup_id`),
+  KEY `fk_login_grupos1_idx` (`grup_id`),
+  CONSTRAINT `fk_login_fk_grupos` FOREIGN KEY (`grup_id`) REFERENCES `grupos` (`grup_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+
+
+
+CREATE TABLE `eventos_local` (
+  `evlo_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `evlo_logradouro` varchar(80) NOT NULL,
+  `evlo_numero` decimal(7,0) NOT NULL,
+  `evlo_complemento` varchar(40) DEFAULT NULL,
+  `evlo_pais` varchar(5) NOT NULL,
+  `evlo_estado` varchar(5) NOT NULL,
+  `evlo_cidade` varchar(60) NOT NULL,
+  `evlo_bairro` varchar(60) NOT NULL,
+  `evlo_cep` decimal(8,0) NOT NULL,
+  `evlo_data_cadastro` datetime NOT NULL,
+  `evlo_data_atualizacao` datetime DEFAULT NULL,
+  `even_id` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`evlo_id`,`even_id`),
+  KEY `fk_eventos_imagens_eventos1_idx` (`even_id`),
+  CONSTRAINT `fk_eventos_local_fk_eventos` FOREIGN KEY (`even_id`) REFERENCES `eventos` (`even_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `eventos_imagens` (
+  `evim_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `evim_endereco` varchar(255) NOT NULL,
+  `evim_data_cadastro` datetime NOT NULL,
+  `evim_data_atualizacao` datetime DEFAULT NULL,
+  `even_id` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`evim_id`,`even_id`),
+  KEY `fk_usuarios_imagens_copy1_eventos1_idx` (`even_id`),
+  CONSTRAINT `fk_eventos_imagens_fk_eventos` FOREIGN KEY (`even_id`) REFERENCES `eventos` (`even_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+CREATE TABLE `empreendimentos_x_tipos` (
+  `empr_emti_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `empr_emti_data_cadastro` datetime NOT NULL,
+  `empr_emti_data_atualizacao` datetime DEFAULT NULL,
+  `emti_id` int(10) unsigned NOT NULL,
+  `empr_id` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`empr_emti_id`,`emti_id`,`empr_id`),
+  KEY `fk_empreendimentos_x_tipos_empreendimentos_tipos1_idx` (`emti_id`),
+  KEY `fk_empreendimentos_x_tipos_empreendimentos1_idx` (`empr_id`),
+  CONSTRAINT `fk_empreendimentos_x_tipos_fk_empreendimentos` FOREIGN KEY (`empr_id`) REFERENCES `empreendimentos` (`empr_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_empreendimentos_x_tipos_fk_empreendimentos_tipos` FOREIGN KEY (`emti_id`) REFERENCES `empreendimentos_tipos` (`emti_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `empreendimentos_x_planos` (
+  `empl_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `empl_data_inicial` datetime NOT NULL,
+  `empl_data_final` datetime DEFAULT NULL,
+  `empl_forma_pagamento` varchar(40) NOT NULL COMMENT 'cartão, boleto e etc.',
+  `empl_parcelas` int(11) NOT NULL,
+  `plan_id` int(10) unsigned NOT NULL,
+  `empr_id` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`empl_id`,`plan_id`,`empr_id`),
+  KEY `fk_empreendimentos_x_planos_empreendimentos_planos1_idx` (`plan_id`),
+  KEY `fk_empreendimentos_x_planos_empreendimentos1_idx` (`empr_id`),
+  CONSTRAINT `fk_empreendimentos_x_planos_fk_empreendimentos` FOREIGN KEY (`empr_id`) REFERENCES `empreendimentos` (`empr_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_empreendimentos_x_planos_fk_planos` FOREIGN KEY (`plan_id`) REFERENCES `planos` (`plan_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `empreendimentos_x_eventos` (
+  `emev_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `emev_data_cadastro` datetime NOT NULL,
+  `emev_data_atualizacao` datetime DEFAULT NULL,
+  `empr_id` int(10) unsigned NOT NULL,
+  `even_id` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`emev_id`,`empr_id`,`even_id`),
+  KEY `fk_empreendimentos_x_eventos_empreendimentos1_idx` (`empr_id`),
+  KEY `fk_empreendimentos_x_eventos_eventos1_idx` (`even_id`),
+  CONSTRAINT `fk_empreendimentos_x_eventos_fk_empreendimentos` FOREIGN KEY (`empr_id`) REFERENCES `empreendimentos` (`empr_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_empreendimentos_x_eventos_fk_eventos` FOREIGN KEY (`even_id`) REFERENCES `eventos` (`even_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `empreendimentos_x_animais` (
+  `eman_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `eman_flag` tinyint(1) NOT NULL COMMENT '1 = Doacao\n2 = Resgate\n3 = Proprio',
+  `eman_data_cadastro` datetime NOT NULL,
+  `eman_data_atualizacao` datetime DEFAULT NULL,
+  `anim_id` int(10) unsigned NOT NULL,
+  `empr_id` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`eman_id`,`anim_id`,`empr_id`),
+  KEY `fk_usuarios_x_animais_animais1_idx` (`anim_id`),
+  KEY `fk_empreendimentos_x_animais_empreendimentos1_idx` (`empr_id`),
+  CONSTRAINT `fk_empreendimentos_x_animais_fk_animais` FOREIGN KEY (`anim_id`) REFERENCES `animais` (`anim_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_empreendimentos_x_animais_fk_empreendimentos` FOREIGN KEY (`empr_id`) REFERENCES `empreendimentos` (`empr_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+
+
+
+CREATE TABLE `empreendimentos_enderecos` (
+  `emen_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `emen_logradouro` varchar(80) NOT NULL,
+  `emen_numero` decimal(7,0) NOT NULL,
+  `emen_complemento` varchar(40) DEFAULT NULL,
+  `emen_pais` varchar(5) NOT NULL,
+  `emen_estado` varchar(5) NOT NULL,
+  `emen_cidade` varchar(60) NOT NULL,
+  `emen_bairro` varchar(60) NOT NULL,
+  `emen_cep` decimal(8,0) NOT NULL,
+  `emen_data_cadastro` datetime NOT NULL,
+  `emen_data_atualizacao` datetime DEFAULT NULL,
+  `empr_id` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`emen_id`,`empr_id`),
+  KEY `fk_empreendimentos_enderecos_empreendimentos1_idx` (`empr_id`),
+  CONSTRAINT `fk_empreendimentos_enderecos_fk_empreendimentos` FOREIGN KEY (`empr_id`) REFERENCES `empreendimentos` (`empr_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `empreendimentos_contatos` (
+  `emco_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `emco_tipo` varchar(45) NOT NULL COMMENT 'Email, Telefone ou Celular',
+  `emco_nome_contato` varchar(40) NOT NULL,
+  `emco_numero_tel` decimal(8,0) DEFAULT NULL,
+  `emco_numero_cel` decimal(9,0) DEFAULT NULL,
+  `emco_email` varchar(100) DEFAULT NULL,
+  `emco_status` tinyint(1) NOT NULL COMMENT '0 = endereco de contato desativado\n1 = endereco de contato ativado',
+  `emco_data_cadastro` datetime NOT NULL,
+  `emco_data_atualizacao` datetime DEFAULT NULL,
+  `empr_id` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`emco_id`,`empr_id`),
+  KEY `fk_empreendimentos_contatos_empreendimentos1_idx` (`empr_id`),
+  CONSTRAINT `fk_empreendimentos_contatos_fk_empreendimentos` FOREIGN KEY (`empr_id`) REFERENCES `empreendimentos` (`empr_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+
+
+CREATE TABLE `animais_questoes_saude` (
+  `anqs_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `anqs_tipo` varchar(20) NOT NULL COMMENT 'Doença física, mental, cronica, contagiosas e etc.',
+  `anqs_descricao` varchar(80) NOT NULL,
+  `anqs_status` tinyint(1) NOT NULL COMMENT '0 = Caso essa doença tem acabado\n1 = Caso ainda esteja com a doença',
+  `anqs_data_cadastro` datetime NOT NULL,
+  `anqs_data_atualizacao` datetime DEFAULT NULL,
+  `anim_id` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`anqs_id`,`anim_id`),
+  KEY `fk_animais_questoes_saude_animais1_idx` (`anim_id`),
+  CONSTRAINT `fk_animais_questoes_saude_fk_animais` FOREIGN KEY (`anim_id`) REFERENCES `animais` (`anim_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+CREATE TABLE `animais_fotos` (
+  `anfo_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `anfo_endereco` varchar(255) NOT NULL,
+  `anfo_legenda` varchar(20) DEFAULT NULL,
+  `anfo_data_cadastro` datetime NOT NULL,
+  `anfo_data_atualizacao` datetime DEFAULT NULL,
+  `anim_id` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`anfo_id`,`anim_id`),
+  KEY `fk_animais_fotos_animais1_idx` (`anim_id`),
+  CONSTRAINT `fk_animais_fotos_fk_animais` FOREIGN KEY (`anim_id`) REFERENCES `animais` (`anim_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `animais_endereco` (
+  `anen_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `anen_logradouro` varchar(80) NOT NULL,
+  `anen_numero` decimal(7,0) NOT NULL,
+  `anen_complemento` varchar(40) DEFAULT NULL,
+  `anen_pais` varchar(5) NOT NULL,
+  `anen_estado` varchar(5) NOT NULL,
+  `anen_cidade` varchar(60) NOT NULL,
+  `anen_bairro` varchar(60) NOT NULL,
+  `anen_cep` decimal(8,0) NOT NULL,
+  `anen_data_cadastro` datetime NOT NULL,
+  `anen_data_atualizacao` datetime DEFAULT NULL,
+  `anim_id` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`anen_id`,`anim_id`),
+  KEY `fk_animais_endereco_animais1_idx` (`anim_id`),
+  CONSTRAINT `fk_animais_endereco_fk_animais` FOREIGN KEY (`anim_id`) REFERENCES `animais` (`anim_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `usuarios_imagens` (
+  `usim_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `usim_endereco` varchar(255) NOT NULL,
+  `usim_data_cadastro` datetime NOT NULL,
+  `usim_data_atualizacao` datetime DEFAULT NULL,
+  `usuarios_usua_id` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`usim_id`,`usuarios_usua_id`),
+  KEY `fk_usuarios_imagens_usuarios1_idx` (`usuarios_usua_id`),
+  CONSTRAINT `fk_usuarios_imagens_fk_usuarios` FOREIGN KEY (`usuarios_usua_id`) REFERENCES `usuarios` (`usua_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `usuarios_x_planos` (
+  `uspl_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `uspl_data_inicial` datetime NOT NULL,
+  `uspl_data_final` datetime DEFAULT NULL,
+  `uspl_forma_pagamento` varchar(40) NOT NULL COMMENT 'cartão, boleto e etc.',
+  `uspl_parcelas` int(11) NOT NULL,
+  `plan_id` int(10) unsigned NOT NULL,
+  `usua_id` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`uspl_id`,`plan_id`,`usua_id`),
+  KEY `fk_empreendimentos_x_planos_empreendimentos_planos1_idx` (`plan_id`),
+  KEY `fk_empreendimentos_x_planos_usuarios1_idx` (`usua_id`),
+  CONSTRAINT `fk_usuarios_x_planos_fk_planos` FOREIGN KEY (`plan_id`) REFERENCES `planos` (`plan_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_usuarios_x_planos_fk_usuarios` FOREIGN KEY (`usua_id`) REFERENCES `usuarios` (`usua_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `servicos_imagens` (
+  `seim_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `seim_endereco` varchar(255) NOT NULL,
+  `seim_data_cadastro` datetime NOT NULL,
+  `seim_data_atualizacao` datetime DEFAULT NULL,
+  `serv_id` int(10) unsigned NOT NULL,
+  `empr_id` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`seim_id`,`serv_id`,`empr_id`),
+  KEY `fk_servicos_imagens_servicos1_idx` (`serv_id`,`empr_id`),
+  CONSTRAINT `fk_servicos_imagens_fk_servicos` FOREIGN KEY (`serv_id`, `empr_id`) REFERENCES `servicos` (`serv_id`, `empr_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `produtos_imagens` (
+  `prim_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `prim_endereco` varchar(255) NOT NULL,
+  `prim_data_cadastro` datetime NOT NULL,
+  `prim_data_atualizacao` datetime DEFAULT NULL,
+  `prod_id` int(10) unsigned NOT NULL,
+  `empr_id` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`prim_id`,`prod_id`,`empr_id`),
+  KEY `fk_produtos_imagens_produtos1_idx` (`prod_id`,`empr_id`),
+  CONSTRAINT `fk_produtos_imagens_fk_produtos` FOREIGN KEY (`prod_id`, `empr_id`) REFERENCES `produtos` (`prod_id`, `empr_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `login_x_usuarios` (
+  `lous_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `usua_id` int(10) unsigned NOT NULL,
+  `logi_id` int(10) unsigned NOT NULL,
+  `grup_id` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`lous_id`,`usua_id`,`logi_id`,`grup_id`),
+  KEY `fk_login_usuarios_usuarios1_idx` (`usua_id`),
+  KEY `fk_login_usuarios_login1_idx` (`logi_id`,`grup_id`),
+  CONSTRAINT `fk_login_usuarios_fk_login` FOREIGN KEY (`logi_id`, `grup_id`) REFERENCES `login` (`logi_id`, `grup_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_login_usuarios_fk_usuarios` FOREIGN KEY (`usua_id`) REFERENCES `usuarios` (`usua_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `login_x_empreendimentos` (
+  `loem_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `logi_id` int(10) unsigned NOT NULL,
+  `grup_id` int(10) unsigned NOT NULL,
+  `empr_id` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`loem_id`,`logi_id`,`grup_id`,`empr_id`),
+  KEY `fk_login_x_empreendimentos_login1_idx` (`logi_id`,`grup_id`),
+  KEY `fk_login_x_empreendimentos_empreendimentos1_idx` (`empr_id`),
+  CONSTRAINT `fk_login_x_empreendimentos_fk_empreendimentos` FOREIGN KEY (`empr_id`) REFERENCES `empreendimentos` (`empr_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_login_x_empreendimentos_fk_login` FOREIGN KEY (`logi_id`, `grup_id`) REFERENCES `login` (`logi_id`, `grup_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+
+
+
+
+
+
+-- CORRECOES!!!!
+
+
+CREATE TABLE `gopet`.`empreendimentos_imagens` (
+  `emim_id` INT UNSIGNED NOT NULL,
+  `emin_endereco` VARCHAR(255) NOT NULL,
+  `emin_data_cadastro` DATETIME NOT NULL,
+  `emin_data_atualizacao` DATETIME NULL,
+  `empr_id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`emim_id`),
+  INDEX `fk_empreendimentos_imagens_fk_empreendimentos_idx` (`empr_id` ASC),
+  CONSTRAINT `fk_empreendimentos_imagens_fk_empreendimentos`
+    FOREIGN KEY (`empr_id`)
+    REFERENCES `gopet`.`empreendimentos` (`empr_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+
+ALTER TABLE `gopet`.`empreendimentos_imagens` 
+DROP FOREIGN KEY `fk_empreendimentos_imagens_fk_empreendimentos`;
+ALTER TABLE `gopet`.`empreendimentos_imagens` 
+CHANGE COLUMN `emim_id` `emim_id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT ,
+CHANGE COLUMN `empr_id` `empr_id` INT(10) UNSIGNED NOT NULL ;
+ALTER TABLE `gopet`.`empreendimentos_imagens` 
+ADD CONSTRAINT `fk_empreendimentos_imagens_fk_empreendimentos`
+  FOREIGN KEY (`empr_id`)
+  REFERENCES `gopet`.`empreendimentos` (`empr_id`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+  
+  
+  
+  
+  ALTER TABLE `gopet`.`usuarios_imagens` 
+DROP FOREIGN KEY `fk_usuarios_imagens_fk_usuarios`;
+ALTER TABLE `gopet`.`usuarios_imagens` 
+CHANGE COLUMN `usuarios_usua_id` `usua_id` INT(10) UNSIGNED NOT NULL ;
+ALTER TABLE `gopet`.`usuarios_imagens` 
+ADD CONSTRAINT `fk_usuarios_imagens_fk_usuarios`
+  FOREIGN KEY (`usua_id`)
+  REFERENCES `gopet`.`usuarios` (`usua_id`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+  
+  
+  ALTER TABLE `gopet`.`empreendimentos_imagens` 
+CHANGE COLUMN `emin_endereco` `emim_endereco` VARCHAR(255) NOT NULL ,
+CHANGE COLUMN `emin_data_cadastro` `emim_data_cadastro` DATETIME NOT NULL ,
+CHANGE COLUMN `emin_data_atualizacao` `emim_data_atualizacao` DATETIME NULL DEFAULT NULL ;
+
+
+
+
+
+
+INSERT INTO grupos
+( grup_id,grup_descricao, 
+grup_data_cadastro 
+) VALUES (1, 'ADMIN', now()); 
+
+INSERT INTO grupos
+( grup_id,grup_descricao, 
+grup_data_cadastro 
+) VALUES (2, 'FUNCIONARIOS', now()); 
+
+INSERT INTO grupos
+( grup_id,grup_descricao, 
+grup_data_cadastro 
+) VALUES (3, 'USUARIOS', now()); 
+
+INSERT INTO grupos
+( grup_id,grup_descricao, 
+grup_data_cadastro 
+) VALUES (4, 'ADMIN EMPR', now());
+
+-- INSERE ADMIN MASTER
+INSERT INTO login (logi_id,logi_nome,logi_senha,logi_email,logi_data_cadastro,logi_status,grup_id) values(1,'admin','123','admin@gopet.com',now(),1,1);

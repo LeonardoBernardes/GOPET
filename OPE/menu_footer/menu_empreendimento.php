@@ -1,3 +1,24 @@
+
+<?php
+/*
+ * @Author: Leonardo.Bernardes 
+ * @Date: 2018-09-10 20:52:14 
+ * @Last Modified by: Leonardo.Bernardes
+ * @Last Modified time: 2018-09-10 21:09:47
+ */
+include_once(dirname( __FILE__ ) .'\..\mysql_conexao\conexao_mysql.php');
+session_start();
+
+    if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true))
+    {
+        unset($_SESSION['login']);
+        unset($_SESSION['senha']);
+        unset($_SESSION['grup_id']);
+        header('location:index.php');
+    }
+    //var_dump($_SESSION);
+    $logi_id = $_SESSION['logi_id'];
+?>
 <head>
     
     <!-- Icone da Pagina & Titulo -->
@@ -25,7 +46,7 @@
 
        
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-        <a class="navbar-brand logo" href="#" ><img src="../static/imagens/gopet.png" alt="gopet"></a>
+        <a class="navbar-brand logo" href="#" ><img src="http://localhost/PHP/GOPET/OPE/static/imagens/gopet.png" alt="gopet"></a>
         <!-- quando a tela ficar menor irá aparecer um botão -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -43,12 +64,24 @@
                     <li class="nav-item">     
                     <a class="nav-link" href="..\empreendimentos\funcionarios\consultar_funcionarios.php">Consultar funcionários</a>
                     </li>
-        <?php   } ?>
+        <?php   } 
+                
+                if($_SESSION['logi_status'] == 1){ 
 
-    <?php   if($_SESSION['logi_status'] == 1){ 
+                    $sql = "SELECT
+                                empr_id
+                            FROM
+                                login_x_empreendimentos
+                            WHERE
+                                logi_id  = $logi_id   
+                        ";
 
-                if(!empty($row2)){
+                    $result = mysqli_query($conn, $sql);
+                    $row2 = mysqli_fetch_object($result);
+
+                    if(!empty($row2)){
             
+                        
             ?>       
                     <li class="nav-item">  
                     <a class="nav-link" href="..\empreendimentos\produtos\cadastro_produtos.php">Cadastrar Produtos</a>

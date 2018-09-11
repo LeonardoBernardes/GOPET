@@ -3,10 +3,12 @@
  * @Author: Leonardo.Bernardes 
  * @Date: 2018-08-15 19:39:29 
  * @Last Modified by: Leonardo.Bernardes
- * @Last Modified time: 2018-08-30 01:22:44
+ * @Last Modified time: 2018-09-10 21:15:45
  */
+
+include_once("../../menu_footer/menu_empreendimento.php"); 
 include_once(dirname( __FILE__ ) .'\..\..\mysql_conexao\conexao_mysql.php');
-session_start();
+//session_start();
 
     if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true))
     {
@@ -18,9 +20,7 @@ session_start();
  
 $logado = $_SESSION['login'];
 
-
-
-
+ 
 ?>
 <head>
     <!-- Required meta tags -->
@@ -94,3 +94,4 @@ $logado = $_SESSION['login'];
         </div>
         </div>
     </body>
+    <?php include_once "../../menu_footer/footer.php"  ?>

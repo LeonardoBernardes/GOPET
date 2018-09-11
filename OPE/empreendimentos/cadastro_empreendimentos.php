@@ -6,6 +6,7 @@
  * @Last Modified by: Leonardo.Bernardes
  * @Last Modified time: 2018-08-30 19:23:41
  */
+include_once("../menu_footer/menu_empreendimento.php"); 
 include_once(dirname( __FILE__ ) .'\..\mysql_conexao\conexao_mysql.php');
 session_start();
     if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true))
@@ -104,121 +105,115 @@ if(!empty($row2)){
 }//var_dump(str_replace('/', '\'',$endereco_img));     
 ?>
 
-   
-<body>
+<html>
+
 <head>
-    
-    <!-- Icone da Pagina & Titulo -->
-    <link rel="icon" href="../static/imagens/icon_preto.png">
-    <title>GoPet</title>
-   
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
-    
-    
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.css">
-    
-    <!--icones legais para colocar no site https://fontawesome.com/icons?d=gallery -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
-    
-    <!-- GOPET CSS -->
-        <link rel="stylesheet" href="../static/estilo.css">
-    
-    
+
 </head>
-       
-    
-<div id="formulario_empreendimento">
-    <div class="container login-empreendimento"  >
-    <form method="post" action="cadastrar_empreendimento.php" id="formlogin" name="formlogin" enctype="multipart/form-data" >
-    <fieldset id="fie">
-        <h2 class="btn btn-dark btn-sm btn-block"><legend>Dados Empreendimento</legend></h2><br>
-        <div class="card-group">
-       <div id="cadastro_animal_card" class="card">
-        <img src="<?php echo $endereco_img ?>" style="width:250px; heigth:50px;" alt='Foto de exibição' /><br />
-        <input type="file" name="logo" id="logo" > <br/>
-            </div>
-            </div>
-        <hr>
-        <div class="form-row">
-            <div class="col">
-                <label>Nome </label> 
-                <input class="form-control form-control-sm" type="text" name="nome" id="nome" value='<?php echo $empr_cnpj ?>'>
-            </div>
-            <div class="col">
-                <label>Cnpj </label> 
-                <input class="form-control form-control-sm" type="text" name="cnpj" id="cnpj" value='<?php echo $empr_nome ?>'>
-            </div>  
-            <div class="col">  
-                <label>Data Abertura </label> 
-                <input class="form-control form-control-sm" type="text" name="data_abertura" id="data_abertura" value='<?php echo $empr_dt_abertura ?>'>
-            </div>
-               <div class="col"> 
-                    <label>Responsavel </label> 
-                    <input class="form-control form-control-sm" type="text" name="responsavel" id="responsavel" value='<?php echo $empr_responsavel ?>'>
-               </div>
+
+<body id="formulario_empreendimento">
+
+
+    <div>
+        <div class="container login-empreendimento">
+            <form method="post" action="cadastrar_empreendimento.php" id="formlogin" name="formlogin" enctype="multipart/form-data">
+                <fieldset id="fie">
+                    <h2 class="btn btn-dark btn-sm btn-block">
+                        <legend>Dados Empreendimento</legend>
+                    </h2><br>
+                    <div class="card-group">
+                        <div id="cadastro_animal_card" class="card">
+                            <img src="<?php echo $endereco_img ?>" style="width:250px; heigth:50px;" alt='Foto de exibição' /><br />
+                            <input type="file" name="logo" id="logo"> <br/>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="form-row">
+                        <div class="col">
+                            <label>Nome </label>
+                            <input class="form-control form-control-sm" type="text" name="nome" id="nome" value='<?php echo $empr_cnpj ?>'>
+                        </div>
+                        <div class="col">
+                            <label>Cnpj </label>
+                            <input class="form-control form-control-sm" type="text" name="cnpj" id="cnpj" value='<?php echo $empr_nome ?>'>
+                        </div>
+                        <div class="col">
+                            <label>Data Abertura </label>
+                            <input class="form-control form-control-sm" type="text" name="data_abertura" id="data_abertura" value='<?php echo $empr_dt_abertura ?>'>
+                        </div>
+                        <div class="col">
+                            <label>Responsavel </label>
+                            <input class="form-control form-control-sm" type="text" name="responsavel" id="responsavel" value='<?php echo $empr_responsavel ?>'>
+                        </div>
+                    </div>
+                    <label>Objetivo </label>
+                    <input class="form-control form-control-sm" type="text" name="objetivo" id="objetivo" value='<?php echo $empr_objetivo ?>'>
+                    <label>Slogan : </label>
+                    <input class="form-control form-control-sm" type="text" name="slogan" id="slogan" value='<?php echo $empr_slogan ?>'>
+
+                    <fieldset id="fie"><br>
+                        <hr>
+
+                        <h2 class="btn btn-dark btn-sm btn-block">
+                            <legend>Endereço</legend>
+                        </h2>
+                        <div class="form-row">
+                            <div class="col">
+                                <label>Cidade</label>
+                                <input class="form-control form-control-sm" type="text" name="cidade" id="cidade" value='<?php echo $emen_cidade ?>'>
+                            </div>
+                            <div class="col">
+                                <label>Estado: </label> // só sigla
+                                <input class="form-control form-control-sm" type="text" name="estado" id="estado" value='<?php echo $emen_estado ?>'>
+                            </div>
+                            <div class="col">
+                                <label>Pais: // só sigla </label>
+                                <input class="form-control form-control-sm" type="text" name="pais" id="pais" value='<?php echo $emen_pais ?>'>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col">
+                                <label>Bairro  </label>
+                                <input class="form-control form-control-sm" type="text" name="bairro" id="bairro" value='<?php echo $emen_bairro ?>'>
+                            </div>
+                            <div class="col">
+                                <label>Logradouro  </label>
+                                <input class="form-control form-control-sm" type="text" name="logradouro" id="logradouro" value='<?php echo $emen_logradouro ?>'>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col">
+                                <label>Número  </label>
+                                <input class="form-control form-control-sm" type="text" name="numero" id="numero" value='<?php echo $emen_numero ?>'>
+                            </div>
+                            <div class="col">
+                                <label>Complemento  </label>
+                                <input class="form-control form-control-sm" type="text" name="complemento" id="complemento" value='<?php echo $emen_complemento ?>'>
+                            </div>
+                            <div class="col">
+                                <label>CEP  </label>
+                                <input class="form-control form-control-sm" type="text" name="cep" id="cep" value='<?php echo $emen_cep ?>'>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <hr>
+                    <input class="btn btn-success btn-sm btn-block" type="submit" value="Salvar Dados">
+                    <hr>
+                    <a class="btn btn-dark btn-sm btn-block" href="../empreendimentos/home_empreendimento.php"> Voltar</a>
+                </fieldset>
+
+            </form>
         </div>
-        <label>Objetivo </label> 
-        <input class="form-control form-control-sm" type="text" name="objetivo" id="objetivo" value='<?php echo $empr_objetivo ?>'>
-        <label>Slogan : </label> 
-        <input class="form-control form-control-sm" type="text" name="slogan" id="slogan" value='<?php echo $empr_slogan ?>'>
-       
-        <fieldset id="fie"><br><hr>
-        
-        <h2 class="btn btn-dark btn-sm btn-block"><legend>Endereço</legend></h2> 
-        <div class="form-row">
-            <div class="col">
-               <label>Cidade</label> 
-                <input class="form-control form-control-sm" type="text" name="cidade" id="cidade" value='<?php echo $emen_cidade ?>'>
-            </div>
-            <div class="col">
-                <label>Estado: </label> // só sigla
-                <input class="form-control form-control-sm" type="text" name="estado" id="estado" value='<?php echo $emen_estado ?>'>
-            </div>
-            <div class="col">
-                <label>Pais: // só sigla </label> 
-                <input class="form-control form-control-sm"  type="text" name="pais" id="pais" value='<?php echo $emen_pais ?>'>
-            </div>
-        </div>
-         <div class="form-row">
-            <div class="col">
-                <label>Bairro  </label> 
-                <input class="form-control form-control-sm" type="text" name="bairro" id="bairro" value='<?php echo $emen_bairro ?>'>
-             </div>
-             <div class="col">
-                <label>Logradouro  </label> 
-                <input class="form-control form-control-sm" type="text" name="logradouro" id="logradouro" value='<?php echo $emen_logradouro ?>'>
-             </div>
-             </div>
-            <div class="form-row">
-                <div class="col">
-                    <label>Número  </label> 
-                    <input class="form-control form-control-sm" type="text" name="numero" id="numero" value='<?php echo $emen_numero ?>'>
-                </div>
-                <div class="col">
-                    <label>Complemento  </label> 
-                    <input class="form-control form-control-sm" type="text" name="complemento" id="complemento" value='<?php echo $emen_complemento ?>'>
-                </div>
-                <div class="col">
-                    <label>CEP  </label> 
-                    <input class="form-control form-control-sm" type="text" name="cep" id="cep" value='<?php echo $emen_cep ?>'>
-                </div>
-            </div>
-        </fieldset>
-        <hr>
-        <input class="btn btn-success btn-sm btn-block" type="submit" value="Salvar Dados"><hr>
-         <a class="btn btn-dark btn-sm btn-block" href="../empreendimentos/home_empreendimento.php"> Voltar</a>
-    </fieldset>
-    
-</form>
     </div>
-    </div>
-<?php
-    
-include_once "../menu_footer/footer.php" 
-    
-?>    
-    </body>
+
+
+</body>
+<footer>
+
+    <?php 
+    include_once("../../menu_footer/footer.php");     
+    ?>
+
+</footer>
+
+</html>

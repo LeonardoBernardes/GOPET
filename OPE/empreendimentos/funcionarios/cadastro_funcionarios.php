@@ -1,13 +1,8 @@
-
 <?php
-/*
- * @Author: Leonardo.Bernardes 
- * @Date: 2018-08-14 18:49:34 
- * @Last Modified by: Leonardo.Bernardes
- * @Last Modified time: 2018-09-03 00:44:44
- */
-
+include_once("../../menu_footer/menu_empreendimento.php"); 
 ?>
+
+<html>
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -16,11 +11,11 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="../../static/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="../../static/estilo.css">
-    <title>Gopet</title>
+    
+    
 </head>
 
 <body id="formulario_funcionario">
-
 
 <div>
     <div class="container login-form"  >
@@ -45,3 +40,13 @@
 
 
 </body>
+
+<footer>
+
+    <?php 
+    include_once("../../menu_footer/footer.php");     
+    ?>
+
+</footer>
+
+</html>

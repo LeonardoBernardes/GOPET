@@ -6,7 +6,6 @@
  * @Last Modified time: 2018-09-10 21:15:45
  */
 
-include_once("../../menu_footer/menu_empreendimento.php"); 
 include_once(dirname( __FILE__ ) .'\..\..\mysql_conexao\conexao_mysql.php');
 //session_start();
 
@@ -20,8 +19,13 @@ include_once(dirname( __FILE__ ) .'\..\..\mysql_conexao\conexao_mysql.php');
  
 $logado = $_SESSION['login'];
 
+include_once("../../menu_footer/menu_empreendimento.php"); 
  
 ?>
+
+
+<html>
+
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -35,63 +39,73 @@ $logado = $_SESSION['login'];
 
 <body id="formulario_empreendimento">
 
-<div>
-    <div class="container login-empreendimento"  >
-    <form method="post" action="cadastrar_empreendimento.php" id="formlogin" name="formlogin" enctype="multipart/form-data" >
-    <fieldset id="fie">
-        <h2 class="btn btn-dark btn-sm btn-block"><legend>Cadastrar Produto</legend></h2><br>
-<form method="post" action="cadastrar_produtos.php" id="formlogin" name="formlogin" enctype="multipart/form-data">
-    <fieldset id="fie">
-       <div id="cadastro_animal_card" class="card">
-        <label>Imagem : </label> 
-        <img src="" style="width:150px;" alt='Foto de exibição' /><br />
-        <input type="file" name="imagem" id="imagem" > <br/>
+    <div>
+        <div class="container login-empreendimento">
+            <form method="post" action="cadastrar_empreendimento.php" id="formlogin" name="formlogin" enctype="multipart/form-data">
+                <fieldset id="fie">
+                    <h2 class="btn btn-dark btn-sm btn-block">
+                        <legend>Cadastrar Produto</legend>
+                    </h2><br>
+                    <form method="post" action="cadastrar_produtos.php" id="formlogin" name="formlogin" enctype="multipart/form-data">
+                        <fieldset id="fie">
+                            <div id="cadastro_animal_card" class="card">
+                                <label>Imagem : </label>
+                                <img src="" style="width:150px;" alt='Foto de exibição' /><br />
+                                <input type="file" name="imagem" id="imagem"> <br/>
+                            </div>
+                            <hr>
+                            <div class="form-row">
+                                <div class="col">
+                                    <label>Nome  </label>
+                                    <input class="form-control form-control-sm" type="text" name="nome" id="nome"><br/>
+                                </div>
+                                <div class="col">
+                                    <label>Marca  </label>
+                                    <input class="form-control form-control-sm" type="text" name="marca" id="marca"><br/>
+                                </div>
+                                <div class="col">
+                                    <label>Status  </label>
+                                    <select class="form-control form-control-sm" name="status">
+                                        <option value="1">Ativo</option>
+                                        <option value="0" selected>Desativado</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col">
+                                    <label>Valor Total  </label>
+                                    <input class="form-control form-control-sm" type="number" name="valor_total" id="valor_total"><br/>
+                                </div>
+                                <div class="col">
+                                    <label>Possuí Promoção ? </label>
+                                    <select class="form-control form-control-sm" name="promocao">
+                                        <option value="0" selected>Não</option>
+                                        <option value="1">SIM</option>
+                                    </select>
+                                </div>
+                                <div class="col">
+                                    <label>Valor Promoção  </label>
+                                    <input class="form-control form-control-sm" type="text" name="valor_promocao" id="valor_promocao"><br/>
+                                </div>
+                            </div>
+                            <label>Descrição  </label>
+                            <textarea class="form-control form-control-sm" type="text" name="descricao" id="descricao"></textarea><br/>
+                            <hr>
+                        </fieldset>
+                        <input class="btn btn-success btn-sm btn-block" type="submit" value="Cadastrar">
+                        <hr>
+                        <a class="btn btn-dark btn-sm btn-block" href="..\home_empreendimento.php"> Voltar</a></form>
+                </fieldset>
+            </form>
         </div>
-        <hr>
-        <div class="form-row">
-        <div class="col">
-        <label>Nome  </label> 
-        <input class="form-control form-control-sm" type="text" name="nome" id="nome"><br/>
-        </div>
-        <div class="col">
-        <label>Marca  </label> 
-        <input class="form-control form-control-sm" type="text" name="marca" id="marca"><br/>
-        </div>
-        <div class="col">
-        <label>Status  </label> 
-        <select class="form-control form-control-sm" name="status">
-            <option value="1">Ativo</option>
-            <option value="0" selected>Desativado</option>
-        </select>
-        </div>
-        </div>
-        <div class="form-row">
-        <div class="col">
-        <label>Valor Total  </label> 
-        <input class="form-control form-control-sm" type="number" name="valor_total" id="valor_total"><br/>
-        </div>
-        <div class="col">
-        <label>Possuí Promoção ? </label> 
-        <select class="form-control form-control-sm" name="promocao">
-            <option value="0" selected>Não</option>
-            <option value="1">SIM</option>
-        </select>
-        </div>
-        <div class="col">
-        <label>Valor Promoção  </label> 
-        <input class="form-control form-control-sm" type="text" name="valor_promocao" id="valor_promocao"><br/>
-        </div>
-        </div>
-        <label>Descrição  </label> 
-        <textarea class="form-control form-control-sm" type="text" name="descricao" id="descricao"></textarea><br/>
-        <hr>
- </fieldset>
-        <input  class="btn btn-success btn-sm btn-block" type="submit" value="Cadastrar">
-        <hr>
-    <a class="btn btn-dark btn-sm btn-block" href="..\home_empreendimento.php"> Voltar</a></form>
-        </fieldset>
-        </form>
-        </div>
-        </div>
-    </body>
-    <?php include_once "../../menu_footer/footer.php"  ?>
+    </div>
+</body>
+<footer>
+
+    <?php 
+    include_once("../../menu_footer/footer.php");     
+    ?>
+
+</footer>
+
+</html>

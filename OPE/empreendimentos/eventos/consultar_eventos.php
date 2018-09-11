@@ -110,23 +110,24 @@ while ($row = mysqli_fetch_object($result)) {
                 </tr>';
 //echo $results;
 }
- 
+ include_once("../../menu_footer/menu_empreendimento.php"); 
 ?>
 
 <!DOCTYPE html>
 <html>
-     <head>
-        <!-- Required meta tags -->
+
+<head>
+    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="../../static/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="../../static/estilo.css">
-    <title>Gopet</title> 
-       
-        <style>
-            table, th, td {
+    <title>Gopet</title>
+
+    <style>
+        table, th, td {
                 border: 1px solid black;
                 border-collapse: collapse;
             }
@@ -136,20 +137,30 @@ while ($row = mysqli_fetch_object($result)) {
             th {
                 text-align: left;
             }
-        </style>
-    </head>
+    </style>
+</head>
+
 <body>
-<table class="table" style="width:100%">
-    <tr class="thead-dark">
-        <th scope="col">ID</th>    
-        <th scope="col">Nome</th>
-        <th scope="col">Descrição</th>
-        <th scope="col">Data de realização</th>
-        <th scope="col">Status</th>
-        <th scope="col">Editar</th>
-    </tr>
-    <?php echo $results ?>
-</table>
-<a class="btn btn-dark" href="..\home_empreendimento.php"> Voltar</a>
+    <table class="table tabelas" style="width:100%">
+        <tr class="thead-dark">
+            <th scope="col">ID</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Descrição</th>
+            <th scope="col">Data de realização</th>
+            <th scope="col">Status</th>
+            <th scope="col">Editar</th>
+        </tr>
+        <?php echo $results ?>
+    </table>
+    <a class="btn btn-dark" href="..\home_empreendimento.php"> Voltar</a>
 </body>
+
+<footer>
+
+    <?php 
+    include_once("../../menu_footer/footer.php");     
+    ?>
+
+</footer>
+
 </html>

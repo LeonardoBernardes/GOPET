@@ -92,12 +92,13 @@ while ($row = mysqli_fetch_object($result)) {
                 </tr>';
 //echo $results;
 }
- 
+ include_once("../../menu_footer/menu_empreendimento.php"); 
 ?>
 
 <!DOCTYPE html>
 <html>
-    <head>
+
+<head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -106,36 +107,35 @@ while ($row = mysqli_fetch_object($result)) {
     <link rel="stylesheet" href="../../static/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="../../static/estilo.css">
     <title>Gopet</title>
-        <style>
-            table, th, td {
-                border: 1px solid black;
-                border-collapse: collapse;
-            }
-            th, td {
-                padding: 5px;
-            }
-            th {
-                text-align: left;
-            }
-        </style>
-    </head>
+
+</head>
+
 <body>
-<table class="table" style="width:100%">
-   <thead class="thead-dark">
-    <tr>
-        <th scope="col">ID</th>   
-        <th scope="col">imagem</th>  
-        <th scope="col">Nome</th>
-        <th scope="col">Descrição</th>
-        <th scope="col">Valor Total</th> 
-        <th scope="col">Possuí Promoção ?</th>
-        <th scope="col">Valor Promoção</th>
-        <th scope="col">Status</th>
-        <th scope="col">Editar</th>
-    </tr>
-    </thead>
-    <?php echo $results ?>
-</table>
-<a class="btn btn-dark" href="..\home_empreendimento.php"> Voltar</a>
+    <table class="table tabelas" style="width:100%">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">imagem</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Descrição</th>
+                <th scope="col">Valor Total</th>
+                <th scope="col">Possuí Promoção ?</th>
+                <th scope="col">Valor Promoção</th>
+                <th scope="col">Status</th>
+                <th scope="col">Editar</th>
+            </tr>
+        </thead>
+        <?php echo $results ?>
+    </table>
+    <a class="btn btn-dark" href="..\home_empreendimento.php"> Voltar</a>
 </body>
+
+<footer>
+
+    <?php 
+    include_once("../../menu_footer/footer.php");     
+    ?>
+
+</footer>
+
 </html>

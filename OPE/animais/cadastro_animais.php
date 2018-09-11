@@ -168,7 +168,7 @@ include_once("../menu_footer/menu_empreendimento.php");
 <footer>
 
     <?php 
-    include_once("../../menu_footer/footer.php");     
+    include_once("../menu_footer/footer.php");     
     ?>
 
 </footer>

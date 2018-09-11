@@ -211,7 +211,7 @@ if(!empty($row2)){
 <footer>
 
     <?php 
-    include_once("../../menu_footer/footer.php");     
+    include_once("../menu_footer/footer.php");     
     ?>
 
 </footer>

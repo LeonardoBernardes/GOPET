@@ -188,7 +188,7 @@ elseif($grup_id == 4 ||$grup_id == 2){
 <footer>
 
     <?php 
-    include_once("../../menu_footer/footer.php");     
+    include_once("../menu_footer/footer.php");     
     ?>
 
 </footer>

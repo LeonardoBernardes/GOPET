@@ -3,7 +3,7 @@
  * @Author: Leonardo.Bernardes 
  * @Date: 2018-09-04 19:14:28 
  * @Last Modified by: Leonardo.Bernardes
- * @Last Modified time: 2018-09-11 01:49:22
+ * @Last Modified time: 2018-09-11 19:31:25
  */
     include_once(dirname( __FILE__ ) .'\..\mysql_conexao\conexao_mysql.php');
     session_start();
@@ -19,7 +19,7 @@
     $logado = $_SESSION['login'];
     $logi_id = $_SESSION['logi_id'];
     $grup_id = $_SESSION['grup_id'];
-    $status = '';
+    $castracao = '';
     $results = "";
     
     
@@ -103,18 +103,20 @@ elseif($grup_id == 4 ||$grup_id == 2){
     //break;
     $result =  mysqli_query($conn, $sql);
     while ($row = mysqli_fetch_object($result)) {
-        /*
-        if($row->prod_status == 0){
-            $status = "DESATIVADO";
+        
+        if($row->anim_castracao == 0){
+            $castracao = "Não";
         }else{
-            $status = "ATIVADO";
-        }*/
+            $castracao = "Sim";
+        }
+
         $sql3=" SELECT 
+                    anim_id,
                     anfo_endereco
                 FROM 
-                    animais_imagens 
+                    animais_fotos 
                 WHERE 
-                    anim_id = $id_animal->anim_id";
+                    anim_id in ($ids)";
         //echo $sql3;
 
         $result4 =  mysqli_query($conn, $sql3);
@@ -123,11 +125,12 @@ elseif($grup_id == 4 ||$grup_id == 2){
     
         $endereco_img = '';
         if(!empty($row5)){
+
             $endereco_img = $row5->anfo_endereco;
         }
         if(!empty($endereco_img)){
         //Criar Funcao para trazer local host como variavel
-        $endereco_img = str_replace('\\', '/',"http://localhost/".'PHP/GOPET/OPE/empreendimentos/produtos/'.$endereco_img);
+        $endereco_img = str_replace('\\', '/',"http://localhost/".'PHP/GOPET/OPE/animais/'.$endereco_img);
         }
         
     

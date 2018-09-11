@@ -3,9 +3,9 @@
  * @Author: Leonardo.Bernardes 
  * @Date: 2018-09-04 19:14:28 
  * @Last Modified by: Leonardo.Bernardes
- * @Last Modified time: 2018-09-10 22:26:22
+ * @Last Modified time: 2018-09-11 01:49:22
  */
-    include_once(dirname( __FILE__ ) .'\..\..\mysql_conexao\conexao_mysql.php');
+    include_once(dirname( __FILE__ ) .'\..\mysql_conexao\conexao_mysql.php');
     session_start();
     
         if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true))
@@ -69,11 +69,12 @@ elseif($grup_id == 4 ||$grup_id == 2){
 
     $sql3 ="SELECT
                 anim_id,
-                usan_flag
+                eman_flag
             FROM
                 empreendimentos_x_animais 
             WHERE
                 empr_id = $id_empreendimento->empr_id";
+    //echo $sql3;
     $result = mysqli_query($conn, $sql3);
     while($row = mysqli_fetch_object($result)){
 
@@ -122,7 +123,7 @@ elseif($grup_id == 4 ||$grup_id == 2){
     
         $endereco_img = '';
         if(!empty($row5)){
-            $endereco_img = $row5->prim_endereco;
+            $endereco_img = $row5->anfo_endereco;
         }
         if(!empty($endereco_img)){
         //Criar Funcao para trazer local host como variavel
@@ -132,17 +133,19 @@ elseif($grup_id == 4 ||$grup_id == 2){
     
         $results .='<tr>
                         
-                        <td>'.$row->prod_id.'</td>
+                        <td>'.$row->anim_id.'</td>
                         <td><img src="'.$endereco_img.'"/></td>
                         <td>'.$row->anim_nome.'</td>
-                        <td>'.$row->prod_marca.'</td>
-                        <td>'.$row->prod_descricao.'</td>
-                        <td>'.$row->prod_valor_total.'</td>
-                        <td>'.$row->prod_promocao.'</td>
-                        <td>'.$row->prod_valor_promocao.'</td>
-                        <td>'.$status.'</td>
+                        <td>'.$row->anim_ra.'</td>
+                        <td>'.$row->anim_idade.'</td>
+                        <td>'.$row->anim_porte.'</td>
+                        <td>'.$row->anim_genero.'</td>
+                        <td>'.$row->anim_categoria.'</td>
+                        <td>'.$row->anim_restricao_doacao.'</td>
+                        <td>'.$row->anim_castracao.'</td>
+                       
                         
-                        <td><a href="..\produtos\atualizar_produtos.php?id='.$row->prod_id.'"> Editar</a></td>
+                        <td><a href="..\atualizar_animais.php?id='.$row->anim_id.'"> Editar</a></td>
                     </tr>';
     //echo $results;
     }
@@ -171,12 +174,13 @@ elseif($grup_id == 4 ||$grup_id == 2){
                 <th scope="col">ID</th>
                 <th scope="col">imagem</th>
                 <th scope="col">Nome</th>
-                <th scope="col">Marca</th>
-                <th scope="col">Descrição</th>
-                <th scope="col">Valor Total</th>
-                <th scope="col">Possuí Promoção ?</th>
-                <th scope="col">Valor Promoção</th>
-                <th scope="col">Status</th>
+                <th scope="col">RA</th>
+                <th scope="col">Idade</th>
+                <th scope="col">Porte</th>
+                <th scope="col">Genero</th>
+                <th scope="col">Categoria</th>
+                <th scope="col">Restrição de adoção</th>
+                <th scope="col">Castração</th>
                 <th scope="col">Editar</th>
             </tr>
         </thead>

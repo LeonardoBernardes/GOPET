@@ -3,7 +3,7 @@
  * @Author: Leonardo.Bernardes 
  * @Date: 2018-09-04 19:14:28 
  * @Last Modified by: Leonardo.Bernardes
- * @Last Modified time: 2018-09-10 20:43:28
+ * @Last Modified time: 2018-09-10 22:26:22
  */
     include_once(dirname( __FILE__ ) .'\..\..\mysql_conexao\conexao_mysql.php');
     session_start();
@@ -23,6 +23,38 @@
     $results = "";
     
     
+if($grup_id == 3){
+
+    //Recuperar id do usuario que quer cadastrar animal
+    $sql2 = "SELECT
+                usua_id
+            FROM
+                login_x_usuarios
+            WHERE
+                logi_id  = $logi_id   
+            ";
+    $result = mysqli_query($conn, $sql2);
+    $id_usuario = mysqli_fetch_object($result);
+
+    $sql3 = "SELECT
+                anim_id,
+                usan_flag
+            FROM
+                usuarios_x_animais 
+            WHERE
+                usua_id = $id_usuario->usua_id";
+    $result = mysqli_query($conn, $sql3);
+    while($row = mysqli_fetch_object($result)){
+
+        if(!isset($ids)){
+            $ids = $row->anim_id;
+        }
+        $ids = $ids.",".$row->anim_id;
+    }
+                        
+}
+    //Verificação do grupo de empreendimento
+elseif($grup_id == 4 ||$grup_id == 2){
     
     //Pega o id do empreendimento que esse usuário está atrelado
     $sql2 = "SELECT
@@ -33,8 +65,24 @@
                 logi_id  = $logi_id   
         ";
     $result = mysqli_query($conn, $sql2);
-    $row2 = mysqli_fetch_object($result);
-    
+    $id_empreendimento = mysqli_fetch_object($result);
+
+    $sql3 ="SELECT
+                anim_id,
+                usan_flag
+            FROM
+                empreendimentos_x_animais 
+            WHERE
+                empr_id = $id_empreendimento->empr_id";
+    $result = mysqli_query($conn, $sql3);
+    while($row = mysqli_fetch_object($result)){
+
+        if(!isset($ids)){
+            $ids = $row->anim_id;
+        }
+        $ids = $ids.",".$row->anim_id;
+    }
+}  
     $sql="  SELECT 
                 anim_id,
                 anim_nome,
@@ -48,7 +96,7 @@
             FROM 
                 `animais` 
             WHERE 
-                `empr_id` = '$row2->empr_id' 
+                `anim_id` in ($ids)
             ";
     //echo $sql;
     //break;
@@ -60,15 +108,14 @@
         }else{
             $status = "ATIVADO";
         }*/
-    
         $sql3=" SELECT 
                     anfo_endereco
                 FROM 
-                    produtos_imagens 
+                    animais_imagens 
                 WHERE 
-                    empr_id = $row2->empr_id
-                    AND prod_id = $row->prod_id";
+                    anim_id = $id_animal->anim_id";
         //echo $sql3;
+
         $result4 =  mysqli_query($conn, $sql3);
         $row5 = mysqli_fetch_object($result4);
     

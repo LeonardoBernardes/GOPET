@@ -70,3 +70,6 @@ $logado = $_SESSION['login'];
     </div>
 </div>
 
+    <script src="../static/jquery.js"></script>
+    <script src="../static/bootstrap/js/bootstrap.js"></script>
+

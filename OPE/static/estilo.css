@@ -2,7 +2,7 @@
     min-height: 100vh;
 }
 .home{
-    background-image: url("../static/imagens/zoio.jpg");
+    background-image: url("../static/imagens/desfoque.jpg");
     background-position: top;
     background-size: cover;
 }
@@ -14,6 +14,14 @@
 .nav_bar_empreendimento{
     position: absolute;
     top: 15%;   
+}
+
+.logo_index{
+    margin-top: 14%;
+    margin-left: 42%;
+}
+.frase_index{
+    margin-left: 27%;
 }
 
 .logo{

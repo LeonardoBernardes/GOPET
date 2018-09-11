@@ -15,19 +15,15 @@ include_once "menu_footer/menu_principal.php"
     
 ?>
 
-<body class="one_page home">
+<body >
   
 
     
      <!-- MEIO -->
-<div>
-    <div class="card_titulo p-4">
-        <h1>GOPET</h1>
-    </div>
+<div class="one_page home">
+    <h1><img class="logo_index" src="static/imagens/icon_preto.png" alt="" /></h1>
+    <h2 class="frase_index">Sistema que conecta pessoas e animais</h2>
 </div>
-<div class="one_page projeto">
-
-</div> 
 
  
 

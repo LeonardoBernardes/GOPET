@@ -49,7 +49,7 @@ session_start();
 
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" aria-orientation="vertical">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <a class="navbar-brand logo" href="#"><img src="http://localhost/PHP/GOPET/OPE/static/imagens/gopet.png" alt="gopet"></a>
         <!-- quando a tela ficar menor irá aparecer um botão -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -125,7 +125,38 @@ session_start();
                 </li>
             </ul>
         </div>
+        
     </nav>
+    <nav class="navbar navbar-light bg-light nav_bar_empreendimento">
+
+  <!-- Links -->
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item">
+        <a class="nav-link" href="#">Dados</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#">Meus Animais</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#">Produtos</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#">Serviços</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#">Eventos</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#">Minhas Doações</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#">Favoritos</a>
+    </li>
+  </ul>
+
+</nav>     
+
+
 
     <!-- Optional JavaScript -->
     <script src="static/jquery.js"></script>

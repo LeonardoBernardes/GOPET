@@ -11,6 +11,10 @@
     background-position: top;
     background-size: cover;    
 }
+.nav_bar_empreendimento{
+    position: absolute;
+    top: 15%;   
+}
 
 .logo{
     width: 15%;
@@ -88,4 +92,5 @@ th, td {
 th {
     text-align: left;
 }
+
 

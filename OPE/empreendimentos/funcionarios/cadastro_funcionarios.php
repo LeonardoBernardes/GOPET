@@ -16,9 +16,13 @@ include_once("../../menu_footer/menu_empreendimento.php");
 </head>
 
 <body id="formulario_funcionario">
-
+<?php
+    
+include_once "../../menu_footer/menu_latera_empreendimento.php" 
+    
+?>
 <div>
-   
+<div class="main">
     <div class="container login-form"  >
         <h2 class="alert alert-warning" ><legend>Cadastrar Funcionário</legend></h2>
         <form method="post" action="cadastrar_funcionarios.php" id="formlogin" name="formlogin" >
@@ -37,6 +41,7 @@ include_once("../../menu_footer/menu_empreendimento.php");
             </fieldset>
         </form>
     </div>
+</div>
 </div>
 
 

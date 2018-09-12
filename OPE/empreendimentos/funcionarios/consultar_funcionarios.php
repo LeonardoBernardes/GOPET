@@ -125,6 +125,12 @@ include_once("../../menu_footer/menu_empreendimento.php");
 </head>
 
 <body>
+<?php
+    
+include_once "../../menu_footer/menu_latera_empreendimento.php" 
+    
+?>
+    <div class="main">
     <table class="table tabelas" style="width:100%">
         <thead class="thead-dark">
             <tr>
@@ -140,6 +146,7 @@ include_once("../../menu_footer/menu_empreendimento.php");
         </thead>
         <?php echo $results ?>
     </table>
+    </div>
     <a class="btn btn-dark" href="..\home_empreendimento.php"> Voltar</a>
 </body>
 

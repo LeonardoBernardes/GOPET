@@ -119,7 +119,8 @@ session_start();
                 <?php 
                 }
             } ?>
-
+            </ul>
+            <ul class="navbar-nav justify-content-end">
                 <li class="nav-item active">
                     <a class="nav-link" href="..\logaut.php">Logaut</a>
                 </li>
@@ -155,6 +156,7 @@ session_start();
   </ul>
 
 </nav>   
+
   
 
 

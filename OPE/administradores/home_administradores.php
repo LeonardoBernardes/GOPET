@@ -55,11 +55,12 @@ $logado = $_SESSION['login'];
             <li class="nav-item active">
                 <a class="nav-link" href="..\animais\consultar_animais.php">Consultar Animais</a>
             </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="..\logaut.php">SAIR</a>
-            </li>
-     
             </ul>
+            <ul class="navbar-nav justify-content-end">    
+            <li class="nav-item active">
+                <a class="nav-link" href="..\logaut.php">Logaut</a>
+            </li>
+            </ul>  
         </div>
 </nav>
 

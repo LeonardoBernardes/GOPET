@@ -44,7 +44,7 @@ body {
 }
 
 .sidenav a {
-    padding: 30px 8px 30px 16px;
+    padding: 10px 8px 30px 16px;
     text-decoration: none;
     color: #2196F3;
     display: block;
@@ -77,12 +77,16 @@ body {
 </style>
 
 </head>
-<body>
 
+<body>
+<?php 
+if ($_SESSION['grup_id'] == 4){
+    
+echo '
 <nav class="sidenav navbar navbar-light bg-light nav_bar_empreendimento">
 <ul class="navbar-nav mr-auto">
 <li class="nav-item">
-        <a class="nav-link" href="#">Dados</a>
+    <a class="nav-link" href="#">Dados</a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="#">Meus Animais</a>
@@ -104,6 +108,8 @@ body {
     </li>
 </ul>
 </nav>
+';}    
+?>
 
    
 

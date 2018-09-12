@@ -21,7 +21,7 @@ $logado = $_SESSION['login'];
 $grup_id = $_SESSION['grup_id'];
 $logi_id = $_SESSION['logi_id'];
 
-include_once("../menu_footer/menu_empreendimento.php"); 
+
  
 ?>
 <html>
@@ -37,6 +37,16 @@ include_once("../menu_footer/menu_empreendimento.php");
 </head>
 
 <body id="formulario_empreendimento">
+<?php
+if ($_SESSION['grup_id'] == 4){
+include_once("../menu_footer/menu_empreendimento.php"); 
+include_once "../menu_footer/menu_latera_empreendimento.php";
+}
+    
+
+    
+?>
+    <div class="main">
 
         <div class="container login-empreendimento">
             <form method="post" action="cadastrar_animais.php" id="formlogin" name="formlogin" enctype="multipart/form-data">
@@ -164,11 +174,13 @@ include_once("../menu_footer/menu_empreendimento.php");
                     </form>
             </form>
         </div>
+    </div>
 </body>
 <footer>
 
     <?php 
-    include_once("../menu_footer/footer.php");     
+    include_once("../menu_footer/footer.php");    
+    
     ?>
 
 </footer>

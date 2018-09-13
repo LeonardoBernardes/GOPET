@@ -3,10 +3,11 @@
  * @Author: Leonardo.Bernardes 
  * @Date: 2018-09-04 19:14:28 
  * @Last Modified by: Leonardo.Bernardes
- * @Last Modified time: 2018-09-09 23:57:06
+ * @Last Modified time: 2018-09-12 00:13:41
  */
 
 include_once(dirname( __FILE__ ) .'\..\mysql_conexao\conexao_mysql.php');
+
 session_start();
     if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true))
     {

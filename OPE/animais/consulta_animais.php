@@ -3,7 +3,7 @@
  * @Author: Leonardo.Bernardes 
  * @Date: 2018-09-04 19:14:28 
  * @Last Modified by: Leonardo.Bernardes
- * @Last Modified time: 2018-09-11 19:31:25
+ * @Last Modified time: 2018-09-12 00:19:15
  */
     include_once(dirname( __FILE__ ) .'\..\mysql_conexao\conexao_mysql.php');
     session_start();
@@ -106,8 +106,10 @@ elseif($grup_id == 4 ||$grup_id == 2){
         
         if($row->anim_castracao == 0){
             $castracao = "Não";
-        }else{
+        }elseif($row->anim_castracao == 1){
             $castracao = "Sim";
+        }else{
+            $castracao = "Não indentificado";
         }
 
         $sql3=" SELECT 
@@ -145,7 +147,7 @@ elseif($grup_id == 4 ||$grup_id == 2){
                         <td>'.$row->anim_genero.'</td>
                         <td>'.$row->anim_categoria.'</td>
                         <td>'.$row->anim_restricao_doacao.'</td>
-                        <td>'.$row->anim_castracao.'</td>
+                        <td>'.$castracao.'</td>
                        
                         
                         <td><a href="..\atualizar_animais.php?id='.$row->anim_id.'"> Editar</a></td>

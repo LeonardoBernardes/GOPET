@@ -14,13 +14,18 @@ include_once "../menu_footer/menu_empreendimento.php"
 
 ?>
    
-<body class="one_page home_empreendimento">
+<body>
 
 
     
             
 <!-- MEIO -->
-
+<?php
+    
+include_once "../menu_footer/menu_latera_empreendimento.php" 
+    
+?>
+<div class="main">
 <div class="one_page home_empreendimento">
 
 
@@ -28,6 +33,7 @@ include_once "../menu_footer/menu_empreendimento.php"
  
         
     </div>
+</div>
 </div>
 
     

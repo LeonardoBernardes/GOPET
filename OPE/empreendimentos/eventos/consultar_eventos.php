@@ -141,6 +141,12 @@ while ($row = mysqli_fetch_object($result)) {
 </head>
 
 <body>
+<?php
+    
+include_once "../../menu_footer/menu_latera_empreendimento.php" 
+    
+?>
+    <div class="main">
     <table class="table tabelas" style="width:100%">
         <tr class="thead-dark">
             <th scope="col">ID</th>
@@ -153,6 +159,7 @@ while ($row = mysqli_fetch_object($result)) {
         <?php echo $results ?>
     </table>
     <a class="btn btn-dark" href="..\home_empreendimento.php"> Voltar</a>
+    </div>
 </body>
 
 <footer>

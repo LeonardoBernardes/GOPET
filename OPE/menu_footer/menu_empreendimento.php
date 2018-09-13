@@ -50,7 +50,7 @@ session_start();
 <body>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-        <a class="navbar-brand logo" href="#"><img src="http://localhost/PHP/GOPET/OPE/static/imagens/gopet.png" alt="gopet"></a>
+        <a class="navbar-brand logo" href="#"><img src="../static/imagens/gopet.png" alt="gopet"></a>
         <!-- quando a tela ficar menor irá aparecer um botão -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -119,7 +119,8 @@ session_start();
                 <?php 
                 }
             } ?>
-
+            </ul>
+            <ul class="navbar-nav justify-content-end">
                 <li class="nav-item active">
                     <a class="nav-link" href="..\logaut.php">Logaut</a>
                 </li>
@@ -127,9 +128,9 @@ session_start();
         </div>
         
     </nav>
-    <nav class="navbar navbar-light bg-light nav_bar_empreendimento">
 
-  <!-- Links -->
+    <!-- Links 
+    <nav class="navbar navbar-light bg-light nav_bar_empreendimento">
   <ul class="navbar-nav mr-auto">
     <li class="nav-item">
         <a class="nav-link" href="#">Dados</a>
@@ -154,7 +155,8 @@ session_start();
     </li>
   </ul>
 
-</nav>   
+</nav>  --> 
+
   
 
 

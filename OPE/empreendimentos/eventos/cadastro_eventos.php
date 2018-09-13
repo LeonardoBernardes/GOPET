@@ -37,8 +37,12 @@ include_once("../../menu_footer/menu_empreendimento.php");
 </head>
 
 <body id="formulario_empreendimento">
-
-    <div>
+<?php
+    
+include_once "../../menu_footer/menu_latera_empreendimento.php" 
+    
+?>
+    <div class="main">
         <div class="container login-empreendimento">
             <form method="post" action="cadastrar_empreendimento.php" id="formlogin" name="formlogin" enctype="multipart/form-data">
                 <fieldset id="fie">

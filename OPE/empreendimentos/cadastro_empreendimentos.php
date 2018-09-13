@@ -112,9 +112,13 @@ if(!empty($row2)){
 </head>
 
 <body id="formulario_empreendimento">
+<?php
+    
+include_once "../menu_footer/menu_latera_empreendimento.php" 
+    
+?>
 
-
-    <div>
+    <div class="main">
         <div class="container login-empreendimento">
             <form method="post" action="cadastrar_empreendimento.php" id="formlogin" name="formlogin" enctype="multipart/form-data">
                 <fieldset id="fie">

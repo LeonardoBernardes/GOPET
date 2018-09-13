@@ -172,7 +172,12 @@ elseif($grup_id == 4 ||$grup_id == 2){
 </head>
 
 <body>
-
+<?php
+    
+include_once "../menu_footer/menu_latera_empreendimento.php" 
+    
+?>
+    <div class="main">
     <table class="table tabelas" style="width:100%">
         <thead class="thead-dark">
             <tr>
@@ -192,6 +197,7 @@ elseif($grup_id == 4 ||$grup_id == 2){
         <?php echo $results ?>
     </table>
     <a class="btn btn-dark" href="..\home_empreendimento.php"> Voltar</a>
+    </div>
 </body>
 
 <footer>

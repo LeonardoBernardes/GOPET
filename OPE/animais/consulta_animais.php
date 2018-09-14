@@ -3,7 +3,7 @@
  * @Author: Leonardo.Bernardes 
  * @Date: 2018-09-04 19:14:28 
  * @Last Modified by: Leonardo.Bernardes
- * @Last Modified time: 2018-09-14 00:22:09
+ * @Last Modified time: 2018-09-14 01:54:17
  */
     include_once(dirname( __FILE__ ) .'\..\mysql_conexao\conexao_mysql.php');
     
@@ -181,7 +181,10 @@ include_once "../menu_footer/menu_latera_empreendimento.php"
     
 ?>
     <div class="main">
-    <a class="btn btn-success" style="margin-top:10%;" href="http://localhost/PHP/GOPET/OPE/animais/cadastro_animais.php">Cadastrar Animais</a>
+    <h2 style="margin-top:10%;">
+        <legend><b>Meus Animais</b></legend>
+    </h2><br>
+    <a class="btn btn-success" href="http://localhost/PHP/GOPET/OPE/animais/cadastro_animais.php">Cadastrar Animais</a>
     <table class="table tabelas" style="width:100%">
         <thead class="thead-dark">
             <tr>
@@ -200,7 +203,7 @@ include_once "../menu_footer/menu_latera_empreendimento.php"
         </thead>
         <?php echo $results ?>
     </table>
-    <a class="btn btn-dark" href="..\home_empreendimento.php"> Voltar</a>
+        <a class="btn btn-dark" href="..\empreendimentos\home_empreendimento.php"> Voltar</a>
     </div>
 </body>
 

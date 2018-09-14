@@ -3,7 +3,7 @@
  * @Author: Leonardo.Bernardes 
  * @Date: 2018-08-15 01:26:47 
  * @Last Modified by: Leonardo.Bernardes
- * @Last Modified time: 2018-08-30 19:43:57
+ * @Last Modified time: 2018-09-14 01:53:43
  */
 include_once(dirname( __FILE__ ) .'\..\..\mysql_conexao\conexao_mysql.php');
 session_start();
@@ -80,7 +80,7 @@ while ($row = mysqli_fetch_object($result)) {
 
     $results .='<tr>
                     <td>'.$row->serv_id.'</td>
-                    <td><img src="'.$endereco_img.'"/></td>
+                    <td><img src="'.$endereco_img.'" style="width:100%;"/></td>
                     <td>'.$row->serv_nome.'</td>
                     <td>'.$row->serv_descricao.'</td>
                     <td>'.$row->serv_valor_total.'</td>
@@ -118,11 +118,15 @@ include_once "../../menu_footer/menu_latera_empreendimento.php"
     
 ?>
     <div  class="main">
+    <h2 style="margin-top:10%;">
+        <legend><b>Meus Funcionários</b></legend>
+    </h2><br>
+    <a class="btn btn-success"  href="http://localhost/PHP/GOPET/OPE/empreendimentos/servicos/cadastro_servicos.php">Cadastrar Serviços</a>
     <table class="table tabelas" style="width:100%">
         <thead class="thead-dark">
             <tr>
                 <th scope="col">ID</th>
-                <th scope="col">imagem</th>
+                <th scope="col" style="width:100%">imagem</th>
                 <th scope="col">Nome</th>
                 <th scope="col">Descrição</th>
                 <th scope="col">Valor Total</th>

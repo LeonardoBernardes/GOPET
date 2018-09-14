@@ -3,7 +3,7 @@
  * @Author: Leonardo.Bernardes 
  * @Date: 2018-08-15 01:26:47 
  * @Last Modified by: Leonardo.Bernardes
- * @Last Modified time: 2018-09-13 20:20:52
+ * @Last Modified time: 2018-09-14 01:52:18
  */
 include_once(dirname( __FILE__ ) .'\..\..\mysql_conexao\conexao_mysql.php');
 session_start();
@@ -131,7 +131,10 @@ include_once "../../menu_footer/menu_latera_empreendimento.php"
     
 ?>
     <div class="main">
-    <a class="btn btn-success" href="http://localhost/PHP/GOPET/OPE/empreendimentos/funcionarios/cadastro_funcionarios.php">Cadastrar funcionários</a>
+    <h2 style="margin-top:10%;">
+        <legend><b>Meus Funcionários</b></legend>
+    </h2><br>
+    <a class="btn btn-success"  href="http://localhost/PHP/GOPET/OPE/empreendimentos/funcionarios/cadastro_funcionarios.php">Cadastrar funcionários</a>
     <table class="table tabelas" style="width:100%">
         <thead class="thead-dark">
             <tr>
@@ -147,8 +150,9 @@ include_once "../../menu_footer/menu_latera_empreendimento.php"
         </thead>
         <?php echo $results ?>
     </table>
-    </div>
     <a class="btn btn-dark" href="..\home_empreendimento.php"> Voltar</a>
+    </div>
+    
 </body>
 
 <footer>

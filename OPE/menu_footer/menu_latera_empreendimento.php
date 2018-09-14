@@ -80,42 +80,70 @@ body {
 
 <body>
 <?php 
-
+$menu = '';
 
 if ($_SESSION['grup_id'] == 4){
-    
-echo '
-<nav class="sidenav navbar navbar-light bg-light nav_bar_empreendimento">
-<ul class="navbar-nav mr-auto">
-<li class="nav-item">
-    <a class="nav-link" href="http://localhost/PHP/GOPET/OPE/empreendimentos/cadastro_empreendimentos.php">Dados</a>
-    </li>
 
-    <li class="nav-item">
-        <a class="nav-link" href="http://localhost/PHP/GOPET/OPE/empreendimentos/funcionarios/consultar_funcionarios.php">Meus Funcionários</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="http://localhost/PHP/GOPET/OPE/animais/consulta_animais.php">Meus Animais</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="http://localhost/PHP/GOPET/OPE/empreendimentos/produtos/consultar_produtos.php">Produtos</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#">Serviços</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#">Eventos</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#">Minhas Doações</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#">Favoritos</a>
-    </li>
+    $menu .='   <li class="nav-item">
+                    <a class="nav-link" href="http://localhost/PHP/GOPET/OPE/empreendimentos/cadastro_empreendimentos.php">Meus Dados</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="http://localhost/PHP/GOPET/OPE/empreendimentos/funcionarios/consultar_funcionarios.php">Meus Funcionários</a>
+                </li>
+            ';
+    
+}              
+    if($_SESSION['logi_status'] == 1){ 
+
+        $sql = "SELECT
+                    empr_id
+                FROM
+                    login_x_empreendimentos
+                WHERE
+                    logi_id  = $logi_id   
+            ";
+
+        $result = mysqli_query($conn, $sql);
+        $row2 = mysqli_fetch_object($result);
+
+        if(!empty($row2)){
+
+            $menu .='   <li class="nav-item">
+                            <a class="nav-link" href="http://localhost/PHP/GOPET/OPE/animais/consulta_animais.php">Meus Animais</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="http://localhost/PHP/GOPET/OPE/empreendimentos/produtos/consultar_produtos.php">Meus Produtos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="http://localhost/PHP/GOPET/OPE/empreendimentos/servicos/consultar_servicos.php">Meus Serviços</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="http://localhost/PHP/GOPET/OPE/empreendimentos/eventos/consultar_eventos.php">Meus Eventos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Minhas Doações</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Favoritos</a>
+                        </li>
+            ';
+
+        }
+    }
+
+
+            
+?>
+
+
+
+<nav class="sidenav navbar navbar-light bg-light nav_bar_empreendimento">
+<ul class="navbar-nav mr-auto" style="margin-left:10px;">
+
+    <?php echo $menu ?>
 </ul>
 </nav>
-';}    
-?>
 
    
 

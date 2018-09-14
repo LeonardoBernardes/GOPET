@@ -4,7 +4,7 @@
  * @Author: Leonardo.Bernardes 
  * @Date: 2018-09-10 20:52:14 
  * @Last Modified by: Leonardo.Bernardes
- * @Last Modified time: 2018-09-14 00:23:04
+ * @Last Modified time: 2018-09-14 01:46:40
  */
 include_once(dirname( __FILE__ ) .'\..\mysql_conexao\conexao_mysql.php');
 if(!isset($_SESSION)) 
@@ -30,7 +30,7 @@ if(!isset($_SESSION))
 
     <!-- Icone da Pagina & Titulo -->
     <link rel="icon" href="../static/imagens/icon_preto.png">
-    <title>GoPet</title>
+    <title>GOPET</title>
 
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -59,109 +59,40 @@ if(!isset($_SESSION))
         <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
 
-                <?php   if($_SESSION['grup_id'] == 4){ ?>
-                <!--li class="nav-item">
-                    <a class="nav-link" href="http://localhost/PHP/GOPET/OPE/empreendimentos/cadastro_empreendimentos.php">Dados</a>
-                </li-->
-                <!--li class="nav-item">
-                    <a class="nav-link" href="http://localhost/PHP/GOPET/OPE/empreendimentos/funcionarios/cadastro_funcionarios.php">Cadastrar funcionários</a>
+            <button class="btn btn-dark dropdown-toggle" style="margin-left:20px;" type="button" id="menu1" data-toggle="dropdown">Buscar Animais
+            <span class="caret"></span></button>
+            </button>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                <li class="dropdown-item">
+                    <a class="nav-link" tabindex="-1" href="http://localhost/PHP/GOPET/OPE/animais/buscar_animais_geo.php">Exibir no Mapa</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="http://localhost/PHP/GOPET/OPE/empreendimentos/funcionarios/consultar_funcionarios.php">Consultar funcionários</a>
-                </li-->
-                <?php   } 
-                
-                if($_SESSION['logi_status'] == 1){ 
+                <li class="dropdown-item">
+                    <a class="nav-link" tabindex="-1" href="#">Exibir em Lista</a>
+                </li>
+            </ul>
 
-                    $sql = "SELECT
-                                empr_id
-                            FROM
-                                login_x_empreendimentos
-                            WHERE
-                                logi_id  = $logi_id   
-                        ";
+            <button class="btn btn-dark dropdown-toggle" style="margin-left:20px;" type="button" id="menu2" data-toggle="dropdown">Buscar Empreendimentos
+            <span class="caret"></span></button>
+            </button>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="menu2">
+                <li class="dropdown-item">
+                    <a class="nav-link" tabindex="-1" href="http://localhost/PHP/GOPET/OPE/animais/buscar_animais_geo.php">Exibir no Mapa</a>
+                </li>
+                <li class="dropdown-item">
+                    <a class="nav-link" tabindex="-1" href="#">Exibir em Lista</a>
+                </li>
+            </ul>
 
-                    $result = mysqli_query($conn, $sql);
-                    $row2 = mysqli_fetch_object($result);
-
-                    if(!empty($row2)){
             
-                        
-            ?>
-                <li class="nav-item">
-                    <a class="nav-link" href="http://localhost/PHP/GOPET/OPE/empreendimentos/produtos/cadastro_produtos.php">Cadastrar Produtos</a>
-                </li>
-                <li class="nav-item">
-                    <!-- Só exibir se tiver um cadastro ativo (Farei depois) -->
-                    <a class="nav-link" href="http://localhost/PHP/GOPET/OPE\empreendimentos/produtos/consultar_produtos.php">Consultar Produtos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="http://localhost/PHP/GOPET/OPE/empreendimentos/servicos/cadastro_servicos.php">Cadastrar Serviços</a>
-                    <!-- Só exibir se tiver um cadastro ativo (Farei depois) -->
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="http://localhost/PHP/GOPET/OPE/empreendimentos/servicos/consultar_servicos.php">Consultar Serviços</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="http://localhost/PHP/GOPET/OPE/empreendimentos/eventos/cadastro_eventos.php">Cadastrar Eventos</a>
-                </li>
-                <li class="nav-item">
-                    <!-- Só exibir se tiver um cadastro ativo (Farei depois) -->
-                    <a class="nav-link" href="http://localhost/PHP/GOPET/OPE/empreendimentos/eventos/consultar_eventos.php">Consultar Eventos</a>
-                </li>
-                <!--li class="nav-item">
-                    <a class="nav-link" href="http://localhost/PHP/GOPET/OPE/animais/cadastro_animais.php">Cadastrar Animais</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="http://localhost/PHP/GOPET/OPE/animais/consulta_animais.php">Meus Animais</a>
-                </li-->
-
-
-                <?php 
-                }
-            } ?>
-            </ul>
-            <ul class="navbar-nav justify-content-end">
-                <li class="nav-item active">
-                    <a class="nav-link" href="..\logaut.php">Sair</a>
-                </li>
-            </ul>
+            
         </div>
-        
+        <ul class="navbar-nav justify-content-end">
+                <li class="nav-item active">
+                    <a class="btn" href="..\..\logaut.php" ><img src="http://localhost/PHP/GOPET/OPE/static/icones/sair.png" style="width:30px;" alt="gopet"/></a>
+                </li>
+            </ul>
     </nav>
-
-    <!-- Links 
-    <nav class="navbar navbar-light bg-light nav_bar_empreendimento">
-  <ul class="navbar-nav mr-auto">
-    <li class="nav-item">
-        <a class="nav-link" href="#">Dados</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#">Meus Animais</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#">Produtos</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#">Serviços</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#">Eventos</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#">Minhas Doações</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#">Favoritos</a>
-    </li>
-  </ul>
-
-</nav>  --> 
-
-  
-
 
 
     <!-- Optional JavaScript -->

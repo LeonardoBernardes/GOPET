@@ -3,7 +3,7 @@
  * @Author: Leonardo.Bernardes 
  * @Date: 2018-08-15 01:26:47 
  * @Last Modified by: Leonardo.Bernardes
- * @Last Modified time: 2018-08-30 23:44:40
+ * @Last Modified time: 2018-09-14 01:51:52
  */
 include_once(dirname( __FILE__ ) .'\..\..\mysql_conexao\conexao_mysql.php');
 session_start();
@@ -147,9 +147,14 @@ include_once "../../menu_footer/menu_latera_empreendimento.php"
     
 ?>
     <div class="main">
+    <h2 style="margin-top:10%;">
+        <legend><b>Meus Eventos</b></legend>
+    </h2><br>
+    <a class="btn btn-success"  href="http://localhost/PHP/GOPET/OPE/empreendimentos/eventos/cadastro_eventos.php">Cadastrar Eventos</a>
     <table class="table tabelas" style="width:100%">
         <tr class="thead-dark">
             <th scope="col">ID</th>
+            <th scope="col">Imagem</th>
             <th scope="col">Nome</th>
             <th scope="col">Descrição</th>
             <th scope="col">Data de realização</th>

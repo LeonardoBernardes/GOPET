@@ -3,11 +3,11 @@
  * @Author: Leonardo.Bernardes 
  * @Date: 2018-08-15 19:39:29 
  * @Last Modified by: Leonardo.Bernardes
- * @Last Modified time: 2018-09-10 21:15:45
+ * @Last Modified time: 2018-09-13 20:39:59
  */
 
 include_once(dirname( __FILE__ ) .'\..\..\mysql_conexao\conexao_mysql.php');
-//session_start();
+session_start();
 
     if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true))
     {
@@ -38,7 +38,11 @@ include_once("../../menu_footer/menu_empreendimento.php");
 </head>
 
 <body id="formulario_empreendimento">
-
+<?php
+    
+include_once "../../menu_footer/menu_latera_empreendimento.php" 
+    
+?>
     <div>
         <div class="container login-empreendimento">
             <form method="post" action="cadastrar_empreendimento.php" id="formlogin" name="formlogin" enctype="multipart/form-data">

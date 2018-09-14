@@ -3,9 +3,10 @@
  * @Author: Leonardo.Bernardes 
  * @Date: 2018-09-04 19:14:28 
  * @Last Modified by: Leonardo.Bernardes
- * @Last Modified time: 2018-09-12 00:19:15
+ * @Last Modified time: 2018-09-14 00:22:09
  */
     include_once(dirname( __FILE__ ) .'\..\mysql_conexao\conexao_mysql.php');
+    
     session_start();
     
         if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true))
@@ -16,9 +17,11 @@
             header('location:index.php');
         }
      
+    //var_dump($_SESSION);
     $logado = $_SESSION['login'];
     $logi_id = $_SESSION['logi_id'];
     $grup_id = $_SESSION['grup_id'];
+    
     $castracao = '';
     $results = "";
     
@@ -178,6 +181,7 @@ include_once "../menu_footer/menu_latera_empreendimento.php"
     
 ?>
     <div class="main">
+    <a class="btn btn-success" style="margin-top:10%;" href="http://localhost/PHP/GOPET/OPE/animais/cadastro_animais.php">Cadastrar Animais</a>
     <table class="table tabelas" style="width:100%">
         <thead class="thead-dark">
             <tr>

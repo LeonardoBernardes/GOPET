@@ -4,10 +4,13 @@
  * @Author: Leonardo.Bernardes 
  * @Date: 2018-09-10 20:52:14 
  * @Last Modified by: Leonardo.Bernardes
- * @Last Modified time: 2018-09-11 19:23:16
+ * @Last Modified time: 2018-09-14 00:23:04
  */
 include_once(dirname( __FILE__ ) .'\..\mysql_conexao\conexao_mysql.php');
-session_start();
+if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+    } 
 
     if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true))
     {
@@ -50,7 +53,7 @@ session_start();
 <body>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-        <a class="navbar-brand logo" href="#"><img src="../static/imagens/gopet.png" alt="gopet"></a>
+        <a class="navbar-brand logo" href="#"><img src="http://localhost/PHP/GOPET/OPE/static/imagens/gopet.png" alt="gopet"></a>
         <!-- quando a tela ficar menor irá aparecer um botão -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -59,15 +62,15 @@ session_start();
             <ul class="navbar-nav mr-auto">
 
                 <?php   if($_SESSION['grup_id'] == 4){ ?>
-                <li class="nav-item">
-                    <a class="nav-link" href="..\empreendimentos\cadastro_empreendimentos.php">Dados</a>
+                <!--li class="nav-item">
+                    <a class="nav-link" href="http://localhost/PHP/GOPET/OPE/empreendimentos/cadastro_empreendimentos.php">Dados</a>
+                </li-->
+                <!--li class="nav-item">
+                    <a class="nav-link" href="http://localhost/PHP/GOPET/OPE/empreendimentos/funcionarios/cadastro_funcionarios.php">Cadastrar funcionários</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="..\empreendimentos\funcionarios\cadastro_funcionarios.php">Cadastrar funcionários</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="..\empreendimentos\funcionarios\consultar_funcionarios.php">Consultar funcionários</a>
-                </li>
+                    <a class="nav-link" href="http://localhost/PHP/GOPET/OPE/empreendimentos/funcionarios/consultar_funcionarios.php">Consultar funcionários</a>
+                </li-->
                 <?php   } 
                 
                 if($_SESSION['logi_status'] == 1){ 
@@ -88,32 +91,32 @@ session_start();
                         
             ?>
                 <li class="nav-item">
-                    <a class="nav-link" href="..\empreendimentos\produtos\cadastro_produtos.php">Cadastrar Produtos</a>
+                    <a class="nav-link" href="http://localhost/PHP/GOPET/OPE/empreendimentos/produtos/cadastro_produtos.php">Cadastrar Produtos</a>
                 </li>
                 <li class="nav-item">
                     <!-- Só exibir se tiver um cadastro ativo (Farei depois) -->
-                    <a class="nav-link" href="..\empreendimentos\produtos\consultar_produtos.php">Consultar Produtos</a>
+                    <a class="nav-link" href="http://localhost/PHP/GOPET/OPE\empreendimentos/produtos/consultar_produtos.php">Consultar Produtos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="..\empreendimentos\servicos\cadastro_servicos.php">Cadastrar Serviços</a>
+                    <a class="nav-link" href="http://localhost/PHP/GOPET/OPE/empreendimentos/servicos/cadastro_servicos.php">Cadastrar Serviços</a>
                     <!-- Só exibir se tiver um cadastro ativo (Farei depois) -->
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="..\empreendimentos\servicos\consultar_servicos.php">Consultar Serviços</a>
+                    <a class="nav-link" href="http://localhost/PHP/GOPET/OPE/empreendimentos/servicos/consultar_servicos.php">Consultar Serviços</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="..\empreendimentos\eventos\cadastro_eventos.php">Cadastrar Eventos</a>
+                    <a class="nav-link" href="http://localhost/PHP/GOPET/OPE/empreendimentos/eventos/cadastro_eventos.php">Cadastrar Eventos</a>
                 </li>
                 <li class="nav-item">
                     <!-- Só exibir se tiver um cadastro ativo (Farei depois) -->
-                    <a class="nav-link" href="..\empreendimentos\eventos\consultar_eventos.php">Consultar Eventos</a>
+                    <a class="nav-link" href="http://localhost/PHP/GOPET/OPE/empreendimentos/eventos/consultar_eventos.php">Consultar Eventos</a>
+                </li>
+                <!--li class="nav-item">
+                    <a class="nav-link" href="http://localhost/PHP/GOPET/OPE/animais/cadastro_animais.php">Cadastrar Animais</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="..\animais\cadastro_animais.php">Cadastrar Animais</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="..\animais\consulta_animais.php">Meus Animais</a>
-                </li>
+                    <a class="nav-link" href="http://localhost/PHP/GOPET/OPE/animais/consulta_animais.php">Meus Animais</a>
+                </li-->
 
 
                 <?php 
@@ -122,7 +125,7 @@ session_start();
             </ul>
             <ul class="navbar-nav justify-content-end">
                 <li class="nav-item active">
-                    <a class="nav-link" href="..\logaut.php">Logaut</a>
+                    <a class="nav-link" href="..\logaut.php">Sair</a>
                 </li>
             </ul>
         </div>
@@ -162,8 +165,8 @@ session_start();
 
 
     <!-- Optional JavaScript -->
-    <script src="../static/jquery.js"></script>
-    <script src="../static/bootstrap/js/bootstrap.js"></script>
+    <script src="http://localhost/PHP/GOPET/OPE/static/jquery.js"></script>
+    <script src="http://localhost/PHP/GOPET/OPE/static/bootstrap/js/bootstrap.js"></script>
 </body>
 
 </html>

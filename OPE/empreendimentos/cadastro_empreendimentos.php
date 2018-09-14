@@ -4,11 +4,11 @@
  * @Author: Leonardo.Bernardes 
  * @Date: 2018-08-14 01:26:29 
  * @Last Modified by: Leonardo.Bernardes
- * @Last Modified time: 2018-08-30 19:23:41
+ * @Last Modified time: 2018-09-13 18:57:09
  */
 include_once("../menu_footer/menu_empreendimento.php"); 
 include_once(dirname( __FILE__ ) .'\..\mysql_conexao\conexao_mysql.php');
-session_start();
+//session_start();
     if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true))
     {
         unset($_SESSION['login']);

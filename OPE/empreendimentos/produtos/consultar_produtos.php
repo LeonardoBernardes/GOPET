@@ -3,7 +3,7 @@
  * @Author: Leonardo.Bernardes 
  * @Date: 2018-08-15 01:26:47 
  * @Last Modified by: Leonardo.Bernardes
- * @Last Modified time: 2018-08-30 19:24:19
+ * @Last Modified time: 2018-09-14 00:18:36
  */
 include_once(dirname( __FILE__ ) .'\..\..\mysql_conexao\conexao_mysql.php');
 session_start();
@@ -85,7 +85,7 @@ while ($row = mysqli_fetch_object($result)) {
     $results .='<tr>
                     
                     <td>'.$row->prod_id.'</td>
-                    <td><img src="'.$endereco_img.'"/></td>
+                    <td style="width:60px;"><img src="'.$endereco_img.'"/></td>
                     <td>'.$row->prod_nome.'</td>
                     <td>'.$row->prod_marca.'</td>
                     <td>'.$row->prod_descricao.'</td>
@@ -125,11 +125,12 @@ include_once "../../menu_footer/menu_latera_empreendimento.php"
 ?>
    
     <div class="main">
-    <table class="table tabelas" style="width:100%">
+    <a class="btn btn-success" style="margin-top:10%;" href="http://localhost/PHP/GOPET/OPE/empreendimentos/produtos/cadastro_produtos.php">Cadastrar Produtos</a>
+    <table class="table tabelas" style="width:80%">
         <thead class="thead-dark">
             <tr>
                 <th scope="col">ID</th>
-                <th scope="col">imagem</th>
+                <th scope="col" style="width:60px;">imagem</th>
                 <th scope="col">Nome</th>
                 <th scope="col">Marca</th>
                 <th scope="col">Descrição</th>

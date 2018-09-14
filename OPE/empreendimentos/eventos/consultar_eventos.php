@@ -3,7 +3,7 @@
  * @Author: Leonardo.Bernardes 
  * @Date: 2018-08-15 01:26:47 
  * @Last Modified by: Leonardo.Bernardes
- * @Last Modified time: 2018-09-14 01:51:52
+ * @Last Modified time: 2018-09-14 19:53:43
  */
 include_once(dirname( __FILE__ ) .'\..\..\mysql_conexao\conexao_mysql.php');
 session_start();
@@ -106,11 +106,12 @@ while ($row = mysqli_fetch_object($result)) {
                     <td>'.$row->even_descricao.'</td>
                     <td>'.$row->even_data_realizacao.'</td>
                     <td>'.$status.'</td>
-                    <td><a href="..\eventos\atualizar_eventos.php?id='.$row->even_id.'"> Editar</a></td>
+                    <td><a href="http://localhost/PHP/GOPET/OPE/empreendimentos/eventos/atualizar_eventos.php?id='.$row->even_id.'"> Editar</a></td>
                 </tr>';
 //echo $results;
 }
  include_once("../../menu_footer/menu_empreendimento.php"); 
+// include_once "../menu_footer/menu_empreendimento.php" ;
 ?>
 
 <!DOCTYPE html>

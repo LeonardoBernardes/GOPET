@@ -3,7 +3,7 @@
  * @Author: Leonardo.Bernardes 
  * @Date: 2018-08-15 01:26:47 
  * @Last Modified by: Leonardo.Bernardes
- * @Last Modified time: 2018-09-14 01:53:43
+ * @Last Modified time: 2018-09-14 19:49:39
  */
 include_once(dirname( __FILE__ ) .'\..\..\mysql_conexao\conexao_mysql.php');
 session_start();
@@ -88,11 +88,12 @@ while ($row = mysqli_fetch_object($result)) {
                     <td>'.$row->serv_valor_promocao.'</td>
                     <td>'.$status.'</td>
                     
-                    <td><a href="..\servicos\atualizar_servicos.php?id='.$row->serv_id.'"> Editar</a></td>
+                    <td><a href="http://localhost/PHP/GOPET/OPE/empreendimentos/servicos/atualizar_servicos.php?id='.$row->serv_id.'"> Editar</a></td>
                 </tr>';
 //echo $results;
 }
  include_once("../../menu_footer/menu_empreendimento.php"); 
+ 
 ?>
 
 <!DOCTYPE html>
@@ -119,7 +120,7 @@ include_once "../../menu_footer/menu_latera_empreendimento.php"
 ?>
     <div  class="main">
     <h2 style="margin-top:10%;">
-        <legend><b>Meus Funcionários</b></legend>
+        <legend><b>Meus Serviços</b></legend>
     </h2><br>
     <a class="btn btn-success"  href="http://localhost/PHP/GOPET/OPE/empreendimentos/servicos/cadastro_servicos.php">Cadastrar Serviços</a>
     <table class="table tabelas" style="width:100%">

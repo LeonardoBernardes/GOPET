@@ -3,7 +3,7 @@
  * @Author: Leonardo.Bernardes 
  * @Date: 2018-08-15 19:39:29 
  * @Last Modified by: Leonardo.Bernardes
- * @Last Modified time: 2018-09-13 20:39:59
+ * @Last Modified time: 2018-09-14 18:35:46
  */
 
 include_once(dirname( __FILE__ ) .'\..\..\mysql_conexao\conexao_mysql.php');
@@ -45,7 +45,7 @@ include_once "../../menu_footer/menu_latera_empreendimento.php"
 ?>
     <div>
         <div class="container login-empreendimento">
-            <form method="post" action="cadastrar_empreendimento.php" id="formlogin" name="formlogin" enctype="multipart/form-data">
+            <!--form method="post" action="cadastrar_empreendimento.php" id="formlogin" name="formlogin" enctype="multipart/form-data" -->
                 <fieldset id="fie">
                     <h2 class="btn btn-dark btn-sm btn-block">
                         <legend>Cadastrar Produto</legend>
@@ -98,9 +98,10 @@ include_once "../../menu_footer/menu_latera_empreendimento.php"
                         </fieldset>
                         <input class="btn btn-success btn-sm btn-block" type="submit" value="Cadastrar">
                         <hr>
-                        <a class="btn btn-dark btn-sm btn-block" href="..\home_empreendimento.php"> Voltar</a></form>
+                        <a class="btn btn-dark btn-sm btn-block" href="..\home_empreendimento.php"> Voltar</a>
+                    </form>
                 </fieldset>
-            </form>
+            <!--/form-->
         </div>
     </div>
 </body>

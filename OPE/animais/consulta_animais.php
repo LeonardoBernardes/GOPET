@@ -3,7 +3,7 @@
  * @Author: Leonardo.Bernardes 
  * @Date: 2018-09-04 19:14:28 
  * @Last Modified by: Leonardo.Bernardes
- * @Last Modified time: 2018-09-14 01:54:17
+ * @Last Modified time: 2018-09-14 20:12:33
  */
     include_once(dirname( __FILE__ ) .'\..\mysql_conexao\conexao_mysql.php');
     
@@ -131,7 +131,9 @@ elseif($grup_id == 4 ||$grup_id == 2){
         $endereco_img = '';
         if(!empty($row5)){
 
-            $endereco_img = $row5->anfo_endereco;
+            if($row5->anim_id == $row->anim_id){
+                $endereco_img = $row5->anfo_endereco;
+            }
         }
         if(!empty($endereco_img)){
         //Criar Funcao para trazer local host como variavel
@@ -142,7 +144,7 @@ elseif($grup_id == 4 ||$grup_id == 2){
         $results .='<tr>
                         
                         <td>'.$row->anim_id.'</td>
-                        <td><img src="'.$endereco_img.'"/></td>
+                        <td><img style="width:200px;" src="'.$endereco_img.'"/></td>
                         <td>'.$row->anim_nome.'</td>
                         <td>'.$row->anim_ra.'</td>
                         <td>'.$row->anim_idade.'</td>
@@ -153,7 +155,7 @@ elseif($grup_id == 4 ||$grup_id == 2){
                         <td>'.$castracao.'</td>
                        
                         
-                        <td><a href="..\atualizar_animais.php?id='.$row->anim_id.'"> Editar</a></td>
+                        <!--td><a href="http://localhost/PHP/GOPET/OPE/animais/atualizar_animais.php?id='.$row->anim_id.'"> Editar</a></td-->
                     </tr>';
     //echo $results;
     }
@@ -176,8 +178,8 @@ elseif($grup_id == 4 ||$grup_id == 2){
 
 <body>
 <?php
-    
-include_once "../menu_footer/menu_latera_empreendimento.php" 
+//include_once "../../menu_footer/menu_empreendimento.php" ;
+include_once "../menu_footer/menu_latera_empreendimento.php" ;
     
 ?>
     <div class="main">
@@ -198,7 +200,7 @@ include_once "../menu_footer/menu_latera_empreendimento.php"
                 <th scope="col">Categoria</th>
                 <th scope="col">Restrição de adoção</th>
                 <th scope="col">Castração</th>
-                <th scope="col">Editar</th>
+                <!--th scope="col">Editar</th-->
             </tr>
         </thead>
         <?php echo $results ?>

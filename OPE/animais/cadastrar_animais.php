@@ -3,7 +3,7 @@
  * @Author: Leonardo.Bernardes 
  * @Date: 2018-09-04 19:14:28 
  * @Last Modified by: Leonardo.Bernardes
- * @Last Modified time: 2018-09-10 21:04:08
+ * @Last Modified time: 2018-09-14 02:09:06
  */
 
 include_once(dirname( __FILE__ ) .'\..\mysql_conexao\conexao_mysql.php');
@@ -201,7 +201,7 @@ if(!empty($foto)){
         $nome_imagem = md5(uniqid(time())) . "." . $ext[1];
 
         // Caminho de onde ficará a imagem
-        $caminho_imagem = "animais_imagens/" . $nome_imagem;
+        echo $caminho_imagem = "animais_imagens/" . $nome_imagem;
 
         // Faz o upload da imagem para seu respectivo caminho
         move_uploaded_file($foto["tmp_name"], $caminho_imagem);
@@ -292,6 +292,6 @@ $sql4 = "   INSERT INTO
 
 
 
-header('location:..\consulta_animais.php');
+//header('location:consulta_animais.php');
 
 ?>

@@ -3,7 +3,7 @@
  * @Author: Leonardo.Bernardes 
  * @Date: 2018-09-04 19:14:28 
  * @Last Modified by: Leonardo.Bernardes
- * @Last Modified time: 2018-09-12 00:13:41
+ * @Last Modified time: 2018-09-14 02:02:57
  */
 
 include_once(dirname( __FILE__ ) .'\..\mysql_conexao\conexao_mysql.php');
@@ -171,6 +171,9 @@ include_once "../menu_footer/menu_latera_empreendimento.php";
                                     </div>
                                 </div>
                             </fieldset>
+                            <input class="btn btn-success btn-sm btn-block" type="submit" value="Cadastrar">
+                        <hr>
+                        <a class="btn btn-dark btn-sm btn-block" href="consulta_animais.php"> Voltar</a>
                        </fieldset>
                     </form>
             </form>

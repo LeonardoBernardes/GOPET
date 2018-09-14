@@ -4,7 +4,7 @@
  * @Author: Leonardo.Bernardes 
  * @Date: 2018-09-10 20:52:14 
  * @Last Modified by: Leonardo.Bernardes
- * @Last Modified time: 2018-09-14 01:46:40
+ * @Last Modified time: 2018-09-14 19:22:39
  */
 include_once(dirname( __FILE__ ) .'\..\mysql_conexao\conexao_mysql.php');
 if(!isset($_SESSION)) 
@@ -60,7 +60,7 @@ if(!isset($_SESSION))
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-            <button class="btn btn-dark dropdown-toggle" style="margin-left:20px;" type="button" id="menu1" data-toggle="dropdown">Buscar Animais
+            <button class="btn btn-light dropdown-toggle" style="margin-left:20px;" type="button" id="menu1" data-toggle="dropdown">Buscar Animais
             <span class="caret"></span></button>
             </button>
             <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
@@ -72,7 +72,7 @@ if(!isset($_SESSION))
                 </li>
             </ul>
 
-            <button class="btn btn-dark dropdown-toggle" style="margin-left:20px;" type="button" id="menu2" data-toggle="dropdown">Buscar Empreendimentos
+            <button class="btn btn-light dropdown-toggle" style="margin-left:20px;" type="button" id="menu2" data-toggle="dropdown">Buscar Empreendimentos
             <span class="caret"></span></button>
             </button>
             <ul class="dropdown-menu" role="menu" aria-labelledby="menu2">
@@ -88,10 +88,10 @@ if(!isset($_SESSION))
             
         </div>
         <ul class="navbar-nav justify-content-end">
-                <li class="nav-item active">
-                    <a class="btn" href="..\..\logaut.php" ><img src="http://localhost/PHP/GOPET/OPE/static/icones/sair.png" style="width:30px;" alt="gopet"/></a>
-                </li>
-            </ul>
+            <li class="nav-item active">
+                <a class="btn" href="http://localhost/PHP/GOPET/OPE/logaut.php" ><img src="http://localhost/PHP/GOPET/OPE/static/icones/sair.png" style="width:30px;" alt="gopet"/></a>
+            </li>
+        </ul>
     </nav>
 
 

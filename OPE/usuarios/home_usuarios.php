@@ -3,7 +3,7 @@
  * @Author: Leonardo.Bernardes 
  * @Date: 2018-08-14 20:59:32 
  * @Last Modified by: Leonardo.Bernardes
- * @Last Modified time: 2018-09-10 19:45:11
+ * @Last Modified time: 2018-09-14 18:55:22
  */
 include_once(dirname( __FILE__ ) .'\..\mysql_conexao\conexao_mysql.php');
 session_start();
@@ -28,4 +28,8 @@ $logado = $_SESSION['login'];
         <a href="..\animais\consulta_animais.php">Meus Animais</a>
     </fieldset>
 
-<a href="..\logaut.php">LOGAUT</a>
+        <ul class="navbar-nav justify-content-end">
+            <li class="nav-item active">
+                <a class="btn" href="http://localhost/PHP/GOPET/OPE/logaut.php" ><img src="http://localhost/PHP/GOPET/OPE/static/icones/sair.png" style="width:30px;" alt="gopet"/></a>
+            </li>
+        </ul>

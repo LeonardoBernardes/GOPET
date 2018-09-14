@@ -3,7 +3,7 @@
  * @Author: Leonardo.Bernardes 
  * @Date: 2018-08-15 01:26:47 
  * @Last Modified by: Leonardo.Bernardes
- * @Last Modified time: 2018-09-14 01:52:18
+ * @Last Modified time: 2018-09-14 19:54:10
  */
 include_once(dirname( __FILE__ ) .'\..\..\mysql_conexao\conexao_mysql.php');
 session_start();
@@ -56,45 +56,49 @@ while($row2 = mysqli_fetch_object($result)){
     
 
 }
-//var_dump($ids);
-$sql="  SELECT 
-            logi_id,
-            logi_nome,
-            logi_senha,
-            logi_email,
-            logi_data_cadastro,
-            logi_data_atualizacao,
-            logi_status
-        FROM 
-            `login` 
-        WHERE 
-            `logi_id` in ($ids) 
-        ";
-//echo $sql;
-//break;
-$result =  mysqli_query($conn, $sql);
-while ($row = mysqli_fetch_object($result)) {
+if(!empty($ids)){
+    $sql="  SELECT 
+                logi_id,
+                logi_nome,
+                logi_senha,
+                logi_email,
+                logi_data_cadastro,
+                logi_data_atualizacao,
+                logi_status
+            FROM 
+                `login` 
+            WHERE 
+                `logi_id` in ($ids) 
+            ";
+    //echo $sql;
+    //break;
+    $result =  mysqli_query($conn, $sql);
+    if(isset($result) && !empty($result)){
+        while ($row = mysqli_fetch_object($result)) {
 
-    if($row->logi_status == 0){
-        $status = "DESATIVADO";
-    }else{
-        $status = "ATIVADO";
+            if($row->logi_status == 0){
+                $status = "DESATIVADO";
+            }else{
+                $status = "ATIVADO";
+            }
+
+
+            $results .='<tr>
+                            <td>'.$row->logi_id.'</td>
+                            <td>'.$row->logi_nome.'</td>
+                            <td>'.$row->logi_senha.'</td>
+                            <td>'.$row->logi_email.'</td>
+                            <td>'.$row->logi_data_cadastro.'</td>
+                            <td>'.$row->logi_data_atualizacao.'</td>
+                            <td>'.$status.'</td>
+                            <td><a href="http://localhost/PHP/GOPET/OPE/empreendimentos/funcionarios/atualizar_funcionarios.php?id='.$row->logi_id.'"> Editar</a></td>
+                        </tr>';
+        //echo $results;
+        }
     }
-
-
-    $results .='<tr>
-                    <td>'.$row->logi_id.'</td>
-                    <td>'.$row->logi_nome.'</td>
-                    <td>'.$row->logi_senha.'</td>
-                    <td>'.$row->logi_email.'</td>
-                    <td>'.$row->logi_data_cadastro.'</td>
-                    <td>'.$row->logi_data_atualizacao.'</td>
-                    <td>'.$status.'</td>
-                    <td><a href="..\funcionarios\atualizar_funcionarios.php?id='.$row->logi_id.'"> Editar</a></td>
-                </tr>';
-//echo $results;
 }
 include_once("../../menu_footer/menu_empreendimento.php"); 
+//include_once "../menu_footer/menu_empreendimento.php" ;
 ?>
 
 <!DOCTYPE html>

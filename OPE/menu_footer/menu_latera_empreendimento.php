@@ -121,12 +121,12 @@ if ($_SESSION['grup_id'] == 4){
                         <li class="nav-item">
                         <a class="nav-link" href="http://localhost/PHP/GOPET/OPE/empreendimentos/eventos/consultar_eventos.php">Meus Eventos</a>
                         </li>
-                        <li class="nav-item">
+                        <!--li class="nav-item">
                             <a class="nav-link" href="#">Minhas Doações</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Favoritos</a>
-                        </li>
+                        </li-->
             ';
 
         }

@@ -3,7 +3,7 @@
  * @Author: Leonardo.Bernardes 
  * @Date: 2018-08-15 19:39:29 
  * @Last Modified by: Leonardo.Bernardes
- * @Last Modified time: 2018-09-03 00:57:38
+ * @Last Modified time: 2018-09-14 19:51:21
  */
 include_once(dirname( __FILE__ ) .'\..\..\mysql_conexao\conexao_mysql.php');
 session_start();
@@ -66,35 +66,59 @@ if(!empty($endereco_img)){
 $endereco_img = str_replace('\\', '/',"http://localhost/".'PHP/GOPET/OPE/empreendimentos/servicos/'.$endereco_img);
 }
 
-
+include_once "../../menu_footer/menu_latera_empreendimento.php" ;
+include_once "../../menu_footer/menu_empreendimento.php" ;
 ?>
-<form method="post" action="update_servicos.php?id=<?= $serv_id ?>" id="formlogin" name="formlogin" enctype="multipart/form-data">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../../static/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../../static/estilo.css">
+    
+    
+</head>
+<body id="formulario_funcionario">
+<div class="main">
+    <div class="container login-form"  >
+        <h2 class="alert alert-warning" ><legend>Cadastrar Funcionário</legend></h2>
+
+    <form method="post" action="update_servicos.php?id=<?= $serv_id ?>" id="formlogin" name="formlogin" enctype="multipart/form-data">
     <fieldset id="fie">
         <legend>Atualizar Serviço</legend><br/>
         <label>Imagem : </label> 
         <img src="<?php echo $endereco_img ?>" style="width:400px; heigth:50px;" alt='Foto de exibição' /><br />
         <input type="file" name="imagem" id="imagem" > <br/>
         <label>Nome : </label> 
-        <input type="text" name="nome" id="nome" value="<?php echo ($row->serv_nome) ? $row->serv_nome : "" ?>"><br/>
+        <input class="input-group-text btn-lg btn-block" type="text" name="nome" id="nome" value="<?php echo ($row->serv_nome) ? $row->serv_nome : "" ?>"><br/>
         <label>Descrição : </label> 
-        <input type="text" name="descricao" id="descricao" value="<?php echo ($row->serv_descricao) ? $row->serv_descricao : "" ?>"><br/>
+        <input class="input-group-text btn-lg btn-block" type="text" name="descricao" id="descricao" value="<?php echo ($row->serv_descricao) ? $row->serv_descricao : "" ?>"><br/>
         <label>Valor Total : </label> 
-        <input type="number" name="valor_total" id="valor_total" value="<?php echo ($row->serv_valor_total) ? $row->serv_valor_total : 0 ?>"><br/>
+        <input class="input-group-text btn-lg btn-block" type="number" name="valor_total" id="valor_total" value="<?php echo ($row->serv_valor_total) ? $row->serv_valor_total : 0 ?>"><br/>
         <label>Possuí Promoção ? </label> 
-        <select name="promocao">
+        <select class="input-group-text btn-lg btn-block" name="promocao">
             <option value="0">Não</option>
             <option value="1">SIM</option>
         </select>
         <label>Valor Promoção : </label> 
-        <input type="text" name="valor_promocao" id="valor_promocao" value="<?php echo ($row->serv_valor_promocao) ? $row->serv_valor_promocao : "" ?>"><br/>
+        <input class="input-group-text btn-lg btn-block" type="text" name="valor_promocao" id="valor_promocao" value="<?php echo ($row->serv_valor_promocao) ? $row->serv_valor_promocao : "" ?>"><br/>
         <label>Status : </label> 
-        <select name="status">
+        <select class="input-group-text btn-lg btn-block" name="status">
             <option value="1" <?php echo $ativado ?>>Ativo</option>
             <option value="0" <?php echo $desativado ?>>Desativado</option>
         </select>
-        <input type="submit" value="Atualizar Serviço">
+        <input class="btn btn-success btn-lg btn-block" type="submit" value="Atualizar Serviço">
         
     </fieldset>
+    </div>
+</div>
+</div>
     
 </form>
+</body>
+<?php 
+    include_once("../../menu_footer/footer.php");     
+    ?>
 <a href="..\servicos\consultar_servicos.php"> Voltar</a>

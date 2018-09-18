@@ -3,7 +3,7 @@
  * @Author: Leonardo.Bernardes 
  * @Date: 2018-09-04 19:14:28 
  * @Last Modified by: Leonardo.Bernardes
- * @Last Modified time: 2018-09-14 20:12:33
+ * @Last Modified time: 2018-09-18 19:16:35
  */
     include_once(dirname( __FILE__ ) .'\..\mysql_conexao\conexao_mysql.php');
     
@@ -155,7 +155,7 @@ elseif($grup_id == 4 ||$grup_id == 2){
                         <td>'.$castracao.'</td>
                        
                         
-                        <!--td><a href="http://localhost/PHP/GOPET/OPE/animais/atualizar_animais.php?id='.$row->anim_id.'"> Editar</a></td-->
+                        <td><a href="http://localhost/PHP/GOPET/OPE/animais/atualizar_animais.php?id='.$row->anim_id.'"> Editar</a></td>
                     </tr>';
     //echo $results;
     }
@@ -200,7 +200,7 @@ include_once "../menu_footer/menu_latera_empreendimento.php" ;
                 <th scope="col">Categoria</th>
                 <th scope="col">Restrição de adoção</th>
                 <th scope="col">Castração</th>
-                <!--th scope="col">Editar</th-->
+                <th scope="col">Editar</th>
             </tr>
         </thead>
         <?php echo $results ?>

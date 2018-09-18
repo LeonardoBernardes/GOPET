@@ -3,7 +3,7 @@
  * @Author: Leonardo.Bernardes 
  * @Date: 2018-08-09 01:19:46 
  * @Last Modified by: Leonardo.Bernardes
- * @Last Modified time: 2018-09-14 19:10:22
+ * @Last Modified time: 2018-09-18 16:28:54
  */
 ?>
 <!doctype html>
@@ -24,8 +24,6 @@ include_once "menu_footer/menu_principal.php"
     <h1><img class="logo_index" src="static/imagens/icon_preto.png" alt="" /></h1>
     <h2 class="frase_index">Sistema que conecta pessoas e animais</h2>
 </div>
-
- 
 
 <?php
     

@@ -2,8 +2,8 @@
 /*
  * @Author: Rafael Yuiti Haga
  * @Date: 2018-09-12 19:55:28 
- * @Last Modified by: Rafael.Haga
- * @Last Modified time: 2018-09-12 19:55:25
+ * @Last Modified by: Leonardo.Bernardes
+ * @Last Modified time: 2018-09-18 19:37:06
  */
     include_once(dirname( __FILE__ ) .'\..\mysql_conexao\conexao_mysql.php');
     session_start();
@@ -21,29 +21,30 @@
     $grup_id = $_SESSION['grup_id'];
     $castracao = '';
     $results = "";
-    
+    $arr_animais = array();
+
     $sql = "SELECT
-                anen_logradouro,
-                anen_numero,
-                anen_complemento,
-                anen_estado,
-                anen_cidade,
-                anen_bairro,
-                anen_cep,
-                anen_pais,
+                anen_logradouro as logradouro,
+                anen_numero as numero,
+                anen_complemento as complemento,
+                anen_estado as estado,
+                anen_cidade as cidade,
+                anen_bairro as bairro,
+                anen_cep as cep,
+                anen_pais as pais,
+                anim_id 
             FROM 
                 animais_endereco";
 
     $result = mysqli_query($conn, $sql);
     while($row = mysqli_fetch_object($result)){
 
-        if(!isset($ids)){
-            $ids = $row->anim_id;
-        }
-        $ids = $ids.",".$row->anim_id;
+        $arr_animais[$row->anim_id] = $row;
     }
+    json_encode($arr_animais);
     
-     include_once("../menu_footer/menu_empreendimento.php"); 
+
+    include_once("../menu_footer/menu_empreendimento.php"); 
     ?>
     
 <!DOCTYPE html>
@@ -61,28 +62,17 @@
 </head>
 
 <body>
+    <div class="container col-md-12">
 
-    <table class="table tabelas" style="width:100%">
-        <thead class="thead-dark">
-            <tr>
-                <th scope="col">ID</th>
-                <th scope="col">imagem</th>
-                <th scope="col">Nome</th>
-                <th scope="col">RA</th>
-                <th scope="col">Idade</th>
-                <th scope="col">Porte</th>
-                <th scope="col">Genero</th>
-                <th scope="col">Categoria</th>
-                <th scope="col">Restrição de adoção</th>
-                <th scope="col">Castração</th>
-                <th scope="col">Editar</th>
-            </tr>
-        </thead>
-        <?php echo $result ?>
-    </table>
+        <div>   
+            TESTE<br>
+            TESTE<br>
+            TESTE<br>
+            TESTE<br>
+        </div>
 
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1nkX5KVBXgDHas0sYoCXqws8MzKCWBcQ&libraries=places"></script>
-
+    </div>
     <a class="btn btn-dark" href="..\empreendimentos\home_empreendimento.php"> Voltar</a>
 </body>
 

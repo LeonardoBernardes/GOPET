@@ -16,20 +16,45 @@ session_start();
  
 $logado = $_SESSION['login'];
 
-
+include_once("../menu_footer/menu_usuario.php"); 
 ?>
 
 
-    <fieldset id="fie">
-        <span>GOPET </span><br/>
+<html>
+<head>
 
-        <a href="..\usuarios\cadastro_usuarios.php">Dados</a>
-        <a href="..\animais\cadastro_animais.php">Cadastrar Animais</a>
-        <a href="..\animais\consulta_animais.php">Meus Animais</a>
-    </fieldset>
+    <!-- Icone da Pagina & Titulo -->
+    <link rel="icon" href="../static/imagens/icon_preto.png">
+    <title>GoPet</title>
 
-        <ul class="navbar-nav justify-content-end">
-            <li class="nav-item active">
-                <a class="btn" href="http://localhost/PHP/GOPET/OPE/logaut.php" ><img src="http://localhost/PHP/GOPET/OPE/static/icones/sair.png" style="width:30px;" alt="gopet"/></a>
-            </li>
-        </ul>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../../OPE/static/bootstrap/css/bootstrap.css">
+
+    <!--icones legais para colocar no site https://fontawesome.com/icons?d=gallery -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+
+    <!-- GOPET CSS -->
+    <link rel="stylesheet" href="../static/estilo.css">
+        
+
+
+</head>
+    <body>
+   
+        <div class="one_page home">
+            <h1><img class="logo_index" src="static/imagens/icon_preto.png" alt="" /></h1>
+            <h2 class="frase_index">pagina de usuario</h2>
+        </div>
+        
+    </body> 
+    
+<?php 
+    include_once("../menu_footer/footer.php"); 
+?>   
+</html>

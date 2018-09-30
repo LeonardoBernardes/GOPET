@@ -179,9 +179,16 @@ elseif($grup_id == 4 ||$grup_id == 2){
 
 <body>
 <?php
-//include_once "../../menu_footer/menu_empreendimento.php" ;
-include_once "../menu_footer/menu_latera_empreendimento.php" ;
-    
+if ($_SESSION['grup_id'] == 4){
+include_once("../menu_footer/menu_empreendimento.php"); 
+include_once "../menu_footer/menu_latera_empreendimento.php";
+}
+if ($_SESSION['grup_id'] == 1){    
+include_once "../menu_footer/menu_administrador.php";
+}
+if ($_SESSION['grup_id'] == 3){    
+include_once "../menu_footer/menu_usuario.php";
+}
 ?>
     <div class="main">
     <h2 style="margin-top:10%;">

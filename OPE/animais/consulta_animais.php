@@ -160,6 +160,7 @@ elseif($grup_id == 4 ||$grup_id == 2){
     //echo $results;
     }
      include_once("../menu_footer/menu_empreendimento.php"); 
+
     ?>
     
 <!DOCTYPE html>

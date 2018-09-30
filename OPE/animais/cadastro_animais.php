@@ -22,7 +22,7 @@ $logado = $_SESSION['login'];
 $grup_id = $_SESSION['grup_id'];
 $logi_id = $_SESSION['logi_id'];
 
-
+include_once "../menu_footer/menu_administrador.php" 
  
 ?>
 <html>

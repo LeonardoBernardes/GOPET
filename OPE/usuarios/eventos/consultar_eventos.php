@@ -3,7 +3,7 @@
  * @Author: Leonardo.Bernardes 
  * @Date: 2018-08-15 01:26:47 
  * @Last Modified by: Leonardo.Bernardes
- * @Last Modified time: 2018-09-24 21:00:41
+ * @Last Modified time: 2018-09-26 00:30:29
  */
 include_once(dirname( __FILE__ ) .'\..\..\mysql_conexao\conexao_mysql.php');
 session_start();
@@ -23,15 +23,15 @@ $results = "";
 //$ids = '';
 
 //Pega o id do empreendimento que esse usuário está atrelado
-$sql2 = "SELECT
-            empr_id
+$sql = "SELECT
+            usua_id
         FROM
-            login_x_empreendimentos
+            login_x_usuarios
         WHERE
             logi_id  = $logi_id   
     ";
-//   echo $sql2;
-$result = mysqli_query($conn, $sql2);
+   
+$result = mysqli_query($conn, $sql);
 $row2 = mysqli_fetch_object($result);
 
 
@@ -40,11 +40,11 @@ $row2 = mysqli_fetch_object($result);
 $sql2 = "SELECT
             even_id
         FROM
-            empreendimentos_x_eventos
+            usuarios_x_eventos
         WHERE
-            empr_id  = $row2->empr_id   
+            usua_id  = $row2->usua_id   
     ";
-    //echo $sql2;
+    echo $sql2;
 $result = mysqli_query($conn, $sql2);
 while($row2 = mysqli_fetch_object($result)){
 
@@ -96,7 +96,7 @@ if(isset($ids)){
         }
         if(!empty($endereco_img)){
         //Criar Funcao para trazer local host como variavel
-        $endereco_img = str_replace('\\', '/',"http://localhost/".'PHP/GOPET/OPE/empreendimentos/eventos/'.$endereco_img);
+        $endereco_img = str_replace('\\', '/',"http://localhost/".'PHP/GOPET/OPE/usuarios/eventos/'.$endereco_img);
         }
 
 
@@ -107,7 +107,7 @@ if(isset($ids)){
                         <td>'.$row->even_descricao.'</td>
                         <td>'.$row->even_data_realizacao.'</td>
                         <td>'.$status.'</td>
-                        <td><a href="http://localhost/PHP/GOPET/OPE/empreendimentos/eventos/atualizar_eventos.php?id='.$row->even_id.'"> Editar</a></td>
+                        <td><a href="http://localhost/PHP/GOPET/OPE/usuarios/eventos/atualizar_eventos.php?id='.$row->even_id.'"> Editar</a></td>
                     </tr>';
     //echo $results;
     }
@@ -153,7 +153,7 @@ include_once "../../menu_footer/menu_latera_empreendimento.php"
     <h2 style="margin-top:10%;">
         <legend><b>Meus Eventos</b></legend>
     </h2><br>
-    <a class="btn btn-success"  href="http://localhost/PHP/GOPET/OPE/empreendimentos/eventos/cadastro_eventos.php">Cadastrar Eventos</a>
+    <a class="btn btn-success"  href="http://localhost/PHP/GOPET/OPE/usuarios/eventos/cadastro_eventos.php">Cadastrar Eventos</a>
     <table class="table tabelas" style="width:100%">
         <tr class="thead-dark">
             <th scope="col">ID</th>
@@ -166,7 +166,7 @@ include_once "../../menu_footer/menu_latera_empreendimento.php"
         </tr>
         <?php echo $results ?>
     </table>
-    <a class="btn btn-dark" href="..\home_empreendimento.php"> Voltar</a>
+    <a class="btn btn-dark" href="..\home_usuarios.php"> Voltar</a>
     </div>
 </body>
 

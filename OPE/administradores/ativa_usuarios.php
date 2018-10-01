@@ -3,7 +3,7 @@
  * @Author: Leonardo.Bernardes 
  * @Date: 2018-08-15 01:26:47 
  * @Last Modified by: Leonardo.Bernardes
- * @Last Modified time: 2018-08-21 19:55:28
+ * @Last Modified time: 2018-09-24 22:17:14
  */
 include_once(dirname( __FILE__ ) .'\..\mysql_conexao\conexao_mysql.php');
 session_start();
@@ -63,7 +63,7 @@ while ($row = mysqli_fetch_object($result)) {
                     <td>'.$row->logi_email.'</td>
                     <td>'.$status.'</td>
                     <td>'.$grupo.'</td>
-                    <td><a href="..\administradores\atualizar_usuarios.php?id='.$row->logi_id.'"> Ativar ou Desativar</a></td>
+                    <td><a href="http://localhost/PHP/GOPET/OPE/administradores/atualizar_usuarios.php?id='.$row->logi_id.'"> Ativar ou Desativar</a></td>
                 </tr>';
 //echo $results;
 }

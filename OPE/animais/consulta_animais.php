@@ -1,9 +1,10 @@
+
 <?php 
 /*
  * @Author: Leonardo.Bernardes 
  * @Date: 2018-09-04 19:14:28 
  * @Last Modified by: Leonardo.Bernardes
- * @Last Modified time: 2018-09-18 19:16:35
+ * @Last Modified time: 2018-09-20 19:48:02
  */
     include_once(dirname( __FILE__ ) .'\..\mysql_conexao\conexao_mysql.php');
     
@@ -79,85 +80,89 @@ elseif($grup_id == 4 ||$grup_id == 2){
                 empr_id = $id_empreendimento->empr_id";
     //echo $sql3;
     $result = mysqli_query($conn, $sql3);
-    while($row = mysqli_fetch_object($result)){
 
-        if(!isset($ids)){
-            $ids = $row->anim_id;
+    while($row = mysqli_fetch_object($result)){
+        if(!empty($row)){
+            if(!isset($ids)){
+                $ids = $row->anim_id;
+            }
+            $ids = $ids.",".$row->anim_id;
         }
-        $ids = $ids.",".$row->anim_id;
     }
 }  
-    $sql="  SELECT 
-                anim_id,
-                anim_nome,
-                anim_ra,
-                anim_idade,
-                anim_porte,
-                anim_genero,
-                anim_categoria,
-                anim_restricao_doacao,
-                anim_castracao
-            FROM 
-                `animais` 
-            WHERE 
-                `anim_id` in ($ids)
-            ";
-    //echo $sql;
-    //break;
-    $result =  mysqli_query($conn, $sql);
-    while ($row = mysqli_fetch_object($result)) {
-        
-        if($row->anim_castracao == 0){
-            $castracao = "Não";
-        }elseif($row->anim_castracao == 1){
-            $castracao = "Sim";
-        }else{
-            $castracao = "Não indentificado";
-        }
-
-        $sql3=" SELECT 
+    if(isset($ids)){
+        $sql="  SELECT 
                     anim_id,
-                    anfo_endereco
+                    anim_nome,
+                    anim_ra,
+                    anim_idade,
+                    anim_porte,
+                    anim_genero,
+                    anim_categoria,
+                    anim_restricao_doacao,
+                    anim_castracao
                 FROM 
-                    animais_fotos 
+                    `animais` 
                 WHERE 
-                    anim_id in ($ids)";
-        //echo $sql3;
-
-        $result4 =  mysqli_query($conn, $sql3);
-        $row5 = mysqli_fetch_object($result4);
-    
-    
-        $endereco_img = '';
-        if(!empty($row5)){
-
-            if($row5->anim_id == $row->anim_id){
-                $endereco_img = $row5->anfo_endereco;
+                    `anim_id` in ($ids)
+                ";
+        //echo $sql;
+        //break;
+        $result =  mysqli_query($conn, $sql);
+        while ($row = mysqli_fetch_object($result)) {
+            
+            if($row->anim_castracao == 0){
+                $castracao = "Não";
+            }elseif($row->anim_castracao == 1){
+                $castracao = "Sim";
+            }else{
+                $castracao = "Não indentificado";
             }
-        }
-        if(!empty($endereco_img)){
-        //Criar Funcao para trazer local host como variavel
-        $endereco_img = str_replace('\\', '/',"http://localhost/".'PHP/GOPET/OPE/animais/'.$endereco_img);
-        }
+
+            $sql3=" SELECT 
+                        anim_id,
+                        anfo_endereco
+                    FROM 
+                        animais_fotos 
+                    WHERE 
+                        anim_id in ($ids)";
+            //echo $sql3;
+
+            $result4 =  mysqli_query($conn, $sql3);
+            $row5 = mysqli_fetch_object($result4);
         
-    
-        $results .='<tr>
+        
+            $endereco_img = '';
+            if(!empty($row5)){
+
+                if($row5->anim_id == $row->anim_id){
+                    $endereco_img = $row5->anfo_endereco;
+                }
+            }
+            if(!empty($endereco_img)){
+            //Criar Funcao para trazer local host como variavel
+            $endereco_img = str_replace('\\', '/',"http://localhost/".'PHP/GOPET/OPE/animais/'.$endereco_img);
+            }
+            
+        
+            $results .='<tr>
+                            
+                            <td>'.$row->anim_id.'</td>
+                            <td><img style="width:200px;" src="'.$endereco_img.'"/></td>
+                            <td>'.$row->anim_nome.'</td>
+                            <td>'.$row->anim_ra.'</td>
+                            <td>'.$row->anim_idade.'</td>
+                            <td>'.$row->anim_porte.'</td>
+                            <td>'.$row->anim_genero.'</td>
+                            <td>'.$row->anim_categoria.'</td>
+                            <td>'.$row->anim_restricao_doacao.'</td>
+                            <td>'.$castracao.'</td>
                         
-                        <td>'.$row->anim_id.'</td>
-                        <td><img style="width:200px;" src="'.$endereco_img.'"/></td>
-                        <td>'.$row->anim_nome.'</td>
-                        <td>'.$row->anim_ra.'</td>
-                        <td>'.$row->anim_idade.'</td>
-                        <td>'.$row->anim_porte.'</td>
-                        <td>'.$row->anim_genero.'</td>
-                        <td>'.$row->anim_categoria.'</td>
-                        <td>'.$row->anim_restricao_doacao.'</td>
-                        <td>'.$castracao.'</td>
-                       
-                        
-                        <td><a href="http://localhost/PHP/GOPET/OPE/animais/atualizar_animais.php?id='.$row->anim_id.'"> Editar</a></td>
-                    </tr>';
-    //echo $results;
+                            
+                            <td><a href="http://localhost/PHP/GOPET/OPE/animais/atualizar_animais.php?id='.$row->anim_id.'"> Editar</a></td>
+                        </tr>';
+        //echo $results;
+        }
     }
      include_once("../menu_footer/menu_empreendimento.php"); 
     ?>

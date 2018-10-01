@@ -4,16 +4,16 @@
  * @Author: Leonardo Bernardes 
  * @Date: 2018-08-09 01:02:40 
  * @Last Modified by: Leonardo.Bernardes
- * @Last Modified time: 2018-09-04 18:36:12
+ * @Last Modified time: 2018-09-13 17:35:58
  */
 
 $servername = "localhost:3306";
 
-$username = "root";
+$username = "leonardobs";
 
 
 $database = "gopet";
-$password = "";
+$password = "bernardes958796187";
 
 $conn = new mysqli($servername, $username, $password, $database);
 // Check connection

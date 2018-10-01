@@ -3,7 +3,7 @@
  * @Author: Leonardo.Bernardes 
  * @Date: 2018-08-14 19:42:14 
  * @Last Modified by: Leonardo.Bernardes
- * @Last Modified time: 2018-09-07 00:28:11
+ * @Last Modified time: 2018-09-24 22:14:14
  */
 include_once(dirname( __FILE__ ) .'\..\mysql_conexao\conexao_mysql.php');
 session_start();
@@ -69,6 +69,6 @@ $sql3 = "   INSERT INTO
 //echo $sql3;
 $c3 = mysqli_query($conn, $sql3);
 //echo $sql2;
-header('location:..\home_usuarios.php');
+header('location:..\usuarios\home_usuarios.php');
 
 ?>

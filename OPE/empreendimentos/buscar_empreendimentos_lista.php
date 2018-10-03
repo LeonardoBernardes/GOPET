@@ -10,9 +10,10 @@
     
         if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true))
         {
-            unset($_SESSION['login']);
-            unset($_SESSION['senha']);
-            unset($_SESSION['grup_id']);
+          unset($_SESSION);
+            //unset($_SESSION['login']);
+            //unset($_SESSION['senha']);
+            //unset($_SESSION['grup_id']);
             header('location:index.php');
         }
      
@@ -23,28 +24,63 @@
     $results = "";
     $arr_empreendimentos = array();
 
-    $sql = "SELECT
-                emen_logradouro as logradouro,
-                emen_numero as numero,
-                emen_complemento as complemento,
-                emen_estado as estado,
-                emen_cidade as cidade,
-                emen_bairro as bairro,
-                emen_cep as cep,
-                emen_pais as pais,
-                emim_id 
+    $sql = "SELECT 
+              empr.empr_id,
+              empr.empr_nome as nome,
+              emen.emen_logradouro as logradouro, 
+              emen.emen_numero as numero, 
+              emen.emen_complemento as complemento,
+              emen.emen_estado as estado, 
+              emen.emen_cidade as cidade,
+              emen.emen_bairro as bairro, 
+              emen.emen_cep as cep, 
+              emen.emen_pais as pais
             FROM 
-                empreendimentos_endereco";
-
+              empreendimentos empr 
+              LEFT JOIN empreendimentos_enderecos emen ON emen.empr_id = empr.empr_id";
+//echo $sql;
     $result = mysqli_query($conn, $sql);
     while($row = mysqli_fetch_object($result)){
 
-        $arr_empreendimentos[$row->empr_id] = $row;
+      $arr_empreendimentos_JSON[$row->empr_id] = $row;
+      $row->nome = ($row->nome != 0 || !empty($row->nome)) ? $row->nome : ' ';
+      $row->logradouro = ($row->logradouro != 0 || !empty($row->logradouro)) ? $row->logradouro : ' ';
+      $row->numero = ($row->numero != 0 || !empty($row->numero)) ? $row->numero : ' ';
+      $row->complemento = ($row->complemento != 0 || !empty($row->complemento)) ? $row->complemento : ' ';
+      $row->cep = ($row->cep != 0 || !empty($row->cep)) ? $row->cep : ' ';
+      $row->pais = ($row->pais != 0 || !empty($row->pais)) ? $row->pais : ' ';
+      $row->estado = ($row->estado != 0 || !empty($row->estado)) ? $row->estado : ' ';
+      $row->cidade = ($row->cidade != 0 || !empty($row->cidade)) ? $row->cidade : ' ';
+      $row->bairro = ($row->bairro != 0 || !empty($row->bairro)) ? $row->bairro : ' ';
+      $results .='<div class="col-md-12 card">
+                    <div class="col-md-6">
+                      <span colspan="2">Nome: '.$row->nome.'</span><br>
+                      <span colspan="1">Logradouro: '.$row->logradouro.'</span><br>
+                      <span colspan="1">Número: '.$row->numero.'</span><br>
+                      <span colspan="1">Complemento: '.$row->complemento.'</span><br>
+                      <span colspan="1">CEP: '.$row->cep.'</span>
+
+                    </div>
+                    <div class="col-md-6">
+                      <span colspan="1">País: '.$row->pais.'</span><br>
+                      <span colspan="1">Estado: '.$row->estado.'</span><br>
+                      <span colspan="1">Cidade: '.$row->cidade.'</span><br>
+                      <span colspan="1">Bairro: '.$row->bairro.'</span>
+                      <button class="btn btn-success" style="margin-left:60px;">Animais</button>
+                      <button class="btn btn-success" style="margin-left:15px;">Eventos</button>
+                      <button class="btn btn-success" style="margin-left:15px;">Produtos</button>
+                      <button class="btn btn-success" style="margin-left:15px;">Serviços</button>
+                    </div>
+                    
+                    
+                    
+                  </div>';
+
     }
-    json_encode($arr_empreendimentos);
+    json_encode($arr_empreendimentos_JSON);
     
 
-    include_once("../menu_footer/menu_empreendimento.php"); 
+
     ?>
     
 <!DOCTYPE html>
@@ -77,101 +113,35 @@
 
 <!--script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1nkX5KVBXgDHas0sYoCXqws8MzKCWBcQ&libraries=places"></script-->
 <body>
-    <div id="map"></div>
-   
+<?php /*
+    if ($_SESSION['grup_id'] == 4){
+      include_once("../menu_footer/menu_empreendimento.php"); 
+      include_once("../menu_footer/menu_latera_empreendimento.php");
+    }
+    if ($_SESSION['grup_id'] == 1){    
+      include_once("../menu_footer/menu_administrador.php");
+    }
+    if ($_SESSION['grup_id'] == 3){    
+      include_once("../menu_footer/menu_usuario.php");
+      include_once("../menu_footer/menu_latera_usuario.php");
+    }*/
+    echo $results 
+  ?>
      
-
-    <a class="btn btn-dark" href="..\empreendimentos\home_empreendimento.php"> Voltar</a>
+     <?php
+    if ($_SESSION['grup_id'] == 4){
+        ?>
+        <a class="btn btn-dark" href="..\empreendimentos\home_empreendimento.php"> Voltar</a>
+    <?php
+    }
+    if ($_SESSION['grup_id'] == 3){    
+    ?>
+       <a class="btn btn-dark" href="..\usuarios\home_usuarios.php"> Voltar</a>
+    <?php
+    }
+    ?>
 </body>
-<script>
-      function initMap() {
-        // Styles a map in night mode.
-        var map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: 40.674, lng: -73.945},
-          zoom: 12,
-          styles: [
-            {elementType: 'geometry', stylers: [{color: '#242f3e'}]},
-            {elementType: 'labels.text.stroke', stylers: [{color: '#242f3e'}]},
-            {elementType: 'labels.text.fill', stylers: [{color: '#746855'}]},
-            {
-              featureType: 'administrative.locality',
-              elementType: 'labels.text.fill',
-              stylers: [{color: '#d59563'}]
-            },
-            {
-              featureType: 'poi',
-              elementType: 'labels.text.fill',
-              stylers: [{color: '#d59563'}]
-            },
-            {
-              featureType: 'poi.park',
-              elementType: 'geometry',
-              stylers: [{color: '#263c3f'}]
-            },
-            {
-              featureType: 'poi.park',
-              elementType: 'labels.text.fill',
-              stylers: [{color: '#6b9a76'}]
-            },
-            {
-              featureType: 'road',
-              elementType: 'geometry',
-              stylers: [{color: '#38414e'}]
-            },
-            {
-              featureType: 'road',
-              elementType: 'geometry.stroke',
-              stylers: [{color: '#212a37'}]
-            },
-            {
-              featureType: 'road',
-              elementType: 'labels.text.fill',
-              stylers: [{color: '#9ca5b3'}]
-            },
-            {
-              featureType: 'road.highway',
-              elementType: 'geometry',
-              stylers: [{color: '#746855'}]
-            },
-            {
-              featureType: 'road.highway',
-              elementType: 'geometry.stroke',
-              stylers: [{color: '#1f2835'}]
-            },
-            {
-              featureType: 'road.highway',
-              elementType: 'labels.text.fill',
-              stylers: [{color: '#f3d19c'}]
-            },
-            {
-              featureType: 'transit',
-              elementType: 'geometry',
-              stylers: [{color: '#2f3948'}]
-            },
-            {
-              featureType: 'transit.station',
-              elementType: 'labels.text.fill',
-              stylers: [{color: '#d59563'}]
-            },
-            {
-              featureType: 'water',
-              elementType: 'geometry',
-              stylers: [{color: '#17263c'}]
-            },
-            {
-              featureType: 'water',
-              elementType: 'labels.text.fill',
-              stylers: [{color: '#515c6d'}]
-            },
-            {
-              featureType: 'water',
-              elementType: 'labels.text.stroke',
-              stylers: [{color: '#17263c'}]
-            }
-          ]
-        });
-      }
-    </script>
+
 <footer>
 
     <?php 

@@ -59,21 +59,27 @@ include_once(dirname( __FILE__ ) .'\..\mysql_conexao\conexao_mysql.php');
                 </li>
             </ul>
 
-            <button class="btn btn-light dropdown-toggle" style="margin-left:20px;" type="button" id="menu2" data-toggle="dropdown">Buscar Empreendimentos
-            <span class="caret"></span></button>
-            </button>
-            <ul class="dropdown-menu" role="menu" aria-labelledby="menu2">
-                <li class="dropdown-item">
-                    <a class="nav-link" tabindex="-1" href="http://localhost/PHP/GOPET/OPE/animais/buscar_animais_geo.php">Exibir no Mapa</a>
-                </li>
-                <li class="dropdown-item">
-                    <a class="nav-link" tabindex="-1" href="http://localhost/PHP/GOPET/OPE/animais/buscar_animais_lista.php">Exibir em Lista</a>
-                </li>
-            </ul>
+
 
             
             
         </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <button class="btn btn-light dropdown-toggle" style="margin-left:20px;" type="button" id="menu2" data-toggle="dropdown">Buscar Empreendimentos
+            <span class="caret"></span></button>
+            </button>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="menu2">
+                <li class="dropdown-item">
+                    <a class="nav-link" tabindex="-1" href="http://localhost/PHP/GOPET/OPE/empreendimentos/buscar_empreendimentos_geo.php">Exibir no Mapa</a>
+                </li>
+                <li class="dropdown-item">
+                    <a class="nav-link" tabindex="-1" href="http://localhost/PHP/GOPET/OPE/empreendimentos/buscar_empreendimentos_lista.php">Exibir em Lista</a>
+                </li>
+            </ul>
+            </div>
         <ul class="navbar-nav justify-content-end">
             <li class="nav-item active">
                 <a class="btn" href="http://localhost/PHP/GOPET/OPE/logaut.php" ><img src="http://localhost/PHP/GOPET/OPE/static/icones/sair.png" style="width:30px;" alt="gopet"/></a>

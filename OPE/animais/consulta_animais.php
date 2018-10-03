@@ -227,7 +227,7 @@ if ($_SESSION['grup_id'] == 3){
     }
     if ($_SESSION['grup_id'] == 3){    
     ?>
-       <a class="btn btn-dark" href="..\usuarios\home_usuario.php"> Voltar</a>
+       <a class="btn btn-dark" href="..\usuarios\home_usuarios.php"> Voltar</a>
     <?php
     }
     ?>

@@ -43,7 +43,7 @@
     }
     json_encode($arr_empreendimentos);
     
-
+    include_once("../menu_footer/menu_latera_empreendimento.php");
     include_once("../menu_footer/menu_empreendimento.php"); 
     ?>
     

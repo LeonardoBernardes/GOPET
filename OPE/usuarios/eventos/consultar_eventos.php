@@ -112,7 +112,11 @@ if(isset($ids)){
     //echo $results;
     }
 }
- include_once("../../menu_footer/menu_empreendimento.php"); 
+  
+    include_once("../../menu_footer/menu_usuario.php");
+    
+
+
 // include_once "../menu_footer/menu_empreendimento.php" ;
 ?>
 
@@ -146,7 +150,7 @@ if(isset($ids)){
 <body>
 <?php
     
-include_once "../../menu_footer/menu_latera_empreendimento.php" 
+include_once "../../menu_footer/menu_latera_usuario.php" 
     
 ?>
     <div class="main">

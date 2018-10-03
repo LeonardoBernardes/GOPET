@@ -1,4 +1,23 @@
+<?php
+include_once(dirname( __FILE__ ) .'\..\mysql_conexao\conexao_mysql.php');
+
+if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+    } 
+
+    if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true))
+    {
+        unset($_SESSION['login']);
+        unset($_SESSION['senha']);
+        unset($_SESSION['grup_id']);
+        header('location:index.php');
+    }
+    //var_dump($_SESSION);
+    $logi_id = $_SESSION['logi_id'];
+?>
 <!DOCTYPE html>
+
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">

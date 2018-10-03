@@ -7,20 +7,7 @@
  * @Last Modified time: 2018-09-14 19:22:39
  */
 include_once(dirname( __FILE__ ) .'\..\mysql_conexao\conexao_mysql.php');
-if(!isset($_SESSION)) 
-    { 
-        session_start(); 
-    } 
 
-    if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true))
-    {
-        unset($_SESSION['login']);
-        unset($_SESSION['senha']);
-        unset($_SESSION['grup_id']);
-        header('location:index.php');
-    }
-    //var_dump($_SESSION);
-    $logi_id = $_SESSION['logi_id'];
 ?>
 
 
@@ -39,7 +26,7 @@ if(!isset($_SESSION))
 
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../OPE/static/bootstrap/css/bootstrap.css">
 
     <!--icones legais para colocar no site https://fontawesome.com/icons?d=gallery -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
@@ -68,7 +55,7 @@ if(!isset($_SESSION))
                     <a class="nav-link" tabindex="-1" href="http://localhost/PHP/GOPET/OPE/animais/buscar_animais_geo.php">Exibir no Mapa</a>
                 </li>
                 <li class="dropdown-item">
-                    <a class="nav-link" tabindex="-1" href="#">Exibir em Lista</a>
+                    <a class="nav-link" tabindex="-1" href="http://localhost/PHP/GOPET/OPE/animais/buscar_animais_lista.php">Exibir em Lista</a>
                 </li>
             </ul>
 
@@ -80,7 +67,7 @@ if(!isset($_SESSION))
                     <a class="nav-link" tabindex="-1" href="http://localhost/PHP/GOPET/OPE/animais/buscar_animais_geo.php">Exibir no Mapa</a>
                 </li>
                 <li class="dropdown-item">
-                    <a class="nav-link" tabindex="-1" href="#">Exibir em Lista</a>
+                    <a class="nav-link" tabindex="-1" href="http://localhost/PHP/GOPET/OPE/animais/buscar_animais_lista.php">Exibir em Lista</a>
                 </li>
             </ul>
 

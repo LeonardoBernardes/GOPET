@@ -23,9 +23,12 @@ $sql="SELECT * FROM empreendimentos WHERE";
 $result =  mysqli_query($conn, $sql);
 
 
-
+include_once "../menu_footer/menu_administrador.php" 
 
 ?>
+
+<html>
+
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -39,7 +42,7 @@ $result =  mysqli_query($conn, $sql);
 
 <body id="formulario_empreendimento">
 
-<div>
+<div class="main">
     <div class="container login-empreendimento"  >
     <form method="post" action="cadastrar_empreendimento.php" id="formlogin" name="formlogin" enctype="multipart/form-data" >
     <fieldset id="fie">
@@ -56,5 +59,14 @@ $result =  mysqli_query($conn, $sql);
     </fieldset>
     <a class="btn btn-dark btn-sm btn-block" href="..\administradores\home_administradores.php"> Voltar</a>
 </form>
-            </div></div></fieldset></form></div></div>
+            </div>
+            </div>
+            </fieldset>
+            </form>
+            </div>
+            </div>
 </body>
+<?php 
+include_once "../menu_footer/footer.php" 
+?>
+</html>

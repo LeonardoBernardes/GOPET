@@ -6,9 +6,14 @@
  * @Last Modified by: Leonardo.Bernardes
  * @Last Modified time: 2018-09-29 12:46:22
  */
-include_once("../menu_footer/menu_usuario.php"); 
+include_once("../menu_footer/menu_latera_usuario.php");    
+include_once("../menu_footer/menu_usuario.php");
 include_once(dirname( __FILE__ ) .'\..\mysql_conexao\conexao_mysql.php');
 //session_start();
+if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+    }
     if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true))
     {
         unset($_SESSION['login']);
@@ -68,16 +73,18 @@ if(!empty($row2)){
                 usua_id = $row2->usua_id";
     //echo $sql2;
     $result3 =  mysqli_query($conn, $sql2);
-    while($row4 = mysqli_fetch_object($result3)){
+    if(!empty($result3)){
+        while($row4 = mysqli_fetch_object($result3)){
 
-        $usua_logradouro = $row4->usua_logradouro;
-        $usua_numero = $row4->usua_numero;
-        $usua_complemento = $row4->usua_complemento;
-        $usua_pais = $row4->usua_pais;
-        $usua_estado = $row4->usua_estado;
-        $usua_cidade = $row4->usua_cidade;
-        $usua_bairro = $row4->usua_bairro;
-        $usua_cep = $row4->usua_cep;
+            $usua_logradouro = $row4->usua_logradouro;
+            $usua_numero = $row4->usua_numero;
+            $usua_complemento = $row4->usua_complemento;
+            $usua_pais = $row4->usua_pais;
+            $usua_estado = $row4->usua_estado;
+            $usua_cidade = $row4->usua_cidade;
+            $usua_bairro = $row4->usua_bairro;
+            $usua_cep = $row4->usua_cep;
+        }
     }
     // Retorna imagem se possuir cadastrada
     $sql3=" SELECT 
@@ -94,7 +101,7 @@ if(!empty($row2)){
         $endereco_img = $row5->emim_endereco;
     }
     //Criar Funcao para trazer local host como variavel
-    $endereco_img = str_replace('\\', '/',"http://localhost/".'PHP/GOPET/OPE/empreendimentos/'.$endereco_img);
+    $endereco_img = str_replace('\\', '/',"http://localhost/".'PHP/GOPET/OPE/usuarios/'.$endereco_img);
 }//var_dump(str_replace('/', '\'',$endereco_img));     
 ?>
 
@@ -105,11 +112,7 @@ if(!empty($row2)){
 </head>
 
 <body id="formulario_empreendimento">
-<?php
-    
-include_once "../menu_footer/menu_latera_usuario.php" 
-    
-?>
+
 
     <div class="main">
         <div class="container login-usuarios">
@@ -197,8 +200,6 @@ include_once "../menu_footer/menu_latera_usuario.php"
             </form>
         </div>
     </div>
-
-
 </body>
 <footer>
 

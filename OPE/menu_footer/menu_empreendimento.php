@@ -51,7 +51,7 @@ if(!isset($_SESSION))
 </head>
 
 <body>
-
+    <a class="navbar-brand logo" href="#"><img src="http://localhost/PHP/GOPET/OPE/static/imagens/gopet.png" alt="gopet"></a>
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <a class="navbar-brand logo" href="#"><img src="http://localhost/PHP/GOPET/OPE/static/imagens/gopet.png" alt="gopet"></a>
         <!-- quando a tela ficar menor irá aparecer um botão -->
@@ -68,7 +68,7 @@ if(!isset($_SESSION))
                     <a class="nav-link" tabindex="-1" href="http://localhost/PHP/GOPET/OPE/animais/buscar_animais_geo.php">Exibir no Mapa</a>
                 </li>
                 <li class="dropdown-item">
-                    <a class="nav-link" tabindex="-1" href="#">Exibir em Lista</a>
+                    <a class="nav-link" tabindex="-1" href="http://localhost/PHP/GOPET/OPE/animais/buscar_animais_lista.php">Exibir em Lista</a>
                 </li>
             </ul>
 
@@ -77,10 +77,10 @@ if(!isset($_SESSION))
             </button>
             <ul class="dropdown-menu" role="menu" aria-labelledby="menu2">
                 <li class="dropdown-item">
-                    <a class="nav-link" tabindex="-1" href="http://localhost/PHP/GOPET/OPE/animais/buscar_animais_geo.php">Exibir no Mapa</a>
+                    <a class="nav-link" tabindex="-1" href="http://localhost/PHP/GOPET/OPE/empreendimentos/buscar_empreendimentos_geo.php">Exibir no Mapa</a>
                 </li>
                 <li class="dropdown-item">
-                    <a class="nav-link" tabindex="-1" href="#">Exibir em Lista</a>
+                    <a class="nav-link" tabindex="-1" href="http://localhost/PHP/GOPET/OPE/empreendimentos/buscar_empreendimentos_lista.php">Exibir em Lista</a>
                 </li>
             </ul>
 

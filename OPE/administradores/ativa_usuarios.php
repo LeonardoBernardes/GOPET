@@ -67,37 +67,27 @@ while ($row = mysqli_fetch_object($result)) {
                 </tr>';
 //echo $results;
 }
+
+include_once "../menu_footer/menu_administrador.php" 
  
 ?>
 
 <!DOCTYPE html>
 <html>
     <head>
-        <!-- Required meta tags -->
+    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="../static/estilo.css">
-    <title>Gopet</title> 
-       
-        <style>
-            table, th, td {
-                border: 1px solid black;
-                border-collapse: collapse;
-            }
-            th, td {
-                padding: 5px;
-            }
-            th {
-                text-align: left;
-            }
-        </style>
+
+
     </head>
 <body>
-
-<table class="table" style="width:100%">
+<div class="main">
+<table class="table tabelas" style="width:100%">
     <tr class="thead-dark">
         <th scope="col">ID</th>    
         <th scope="col">Nome Login</th>
@@ -109,5 +99,11 @@ while ($row = mysqli_fetch_object($result)) {
     <?php echo $results ?>
 </table>
 <a class="btn btn-dark" href="..\administradores\home_administradores.php"> Voltar</a>
+</div>
 </body>
+<?php 
+include_once "../menu_footer/footer.php"     
+?>
 </html>
+
+

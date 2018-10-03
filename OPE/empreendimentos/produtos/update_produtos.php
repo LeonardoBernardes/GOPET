@@ -29,6 +29,7 @@ $prod_valor_total = ($_POST['valor_total']) ? $_POST['valor_total'] : "";
 $prod_promocao = ($_POST['promocao']) ? $_POST['promocao'] : 0;
 $prod_valor_promocao = ($_POST['valor_promocao']) ? $_POST['valor_promocao'] : 0;
 $prod_status = ($_POST['status']) ? $_POST['status'] : 0;
+$prod_qtde_estoque = ($_POST['qtde_estoque']) ? $_POST['qtde_estoque'] : 0;
 
 $sql="  SELECT 
             prod_id,
@@ -48,7 +49,8 @@ $sql ="  UPDATE
             produtos
         SET 
             prod_nome = '$prod_nome', 
-            prod_marca = '$prod_marca', 
+            prod_marca = '$prod_marca',
+            prod_qtde_estoque = $prod_qtde_estoque, 
             prod_descricao = '$prod_descricao',
             prod_valor_total = $prod_valor_total,
             prod_promocao = $prod_promocao,

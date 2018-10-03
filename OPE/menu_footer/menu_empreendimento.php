@@ -51,7 +51,7 @@ if(!isset($_SESSION))
 </head>
 
 <body>
-    <a class="navbar-brand logo" href="#"><img src="http://localhost/PHP/GOPET/OPE/static/imagens/gopet.png" alt="gopet"></a>
+
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <a class="navbar-brand logo" href="#"><img src="http://localhost/PHP/GOPET/OPE/static/imagens/gopet.png" alt="gopet"></a>
         <!-- quando a tela ficar menor irá aparecer um botão -->
@@ -72,7 +72,16 @@ if(!isset($_SESSION))
                 </li>
             </ul>
 
-            <button class="btn btn-light dropdown-toggle" style="margin-left:20px;" type="button" id="menu2" data-toggle="dropdown">Buscar Empreendimentos
+
+
+            
+            
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <button class="btn btn-light dropdown-toggle" style="margin-left:20px;" type="button" id="menu2" data-toggle="dropdown">Buscar Empreendimentos
             <span class="caret"></span></button>
             </button>
             <ul class="dropdown-menu" role="menu" aria-labelledby="menu2">
@@ -83,10 +92,7 @@ if(!isset($_SESSION))
                     <a class="nav-link" tabindex="-1" href="http://localhost/PHP/GOPET/OPE/empreendimentos/buscar_empreendimentos_lista.php">Exibir em Lista</a>
                 </li>
             </ul>
-
-            
-            
-        </div>
+            </div>
         <ul class="navbar-nav justify-content-end">
             <li class="nav-item active">
                 <a class="btn" href="http://localhost/PHP/GOPET/OPE/logaut.php" ><img src="http://localhost/PHP/GOPET/OPE/static/icones/sair.png" style="width:30px;" alt="gopet"/></a>
@@ -101,4 +107,5 @@ if(!isset($_SESSION))
 </body>
 
 </html>
+
 

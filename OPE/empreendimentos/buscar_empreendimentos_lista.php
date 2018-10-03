@@ -142,6 +142,9 @@
     ?>
 </body>
 
+ <!-- Optional JavaScript -->
+  <script src="static/jquery.js"></script>
+  <script src="static/bootstrap/js/bootstrap.js"></script>
 <footer>
 
     <?php 

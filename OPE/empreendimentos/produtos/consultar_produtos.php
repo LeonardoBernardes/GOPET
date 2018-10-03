@@ -39,6 +39,7 @@ $sql="  SELECT
             prod_id,
             prod_nome,
             prod_marca,
+            prod_qtde_estoque,
             prod_descricao,
             prod_valor_total,
             prod_promocao,
@@ -88,6 +89,7 @@ while ($row = mysqli_fetch_object($result)) {
                     <td><img src="'.$endereco_img.'" style="width:100%"/></td>
                     <td>'.$row->prod_nome.'</td>
                     <td>'.$row->prod_marca.'</td>
+                    <td>'.$row->prod_qtde_estoque.'</td>
                     <td>'.$row->prod_descricao.'</td>
                     <td>'.$row->prod_valor_total.'</td>
                     <td>'.$row->prod_promocao.'</td>
@@ -137,6 +139,7 @@ include_once "../../menu_footer/menu_latera_empreendimento.php"
                 <th scope="col" style="width:100%">imagem</th>
                 <th scope="col">Nome</th>
                 <th scope="col">Marca</th>
+                <th scope="col">Qtde Estoque</th>
                 <th scope="col">Descrição</th>
                 <th scope="col">Valor Total</th>
                 <th scope="col">Possuí Promoção ?</th>

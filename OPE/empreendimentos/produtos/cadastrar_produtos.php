@@ -28,6 +28,7 @@ $prod_valor_total = ($_POST['valor_total']) ? $_POST['valor_total'] : "";
 $prod_promocao = ($_POST['promocao']) ? $_POST['promocao'] : 0;
 $prod_valor_promocao = ($_POST['valor_promocao']) ? $_POST['valor_promocao'] : 0;
 $prod_status = ($_POST['status']) ? $_POST['status'] : 0;
+$prod_qtde_estoque = ($_POST['qtde_estoque']) ? $_POST['qtde_estoque'] : 0;
 
 
 
@@ -56,7 +57,8 @@ $sql3 = "   INSERT INTO
                         prod_promocao,
                         prod_valor_promocao,
                         prod_status,
-                        prod_data_cadastro    
+                        prod_data_cadastro,
+                        prod_qtde_estoque    
                     )
             VALUES 
                     (
@@ -68,7 +70,8 @@ $sql3 = "   INSERT INTO
                         $prod_promocao,
                         $prod_valor_promocao,
                         $prod_status,
-                        NOW()
+                        NOW(),
+                        $prod_qtde_estoque
                     )";
 //echo $sql3;
 $c2 = mysqli_query($conn, $sql3);

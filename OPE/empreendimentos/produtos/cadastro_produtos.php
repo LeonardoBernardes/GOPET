@@ -68,6 +68,10 @@ include_once "../../menu_footer/menu_latera_empreendimento.php"
                                     <input class="form-control form-control-sm" type="text" name="marca" id="marca"><br/>
                                 </div>
                                 <div class="col">
+                                    <label>Qtde Estoque  </label>
+                                    <input class="form-control form-control-sm" type="number" name="qtde_estoque" id="qtde_estoque"><br/>
+                                </div>
+                                <div class="col">
                                     <label>Status  </label>
                                     <select class="form-control form-control-sm" name="status">
                                         <option value="1">Ativo</option>

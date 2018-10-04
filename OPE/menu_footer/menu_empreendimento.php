@@ -52,58 +52,49 @@ if(!isset($_SESSION))
 
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-        <a class="navbar-brand logo" href="#"><img src="http://localhost/PHP/GOPET/OPE/static/imagens/gopet.png" alt="gopet"></a>
-        <!-- quando a tela ficar menor irá aparecer um botão -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <a class="navbar-brand logo" href="../empreendimentos/home_empreendimento.php"><img src="../static/imagens/gopet.png" alt="gopet"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-            <button class="btn btn-light dropdown-toggle" style="margin-left:20px;" type="button" id="menu1" data-toggle="dropdown">Buscar Animais
-            <span class="caret"></span></button>
-            </button>
-            <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                <li class="dropdown-item">
-                    <a class="nav-link" tabindex="-1" href="http://localhost/PHP/GOPET/OPE/animais/buscar_animais_geo.php">Exibir no Mapa</a>
-                </li>
-                <li class="dropdown-item">
-                    <a class="nav-link" tabindex="-1" href="http://localhost/PHP/GOPET/OPE/animais/buscar_animais_lista.php">Exibir em Lista</a>
-                </li>
+            <ul class="navbar-nav mr-auto">
+                <div class="dropdown">
+                  <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Buscar Animais
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="../animais/buscar_animais_geo.php">Exibir no Mapa</a>
+                    <a class="dropdown-item" href="../animais/buscar_animais_lista.php">Exibir em Lista</a>
+                  </div>
+                </div>
+                <div class="dropdown">
+                  <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Buscar Empreendimentos
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="../empreendimentos/buscar_empreendimentos_geo.php">Exibir no Mapa</a>
+                    <a class="dropdown-item" href="../empreendimentos/buscar_empreendimentos_lista.php">Exibir em Lista</a>
+                  </div>
+                </div>
             </ul>
 
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Search">
 
-
-            
-            
-        </div>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <button class="btn btn-light dropdown-toggle" style="margin-left:20px;" type="button" id="menu2" data-toggle="dropdown">Buscar Empreendimentos
-            <span class="caret"></span></button>
-            </button>
-            <ul class="dropdown-menu" role="menu" aria-labelledby="menu2">
-                <li class="dropdown-item">
-                    <a class="nav-link" tabindex="-1" href="http://localhost/PHP/GOPET/OPE/empreendimentos/buscar_empreendimentos_geo.php">Exibir no Mapa</a>
-                </li>
-                <li class="dropdown-item">
-                    <a class="nav-link" tabindex="-1" href="http://localhost/PHP/GOPET/OPE/empreendimentos/buscar_empreendimentos_lista.php">Exibir em Lista</a>
-                </li>
-            </ul>
-            </div>
-        <ul class="navbar-nav justify-content-end">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
+            </form>
+         <ul class="navbar-nav justify-content-end">    
             <li class="nav-item active">
-                <a class="btn" href="http://localhost/PHP/GOPET/OPE/logaut.php" ><img src="http://localhost/PHP/GOPET/OPE/static/icones/sair.png" style="width:30px;" alt="gopet"/></a>
+                <a class="btn" href="../logaut.php" ><img src="../static/icones/sair.png" style="width:30px;" alt="gopet"/></a>
             </li>
-        </ul>
+            </ul>
+        </div>
     </nav>
 
-
     <!-- Optional JavaScript -->
-    <script src="http://localhost/PHP/GOPET/OPE/static/jquery.js"></script>
-    <script src="http://localhost/PHP/GOPET/OPE/static/bootstrap/js/bootstrap.js"></script>
+    <script src="../static/jquery.js"></script>
+    <script src="../static/bootstrap/js/bootstrap.js"></script>
 </body>
 
 </html>

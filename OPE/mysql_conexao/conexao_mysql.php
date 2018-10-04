@@ -9,11 +9,11 @@
 
 $servername = "localhost:3306";
 
-$username = "leonardobs";
+$username = "root";
 
 
 $database = "gopet";
-$password = "bernardes958796187";
+$password = "";
 
 $conn = new mysqli($servername, $username, $password, $database);
 // Check connection

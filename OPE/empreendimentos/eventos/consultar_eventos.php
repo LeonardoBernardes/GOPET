@@ -142,18 +142,15 @@ if(isset($ids)){
             }
     </style>
 </head>
-
-<body>
 <?php
     
 include_once "../../menu_footer/menu_latera_empreendimento.php" 
     
 ?>
+<body>
+
+   <div class="one_page home_empreendimento">
     <div class="main">
-    <h2 style="margin-top:10%;">
-        <legend><b>Meus Eventos</b></legend>
-    </h2><br>
-    <a class="btn btn-success"  href="http://localhost/PHP/GOPET/OPE/empreendimentos/eventos/cadastro_eventos.php">Cadastrar Eventos</a>
     <table class="table tabelas" style="width:100%">
         <tr class="thead-dark">
             <th scope="col">ID</th>
@@ -167,6 +164,8 @@ include_once "../../menu_footer/menu_latera_empreendimento.php"
         <?php echo $results ?>
     </table>
     <a class="btn btn-dark" href="..\home_empreendimento.php"> Voltar</a>
+    <a class="btn btn-success"  href="http://localhost/PHP/GOPET/OPE/empreendimentos/eventos/cadastro_eventos.php">Cadastrar Eventos</a>
+    </div>
     </div>
 </body>
 

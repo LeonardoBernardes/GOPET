@@ -22,7 +22,7 @@ $logado = $_SESSION['login'];
 $grup_id = $_SESSION['grup_id'];
 $logi_id = $_SESSION['logi_id'];
 
-if ($_SESSION['grup_id'] == 4){
+    if ($_SESSION['grup_id'] == 4){
     include_once("../menu_footer/menu_empreendimento.php"); 
     include_once("../menu_footer/menu_latera_empreendimento.php");
     }

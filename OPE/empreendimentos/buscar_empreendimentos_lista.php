@@ -3,7 +3,7 @@
  * @Author: Rafael Yuiti Haga
  * @Date: 2018-09-12 19:55:28 
  * @Last Modified by: Leonardo.Bernardes
- * @Last Modified time: 2018-10-04 01:04:29
+ * @Last Modified time: 2018-10-04 20:20:16
  */
     include_once(dirname( __FILE__ ) .'\..\mysql_conexao\conexao_mysql.php');
     session_start();
@@ -125,9 +125,9 @@
       include_once("../menu_footer/menu_usuario.php");
       include_once("../menu_footer/menu_latera_usuario.php");
     }*/
-    echo $results 
+    //echo $results 
   ?>
-     
+     <div class="main"><?php echo $results ?></div>
      <?php
     if ($_SESSION['grup_id'] == 4){
         ?>
@@ -142,8 +142,8 @@
     ?>
 </body>
  <!-- The Modal -->
- <div class="modal" id="myModal">
-    <div class="modal-dialog">
+ <div class="modal modal" id="myModal" style="width:100%;">
+    <div class="modal-dialog modal-lg">
       <div class="modal-content">
       
         <!-- Modal Header -->

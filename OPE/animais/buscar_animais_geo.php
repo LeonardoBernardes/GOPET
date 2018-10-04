@@ -3,7 +3,7 @@
  * @Author: Rafael Yuiti Haga
  * @Date: 2018-09-12 19:55:28 
  * @Last Modified by: Leonardo.Bernardes
- * @Last Modified time: 2018-09-18 20:22:43
+ * @Last Modified time: 2018-09-18 19:37:06
  */
     include_once(dirname( __FILE__ ) .'\..\mysql_conexao\conexao_mysql.php');
     session_start();
@@ -43,17 +43,8 @@
     }
     json_encode($arr_animais);
     
-    if ($_SESSION['grup_id'] == 4){
+
     include_once("../menu_footer/menu_empreendimento.php"); 
-    include_once("../menu_footer/menu_latera_empreendimento.php");
-    }
-    if ($_SESSION['grup_id'] == 1){    
-    include_once("../menu_footer/menu_administrador.php");
-    }
-    if ($_SESSION['grup_id'] == 3){    
-    include_once("../menu_footer/menu_usuario.php");
-    include_once("../menu_footer/menu_latera_usuario.php");
-    }
     ?>
     
 <!DOCTYPE html>
@@ -71,117 +62,50 @@
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
       #map {
-        height: 100%;
-      }
-      /* Optional: Makes the sample page fill the window. */
-      html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
+        height: 70%;
+        width: 70%;
+        max-width:800px;
       }
     </style>
-
 </head>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1nkX5KVBXgDHas0sYoCXqws8MzKCWBcQ&callback=initMap"async defer></script>
 
-<!--script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1nkX5KVBXgDHas0sYoCXqws8MzKCWBcQ&libraries=places"></script-->
 <body>
-   
-    <div id="map"></div>
-   
-     
-</body>
-<div class="main">
-<script>
-      function initMap() {
-        // Styles a map in night mode.
-        var map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: 40.674, lng: -73.945},
-          zoom: 12,
-          styles: [
-            {elementType: 'geometry', stylers: [{color: '#242f3e'}]},
-            {elementType: 'labels.text.stroke', stylers: [{color: '#242f3e'}]},
-            {elementType: 'labels.text.fill', stylers: [{color: '#746855'}]},
-            {
-              featureType: 'administrative.locality',
-              elementType: 'labels.text.fill',
-              stylers: [{color: '#d59563'}]
-            },
-            {
-              featureType: 'poi',
-              elementType: 'labels.text.fill',
-              stylers: [{color: '#d59563'}]
-            },
-            {
-              featureType: 'poi.park',
-              elementType: 'geometry',
-              stylers: [{color: '#263c3f'}]
-            },
-            {
-              featureType: 'poi.park',
-              elementType: 'labels.text.fill',
-              stylers: [{color: '#6b9a76'}]
-            },
-            {
-              featureType: 'road',
-              elementType: 'geometry',
-              stylers: [{color: '#38414e'}]
-            },
-            {
-              featureType: 'road',
-              elementType: 'geometry.stroke',
-              stylers: [{color: '#212a37'}]
-            },
-            {
-              featureType: 'road',
-              elementType: 'labels.text.fill',
-              stylers: [{color: '#9ca5b3'}]
-            },
-            {
-              featureType: 'road.highway',
-              elementType: 'geometry',
-              stylers: [{color: '#746855'}]
-            },
-            {
-              featureType: 'road.highway',
-              elementType: 'geometry.stroke',
-              stylers: [{color: '#1f2835'}]
-            },
-            {
-              featureType: 'road.highway',
-              elementType: 'labels.text.fill',
-              stylers: [{color: '#f3d19c'}]
-            },
-            {
-              featureType: 'transit',
-              elementType: 'geometry',
-              stylers: [{color: '#2f3948'}]
-            },
-            {
-              featureType: 'transit.station',
-              elementType: 'labels.text.fill',
-              stylers: [{color: '#d59563'}]
-            },
-            {
-              featureType: 'water',
-              elementType: 'geometry',
-              stylers: [{color: '#17263c'}]
-            },
-            {
-              featureType: 'water',
-              elementType: 'labels.text.fill',
-              stylers: [{color: '#515c6d'}]
-            },
-            {
-              featureType: 'water',
-              elementType: 'labels.text.stroke',
-              stylers: [{color: '#17263c'}]
-            }
-          ]
-        });
-      }
-    </script>
+    <a class="btn btn-dark" href="..\empreendimentos\home_empreendimento.php"> Voltar</a>
+    <div class="container col-md-12">
+
+        
     </div>
+    <div id="map"></div>
+        <script>
+
+            function posicaoInicial(){
+                var  inicio = {lat: position.coords.latitude, lng: position.coords.longitude};
+            }
+
+            function initMap() {
+            /*Conversão de endere*/
+            var myLatLng = {lat: -25.363, lng: 131.044};
+            /* Centralização inicial do mapa */
+            //var inicialMap = {lat: position.coords.latitude, lng: position.coords.longitude};
+
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 4,
+                center: myLatLng
+                //center:inicialMap
+            });
+            /* Adição do marcador no google maps*/
+            var marker = new google.maps.Marker({
+                position: myLatLng,
+                map: map,
+                title: 'Hello World!'
+            });
+            } 
+        </script>
+        <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1nkX5KVBXgDHas0sYoCXqws8MzKCWBcQ&callback=initMap">
+        </script>
+</body>
+
 <footer>
 
     <?php 

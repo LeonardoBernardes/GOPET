@@ -57,7 +57,7 @@ body {
 .main {
     margin-left: 180px; /* Same width as the sidebar + left position in px */
     font-size: 28px; /* Increased text to enable scrolling */
-    padding: 0px 10px;
+    padding: 10px;
 }
 
 .sticky {
@@ -85,11 +85,11 @@ $menu = '';
 if ($_SESSION['grup_id'] == 4){
 
     $menu .='   <li class="nav-item">
-                    <a class="nav-link" href="http://localhost/PHP/GOPET/OPE/empreendimentos/cadastro_empreendimentos.php">Meus Dados</a>
+                    <a class="nav-link" href="../empreendimentos/cadastro_empreendimentos.php">Meus Dados</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="http://localhost/PHP/GOPET/OPE/empreendimentos/funcionarios/consultar_funcionarios.php">Meus Funcionários</a>
+                    <a class="nav-link" href="../empreendimentos/funcionarios/consultar_funcionarios.php">Meus Funcionários</a>
                 </li>
             ';
     
@@ -110,16 +110,16 @@ if ($_SESSION['grup_id'] == 4){
         if(!empty($row2)){
 
             $menu .='   <li class="nav-item">
-                            <a class="nav-link" href="http://localhost/PHP/GOPET/OPE/animais/consulta_animais.php">Meus Animais</a>
+                            <a class="nav-link" href="../animais/consulta_animais.php">Meus Animais</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="http://localhost/PHP/GOPET/OPE/empreendimentos/produtos/consultar_produtos.php">Meus Produtos</a>
+                            <a class="nav-link" href="../empreendimentos/produtos/consultar_produtos.php">Meus Produtos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="http://localhost/PHP/GOPET/OPE/empreendimentos/servicos/consultar_servicos.php">Meus Serviços</a>
+                            <a class="nav-link" href="../empreendimentos/servicos/consultar_servicos.php">Meus Serviços</a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" href="http://localhost/PHP/GOPET/OPE/empreendimentos/eventos/consultar_eventos.php">Meus Eventos</a>
+                        <a class="nav-link" href="../empreendimentos/eventos/consultar_eventos.php">Meus Eventos</a>
                         </li>
                         <!--li class="nav-item">
                             <a class="nav-link" href="#">Minhas Doações</a>
@@ -135,7 +135,6 @@ if ($_SESSION['grup_id'] == 4){
 
             
 ?>
-
 
 
 <nav class="sidenav navbar navbar-light bg-light nav_bar_empreendimento">

@@ -41,10 +41,11 @@ include_once("../menu_footer/menu_latera_usuario.php");
 
 </head>
     <body>
-   
+       <div class="main">
         <div class="one_page home">
             <h1><img class="logo_index" src="static/imagens/icon_preto.png" alt="" /></h1>
             <h2 class="frase_index">pagina de usuario</h2>
+        </div>
         </div>
         
     </body> 

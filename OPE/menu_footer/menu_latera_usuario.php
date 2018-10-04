@@ -50,6 +50,11 @@ body {
   color: white;
 }
 
+    .main {
+    margin-left: 180px; /* Same width as the sidebar + left position in px */
+}
+
+    
 
 .sidenav {
     width: 160px;
@@ -73,11 +78,6 @@ body {
     color: #064579;
 }
 
-.main {
-    margin-left: 180px; /* Same width as the sidebar + left position in px */
-    font-size: 28px; /* Increased text to enable scrolling */
-    padding: 0px 10px;
-}
 
 .sticky {
   position: fixed;
@@ -87,6 +87,12 @@ body {
 
 .sticky + .content {
   padding-top: 60px;
+}
+    
+.main {
+    margin-left: 150px; /* Same width as the sidebar + left position in px */
+    font-size: 28px; /* Increased text to enable scrolling */
+    padding: 10px;
 }
 
 @media screen and (max-height: 450px) {
@@ -104,7 +110,7 @@ $menu = '';
 if ($_SESSION['grup_id'] == 3){
 
     $menu .='   <li class="nav-item">
-                    <a class="nav-link" href="http://localhost/PHP/GOPET/OPE/usuarios/cadastro_usuarios.php">Meus Dados</a>
+                    <a class="nav-link" href="../usuarios/cadastro_usuarios.php">Meus Dados</a>
                 </li>
 
             ';
@@ -148,7 +154,7 @@ if ($_SESSION['grup_id'] == 3){
 
 
 
-<nav class="sidenav navbar navbar-light bg-light nav_bar_empreendimento">
+<nav class="sidenav navbar navbar-light bg-light nav_bar_usuario">
 <ul class="navbar-nav mr-auto" style="margin-left:10px;">
 
     <?php echo $menu ?>

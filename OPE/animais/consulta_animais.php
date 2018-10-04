@@ -159,7 +159,7 @@ elseif($grup_id == 4 ||$grup_id == 2){
                             <td>'.$castracao.'</td>
                         
                             
-                            <td><a href="http://localhost/PHP/GOPET/OPE/animais/atualizar_animais.php?id='.$row->anim_id.'"> Editar</a></td>
+                            <td><a href="../../animais/atualizar_animais.php?id='.$row->anim_id.'"> Editar</a></td>
                         </tr>';
         //echo $results;
         }
@@ -196,11 +196,8 @@ if ($_SESSION['grup_id'] == 3){
     include_once("../menu_footer/menu_latera_usuario.php");
 }
 ?>
+    <div class="one_page home_empreendimento">   
     <div class="main">
-    <h2 style="margin-top:10%;">
-        <legend><b>Meus Animais</b></legend>
-    </h2><br>
-    <a class="btn btn-success" href="http://localhost/PHP/GOPET/OPE/animais/cadastro_animais.php">Cadastrar Animais</a>
     <table class="table tabelas" style="width:100%">
         <thead class="thead-dark">
             <tr>
@@ -223,6 +220,7 @@ if ($_SESSION['grup_id'] == 3){
     if ($_SESSION['grup_id'] == 4){
         ?>
         <a class="btn btn-dark" href="..\empreendimentos\home_empreendimento.php"> Voltar</a>
+        <a class="btn btn-success" href="http://localhost/PHP/GOPET/OPE/animais/cadastro_animais.php">Cadastrar Animais</a>
     <?php
     }
     if ($_SESSION['grup_id'] == 3){    
@@ -234,6 +232,7 @@ if ($_SESSION['grup_id'] == 3){
    
         
     </div>
+</div>
 </body>
 
 <footer>

@@ -58,22 +58,52 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="../static/estilo.css">
-
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 70%;
+        width: 70%;
+        max-width:800px;
+      }
+    </style>
 </head>
 
 <body>
+    <a class="btn btn-dark" href="..\empreendimentos\home_empreendimento.php"> Voltar</a>
     <div class="container col-md-12">
 
-        <div>   
-            TESTE<br>
-            TESTE<br>
-            TESTE<br>
-            TESTE<br>
-        </div>
-
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1nkX5KVBXgDHas0sYoCXqws8MzKCWBcQ&libraries=places"></script>
+        
     </div>
-    <a class="btn btn-dark" href="..\empreendimentos\home_empreendimento.php"> Voltar</a>
+    <div id="map"></div>
+        <script>
+
+            function posicaoInicial(){
+                var  inicio = {lat: position.coords.latitude, lng: position.coords.longitude};
+            }
+
+            function initMap() {
+            /*Conversão de endere*/
+            var myLatLng = {lat: -25.363, lng: 131.044};
+            /* Centralização inicial do mapa */
+            //var inicialMap = {lat: position.coords.latitude, lng: position.coords.longitude};
+
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 4,
+                center: myLatLng
+                //center:inicialMap
+            });
+            /* Adição do marcador no google maps*/
+            var marker = new google.maps.Marker({
+                position: myLatLng,
+                map: map,
+                title: 'Hello World!'
+            });
+            } 
+        </script>
+        <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1nkX5KVBXgDHas0sYoCXqws8MzKCWBcQ&callback=initMap">
+        </script>
 </body>
 
 <footer>

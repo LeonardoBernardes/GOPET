@@ -39,6 +39,7 @@ $sql="  SELECT
             prod_id,
             prod_nome,
             prod_marca,
+            prod_qtde_estoque,
             prod_descricao,
             prod_valor_total,
             prod_promocao,
@@ -88,13 +89,14 @@ while ($row = mysqli_fetch_object($result)) {
                     <td><img src="'.$endereco_img.'" style="width:100%"/></td>
                     <td>'.$row->prod_nome.'</td>
                     <td>'.$row->prod_marca.'</td>
+                    <td>'.$row->prod_qtde_estoque.'</td>
                     <td>'.$row->prod_descricao.'</td>
                     <td>'.$row->prod_valor_total.'</td>
                     <td>'.$row->prod_promocao.'</td>
                     <td>'.$row->prod_valor_promocao.'</td>
                     <td>'.$status.'</td>
                     
-                    <td><a href="http://localhost/PHP/GOPET/OPE/empreendimentos/produtos/atualizar_produtos.php?id='.$row->prod_id.'"</a> editar</td>
+                    <td><a href="../../empreendimentos/produtos/atualizar_produtos.php?id='.$row->prod_id.'"</a> editar</td>
                 </tr>';
 //echo $results;
 }
@@ -117,19 +119,14 @@ include_once("../../menu_footer/menu_empreendimento.php");
 
 
 </head>
-
-<body>
 <?php
     
 include_once "../../menu_footer/menu_latera_empreendimento.php" 
     
 ?>
-   
+<body>
+<div class="one_page home_empreendimento">
     <div class="main">
-    <h2 style="margin-top:10%;">
-        <legend><b>Meus Produtos</b></legend>
-    </h2><br>
-    <a class="btn btn-success" href="http://localhost/PHP/GOPET/OPE/empreendimentos/produtos/cadastro_produtos.php">Cadastrar Produtos</a>
     <table class="table tabelas" style="width:100%">
         <thead class="thead-dark">
             <tr>
@@ -137,6 +134,7 @@ include_once "../../menu_footer/menu_latera_empreendimento.php"
                 <th scope="col" style="width:100%">imagem</th>
                 <th scope="col">Nome</th>
                 <th scope="col">Marca</th>
+                <th scope="col">Qtde Estoque</th>
                 <th scope="col">Descrição</th>
                 <th scope="col">Valor Total</th>
                 <th scope="col">Possuí Promoção ?</th>
@@ -148,6 +146,8 @@ include_once "../../menu_footer/menu_latera_empreendimento.php"
         <?php echo $results ?>
     </table>
     <a class="btn btn-dark" href="..\home_empreendimento.php"> Voltar</a>
+       <a class="btn btn-success" href="../../empreendimentos/produtos/cadastro_produtos.php">Cadastrar Produtos</a>
+    </div>
     </div>
     
 </body>

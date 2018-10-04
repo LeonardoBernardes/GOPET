@@ -15,6 +15,11 @@
     position: absolute;
     top: 15%;   
 }
+.nav_bar_usuario{
+    position: absolute; 
+    height: 100%;
+}
+
 
 .logo_index{
     margin-top: 14%;
@@ -52,7 +57,7 @@
     max-width: 368px
 }
 .tabelas{
-    margin-top: 3%;
+    margin-top: 7%;
     margin-bottom: 6%;
     border-radius: 3px;
     background: rgba(255, 255, 255, 0.60);

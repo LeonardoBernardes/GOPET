@@ -1,4 +1,23 @@
+<?php
+include_once(dirname( __FILE__ ) .'\..\mysql_conexao\conexao_mysql.php');
+
+if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+    } 
+
+    if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true))
+    {
+        unset($_SESSION['login']);
+        unset($_SESSION['senha']);
+        unset($_SESSION['grup_id']);
+        header('location:index.php');
+    }
+    //var_dump($_SESSION);
+    $logi_id = $_SESSION['logi_id'];
+?>
 <!DOCTYPE html>
+
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -31,6 +50,11 @@ body {
   color: white;
 }
 
+    .main {
+    margin-left: 180px; /* Same width as the sidebar + left position in px */
+}
+
+    
 
 .sidenav {
     width: 160px;
@@ -54,11 +78,6 @@ body {
     color: #064579;
 }
 
-.main {
-    margin-left: 180px; /* Same width as the sidebar + left position in px */
-    font-size: 28px; /* Increased text to enable scrolling */
-    padding: 10px;
-}
 
 .sticky {
   position: fixed;
@@ -68,6 +87,12 @@ body {
 
 .sticky + .content {
   padding-top: 60px;
+}
+    
+.main {
+    margin-left: 150px; /* Same width as the sidebar + left position in px */
+    font-size: 28px; /* Increased text to enable scrolling */
+    padding: 10px;
 }
 
 @media screen and (max-height: 450px) {
@@ -81,25 +106,22 @@ body {
 <body>
 <?php 
 $menu = '';
-
-if ($_SESSION['grup_id'] == 4){
+//var_dump($_SESSION);
+if ($_SESSION['grup_id'] == 3){
 
     $menu .='   <li class="nav-item">
-                    <a class="nav-link" href="../empreendimentos/cadastro_empreendimentos.php">Meus Dados</a>
+                    <a class="nav-link" href="../usuarios/cadastro_usuarios.php">Meus Dados</a>
                 </li>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="../empreendimentos/funcionarios/consultar_funcionarios.php">Meus Funcionários</a>
-                </li>
             ';
     
 }              
     if($_SESSION['logi_status'] == 1){ 
 
         $sql = "SELECT
-                    empr_id
+                    usua_id
                 FROM
-                    login_x_empreendimentos
+                    login_x_usuarios
                 WHERE
                     logi_id  = $logi_id   
             ";
@@ -110,16 +132,10 @@ if ($_SESSION['grup_id'] == 4){
         if(!empty($row2)){
 
             $menu .='   <li class="nav-item">
-                            <a class="nav-link" href="../animais/consulta_animais.php">Meus Animais</a>
+                            <a class="nav-link" href="http://localhost/PHP/GOPET/OPE/animais/consulta_animais.php">Meus Animais</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="../empreendimentos/produtos/consultar_produtos.php">Meus Produtos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="../empreendimentos/servicos/consultar_servicos.php">Meus Serviços</a>
-                        </li>
-                        <li class="nav-item">
-                        <a class="nav-link" href="../empreendimentos/eventos/consultar_eventos.php">Meus Eventos</a>
+                        <a class="nav-link" href="http://localhost/PHP/GOPET/OPE/usuarios/eventos/consultar_eventos.php">Meus Eventos</a>
                         </li>
                         <!--li class="nav-item">
                             <a class="nav-link" href="#">Minhas Doações</a>
@@ -137,7 +153,8 @@ if ($_SESSION['grup_id'] == 4){
 ?>
 
 
-<nav class="sidenav navbar navbar-light bg-light nav_bar_empreendimento">
+
+<nav class="sidenav navbar navbar-light bg-light nav_bar_usuario">
 <ul class="navbar-nav mr-auto" style="margin-left:10px;">
 
     <?php echo $menu ?>

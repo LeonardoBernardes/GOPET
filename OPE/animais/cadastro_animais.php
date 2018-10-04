@@ -22,7 +22,17 @@ $logado = $_SESSION['login'];
 $grup_id = $_SESSION['grup_id'];
 $logi_id = $_SESSION['logi_id'];
 
-
+    if ($_SESSION['grup_id'] == 4){
+    include_once("../menu_footer/menu_empreendimento.php"); 
+    include_once("../menu_footer/menu_latera_empreendimento.php");
+    }
+    if ($_SESSION['grup_id'] == 1){    
+    include_once("../menu_footer/menu_administrador.php");
+    }
+    if ($_SESSION['grup_id'] == 3){    
+    include_once("../menu_footer/menu_usuario.php");
+    include_once("../menu_footer/menu_latera_usuario.php");
+    }
  
 ?>
 <html>
@@ -38,18 +48,7 @@ $logi_id = $_SESSION['logi_id'];
 </head>
 
 <body id="formulario_empreendimento">
-<?php
-if ($_SESSION['grup_id'] == 4){
-include_once("../menu_footer/menu_empreendimento.php"); 
-include_once "../menu_footer/menu_latera_empreendimento.php";
-}
-if ($_SESSION['grup_id'] == 1){    
-include_once "../menu_footer/menu_administrador.php";
-}
-if ($_SESSION['grup_id'] == 3){    
-include_once "../menu_footer/menu_usuario.php";
-}
-?>
+
     <div class="main">
 
         <div class="container login-empreendimento">

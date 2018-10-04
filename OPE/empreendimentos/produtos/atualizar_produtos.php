@@ -24,6 +24,7 @@ $sql="  SELECT
             prod_id,
             prod_nome,
             prod_marca,
+            prod_qtde_estoque,
             prod_descricao,
             prod_valor_total,
             prod_promocao,
@@ -98,6 +99,8 @@ include_once "../../menu_footer/menu_empreendimento.php" ;
         <input class="input-group-text btn-lg btn-block" type="text" name="nome" id="nome" value="<?php echo ($row->prod_nome) ? $row->prod_nome : "" ?>"><br/>
         <label>Marca : </label> 
         <input class="input-group-text btn-lg btn-block" type="text" name="marca" id="marca" value="<?php echo ($row->prod_marca) ? $row->prod_marca : "" ?>"><br/>
+        <label>Qtde Estoque : </label> 
+        <input class="input-group-text btn-lg btn-block" type="text" name="qtde_estoque" id="qtde_estoque" value="<?php echo ($row->prod_qtde_estoque) ? $row->prod_qtde_estoque : 0 ?>"><br/>
         <label>Descrição : </label> 
         <input class="input-group-text btn-lg btn-block" type="text" name="descricao" id="descricao" value="<?php echo ($row->prod_descricao) ? $row->prod_descricao : "" ?>"><br/>
         <label>Valor Total : </label> 

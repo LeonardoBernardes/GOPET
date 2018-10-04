@@ -1,4 +1,4 @@
-<?php
+    <?php
 /*
  * @Author: Leonardo.Bernardes 
  * @Date: 2018-08-15 01:26:47 
@@ -127,18 +127,15 @@ include_once("../../menu_footer/menu_empreendimento.php");
             }
     </style>
 </head>
-
-<body>
 <?php
     
 include_once "../../menu_footer/menu_latera_empreendimento.php" 
     
 ?>
-    <div class="main">
-    <h2 style="margin-top:10%;">
-        <legend><b>Meus Funcionários</b></legend>
-    </h2><br>
-    <a class="btn btn-success"  href="http://localhost/PHP/GOPET/OPE/empreendimentos/funcionarios/cadastro_funcionarios.php">Cadastrar funcionários</a>
+<body>
+<div class="one_page home_empreendimento">
+<div class="main">
+   
     <table class="table tabelas" style="width:100%">
         <thead class="thead-dark">
             <tr>
@@ -155,6 +152,8 @@ include_once "../../menu_footer/menu_latera_empreendimento.php"
         <?php echo $results ?>
     </table>
     <a class="btn btn-dark" href="..\home_empreendimento.php"> Voltar</a>
+   <a class="btn btn-success"  href="http://localhost/PHP/GOPET/OPE/empreendimentos/funcionarios/cadastro_funcionarios.php">Cadastrar funcionários</a>
+    </div>
     </div>
     
 </body>

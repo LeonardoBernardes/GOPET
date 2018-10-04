@@ -25,7 +25,7 @@
     $arr_empreendimentos = array();
 
     $sql = "SELECT 
-              empr.empr_id,
+              empr.empr_id as empr_id,
               empr.empr_nome as nome,
               emen.emen_logradouro as logradouro, 
               emen.emen_numero as numero, 
@@ -66,10 +66,10 @@
                       <span colspan="1">Estado: '.$row->estado.'</span><br>
                       <span colspan="1">Cidade: '.$row->cidade.'</span><br>
                       <span colspan="1">Bairro: '.$row->bairro.'</span>
-                      <button class="btn btn-success" style="margin-left:60px;">Animais</button>
-                      <button class="btn btn-success" style="margin-left:15px;">Eventos</button>
-                      <button class="btn btn-success" style="margin-left:15px;">Produtos</button>
-                      <button class="btn btn-success" style="margin-left:15px;">Serviços</button>
+                      <button href="lista_modal_animais.php?empr_id='.$row->empr_id.'"  class="btn btn-success" style="margin-left:60px;" data-toggle="modal" data-target="#myModal" data-whatever="Animais" title="Animais">Animais</button>
+                      <button href="lista_modal_eventos.php?empr_id='.$row->empr_id.'"   class="btn btn-success" style="margin-left:15px;" data-toggle="modal" data-target="#myModal" data-whatever="Eventos" title="Eventos">Eventos</button>
+                      <button href="lista_modal_produtos.php?empr_id='.$row->empr_id.'"   class="btn btn-success" style="margin-left:15px;" data-toggle="modal" data-target="#myModal" data-whatever="Produtos" title="Produtos">Produtos</button>
+                      <button href="lista_modal_servicos.php?empr_id='.$row->empr_id.'"   class="btn btn-success" style="margin-left:15px;" data-toggle="modal" data-target="#myModal" data-whatever="Serviços" title="Serviços">Serviços</button>
                     </div>
                     
                     
@@ -109,7 +109,7 @@
     </style>
 
 </head>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1nkX5KVBXgDHas0sYoCXqws8MzKCWBcQ&callback=initMap"async defer></script>
+
 
 <!--script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1nkX5KVBXgDHas0sYoCXqws8MzKCWBcQ&libraries=places"></script-->
 <body>
@@ -141,10 +141,52 @@
     }
     ?>
 </body>
-
+ <!-- The Modal -->
+ <div class="modal" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Modal Heading</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+          Modal body..
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
  <!-- Optional JavaScript -->
   <script src="static/jquery.js"></script>
   <script src="static/bootstrap/js/bootstrap.js"></script>
+
+
+<!--Verificar quais já possui no projeto e se não possuir baixar  -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+    <script>
+      $('#myModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget) // Button that triggered the modal
+        var recipient = button.data('whatever') // Extract info from data-* attributes
+        // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+        // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+        var modal = $(this)
+        modal.find('.modal-title').text(recipient)
+        modal.find('.modal-body input').val(recipient)
+      })
+</script>
 <footer>
 
     <?php 

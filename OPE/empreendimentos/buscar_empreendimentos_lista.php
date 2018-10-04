@@ -3,7 +3,7 @@
  * @Author: Rafael Yuiti Haga
  * @Date: 2018-09-12 19:55:28 
  * @Last Modified by: Leonardo.Bernardes
- * @Last Modified time: 2018-09-18 20:22:43
+ * @Last Modified time: 2018-10-04 01:04:29
  */
     include_once(dirname( __FILE__ ) .'\..\mysql_conexao\conexao_mysql.php');
     session_start();
@@ -66,10 +66,10 @@
                       <span colspan="1">Estado: '.$row->estado.'</span><br>
                       <span colspan="1">Cidade: '.$row->cidade.'</span><br>
                       <span colspan="1">Bairro: '.$row->bairro.'</span>
-                      <button id="animais"  src="lista_modal_animais.php?empr_id='.$row->empr_id.'"  class="btn btn-success" style="margin-left:60px;" data-toggle="modal" data-target="#myModal" data-whatever="Animais" title="Animais">Animais</button>
-                      <button id="eventos"  src="lista_modal_eventos.php?empr_id='.$row->empr_id.'"   class="btn btn-success" style="margin-left:15px;" data-toggle="modal" data-target="#myModal" data-whatever="Eventos" title="Eventos">Eventos</button>
-                      <button id="produtos" src="lista_modal_produtos.php?empr_id='.$row->empr_id.'"   class="btn btn-success" style="margin-left:15px;" data-toggle="modal" data-target="#myModal" data-whatever="Produtos" title="Produtos">Produtos</button>
-                      <button id="servicos" src="lista_modal_servicos.php?empr_id='.$row->empr_id.'"   class="btn btn-success" style="margin-left:15px;" data-toggle="modal" data-target="#myModal" data-whatever="Serviços" title="Serviços">Serviços</button>
+                      <button id="animais/'.$row->empr_id.'"  class="btn btn-success" style="margin-left:60px;" data-toggle="modal" data-target="#myModal" data-whatever="Animais" title="Animais" value="'.$row->empr_id.'" onclick="getId(this)">Animais</button>
+                      <button id="eventos/'.$row->empr_id.'"   class="btn btn-success" style="margin-left:15px;" data-toggle="modal" data-target="#myModal" data-whatever="Eventos" title="Eventos" value="'.$row->empr_id.'" onclick="getId(this)">Eventos</button>
+                      <button id="produtos/'.$row->empr_id.'"   class="btn btn-success" style="margin-left:15px;" data-toggle="modal" data-target="#myModal" data-whatever="Produtos" title="Produtos" value="'.$row->empr_id.'" onclick="getId(this)">Produtos</button>
+                      <button id="servicos/'.$row->empr_id.'"   class="btn btn-success" style="margin-left:15px;" data-toggle="modal" data-target="#myModal" data-whatever="Serviços" title="Serviços" value="'.$row->empr_id.'" onclick="getId(this)">Serviços</button>
                     </div>
                     
                     
@@ -177,45 +177,68 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 
     <script>
-      $("#eventos").click(function () {
-            $.ajax({
-                type: 'GET',
-                url: 'eventos/lista_modal_eventos.php?empr_id=1',
-                success: function (data) {
-                    //$('#popup').html(data);
-                    //$('#popup').show();
-                    $('.modal-body').html(data)
+      function getId(el){
+        var id_button = el.id;
+        var str = id_button.split("/",1);
+        var str2 = id_button.substring(id_button.indexOf("/") + 1);
+
+
+        if(str == 'eventos'){
+         
+              $.ajax({
+                  type: 'GET',
+                  url: 'eventos/lista_modal_eventos.php?empr_id='+str2,
+                  success: function (data) {
+                      //$('#popup').html(data);
+                      //$('#popup').show();
+                      $('.modal-body').html(data)
+                      
                     
-                   
-                }
-            });
-        });
-        $("#produtos").click(function () {
-            $.ajax({
-                type: 'GET',
-                url: 'produtos/lista_modal_produtos.php?empr_id=1',
-                success: function (data) {
-                    //$('#popup').html(data);
-                    //$('#popup').show();
-                    $('.modal-body').html(data)
+                  }
+              });
+          //});
+        }else if(str == 'produtos'){
+          $.ajax({
+                  type: 'GET',
+                  url: 'produtos/lista_modal_produtos.php?empr_id='+str2,
+                  success: function (data) {
+                      //$('#popup').html(data);
+                      //$('#popup').show();
+                      $('.modal-body').html(data)
+                      
                     
-                   
-                }
-            });
-        });
-        $("#servicos").click(function () {
-            $.ajax({
-                type: 'GET',
-                url: 'servicos/lista_modal_servicos.php?empr_id=1',
-                success: function (data) {
-                    //$('#popup').html(data);
-                    //$('#popup').show();
-                    $('.modal-body').html(data)
+                  }
+              });
+        }else if(str == 'servicos'){
+          $.ajax({
+                  type: 'GET',
+                  url: 'servicos/lista_modal_servicos.php?empr_id='+str2,
+                  success: function (data) {
+                      //$('#popup').html(data);
+                      //$('#popup').show();
+                      $('.modal-body').html(data)
+                      
                     
-                   
-                }
-            });
-        });
+                  }
+              });
+        }
+        else if(str == 'animais'){
+          $.ajax({
+                  type: 'GET',
+                  url: '../animais/lista_modal_animais.php?empr_id='+str2,
+                  success: function (data) {
+                      //$('#popup').html(data);
+                      //$('#popup').show();
+                      $('.modal-body').html(data)
+                      
+                    
+                  }
+              });
+        }
+
+       
+      }
+
         $('#myModal').on('show.bs.modal', function (event) {
                      
           var button = $(event.relatedTarget) // Button that triggered the modal

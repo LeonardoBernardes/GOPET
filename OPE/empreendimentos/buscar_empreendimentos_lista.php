@@ -66,10 +66,10 @@
                       <span colspan="1">Estado: '.$row->estado.'</span><br>
                       <span colspan="1">Cidade: '.$row->cidade.'</span><br>
                       <span colspan="1">Bairro: '.$row->bairro.'</span>
-                      <button href="lista_modal_animais.php?empr_id='.$row->empr_id.'"  class="btn btn-success" style="margin-left:60px;" data-toggle="modal" data-target="#myModal" data-whatever="Animais" title="Animais">Animais</button>
-                      <button href="lista_modal_eventos.php?empr_id='.$row->empr_id.'"   class="btn btn-success" style="margin-left:15px;" data-toggle="modal" data-target="#myModal" data-whatever="Eventos" title="Eventos">Eventos</button>
-                      <button href="lista_modal_produtos.php?empr_id='.$row->empr_id.'"   class="btn btn-success" style="margin-left:15px;" data-toggle="modal" data-target="#myModal" data-whatever="Produtos" title="Produtos">Produtos</button>
-                      <button href="lista_modal_servicos.php?empr_id='.$row->empr_id.'"   class="btn btn-success" style="margin-left:15px;" data-toggle="modal" data-target="#myModal" data-whatever="Serviços" title="Serviços">Serviços</button>
+                      <button id="animais"  src="lista_modal_animais.php?empr_id='.$row->empr_id.'"  class="btn btn-success" style="margin-left:60px;" data-toggle="modal" data-target="#myModal" data-whatever="Animais" title="Animais">Animais</button>
+                      <button id="eventos"  src="lista_modal_eventos.php?empr_id='.$row->empr_id.'"   class="btn btn-success" style="margin-left:15px;" data-toggle="modal" data-target="#myModal" data-whatever="Eventos" title="Eventos">Eventos</button>
+                      <button id="produtos" src="lista_modal_produtos.php?empr_id='.$row->empr_id.'"   class="btn btn-success" style="margin-left:15px;" data-toggle="modal" data-target="#myModal" data-whatever="Produtos" title="Produtos">Produtos</button>
+                      <button id="servicos" src="lista_modal_servicos.php?empr_id='.$row->empr_id.'"   class="btn btn-success" style="margin-left:15px;" data-toggle="modal" data-target="#myModal" data-whatever="Serviços" title="Serviços">Serviços</button>
                     </div>
                     
                     
@@ -166,8 +166,8 @@
     </div>
   </div>
  <!-- Optional JavaScript -->
-  <script src="static/jquery.js"></script>
-  <script src="static/bootstrap/js/bootstrap.js"></script>
+  <!--script src="static/jquery.js"></script>
+  <script src="static/bootstrap/js/bootstrap.js"></script-->
 
 
 <!--Verificar quais já possui no projeto e se não possuir baixar  -->
@@ -177,15 +177,57 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 
     <script>
-      $('#myModal').on('show.bs.modal', function (event) {
-        var button = $(event.relatedTarget) // Button that triggered the modal
-        var recipient = button.data('whatever') // Extract info from data-* attributes
-        // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-        // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-        var modal = $(this)
-        modal.find('.modal-title').text(recipient)
-        modal.find('.modal-body input').val(recipient)
-      })
+      $("#eventos").click(function () {
+            $.ajax({
+                type: 'GET',
+                url: 'eventos/lista_modal_eventos.php?empr_id=1',
+                success: function (data) {
+                    //$('#popup').html(data);
+                    //$('#popup').show();
+                    $('.modal-body').html(data)
+                    
+                   
+                }
+            });
+        });
+        $("#produtos").click(function () {
+            $.ajax({
+                type: 'GET',
+                url: 'produtos/lista_modal_produtos.php?empr_id=1',
+                success: function (data) {
+                    //$('#popup').html(data);
+                    //$('#popup').show();
+                    $('.modal-body').html(data)
+                    
+                   
+                }
+            });
+        });
+        $("#servicos").click(function () {
+            $.ajax({
+                type: 'GET',
+                url: 'servicos/lista_modal_servicos.php?empr_id=1',
+                success: function (data) {
+                    //$('#popup').html(data);
+                    //$('#popup').show();
+                    $('.modal-body').html(data)
+                    
+                   
+                }
+            });
+        });
+        $('#myModal').on('show.bs.modal', function (event) {
+                     
+          var button = $(event.relatedTarget) // Button that triggered the modal
+          var recipient = button.data('whatever') // Extract info from data-* attributes
+          // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+          // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+          
+          var modal = $(this)
+          modal.find('.modal-title').text(recipient)
+          modal.find('.modal-body input').val(recipient)
+          
+        })
 </script>
 <footer>
 

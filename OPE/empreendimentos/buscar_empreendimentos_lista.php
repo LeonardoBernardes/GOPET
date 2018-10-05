@@ -64,6 +64,7 @@
    <div class="main">
         <div class="container login-empreendimento">
                 <fieldset id="fie">
+                      <img style="width:200px;" src="'.$endereco_img.'" style="width:100%"/>
                       <span class="input-group-text" for="inputGroupSelect01">Nome: '.$row->nome.'</span>
                       <span class="input-group-text" for="inputGroupSelect01">Logradouro: '.$row->logradouro.'</span>
                       <span class="input-group-text" for="inputGroupSelect01">Número: '.$row->numero.'</span>

@@ -9,7 +9,7 @@
 include_once(dirname( __FILE__ ) .'\..\mysql_conexao\conexao_mysql.php');
 $empr_id = ($_GET['empr_id']) ? $_GET['empr_id'] : ""; 
 $results = '';
-
+$endereco_img = '';
 $sql3 ="SELECT
             anim_id,
             eman_flag
@@ -67,16 +67,17 @@ if(isset($ids)){
         //echo $sql3;
 
         $result4 =  mysqli_query($conn, $sql3);
-        $row5 = mysqli_fetch_object($result4);
+        while($row5 = mysqli_fetch_object($result4)){
     
     
-        $endereco_img = '';
+        
         if(!empty($row5)){
 
             if($row5->anim_id == $row->anim_id){
                 $endereco_img = $row5->anfo_endereco;
             }
         }
+    }
         if(!empty($endereco_img)){
         //Criar Funcao para trazer local host como variavel
         $endereco_img = str_replace('\\', '/',"http://localhost/".'PHP/GOPET/OPE/animais/'.$endereco_img);

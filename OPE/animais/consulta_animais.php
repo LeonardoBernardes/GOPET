@@ -25,6 +25,7 @@
     
     $castracao = '';
     $results = "";
+    $endereco_img = '';
     
     
 if($grup_id == 3){
@@ -127,18 +128,24 @@ elseif($grup_id == 4 ||$grup_id == 2){
                     WHERE 
                         anim_id in ($ids)";
             //echo $sql3;
+            //return;
 
             $result4 =  mysqli_query($conn, $sql3);
-            $row5 = mysqli_fetch_object($result4);
-        
-        
-            $endereco_img = '';
-            if(!empty($row5)){
+            while($row5 = mysqli_fetch_object($result4)){
+            
+                if(!empty($row5)){
 
-                if($row5->anim_id == $row->anim_id){
-                    $endereco_img = $row5->anfo_endereco;
+                    //if($row5->anim_id == $ultimo_animal){
+                    //    break;
+                    //}
+
+                    if($row5->anim_id == $row->anim_id){
+                        $endereco_img = $row5->anfo_endereco;
+                    }
                 }
+                //$ultimo_animal = $row5->anim_id;
             }
+
             if(!empty($endereco_img)){
             //Criar Funcao para trazer local host como variavel
             $endereco_img = str_replace('\\', '/',"http://localhost/".'PHP/GOPET/OPE/animais/'.$endereco_img);

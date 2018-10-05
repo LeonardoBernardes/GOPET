@@ -172,7 +172,7 @@ if(!empty($foto)){
     if(!preg_match("/^image\/(pjpeg|jpeg|png|gif|bmp)$/", $foto["type"])){
         $error[1] = "Isso não é uma imagem.";
         } 
-
+/*
     // Pega as dimensões da imagem
     $dimensoes = getimagesize($foto["tmp_name"]);
 
@@ -189,7 +189,7 @@ if(!empty($foto)){
     // Verifica se o tamanho da imagem é maior que o tamanho permitido
     if($foto["size"] > $tamanho) {
             $error[4] = "A imagem deve ter no máximo ".$tamanho." bytes";
-    }
+    }*/
 
     // Se não houver nenhum erro
     if (count($error) == 0) {

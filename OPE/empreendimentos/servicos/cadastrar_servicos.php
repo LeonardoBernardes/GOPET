@@ -95,7 +95,7 @@ if (!empty($foto["name"])) {
         // Pega as dimensões da imagem
         $dimensoes = getimagesize($foto["tmp_name"]);
     
-        // Verifica se a largura da imagem é maior que a largura permitida
+        /*// Verifica se a largura da imagem é maior que a largura permitida
         if($dimensoes[0] > $largura) {
             $error[2] = "A largura da imagem não deve ultrapassar ".$largura." pixels";
         }
@@ -108,7 +108,7 @@ if (!empty($foto["name"])) {
         // Verifica se o tamanho da imagem é maior que o tamanho permitido
         if($foto["size"] > $tamanho) {
                 $error[4] = "A imagem deve ter no máximo ".$tamanho." bytes";
-        }
+        }*/
     
         // Se não houver nenhum erro
         if (count($error) == 0) {

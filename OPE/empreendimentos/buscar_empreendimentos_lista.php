@@ -34,11 +34,13 @@
               emen.emen_cidade as cidade,
               emen.emen_bairro as bairro, 
               emen.emen_cep as cep, 
-              emen.emen_pais as pais
+              emen.emen_pais as pais,
+              img.emim_endereco as imagem
             FROM 
               empreendimentos empr 
-              LEFT JOIN empreendimentos_enderecos emen ON emen.empr_id = empr.empr_id";
-//echo $sql;
+              LEFT JOIN empreendimentos_enderecos emen ON emen.empr_id = empr.empr_id
+              LEFT JOIN empreendimentos_imagens img ON img.empr_id = empr.empr_id";
+ //echo $sql;
     $result = mysqli_query($conn, $sql);
     while($row = mysqli_fetch_object($result)){
 
@@ -52,8 +54,17 @@
       $row->estado = ($row->estado != 0 || !empty($row->estado)) ? $row->estado : ' ';
       $row->cidade = ($row->cidade != 0 || !empty($row->cidade)) ? $row->cidade : ' ';
       $row->bairro = ($row->bairro != 0 || !empty($row->bairro)) ? $row->bairro : ' ';
+      $endereco_img = (!empty($row->imagem)) ? $row->imagem : '';
+
+      if(!empty($endereco_img)){
+        //Criar Funcao para trazer local host como variavel
+        $endereco_img = str_replace('\\', '/',"http://localhost/".'PHP/GOPET/OPE/empreendimentos/'.$endereco_img);
+      }
+
+
       $results .='<div class="col-md-12 card">
                     <div class="col-md-6">
+                      <img style="width:200px;" src="'.$endereco_img.'" style="width:100%"/>
                       <span colspan="2">Nome: '.$row->nome.'</span><br>
                       <span colspan="1">Logradouro: '.$row->logradouro.'</span><br>
                       <span colspan="1">Número: '.$row->numero.'</span><br>

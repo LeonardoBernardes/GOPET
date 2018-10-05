@@ -56,7 +56,7 @@ body {
 
 .main {
     margin-left: 180px; /* Same width as the sidebar + left position in px */
-    font-size: 28px; /* Increased text to enable scrolling */
+    font-size: 20px; /* Increased text to enable scrolling */
     padding: 10px;
 }
 

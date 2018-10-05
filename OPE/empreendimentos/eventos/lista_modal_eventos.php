@@ -77,16 +77,12 @@ if(isset($ids)){
 
   
         $results .='
-                    <div class="col-md-4">
-                        <div class="col-md-12 card">
-                            <div class="col-md-12">
-                                <img src="'.$endereco_img.'" style="width:100%"/>
-                            <span >Nome: '.$row->even_nome.'</span><br>
-                            <span >Descrição: '.$row->even_descricao.'</span><br>
-                            <span >Data da Realização: '.$row->even_data_realizacao.'</span><br>
-                            <span >Status: '.$row->even_status.'</span><br>
-                            </div>
-                        </div>
+                    <div class="col-md-12">
+                            <img src="'.$endereco_img.'" style="width:100%"/>
+                            <span class="input-group-text" for="inputGroupSelect01">Nome: '.$row->even_nome.'</span><br>
+                            <span class="input-group-text" for="inputGroupSelect01">Descrição: '.$row->even_descricao.'</span><br>
+                            <span class="input-group-text" for="inputGroupSelect01">Data da Realização: '.$row->even_data_realizacao.'</span><br>
+                            <span class="input-group-text" for="inputGroupSelect01">Status: '.$row->even_status.'</span><br>
                     </div>';
     }
 }
@@ -104,7 +100,6 @@ if(empty($results)){
 
 <div class="container">
     <div class="row">
-      
         <?php echo $results ?>
        
         

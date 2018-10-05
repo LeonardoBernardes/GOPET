@@ -83,21 +83,18 @@ if(isset($ids)){
         $endereco_img = str_replace('\\', '/',"http://localhost/".'PHP/GOPET/OPE/animais/'.$endereco_img);
         }
         $results .='
-            <div class="col-md-4">
-                <div class="col-md-12 card">
                     <div class="col-md-12">
                         <img style="width:200px;" src="'.$endereco_img.'" style="width:100%"/>
-                        <span colspan="2">Nome: '.$row->anim_nome.'</span><br>
-                        <span colspan="1">RGA: '.$row->anim_ra.'</span><br>
-                        <span colspan="1">Idade: '.$row->anim_idade.'</span><br>
-                        <span colspan="1">Porte: '.$row->anim_porte.'</span><br>
-                        <span colspan="1">Gênero: '.$row->anim_genero.'</span><br>
-                        <span colspan="1">Categoria: '.$row->anim_categoria.'</span><br>
-                        <span colspan="1">Restrição de adoção: '.$row->anim_restricao_doacao.'</span><br>
-                        <span colspan="1">Castrado ? '.$castracao.'</span><br>
-                    </div>
-                </div>
-            </div>';
+                        <span class="input-group-text" for="inputGroupSelect01">Nome: '.$row->anim_nome.'</span>
+                        <span class="input-group-text" for="inputGroupSelect01">RGA: '.$row->anim_ra.'</span>
+                        <span class="input-group-text" for="inputGroupSelect01">Idade: '.$row->anim_idade.'</span>
+                        <span class="input-group-text" for="inputGroupSelect01">Porte: '.$row->anim_porte.'</span>
+                        <span class="input-group-text" for="inputGroupSelect01">Gênero: '.$row->anim_genero.'</span>
+                        <span class="input-group-text" for="inputGroupSelect01">Categoria: '.$row->anim_categoria.'</span>
+                        <span class="input-group-text" for="inputGroupSelect01">Restrição de adoção: '.$row->anim_restricao_doacao.'</span>
+                        <span class="input-group-text" for="inputGroupSelect01">Castrado ? '.$castracao.'</span><br>
+                    </div>            
+            ';
     
     //echo $results;
     }

@@ -25,39 +25,12 @@ if(!isset($_SESSION))
 body {
     font-family: "Lato", sans-serif;
 }
-#navbar {
-  overflow: hidden;
-  background-color: #333;
-}
 
-#navbar a {
-  float: left;
-  display: block;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-}
-
-#navbar a:hover {
-  background-color: #ddd;
-  color: black;
-}
-
-#navbar a.active {
-  background-color: #4CAF50;
-  color: white;
-}
-
-    .main {
-    margin-left: 180px; /* Same width as the sidebar + left position in px */
-}
 
     
 
 .sidenav {
-    width: 160px;
+    width: 150px;
     height:100%;
     position: fixed;
     z-index: 1;
@@ -91,7 +64,7 @@ body {
     
 .main {
     margin-left: 150px; /* Same width as the sidebar + left position in px */
-    font-size: 28px; /* Increased text to enable scrolling */
+/*  font-size: 28px; /* Increased text to enable scrolling */
     padding: 10px;
 }
 
@@ -137,12 +110,12 @@ if ($_SESSION['grup_id'] == 3){
                         <li class="nav-item">
                         <a class="nav-link" href="http://localhost/PHP/GOPET/OPE/usuarios/eventos/consultar_eventos.php">Meus Eventos</a>
                         </li>
-                        <!--li class="nav-item">
+                        <li class="nav-item">
                             <a class="nav-link" href="#">Minhas Doações</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Favoritos</a>
-                        </li-->
+                        </li>
             ';
 
         }

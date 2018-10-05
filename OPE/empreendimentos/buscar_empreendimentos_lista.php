@@ -60,38 +60,44 @@
         //Criar Funcao para trazer local host como variavel
         $endereco_img = str_replace('\\', '/',"http://localhost/".'PHP/GOPET/OPE/empreendimentos/'.$endereco_img);
       }
-
-
-      $results .='<div class="col-md-12 card">
-                    <div class="col-md-6">
-                      <img style="width:200px;" src="'.$endereco_img.'" style="width:100%"/>
-                      <span colspan="2">Nome: '.$row->nome.'</span><br>
-                      <span colspan="1">Logradouro: '.$row->logradouro.'</span><br>
-                      <span colspan="1">Número: '.$row->numero.'</span><br>
-                      <span colspan="1">Complemento: '.$row->complemento.'</span><br>
-                      <span colspan="1">CEP: '.$row->cep.'</span>
-
-                    </div>
-                    <div class="col-md-6">
-                      <span colspan="1">País: '.$row->pais.'</span><br>
-                      <span colspan="1">Estado: '.$row->estado.'</span><br>
-                      <span colspan="1">Cidade: '.$row->cidade.'</span><br>
-                      <span colspan="1">Bairro: '.$row->bairro.'</span>
-                      <button id="animais/'.$row->empr_id.'"  class="btn btn-success" style="margin-left:60px;" data-toggle="modal" data-target="#myModal" data-whatever="Animais" title="Animais" value="'.$row->empr_id.'" onclick="getId(this)">Animais</button>
+      $results .='
+   <div class="main">
+        <div class="container login-empreendimento">
+                <fieldset id="fie">
+                      <span class="input-group-text" for="inputGroupSelect01">Nome: '.$row->nome.'</span>
+                      <span class="input-group-text" for="inputGroupSelect01">Logradouro: '.$row->logradouro.'</span>
+                      <span class="input-group-text" for="inputGroupSelect01">Número: '.$row->numero.'</span>
+                      <span class="input-group-text" for="inputGroupSelect01">Complemento: '.$row->complemento.'</span>
+                      <span class="input-group-text" for="inputGroupSelect01">CEP: '.$row->cep.'</span>
+                      <span class="input-group-text" for="inputGroupSelect01">País: '.$row->pais.'</span>
+                      <span class="input-group-text" for="inputGroupSelect01">Estado: '.$row->estado.'</span>
+                      <span class="input-group-text" for="inputGroupSelect01">Cidade: '.$row->cidade.'</span>
+                      <span class="input-group-text" for="inputGroupSelect01">Bairro: '.$row->bairro.'</span><hr>
+                      <button id="animais/'.$row->empr_id.'"  class="btn btn-success" style="margin-left:200px;" data-toggle="modal" data-target="#myModal" data-whatever="Animais" title="Animais" value="'.$row->empr_id.'" onclick="getId(this)">Animais</button>
                       <button id="eventos/'.$row->empr_id.'"   class="btn btn-success" style="margin-left:15px;" data-toggle="modal" data-target="#myModal" data-whatever="Eventos" title="Eventos" value="'.$row->empr_id.'" onclick="getId(this)">Eventos</button>
                       <button id="produtos/'.$row->empr_id.'"   class="btn btn-success" style="margin-left:15px;" data-toggle="modal" data-target="#myModal" data-whatever="Produtos" title="Produtos" value="'.$row->empr_id.'" onclick="getId(this)">Produtos</button>
                       <button id="servicos/'.$row->empr_id.'"   class="btn btn-success" style="margin-left:15px;" data-toggle="modal" data-target="#myModal" data-whatever="Serviços" title="Serviços" value="'.$row->empr_id.'" onclick="getId(this)">Serviços</button>
-                    </div>
-                    
-                    
-                    
-                  </div>';
+                     </fieldset>
+            </div>
+</div>
+';
 
     }
     json_encode($arr_empreendimentos_JSON);
     
 
-
+   if ($_SESSION['grup_id'] == 4){
+    include_once("../menu_footer/menu_empreendimento.php"); 
+    include_once("../menu_footer/menu_latera_empreendimento.php");
+    }
+    if ($_SESSION['grup_id'] == 1){    
+    include_once("../menu_footer/menu_administrador.php");
+    }
+    if ($_SESSION['grup_id'] == 3){    
+    include_once("../menu_footer/menu_usuario.php");
+    include_once("../menu_footer/menu_latera_usuario.php");
+    }
+ 
     ?>
     
 <!DOCTYPE html>
@@ -105,52 +111,30 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="../static/estilo.css">
-    <style>
-      /* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
-      #map {
-        height: 100%;
-      }
-      /* Optional: Makes the sample page fill the window. */
-      html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
-    </style>
+
 
 </head>
 
 
 <!--script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1nkX5KVBXgDHas0sYoCXqws8MzKCWBcQ&libraries=places"></script-->
 <body>
-<?php /*
-    if ($_SESSION['grup_id'] == 4){
-      include_once("../menu_footer/menu_empreendimento.php"); 
-      include_once("../menu_footer/menu_latera_empreendimento.php");
-    }
-    if ($_SESSION['grup_id'] == 1){    
-      include_once("../menu_footer/menu_administrador.php");
-    }
-    if ($_SESSION['grup_id'] == 3){    
-      include_once("../menu_footer/menu_usuario.php");
-      include_once("../menu_footer/menu_latera_usuario.php");
-    }*/
-    //echo $results 
-  ?>
-     <div class="main"><?php echo $results ?></div>
+    <div id="formulario_empreendimento">
+        <?php echo $results ?>
+ 
      <?php
-    if ($_SESSION['grup_id'] == 4){
+        if ($_SESSION['grup_id'] == 4){
+            ?>
+            <a class="btn btn-dark" href="..\empreendimentos\home_empreendimento.php"> Voltar</a>
+        <?php
+        }
+        if ($_SESSION['grup_id'] == 3){    
         ?>
-        <a class="btn btn-dark" href="..\empreendimentos\home_empreendimento.php"> Voltar</a>
-    <?php
-    }
-    if ($_SESSION['grup_id'] == 3){    
-    ?>
-       <a class="btn btn-dark" href="..\usuarios\home_usuarios.php"> Voltar</a>
+           <a class="btn btn-dark" href="..\usuarios\home_usuarios.php"> Voltar</a>
     <?php
     }
     ?>
+        </div>
+    
 </body>
  <!-- The Modal -->
  <div class="modal modal" id="myModal" style="width:100%;">
@@ -182,7 +166,6 @@
 
 
 <!--Verificar quais já possui no projeto e se não possuir baixar  -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>

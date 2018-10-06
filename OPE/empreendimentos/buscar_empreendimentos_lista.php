@@ -64,7 +64,7 @@
    <div class="main">
         <div class="container login-empreendimento">
                 <fieldset id="fie">
-                      <img style="width:200px;" src="'.$endereco_img.'" style="width:100%"/>
+                      <img style="width:150px;" src="'.$endereco_img.'" style="width:100% class="img-thumbnail""/>
                       <span class="input-group-text" for="inputGroupSelect01">Nome: '.$row->nome.'</span>
                       <span class="input-group-text" for="inputGroupSelect01">Logradouro: '.$row->logradouro.'</span>
                       <span class="input-group-text" for="inputGroupSelect01">Número: '.$row->numero.'</span>
@@ -74,10 +74,10 @@
                       <span class="input-group-text" for="inputGroupSelect01">Estado: '.$row->estado.'</span>
                       <span class="input-group-text" for="inputGroupSelect01">Cidade: '.$row->cidade.'</span>
                       <span class="input-group-text" for="inputGroupSelect01">Bairro: '.$row->bairro.'</span><hr>
-                      <button id="animais/'.$row->empr_id.'"  class="btn btn-success" style="margin-left:200px;" data-toggle="modal" data-target="#myModal" data-whatever="Animais" title="Animais" value="'.$row->empr_id.'" onclick="getId(this)">Animais</button>
-                      <button id="eventos/'.$row->empr_id.'"   class="btn btn-success" style="margin-left:15px;" data-toggle="modal" data-target="#myModal" data-whatever="Eventos" title="Eventos" value="'.$row->empr_id.'" onclick="getId(this)">Eventos</button>
-                      <button id="produtos/'.$row->empr_id.'"   class="btn btn-success" style="margin-left:15px;" data-toggle="modal" data-target="#myModal" data-whatever="Produtos" title="Produtos" value="'.$row->empr_id.'" onclick="getId(this)">Produtos</button>
-                      <button id="servicos/'.$row->empr_id.'"   class="btn btn-success" style="margin-left:15px;" data-toggle="modal" data-target="#myModal" data-whatever="Serviços" title="Serviços" value="'.$row->empr_id.'" onclick="getId(this)">Serviços</button>
+                      <button id="animais/'.$row->empr_id.'"  class="btn btn-success sticky-top" style="margin-left:15px;" data-toggle="modal" data-target="#myModal" data-whatever="Animais" title="Animais" value="'.$row->empr_id.'" onclick="getId(this)">Animais</button>
+                      <button id="eventos/'.$row->empr_id.'"   class="btn btn-success sticky-top" style="margin-left:15px;" data-toggle="modal" data-target="#myModal" data-whatever="Eventos" title="Eventos" value="'.$row->empr_id.'" onclick="getId(this)">Eventos</button>
+                      <button id="produtos/'.$row->empr_id.'"   class="btn btn-success sticky-top" style="margin-left:15px;" data-toggle="modal" data-target="#myModal" data-whatever="Produtos" title="Produtos" value="'.$row->empr_id.'" onclick="getId(this)">Produtos</button>
+                      <button id="servicos/'.$row->empr_id.'"   class="btn btn-success sticky-top" style="margin-left:15px;" data-toggle="modal" data-target="#myModal" data-whatever="Serviços" title="Serviços" value="'.$row->empr_id.'" onclick="getId(this)">Serviços</button>
                      </fieldset>
             </div>
 </div>

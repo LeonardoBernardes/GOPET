@@ -127,7 +127,7 @@ if ($_SESSION['grup_id'] == 3){
 
 
 
-<nav class="sidenav navbar navbar-light bg-light nav_bar_usuario">
+<nav class="position-fixed sidenav navbar navbar-light bg-light nav_bar_usuario">
 <ul class="navbar-nav mr-auto" style="margin-left:10px;">
 
     <?php echo $menu ?>

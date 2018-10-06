@@ -83,17 +83,21 @@ if(!empty($ids)){
             }
 
 
-            $results .='<tr>
-                            <td>'.$row->logi_id.'</td>
-                            <td>'.$row->logi_nome.'</td>
-                            <td>'.$row->logi_senha.'</td>
-                            <td>'.$row->logi_email.'</td>
-                            <td>'.$row->logi_data_cadastro.'</td>
-                            <td>'.$row->logi_data_atualizacao.'</td>
-                            <td>'.$status.'</td>
-                            <td><a href="http://localhost/PHP/GOPET/OPE/empreendimentos/funcionarios/atualizar_funcionarios.php?id='.$row->logi_id.'"> Editar</a></td>
-                        </tr>';
-        //echo $results;
+            $results .='           
+            <tr>
+                    <td class="bg-primary" ><font color="white"><b>'.$row->logi_id.'</b></font></td>
+                    <td class="bg-primary" ><img style="width:50px;" src="'.$endereco_img.'"/></td>
+                    <td class="bg-primary"><font color="white"><b>'.$row->logi_nome.'</b></font></td>
+                    <td class="bg-primary"><font color="white"><b>'.$row->logi_senha.'</b></font></td>
+                    <td class="bg-primary"><font color="white"><b>'.$row->logi_email.'</b></font></td>
+                    <td class="bg-primary"><font color="white"><b>'.$row->logi_data_cadastro.'</b></font></td>
+                    <td class="bg-primary"><font color="white"><b>'.$row->logi_data_atualizacao.'</b></font></td>
+                    <td class="bg-primary"><font color="white"><b>'.$status.'</b></font></td>
+                    <td class="bg-primary"><a href="../../animais/atualizar_produtos.php?id='.$row->anim_id.'"><font color="white"><b> Editar</a></b></font></td>
+            </tr>';
+
+
+            
         }
     }
 }
@@ -133,10 +137,10 @@ include_once "../../menu_footer/menu_latera_empreendimento.php"
     
 ?>
 <body>
-<div class="one_page home_empreendimento">
-<div class="main">
-   
-    <table class="table tabelas" style="width:100%">
+<div class="one_page home_empreendimento">   
+    <div class="main">
+    <div class="table-responsive">
+    <table class="position-sticky table tabelas" style="width:100%">
         <thead class="thead-dark">
             <tr>
                 <th scope="col">ID</th>
@@ -151,11 +155,12 @@ include_once "../../menu_footer/menu_latera_empreendimento.php"
         </thead>
         <?php echo $results ?>
     </table>
-    <a class="btn btn-dark" href="..\home_empreendimento.php"> Voltar</a>
-   <a class="btn btn-success"  href="http://localhost/PHP/GOPET/OPE/empreendimentos/funcionarios/cadastro_funcionarios.php">Cadastrar funcionários</a>
     </div>
+
+   
+        
     </div>
-    
+</div>
 </body>
 
 <footer>

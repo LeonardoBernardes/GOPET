@@ -83,21 +83,24 @@ while ($row = mysqli_fetch_object($result)) {
     }
     
 
-    $results .='<tr>
-                    
-                    <td>'.$row->prod_id.'</td>
-                    <td><img src="'.$endereco_img.'" style="width:100%"/></td>
-                    <td>'.$row->prod_nome.'</td>
-                    <td>'.$row->prod_marca.'</td>
-                    <td>'.$row->prod_qtde_estoque.'</td>
-                    <td>'.$row->prod_descricao.'</td>
-                    <td>'.$row->prod_valor_total.'</td>
-                    <td>'.$row->prod_promocao.'</td>
-                    <td>'.$row->prod_valor_promocao.'</td>
-                    <td>'.$status.'</td>
-                    
-                    <td><a href="../../empreendimentos/produtos/atualizar_produtos.php?id='.$row->prod_id.'"</a> editar</td>
-                </tr>';
+    $results .=' 
+            <tr>
+
+                    <td class="bg-primary" ><font color="white"><b>'.$row->prod_id.'</b></font></td>
+                    <td class="bg-primary" ><img style="width:50px;" src="'.$endereco_img.'"/></td>
+                    <td class="bg-primary"><font color="white"><b>'.$row->prod_nome.'</b></font></td>
+                    <td class="bg-primary"><font color="white"><b>'.$row->prod_marca.'</b></font></td>
+                    <td class="bg-primary"><font color="white"><b>'.$row->prod_qtde_estoque.'</b></font></td>
+                    <td class="bg-primary"><font color="white"><b>'.$row->prod_descricao.'</b></font></td>
+                    <td class="bg-primary"><font color="white"><b>'.$row->prod_valor_total.'</b></font></td>
+                    <td class="bg-primary"><font color="white"><b>'.$row->prod_promocao.'</b></font></td>
+                    <td class="bg-primary"><font color="white"><b>'.$row->prod_valor_promocao.'</b></font></td>
+                    <td class="bg-primary"><font color="white"><b>'.$status.'</b></font></td>
+                    <td class="bg-primary"><a href="../../animais/atualizar_produtos.php?id='.$row->anim_id.'"><font color="white"><b> Editar</a></b></font></td>
+            </tr>';
+
+        
+
 //echo $results;
 }
 include_once("../../menu_footer/menu_empreendimento.php"); 
@@ -125,9 +128,10 @@ include_once "../../menu_footer/menu_latera_empreendimento.php"
     
 ?>
 <body>
-<div class="one_page home_empreendimento">
+<div class="one_page home_empreendimento">   
     <div class="main">
-    <table class="table tabelas" style="width:100%">
+    <div class="table-responsive">
+    <table class="position-sticky table tabelas" style="width:100%">
         <thead class="thead-dark">
             <tr>
                 <th scope="col">ID</th>
@@ -145,10 +149,12 @@ include_once "../../menu_footer/menu_latera_empreendimento.php"
         </thead>
         <?php echo $results ?>
     </table>
-    <a class="btn btn-dark" href="..\home_empreendimento.php"> Voltar</a>
-       <a class="btn btn-success" href="../../empreendimentos/produtos/cadastro_produtos.php">Cadastrar Produtos</a>
     </div>
+
+   
+        
     </div>
+</div>
     
 </body>
 

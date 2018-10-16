@@ -78,18 +78,18 @@ while ($row = mysqli_fetch_object($result)) {
     $endereco_img = str_replace('\\', '/',"http://localhost/".'PHP/GOPET/OPE/empreendimentos/servicos/'.$endereco_img);
     }
 
-    $results .='<tr>
-                    <td>'.$row->serv_id.'</td>
-                    <td><img src="'.$endereco_img.'" style="width:100%;"/></td>
-                    <td>'.$row->serv_nome.'</td>
-                    <td>'.$row->serv_descricao.'</td>
-                    <td>'.$row->serv_valor_total.'</td>
-                    <td>'.$row->serv_promocao.'</td>
-                    <td>'.$row->serv_valor_promocao.'</td>
-                    <td>'.$status.'</td>
-                    
-                    <td><a href="http://localhost/PHP/GOPET/OPE/empreendimentos/servicos/atualizar_servicos.php?id='.$row->serv_id.'"> Editar</a></td>
-                </tr>';
+       $results .='<tr>
+                            
+                            <td class="bg-primary" ><font color="white"><b>'.$row->serv_id.'</b></font></td>
+                            <td class="bg-primary" ><img style="width:50px;" src="'.$endereco_img.'"/></td>
+                            <td class="bg-primary"><font color="white"><b>'.$row->serv_nome.'</b></font></td>
+                            <td class="bg-primary"><font color="white"><b>'.$row->serv_descricao.'</b></font></td>
+                            <td class="bg-primary"><font color="white"><b>'.$row->serv_valor_total.'</b></font></td>
+                            <td class="bg-primary"><font color="white"><b>'.$row->serv_promocao.'</b></font></td>
+                            <td class="bg-primary"><font color="white"><b>'.$row->serv_valor_promocao.'</b></font></td>
+                            <td class="bg-primary"><font color="white"><b>'.$status.'</b></font></td>
+                            <td class="bg-primary"><a href="../../animais/atualizar_servicos.php?id='.$row->anim_id.'"><font color="white"><b> Editar</a></b></font></td>
+                    </tr>';
 //echo $results;
 }
  include_once("../../menu_footer/menu_empreendimento.php"); 
@@ -118,12 +118,13 @@ while ($row = mysqli_fetch_object($result)) {
 include_once "../../menu_footer/menu_latera_empreendimento.php" 
     
 ?>
-  <div class="one_page home_empreendimento">
-    <div  class="main">
-    <table class="table tabelas" style="width:100%">
+    <div class="one_page home_empreendimento">   
+    <div class="main">
+    <div class="table-responsive">
+    <table class="position-relative table tabelas" style="width:100%">
         <thead class="thead-dark">
             <tr>
-                <th scope="col">ID</th>
+                 <th scope="col">ID</th>
                 <th scope="col" style="width:100%">imagem</th>
                 <th scope="col">Nome</th>
                 <th scope="col">Descrição</th>
@@ -136,8 +137,10 @@ include_once "../../menu_footer/menu_latera_empreendimento.php"
         </thead>
         <?php echo $results ?>
     </table>
-    <a class="btn btn-dark" href="..\home_empreendimento.php"> Voltar</a>
-    <a class="btn btn-success"  href="http://localhost/PHP/GOPET/OPE/empreendimentos/servicos/cadastro_servicos.php">Cadastrar Serviços</a>
+    </div>
+
+   
+        
     </div>
 </div>
 </body>

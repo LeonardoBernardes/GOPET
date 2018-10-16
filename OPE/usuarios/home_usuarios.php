@@ -9,8 +9,7 @@
 //var_dump($_SESSION);
 
    
-include_once("../menu_footer/menu_usuario.php"); 
-include_once("../menu_footer/menu_latera_usuario.php"); 
+ 
 ?>
            
     
@@ -41,6 +40,10 @@ include_once("../menu_footer/menu_latera_usuario.php");
 
 </head>
     <body>
+    <?php include_once("../menu_footer/menu_latera_usuario.php"); 
+        include_once("../menu_footer/menu_usuario.php"); 
+        
+    ?>
        <div class="main">
         <div class="one_page home">
             <h1><img class="logo_index" src="static/imagens/icon_preto.png" alt="" /></h1>

@@ -25,7 +25,7 @@ $grup_id = $_SESSION['grup_id'];
 $logi_id = $_SESSION['logi_id'];
 
 //Tipo de cadastro de animal
-$tipo_cadastro = ($_POST['tipo_cadastro']) ? $_POST['tipo_cadastro'] : "";
+$tipo_cadastro = ($_POST['tipo_cadastro']) ? $_POST['tipo_cadastro'] : 3;
 $tipo_cadastro = intval($tipo_cadastro);
 
 
@@ -285,7 +285,7 @@ $sql4 = "   INSERT INTO
                             NOW(),
                             $id_animal->anim_id
                         )";
-    //echo $sql4;
+   // echo $sql4;
     $c2 = mysqli_query($conn, $sql4);
 
 

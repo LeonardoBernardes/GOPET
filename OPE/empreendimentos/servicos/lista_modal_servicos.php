@@ -63,7 +63,7 @@ while($row = mysqli_fetch_object($result)){
 if(empty($results)){
     $results .='<div class="col-md-12">
                     <div class="col-md-12 card">
-                        <span class="badge badge-warning" style="margin-top:15px; font-size:16px;">Esse empreendimento não possui <b>PRODUTOS</b> disponíveis para venda.</span><br>
+                        <span class="badge badge-warning" style="margin-top:15px; font-size:16px;">Esse empreendimento não possui <b>SERVIÇOS</b> disponíveis.</span><br>
                     </div>
                 </div>';
 }

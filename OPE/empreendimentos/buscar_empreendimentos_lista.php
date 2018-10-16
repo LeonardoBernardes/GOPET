@@ -85,7 +85,7 @@
 
     }
     json_encode($arr_empreendimentos_JSON);
-    
+   /* 
 
    if ($_SESSION['grup_id'] == 4){
     include_once("../menu_footer/menu_empreendimento.php"); 
@@ -98,7 +98,7 @@
     include_once("../menu_footer/menu_usuario.php");
     include_once("../menu_footer/menu_latera_usuario.php");
     }
- 
+ */
     ?>
     
 <!DOCTYPE html>
@@ -119,6 +119,21 @@
 
 <!--script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1nkX5KVBXgDHas0sYoCXqws8MzKCWBcQ&libraries=places"></script-->
 <body>
+<?php
+
+if ($_SESSION['grup_id'] == 4){
+  include_once("../menu_footer/menu_empreendimento.php"); 
+  include_once("../menu_footer/menu_latera_empreendimento.php");
+  }
+  if ($_SESSION['grup_id'] == 1){    
+  include_once("../menu_footer/menu_administrador.php");
+  }
+  if ($_SESSION['grup_id'] == 3){    
+  include_once("../menu_footer/menu_usuario.php");
+  include_once("../menu_footer/menu_latera_usuario.php");
+  }
+
+?>
     <div id="formulario_empreendimento">
         <?php echo $results ?>
  

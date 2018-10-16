@@ -166,7 +166,7 @@ elseif($grup_id == 4 ||$grup_id == 2){
                             <td>'.$castracao.'</td>
                         
                             
-                            <td><a href="../../animais/atualizar_animais.php?id='.$row->anim_id.'"> Editar</a></td>
+                            <td><a href="../animais/atualizar_animais.php?id='.$row->anim_id.'"> Editar</a></td>
                         </tr>';
         //echo $results;
         }
@@ -232,7 +232,9 @@ if ($_SESSION['grup_id'] == 3){
     }
     if ($_SESSION['grup_id'] == 3){    
     ?>
+        
        <a class="btn btn-dark" href="..\usuarios\home_usuarios.php"> Voltar</a>
+       <a class="btn btn-success" href="http://localhost/PHP/GOPET/OPE/animais/cadastro_animais.php">Cadastrar Animais</a>
     <?php
     }
     ?>

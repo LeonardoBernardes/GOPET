@@ -58,9 +58,9 @@ $logi_id = $_SESSION['logi_id'];
                     </h2><br>
                     <form method="post" action="cadastrar_animais.php?logi_id=<?php echo $logi_id ?>&grupo=<?php echo $grup_id ?>" id="formlogin" name="formlogin">
                         <fieldset id="fie">
-                            <input type="radio" aria-label="Radio button for following text input" name="tipo_cadastro" value="resgate"> Resgate
-                            <input type="radio" name="tipo_cadastro" value="doacao"> Doação
-                            <input type="radio" name="tipo_cadastro" value="proprio"> Próprio
+                            <input type="radio" aria-label="Radio button for following text input" name="tipo_cadastro" value="2"> Resgate
+                            <input type="radio" name="tipo_cadastro" value="1"> Doação
+                            <input type="radio" name="tipo_cadastro" value="3"> Próprio
                             <br/>
                             <div class="card-group">
                                 <div id="cadastro_animal_card" class="card">
@@ -77,7 +77,7 @@ $logi_id = $_SESSION['logi_id'];
                                     <input class="form-control form-control-sm" type="text" name="nome" id="nome"><br/>
                                 </div>
                                 <div class="col">
-                                    <label>R.A </label>
+                                    <label>R.G.A. </label>
                                     <input class="form-control form-control-sm" type="text" name="ra" id="ra"><br/>
                                 </div>
                                 <div class="col">
@@ -137,11 +137,11 @@ $logi_id = $_SESSION['logi_id'];
                                 <div class="form-row">
                                     <div class="col">
                                         <label>Pais  </label>
-                                        <input class="form-control form-control-sm" type="text" name="pais" id="pais"><br/>
+                                        <input class="form-control form-control-sm" type="text" name="pais" id="pais" maxlength="2"><br/>
                                     </div>
                                     <div class="col">
                                         <label>Estado  </label>
-                                        <input class="form-control form-control-sm" type="text" name="estado" id="estado"><br/>
+                                        <input class="form-control form-control-sm" type="text" name="estado" id="estado" maxlength="2"><br/>
                                     </div>
                                     <div class="col">
                                         <label>Cidade </label>

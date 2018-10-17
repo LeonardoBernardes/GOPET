@@ -88,7 +88,7 @@ while ($row = mysqli_fetch_object($result)) {
                             <td class="bg-primary"><font color="white"><b>'.$row->serv_promocao.'</b></font></td>
                             <td class="bg-primary"><font color="white"><b>'.$row->serv_valor_promocao.'</b></font></td>
                             <td class="bg-primary"><font color="white"><b>'.$status.'</b></font></td>
-                            <td class="bg-primary"><a href="../../animais/atualizar_servicos.php?id='.$row->anim_id.'"><font color="white"><b> Editar</a></b></font></td>
+                            <td class="bg-primary"><a href="../servicos/atualizar_servicos.php?id='.$row->serv_id.'"><font color="white"><b> Editar</a></b></font></td>
                     </tr>';
 //echo $results;
 }

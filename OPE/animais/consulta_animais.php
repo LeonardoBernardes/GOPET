@@ -164,7 +164,7 @@ elseif($grup_id == 4 ||$grup_id == 2){
                             <td class="bg-primary"><font color="white"><b>'.$row->anim_categoria.'</b></font></td>
                             <td class="bg-primary"><font color="white"><b>'.$row->anim_restricao_doacao.'</b></font></td>
                             <td class="bg-primary"><font color="white"><b>'.$castracao.'</b></font></td>
-                            <td class="bg-primary"><a href="../../animais/atualizar_animais.php?id='.$row->anim_id.'"><font color="white"><b> Editar</a></b></font></td>
+                            <td class="bg-primary"><a href="../animais/atualizar_animais.php?id='.$row->anim_id.'"><font color="white"><b> Editar</a></b></font></td>
                     </tr>';
         //echo $results;
         }

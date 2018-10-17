@@ -88,9 +88,9 @@ if ($_SESSION['grup_id'] == 4){
                     <a class="nav-link" href="../empreendimentos/cadastro_empreendimentos.php">Meus Dados</a>
                 </li>
 
-                <li class="nav-item">
+                <!--li class="nav-item">
                     <a class="nav-link" href="../empreendimentos/funcionarios/consultar_funcionarios.php">Meus Funcionários</a>
-                </li>
+                </li-->
             ';
     
 }              
@@ -137,11 +137,13 @@ if ($_SESSION['grup_id'] == 4){
 ?>
 
 
-<nav class="position-fixed sidenav navbar navbar-light bg-light nav_bar_empreendimento">
+<nav class="position-fixed sidenav navbar navbar-light bg-light nav_bar_empreendimento" >
+
 <ul class="navbar-nav mr-auto" style="margin-left:10px;">
 
     <?php echo $menu ?>
 </ul>
+
 </nav>
 
    

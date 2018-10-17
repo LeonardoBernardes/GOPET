@@ -55,7 +55,7 @@ body {
 }
 
 .main {
-    margin-left: 180px; /* Same width as the sidebar + left position in px */
+    margin-left:150px; /* Same width as the sidebar + left position in px */
     font-size: 20px; /* Increased text to enable scrolling */
     padding: 10px;
 }
@@ -85,7 +85,7 @@ $menu = '';
 if ($_SESSION['grup_id'] == 4){
 
     $menu .='   <li class="nav-item">
-                    <a class="nav-link" href="../empreendimentos/cadastro_empreendimentos.php">Meus Dados</a>
+                    <a class="nav-link" href="../empreendimentos/cadastro_empreendimentos.php"><img src="../static/icones/dados.png" style="width:20px;"/> Meus Dados</a>
                 </li>
 
                 <!--li class="nav-item">
@@ -110,16 +110,16 @@ if ($_SESSION['grup_id'] == 4){
         if(!empty($row2)){
 
             $menu .='   <li class="nav-item">
-                            <a class="nav-link" href="../animais/consulta_animais.php">Meus Animais <img src="../static/icones/animais.png" style="width:20px;"/></a>
+                            <a class="nav-link" href="../animais/consulta_animais.php"><img src="../static/icones/animais.png" style="width:20px;"/> Meus Animais </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="../empreendimentos/produtos/consultar_produtos.php">Meus Produtos <img src="../static/icones/produtos.png" style="width:20px;"/></a>
+                            <a class="nav-link" href="../empreendimentos/produtos/consultar_produtos.php"><img src="../static/icones/produtos.png" style="width:20px;"/> Meus Produtos </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="../empreendimentos/servicos/consultar_servicos.php">Meus Serviços <img src="../static/icones/servicos.png" style="width:20px;"/></a>
+                            <a class="nav-link" href="../empreendimentos/servicos/consultar_servicos.php"><img src="../static/icones/servicos.png" style="width:20px;"/> Meus Serviços </a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" href="../empreendimentos/eventos/consultar_eventos.php">Meus Eventos</a>
+                        <a class="nav-link" href="../empreendimentos/eventos/consultar_eventos.php"><img src="../static/icones/eventos.png" style="width:20px;"/> Meus Eventos</a>
                         </li>
                         <!--li class="nav-item">
                             <a class="nav-link" href="#">Minhas Doações</a>

@@ -83,7 +83,7 @@ $menu = '';
 if ($_SESSION['grup_id'] == 3){
 
     $menu .='   <li class="nav-item">
-                    <a class="nav-link" href="../usuarios/cadastro_usuarios.php">Meus Dados</a>
+                    <a class="nav-link" href="../usuarios/cadastro_usuarios.php"><img src="../static/icones/dados.png" style="width:20px;"/> Meus Dados </a>
                 </li>
 
             ';
@@ -105,10 +105,10 @@ if ($_SESSION['grup_id'] == 3){
         if(!empty($row2)){
 
             $menu .='   <li class="nav-item">
-                            <a class="nav-link" href="http://localhost/PHP/GOPET/OPE/animais/consulta_animais.php">Meus Animais <img src="../static/icones/animais.png" style="width:20px;"/></a>
+                            <a class="nav-link" href="http://localhost/PHP/GOPET/OPE/animais/consulta_animais.php"><img src="../static/icones/animais.png" style="width:20px;"/> Meus Animais </a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" href="http://localhost/PHP/GOPET/OPE/usuarios/eventos/consultar_eventos.php">Meus Eventos</a>
+                        <a class="nav-link" href="http://localhost/PHP/GOPET/OPE/usuarios/eventos/consultar_eventos.php"><img src="../static/icones/eventos.png" style="width:20px;"/> Meus Eventos</a>
                         </li>
                       
             ';

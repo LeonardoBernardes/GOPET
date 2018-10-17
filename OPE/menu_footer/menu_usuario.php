@@ -50,8 +50,8 @@ include_once(dirname( __FILE__ ) .'\..\mysql_conexao\conexao_mysql.php');
                     Buscar Animais
                   </button>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="../animais/buscar_animais_geo.php">Exibir no Mapa</a>
-                    <a class="dropdown-item" href="../animais/buscar_animais_lista.php">Exibir em Lista</a>
+                    <a class="dropdown-item" href="../animais/buscar_animais_geo.php"><img src="../static/icones/localizacao.png" style="width:20px;"/> Exibir no Mapa</a>
+                    <a class="dropdown-item" href="../animais/buscar_animais_lista.php"><img src="../static/icones/lista.png" style="width:20px;"/> Exibir em Lista</a>
                   </div>
                 </div>
                 <div class="dropdown">
@@ -59,8 +59,8 @@ include_once(dirname( __FILE__ ) .'\..\mysql_conexao\conexao_mysql.php');
                     Buscar Empreendimentos
                   </button>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="../empreendimentos/buscar_empreendimentos_geo.php">Exibir no Mapa</a>
-                    <a class="dropdown-item" href="../empreendimentos/buscar_empreendimentos_lista.php">Exibir em Lista</a>
+                    <a class="dropdown-item" href="../empreendimentos/buscar_empreendimentos_geo.php"><img src="../static/icones/localizacao.png" style="width:20px;"/> Exibir no Mapa</a>
+                    <a class="dropdown-item" href="../empreendimentos/buscar_empreendimentos_lista.php"><img src="../static/icones/lista.png" style="width:20px;"/> Exibir em Lista</a>
                   </div>
                 </div>
             </ul>

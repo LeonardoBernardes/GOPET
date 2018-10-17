@@ -105,7 +105,7 @@ if ($_SESSION['grup_id'] == 3){
         if(!empty($row2)){
 
             $menu .='   <li class="nav-item">
-                            <a class="nav-link" href="http://localhost/PHP/GOPET/OPE/animais/consulta_animais.php">Meus Animais</a>
+                            <a class="nav-link" href="http://localhost/PHP/GOPET/OPE/animais/consulta_animais.php">Meus Animais <img src="../static/icones/animais.png" style="width:20px;"/></a>
                         </li>
                         <li class="nav-item">
                         <a class="nav-link" href="http://localhost/PHP/GOPET/OPE/usuarios/eventos/consultar_eventos.php">Meus Eventos</a>

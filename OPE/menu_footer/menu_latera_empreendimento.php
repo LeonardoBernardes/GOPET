@@ -110,13 +110,13 @@ if ($_SESSION['grup_id'] == 4){
         if(!empty($row2)){
 
             $menu .='   <li class="nav-item">
-                            <a class="nav-link" href="../animais/consulta_animais.php">Meus Animais</a>
+                            <a class="nav-link" href="../animais/consulta_animais.php">Meus Animais <img src="../static/icones/animais.png" style="width:20px;"/></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="../empreendimentos/produtos/consultar_produtos.php">Meus Produtos</a>
+                            <a class="nav-link" href="../empreendimentos/produtos/consultar_produtos.php">Meus Produtos <img src="../static/icones/produtos.png" style="width:20px;"/></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="../empreendimentos/servicos/consultar_servicos.php">Meus Serviços</a>
+                            <a class="nav-link" href="../empreendimentos/servicos/consultar_servicos.php">Meus Serviços <img src="../static/icones/servicos.png" style="width:20px;"/></a>
                         </li>
                         <li class="nav-item">
                         <a class="nav-link" href="../empreendimentos/eventos/consultar_eventos.php">Meus Eventos</a>

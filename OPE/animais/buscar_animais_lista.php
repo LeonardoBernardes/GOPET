@@ -44,13 +44,13 @@ $sql3 ="SELECT
             LEFT JOIN empreendimentos_x_animais EMAN ON ANIM_ID.ANIM_ID = EMAN.ANIM_ID
             LEFT JOIN animais_endereco anem ON ANIM_ID.ANIM_ID = anem.anim_id
             LEFT JOIN animais_fotos anfo ON ANIM_ID.ANIM_ID = anfo.anim_id
-        /*WHERE 
-           
+        WHERE 
             anem.anen_logradouro is NOT NULL
             AND anfo.anfo_endereco is NOT NULL
-            AND anem.anen_logradouro <> ''
-            AND anfo.anfo_endereco <> ''*/";
+         --   AND anem.anen_logradouro <> ''
+         --   AND anfo.anfo_endereco <> ''";
     //echo $sql3;
+    //return;
 $result = mysqli_query($conn, $sql3);
 while($row = mysqli_fetch_object($result)){
     if(!empty($row)){
@@ -67,24 +67,30 @@ while($row = mysqli_fetch_object($result)){
             //Criar Funcao para trazer local host como variavel
             $endereco_img = str_replace('\\', '/',"http://localhost/".'PHP/GOPET/OPE/animais/'.$endereco_img);
         }
-        $results .='  <div class="main">
-        <div class="container login-empreendimento">
-                <fieldset id="fie">
-                        <img style="width:200px;" src="'.$endereco_img.'" style="width:100%"/>
-                        <span class="input-group-text" for="inputGroupSelect01">Nome: '.$row->NOME.'</span>
-                        <span class="input-group-text" for="inputGroupSelect01">Logradouro: '.$row->logradouro.'</span>
-                        <span class="input-group-text" for="inputGroupSelect01">Número: '.$row->numero.'</span>
-                        <span class="input-group-text" for="inputGroupSelect01">Complemento: '.$row->complemento.'</span>
-                        <span class="input-group-text" for="inputGroupSelect01">Bairro: '.$row->bairro.'</span>
-                        <span class="input-group-text" for="inputGroupSelect01">Cidade: '.$row->cidade.'</span>
-                        <span class="input-group-text" for="inputGroupSelect01">Estado: '.$row->estado.'</span>
-                        <span class="input-group-text" for="inputGroupSelect01">Pais: '.$row->pais.'</span>
-                        <span class="input-group-text" for="inputGroupSelect01">CEP: '.$row->cep.'</span>
-                        <span class="input-group-text" for="inputGroupSelect01">Data de Cadastro: '.$row->data_cadastro.'</span>
-                        <span class="input-group-text" for="inputGroupSelect01">Data de Atualizaçao: '.$row->data_atualizacao.'</span><br>
+
+        //if(!empty($row->usan_flag) || !empty($row->eman_flag)){
+        //    
+        //}
+
+
+$results .='    <div class="main">
+                    <div class="container login-empreendimento">
+                        <fieldset id="fie">
+                            <img style="width:200px;" src="'.$endereco_img.'" style="width:100%"/>
+                            <span class="input-group-text" for="inputGroupSelect01">Nome: '.$row->NOME.'</span>
+                            <span class="input-group-text" for="inputGroupSelect01">Logradouro: '.$row->logradouro.'</span>
+                            <span class="input-group-text" for="inputGroupSelect01">Número: '.$row->numero.'</span>
+                            <span class="input-group-text" for="inputGroupSelect01">Complemento: '.$row->complemento.'</span>
+                            <span class="input-group-text" for="inputGroupSelect01">Bairro: '.$row->bairro.'</span>
+                            <span class="input-group-text" for="inputGroupSelect01">Cidade: '.$row->cidade.'</span>
+                            <span class="input-group-text" for="inputGroupSelect01">Estado: '.$row->estado.'</span>
+                            <span class="input-group-text" for="inputGroupSelect01">Pais: '.$row->pais.'</span>
+                            <span class="input-group-text" for="inputGroupSelect01">CEP: '.$row->cep.'</span>
+                            <span class="input-group-text" for="inputGroupSelect01">Data de Cadastro: '.$row->data_cadastro.'</span>
+                            <span class="input-group-text" for="inputGroupSelect01">Data de Atualizaçao: '.$row->data_atualizacao.'</span><br>
                         </fieldset>
-                        </div>
-            </div>        
+                    </div>
+                </div>        
             ';
     
     }

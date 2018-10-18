@@ -33,7 +33,7 @@ body {
 
 
 .sidenav {
-    width: 160px;
+    width: 180px;
     height:100%;
     position: fixed;
     z-index: 1;
@@ -55,7 +55,7 @@ body {
 }
 
 .main {
-    margin-left:150px; /* Same width as the sidebar + left position in px */
+    margin-left:170px; /* Same width as the sidebar + left position in px */
     font-size: 20px; /* Increased text to enable scrolling */
     padding: 10px;
 }
@@ -73,6 +73,11 @@ body {
 @media screen and (max-height: 450px) {
     .sidenav {padding-top: 15px;}
     .sidenav a {font-size: 18px;}
+}
+
+#menu_lateral{
+    background: #28a745;
+
 }
 </style>
 
@@ -137,7 +142,7 @@ if ($_SESSION['grup_id'] == 4){
 ?>
 
 
-<nav class="position-fixed sidenav navbar navbar-light bg-light nav_bar_empreendimento" >
+<nav id="menu_lateral" class="position-fixed sidenav navbar navbar-light nav_bar_empreendimento" >
 
 <ul class="navbar-nav mr-auto" style="margin-left:10px;">
 

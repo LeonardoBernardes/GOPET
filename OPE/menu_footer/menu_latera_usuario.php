@@ -30,7 +30,7 @@ body {
     
 
 .sidenav {
-    width: 150px;
+    width: 180px;
     height:100%;
     position: fixed;
     z-index: 1;
@@ -63,7 +63,7 @@ body {
 }
     
 .main {
-    margin-left: 150px; /* Same width as the sidebar + left position in px */
+    margin-left: 170px; /* Same width as the sidebar + left position in px */
 /*  font-size: 28px; /* Increased text to enable scrolling */
     padding: 10px;
 }

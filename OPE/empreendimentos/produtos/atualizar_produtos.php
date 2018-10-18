@@ -84,41 +84,56 @@ include_once "../../menu_footer/menu_empreendimento.php" ;
     
     
 </head>
-<body id="formulario_funcionario">
+<body >
 <div class="main">
-    <div class="container login-form"  >
-        <h2 class="alert alert-warning" ><legend>Cadastrar Funcionário</legend></h2>
-
+    <div class="container atualizarProduto">
+        <h2 class="btn btn-dark btn-sm btn-block" ><legend>Atualizar Produto</legend></h2>
 <form method="post" action="update_produtos.php?id=<?= $prod_id ?>" id="formlogin" name="formlogin" enctype="multipart/form-data">
     <fieldset id="fie">
-        <legend>Atualizar Produto</legend><br/>
         <label>Imagem : </label> 
-        <img src="<?php echo $endereco_img ?>" style="width:400px; heigth:50px;" alt='Foto de exibição' /><br />
-        <input class="input-group-text btn-lg btn-block" type="file" name="imagem" id="imagem" > <br/>
-        <label>Nome : </label> 
-        <input class="input-group-text btn-lg btn-block" type="text" name="nome" id="nome" value="<?php echo ($row->prod_nome) ? $row->prod_nome : "" ?>"><br/>
-        <label>Marca : </label> 
-        <input class="input-group-text btn-lg btn-block" type="text" name="marca" id="marca" value="<?php echo ($row->prod_marca) ? $row->prod_marca : "" ?>"><br/>
-        <label>Qtde Estoque : </label> 
-        <input class="input-group-text btn-lg btn-block" type="text" name="qtde_estoque" id="qtde_estoque" value="<?php echo ($row->prod_qtde_estoque) ? $row->prod_qtde_estoque : 0 ?>"><br/>
+        <img src="<?php echo $endereco_img ?>"  style="width:100px;" alt='Foto de exibição' /><br />
+        <input class="input-group-text btn-dark btn-sm " type="file" name="imagem" id="imagem" > <br/>
+        <div class="form-row">
+            <div class="col">
+                <label>Nome : </label> 
+                <input class="input-group-text btn-lg btn-block" type="text" name="nome" id="nome" value="<?php echo ($row->prod_nome) ? $row->prod_nome : "" ?>"><br/>
+            </div>
+            <div class="col">
+                <label>Marca : </label> 
+                <input class="input-group-text btn-lg btn-block" type="text" name="marca" id="marca" value="<?php echo ($row->prod_marca) ? $row->prod_marca : "" ?>"><br/>
+            </div>
+            <div class="col">
+                <label>Qtde Estoque : </label> 
+                 <input class="input-group-text btn-lg btn-block" type="text" name="qtde_estoque" id="qtde_estoque" value="<?php echo ($row->prod_qtde_estoque) ? $row->prod_qtde_estoque : 0 ?>"><br/>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col">
+                <label>Valor Total : </label> 
+                <input class="input-group-text btn-lg btn-block" type="number" name="valor_total" id="valor_total" value="<?php echo ($row->prod_valor_total) ? $row->prod_valor_total : 0 ?>"><br/>
+            </div>
+            <div class="col">
+                    <label>Possuí Promoção ? </label> 
+                    <select class="input-group-text btn-lg btn-block" name="promocao">
+                        <option value="0">Não</option>
+                        <option value="1">SIM</option>
+                    </select></br>
+            </div>
+            <div class="col">
+                <label>Valor Promoção : </label> 
+                <input class="input-group-text btn-lg btn-block" type="text" name="valor_promocao" id="valor_promocao" value="<?php echo ($row->prod_valor_promocao) ? $row->prod_valor_promocao : "" ?>"><br/>
+            </div>
+            <div class="col">
+            <label>Status : </label> 
+                <select class="input-group-text btn-lg btn-block" name="status">
+                    <option value="1" <?php echo $ativado ?>>Ativo</option>
+                    <option value="0" <?php echo $desativado ?>>Desativado</option>
+                </select>
+            </div>
+        </div>
         <label>Descrição : </label> 
-        <input class="input-group-text btn-lg btn-block" type="text" name="descricao" id="descricao" value="<?php echo ($row->prod_descricao) ? $row->prod_descricao : "" ?>"><br/>
-        <label>Valor Total : </label> 
-        <input class="input-group-text btn-lg btn-block" type="number" name="valor_total" id="valor_total" value="<?php echo ($row->prod_valor_total) ? $row->prod_valor_total : 0 ?>"><br/>
-        <label>Possuí Promoção ? </label> 
-        <select class="input-group-text btn-lg btn-block" name="promocao">
-            <option value="0">Não</option>
-            <option value="1">SIM</option>
-        </select>
-        <label>Valor Promoção : </label> 
-        <input class="input-group-text btn-lg btn-block" type="text" name="valor_promocao" id="valor_promocao" value="<?php echo ($row->prod_valor_promocao) ? $row->prod_valor_promocao : "" ?>"><br/>
-        <label>Status : </label> 
-        <select class="input-group-text btn-lg btn-block" name="status">
-            <option value="1" <?php echo $ativado ?>>Ativo</option>
-            <option value="0" <?php echo $desativado ?>>Desativado</option>
-        </select>
+         <input class="input-group-text btn-lg btn-block" type="text" name="descricao" id="descricao" value="<?php echo ($row->prod_descricao) ? $row->prod_descricao : "" ?>"><br/>
         <input class="btn btn-dark btn-lg btn-block" type="submit" value="Atualizar Produto">
-        
     </fieldset>
     </div>
 </div>

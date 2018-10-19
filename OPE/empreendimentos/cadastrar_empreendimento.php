@@ -21,6 +21,7 @@ $foto = $_FILES["logo"];
 $logado = $_SESSION['login'];
 $grup_id = $_SESSION['grup_id'];
 $logi_id = $_SESSION['logi_id'];
+//var json_geolocalizacao
 
 //var_dump($foto);
 
@@ -41,6 +42,18 @@ $emen_numero = ($_POST['numero']) ? $_POST['numero'] : 0;
 $emen_complemento = ($_POST['complemento']) ? $_POST['complemento'] : 0;
 $emen_cep = ($_POST['cep']) ? $_POST['cep'] : 0;
 
+//substituição de espaço em branco por +
+$geo_logradouro = str_replace(" ","+",$emen_logradouro);
+$geo_cidade =  str_replace(" ","+",$emen_cidade);
+$geo_bairro =  str_replace(" ","+",$emen_bairro);
+
+//var json_geolocalizacao
+$str = file_get_contents("https://maps.googleapis.com/maps/api/geocode/json?address=$geo_logradouro,+$geo_cidade,+$emen_pais&key=AIzaSyC1nkX5KVBXgDHas0sYoCXqws8MzKCWBcQ");
+$json = json_decode($str, true);
+
+$lat = ($json["results"][0]["geometry"]['location']['lat']);
+$lng = ($json["results"][0]["geometry"]['location']['lng']);
+
 $query= " SELECT empr_id from login_x_empreendimentos where logi_id= $logi_id";
 //echo $query;
 $result = mysqli_query($conn, $query);
@@ -58,7 +71,9 @@ if(empty($row2)){
                             empr_slogan,
                             empr_responsavel,
                             empr_status,
-                            empr_data_cadastro    
+                            empr_data_cadastro,
+                            empr_longitude,
+                            empr_latitude    
                         )
                 VALUES 
                         (
@@ -69,7 +84,9 @@ if(empty($row2)){
                             '$empr_slogan',
                             '$empr_responsavel',
                             0,
-                            NOW()
+                            NOW(),
+                            $lat,
+                            $lng
                         )";
     //echo $sql2;
     $c2 = mysqli_query($conn, $sql2);

@@ -100,16 +100,17 @@ if(isset($ids)){
         }
 
 
-        $results .='<tr>
-                        <td>'.$row->even_id.'</td>
-                        <td><img src="'.$endereco_img.'"/></td>
-                        <td>'.$row->even_nome.'</td>
-                        <td>'.$row->even_descricao.'</td>
-                        <td>'.$row->even_data_realizacao.'</td>
-                        <td>'.$status.'</td>
-                        <td><a href="http://localhost/PHP/GOPET/OPE/empreendimentos/eventos/atualizar_eventos.php?id='.$row->even_id.'"> Editar</a></td>
-                    </tr>';
-    //echo $results;
+        $results .='            
+            <tr>
+                    <td class="bg-primary" ><font color="white"><b>'.$row->even_id.'</b></font></td>
+                    <td class="bg-primary" ><img style="width:50px;" src="'.$endereco_img.'"/></td>
+                    <td class="bg-primary"><font color="white"><b>'.$row->even_nome.'</b></font></td>
+                    <td class="bg-primary"><font color="white"><b>'.$row->even_descricao.'</b></font></td>
+                    <td class="bg-primary"><font color="white"><b>'.$row->even_data_realizacao.'</b></font></td>
+                    <td class="bg-primary"><font color="white"><b>'.$status.'</b></font></td>
+                    <td class="bg-primary"><a href="../eventos/atualizar_eventos.php?id='.$row->even_id.'"><font color="white"><b> Editar</a></b></font></td>
+            </tr>';
+
     }
 }
  include_once("../../menu_footer/menu_empreendimento.php"); 
@@ -149,9 +150,11 @@ include_once "../../menu_footer/menu_latera_empreendimento.php"
 ?>
 <body>
 
-   <div class="one_page home_empreendimento">
+    <div class="one_page home_empreendimento">   
     <div class="main">
-    <table class="table tabelas" style="width:100%">
+    <div class="table-responsive">
+    <table class="position-sticky table tabelas" style="width:100%">
+        <thead class="thead-dark">
         <tr class="thead-dark">
             <th scope="col">ID</th>
             <th scope="col">Imagem</th>
@@ -161,12 +164,15 @@ include_once "../../menu_footer/menu_latera_empreendimento.php"
             <th scope="col">Status</th>
             <th scope="col">Editar</th>
         </tr>
+        </thead>
         <?php echo $results ?>
     </table>
-    <a class="btn btn-dark" href="..\home_empreendimento.php"> Voltar</a>
-    <a class="btn btn-success"  href="http://localhost/PHP/GOPET/OPE/empreendimentos/eventos/cadastro_eventos.php">Cadastrar Eventos</a>
     </div>
+
+   
+        
     </div>
+</div>
 </body>
 
 <footer>

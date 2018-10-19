@@ -6,8 +6,7 @@
  * @Last Modified by: Leonardo.Bernardes
  * @Last Modified time: 2018-09-29 12:46:22
  */
-include_once("../menu_footer/menu_latera_usuario.php");    
-include_once("../menu_footer/menu_usuario.php");
+
 include_once(dirname( __FILE__ ) .'\..\mysql_conexao\conexao_mysql.php');
 //session_start();
 if(!isset($_SESSION)) 
@@ -59,14 +58,14 @@ if(!empty($row2)){
         $usua_status = $row3->usua_status;
     }
     $sql2=" SELECT 
-                usua_logradouro,
-                usua_numero,
-                usua_complemento,
-                usua_pais,
-                usua_estado,
-                usua_cidade,
-                usua_bairro,
-                usua_cep
+                usen_logradouro,
+                usen_numero,
+                usen_complemento,
+                usen_pais,
+                usen_estado,
+                usen_cidade,
+                usen_bairro,
+                usen_cep
             FROM 
                 usuarios_enderecos 
             WHERE 
@@ -76,14 +75,14 @@ if(!empty($row2)){
     if(!empty($result3)){
         while($row4 = mysqli_fetch_object($result3)){
 
-            $usua_logradouro = $row4->usua_logradouro;
-            $usua_numero = $row4->usua_numero;
-            $usua_complemento = $row4->usua_complemento;
-            $usua_pais = $row4->usua_pais;
-            $usua_estado = $row4->usua_estado;
-            $usua_cidade = $row4->usua_cidade;
-            $usua_bairro = $row4->usua_bairro;
-            $usua_cep = $row4->usua_cep;
+            $usua_logradouro = $row4->usen_logradouro;
+            $usua_numero = $row4->usen_numero;
+            $usua_complemento = $row4->usen_complemento;
+            $usua_pais = $row4->usen_pais;
+            $usua_estado = $row4->usen_estado;
+            $usua_cidade = $row4->usen_cidade;
+            $usua_bairro = $row4->usen_bairro;
+            $usua_cep = $row4->usen_cep;
         }
     }
     // Retorna imagem se possuir cadastrada
@@ -98,7 +97,7 @@ if(!empty($row2)){
     $row5 = mysqli_fetch_object($result4);
 
     if(!empty($row5)){
-        $endereco_img = $row5->emim_endereco;
+        $endereco_img = $row5->usim_endereco;
     }
     //Criar Funcao para trazer local host como variavel
     $endereco_img = str_replace('\\', '/',"http://localhost/".'PHP/GOPET/OPE/usuarios/'.$endereco_img);
@@ -132,7 +131,10 @@ if(!empty($row2)){
 
 </head>
 <body>
-
+<?php
+ include_once("../menu_footer/menu_latera_usuario.php");    
+ include_once("../menu_footer/menu_usuario.php"); 
+?>
 
 <div id="formulario_empreendimento">
      <div class="main">    
@@ -152,26 +154,21 @@ if(!empty($row2)){
                     <div class="form-row">
                         <div class="col">
                             <label>Nome </label>
-                            <input class="form-control form-control-sm" type="text" name="nome" id="nome" value='<?php echo $empr_cnpj ?>'>
+                            <input class="form-control form-control-sm" type="text" name="nome" id="nome" value='<?php echo $usua_nome ?>'>
                         </div>
                         <div class="col">
                             <label>Cnpj </label>
-                            <input class="form-control form-control-sm" type="text" name="cnpj" id="cnpj" value='<?php echo $empr_nome ?>'>
+                            <input class="form-control form-control-sm" type="text" name="cpf" id="cpf" value='<?php echo $usua_cpf ?>'>
                         </div>
                         <div class="col">
-                            <label>Data Abertura </label>
-                            <input class="form-control form-control-sm" type="text" name="data_abertura" id="data_abertura" value='<?php echo $empr_dt_abertura ?>'>
+                            <label>Sobrenome </label>
+                            <input class="form-control form-control-sm" type="text" name="sobrenome" id="sobrenome" value='<?php echo $usua_sobrenome ?>'>
                         </div>
                         <div class="col">
-                            <label>Responsavel </label>
-                            <input class="form-control form-control-sm" type="text" name="responsavel" id="responsavel" value='<?php echo $empr_responsavel ?>'>
+                            <label>Data nascimento </label>
+                            <input class="form-control form-control-sm" type="text" name="data_nascimento" id="data_nascimento" value='<?php echo $usua_dt_nascimento ?>'>
                         </div>
                     </div>
-                    <label>Objetivo </label>
-                    <input class="form-control form-control-sm" type="text" name="objetivo" id="objetivo" value='<?php echo $empr_objetivo ?>'>
-                    <label>Slogan : </label>
-                    <input class="form-control form-control-sm" type="text" name="slogan" id="slogan" value='<?php echo $empr_slogan ?>'>
-
                     <fieldset id="fie"><br>
                         <hr>
 
@@ -181,46 +178,46 @@ if(!empty($row2)){
                         <div class="form-row">
                             <div class="col">
                                 <label>Cidade</label>
-                                <input class="form-control form-control-sm" type="text" name="cidade" id="cidade" value='<?php echo $emen_cidade ?>'>
+                                <input class="form-control form-control-sm" type="text" name="cidade" id="cidade" value='<?php echo $usua_cidade ?>'>
                             </div>
                             <div class="col">
                                 <label>Estado: </label> // só sigla
-                                <input class="form-control form-control-sm" type="text" name="estado" id="estado" value='<?php echo $emen_estado ?>'>
+                                <input class="form-control form-control-sm" type="text" name="estado" id="estado" value='<?php echo $usua_estado ?>'>
                             </div>
                             <div class="col">
                                 <label>Pais: // só sigla </label>
-                                <input class="form-control form-control-sm" type="text" name="pais" id="pais" value='<?php echo $emen_pais ?>'>
+                                <input class="form-control form-control-sm" type="text" name="pais" id="pais" value='<?php echo $usua_pais ?>'>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="col">
                                 <label>Bairro  </label>
-                                <input class="form-control form-control-sm" type="text" name="bairro" id="bairro" value='<?php echo $emen_bairro ?>'>
+                                <input class="form-control form-control-sm" type="text" name="bairro" id="bairro" value='<?php echo $usua_bairro ?>'>
                             </div>
                             <div class="col">
                                 <label>Logradouro  </label>
-                                <input class="form-control form-control-sm" type="text" name="logradouro" id="logradouro" value='<?php echo $emen_logradouro ?>'>
+                                <input class="form-control form-control-sm" type="text" name="logradouro" id="logradouro" value='<?php echo $usua_logradouro ?>'>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="col">
                                 <label>Número  </label>
-                                <input class="form-control form-control-sm" type="text" name="numero" id="numero" value='<?php echo $emen_numero ?>'>
+                                <input class="form-control form-control-sm" type="text" name="numero" id="numero" value='<?php echo $usua_numero ?>'>
                             </div>
                             <div class="col">
                                 <label>Complemento  </label>
-                                <input class="form-control form-control-sm" type="text" name="complemento" id="complemento" value='<?php echo $emen_complemento ?>'>
+                                <input class="form-control form-control-sm" type="text" name="complemento" id="complemento" value='<?php echo $usua_complemento ?>'>
                             </div>
                             <div class="col">
                                 <label>CEP  </label>
-                                <input class="form-control form-control-sm" type="text" name="cep" id="cep" value='<?php echo $emen_cep ?>'>
+                                <input class="form-control form-control-sm" type="text" name="cep" id="cep" value='<?php echo $usua_cep ?>'>
                             </div>
                         </div>
                     </fieldset>
                     <hr>
                     <input class="btn btn-success btn-sm btn-block" type="submit" value="Salvar Dados">
                     <hr>
-                    <a class="btn btn-dark btn-sm btn-block" href="../empreendimentos/home_empreendimento.php"> Voltar</a>
+                    <a class="btn btn-dark btn-sm btn-block" href="../usuarios/home_usuarios.php"> Voltar</a>
                 </fieldset>
 
             </form>

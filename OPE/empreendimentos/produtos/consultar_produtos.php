@@ -83,21 +83,23 @@ while ($row = mysqli_fetch_object($result)) {
     }
     
 
-    $results .='<tr>
-                    
-                    <td>'.$row->prod_id.'</td>
-                    <td><img src="'.$endereco_img.'" style="width:100%"/></td>
-                    <td>'.$row->prod_nome.'</td>
-                    <td>'.$row->prod_marca.'</td>
-                    <td>'.$row->prod_qtde_estoque.'</td>
-                    <td>'.$row->prod_descricao.'</td>
-                    <td>'.$row->prod_valor_total.'</td>
-                    <td>'.$row->prod_promocao.'</td>
-                    <td>'.$row->prod_valor_promocao.'</td>
-                    <td>'.$status.'</td>
-                    
-                    <td><a href="../../empreendimentos/produtos/atualizar_produtos.php?id='.$row->prod_id.'"</a> editar</td>
-                </tr>';
+    $results .=' 
+            <tr>
+                    <td ><font color="black"><b>'.$row->prod_id.'</b></font></td>
+                    <td ><img style="width:50px;" src="'.$endereco_img.'"/></td>
+                    <td><font color="black"><b>'.$row->prod_nome.'</b></font></td>
+                    <td><font color="black"><b>'.$row->prod_marca.'</b></font></td>
+                    <td><font color="black"><b>'.$row->prod_qtde_estoque.'</b></font></td>
+                    <td><font color="black"><b>'.$row->prod_descricao.'</b></font></td>
+                    <td><font color="black"><b>'.$row->prod_valor_total.'</b></font></td>
+                    <td><font color="black"><b>'.$row->prod_promocao.'</b></font></td>
+                    <td><font color="black"><b>'.$row->prod_valor_promocao.'</b></font></td>
+                    <td><font color="black"><b>'.$status.'</b></font></td>
+                    <td><a class="btn" href="../produtos/atualizar_produtos.php?id='.$row->prod_id.'"><img src="../../static/icones/editar.png" style="width:20px;"/></a></td>
+            </tr>';
+
+        
+
 //echo $results;
 }
 include_once("../../menu_footer/menu_empreendimento.php"); 
@@ -109,14 +111,17 @@ include_once("../../menu_footer/menu_empreendimento.php");
 <html>
 
 <head>
+    <!-- Tabela -->
+    <link rel="stylesheet" href="https://code.jquery.com/jquery-3.3.1.js">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="../../static/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="../../static/estilo.css">
-
+    <!--link rel="stylesheet" href="../../static/estilo.css"-->
 
 </head>
 <?php
@@ -124,41 +129,45 @@ include_once("../../menu_footer/menu_empreendimento.php");
 include_once "../../menu_footer/menu_latera_empreendimento.php" 
     
 ?>
+
 <body>
-<div class="one_page home_empreendimento">
+<div class="one_page home_empreendimento">   
     <div class="main">
-    <table class="table tabelas" style="width:100%">
-        <thead class="thead-dark">
-            <tr>
-                <th scope="col">ID</th>
-                <th scope="col" style="width:100%">imagem</th>
-                <th scope="col">Nome</th>
-                <th scope="col">Marca</th>
-                <th scope="col">Qtde Estoque</th>
-                <th scope="col">Descrição</th>
-                <th scope="col">Valor Total</th>
-                <th scope="col">Possuí Promoção ?</th>
-                <th scope="col">Valor Promoção</th>
-                <th scope="col">Status</th>
-                <th scope="col">Editar</th>
+        <h2><label style="margin-top:5%;" >Consulta Produtos</label></h2>
+
+    <div class="table-responsive">
+    <table id="produtos" class="table table-hover" style="width:100%">
+        <thead>
+            <tr class="bg-success">
+                <th >ID</th>
+                <th >imagem</th>
+                <th >Nome</th>
+                <th >Marca</th>
+                <th >Qtde Estoque</th>
+                <th >Descrição</th>
+                <th >Valor Total</th>
+                <th >Possuí Promoção ?</th>
+                <th >Valor Promoção</th>
+                <th >Status</th>
+                <th >Editar</th>
             </tr>
         </thead>
         <?php echo $results ?>
     </table>
-    <a class="btn btn-dark" href="..\home_empreendimento.php"> Voltar</a>
-       <a class="btn btn-success" href="../../empreendimentos/produtos/cadastro_produtos.php">Cadastrar Produtos</a>
     </div>
+
+   
+        
     </div>
+</div>
     
 </body>
 
-<footer>
+
 
     <?php 
     include_once("../../menu_footer/footer.php");     
     ?>
 
-</footer>
 
 
-</html>

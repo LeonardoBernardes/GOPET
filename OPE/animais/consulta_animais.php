@@ -25,6 +25,7 @@
     
     $castracao = '';
     $results = "";
+    $endereco_img = '';
     
     
 if($grup_id == 3){
@@ -127,18 +128,24 @@ elseif($grup_id == 4 ||$grup_id == 2){
                     WHERE 
                         anim_id in ($ids)";
             //echo $sql3;
+            //return;
 
             $result4 =  mysqli_query($conn, $sql3);
-            $row5 = mysqli_fetch_object($result4);
-        
-        
-            $endereco_img = '';
-            if(!empty($row5)){
+            while($row5 = mysqli_fetch_object($result4)){
+            
+                if(!empty($row5)){
 
-                if($row5->anim_id == $row->anim_id){
-                    $endereco_img = $row5->anfo_endereco;
+                    //if($row5->anim_id == $ultimo_animal){
+                    //    break;
+                    //}
+
+                    if($row5->anim_id == $row->anim_id){
+                        $endereco_img = $row5->anfo_endereco;
+                    }
                 }
+                //$ultimo_animal = $row5->anim_id;
             }
+
             if(!empty($endereco_img)){
             //Criar Funcao para trazer local host como variavel
             $endereco_img = str_replace('\\', '/',"http://localhost/".'PHP/GOPET/OPE/animais/'.$endereco_img);
@@ -147,20 +154,18 @@ elseif($grup_id == 4 ||$grup_id == 2){
         
             $results .='<tr>
                             
-                            <td>'.$row->anim_id.'</td>
-                            <td><img style="width:200px;" src="'.$endereco_img.'"/></td>
-                            <td>'.$row->anim_nome.'</td>
-                            <td>'.$row->anim_ra.'</td>
-                            <td>'.$row->anim_idade.'</td>
-                            <td>'.$row->anim_porte.'</td>
-                            <td>'.$row->anim_genero.'</td>
-                            <td>'.$row->anim_categoria.'</td>
-                            <td>'.$row->anim_restricao_doacao.'</td>
-                            <td>'.$castracao.'</td>
-                        
-                            
-                            <td><a href="../../animais/atualizar_animais.php?id='.$row->anim_id.'"> Editar</a></td>
-                        </tr>';
+                            <td class="bg-primary" ><font color="white"><b>'.$row->anim_id.'</b></font></td>
+                            <td class="bg-primary" ><img style="width:50px;" src="'.$endereco_img.'"/></td>
+                            <td class="bg-primary"><font color="white"><b>'.$row->anim_nome.'</b></font></td>
+                            <td class="bg-primary"><font color="white"><b>'.$row->anim_ra.'</b></font></td>
+                            <td class="bg-primary"><font color="white"><b>'.$row->anim_idade.'</b></font></td>
+                            <td class="bg-primary"><font color="white"><b>'.$row->anim_porte.'</b></font></td>
+                            <td class="bg-primary"><font color="white"><b>'.$row->anim_genero.'</b></font></td>
+                            <td class="bg-primary"><font color="white"><b>'.$row->anim_categoria.'</b></font></td>
+                            <td class="bg-primary"><font color="white"><b>'.$row->anim_restricao_doacao.'</b></font></td>
+                            <td class="bg-primary"><font color="white"><b>'.$castracao.'</b></font></td>
+                            <td class="bg-primary"><a href="../animais/atualizar_animais.php?id='.$row->anim_id.'"><font color="white"><b> Editar</a></b></font></td>
+                    </tr>';
         //echo $results;
         }
     }
@@ -183,6 +188,7 @@ elseif($grup_id == 4 ||$grup_id == 2){
 </head>
 
 <body>
+
 <?php
 if ($_SESSION['grup_id'] == 4){
     include_once("../menu_footer/menu_empreendimento.php"); 
@@ -198,7 +204,8 @@ if ($_SESSION['grup_id'] == 3){
 ?>
     <div class="one_page home_empreendimento">   
     <div class="main">
-    <table class="table tabelas" style="width:100%">
+    <div class="table-responsive">
+    <table class="position-sticky table tabelas" style="width:100%">
         <thead class="thead-dark">
             <tr>
                 <th scope="col">ID</th>
@@ -225,7 +232,9 @@ if ($_SESSION['grup_id'] == 3){
     }
     if ($_SESSION['grup_id'] == 3){    
     ?>
+        
        <a class="btn btn-dark" href="..\usuarios\home_usuarios.php"> Voltar</a>
+       <a class="btn btn-success" href="http://localhost/PHP/GOPET/OPE/animais/cadastro_animais.php">Cadastrar Animais</a>
     <?php
     }
     ?>
@@ -233,8 +242,6 @@ if ($_SESSION['grup_id'] == 3){
         
     </div>
 </div>
-</body>
-
 <footer>
 
     <?php 
@@ -242,5 +249,8 @@ if ($_SESSION['grup_id'] == 3){
     ?>
 
 </footer>
+</body>
+
+
 
 </html>

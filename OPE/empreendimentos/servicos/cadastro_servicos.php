@@ -45,7 +45,7 @@ include_once "../../menu_footer/menu_latera_empreendimento.php"
 ?>
     <div  class="main">
         <div class="container login-empreendimento">
-            <form method="post" action="cadastrar_empreendimento.php" id="formlogin" name="formlogin" enctype="multipart/form-data">
+           
                 <fieldset id="fie">
                     <h2 class="btn btn-dark btn-sm btn-block">
                         <legend>Cadastrar Serviços</legend>
@@ -101,7 +101,7 @@ include_once "../../menu_footer/menu_latera_empreendimento.php"
                     <a class="btn btn-dark btn-sm btn-block" href="..\home_empreendimento.php"> Voltar</a>
 
                 </fieldset>
-            </form>
+  
         </div>
     </div>
 </body>

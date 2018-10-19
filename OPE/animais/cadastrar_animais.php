@@ -25,7 +25,7 @@ $grup_id = $_SESSION['grup_id'];
 $logi_id = $_SESSION['logi_id'];
 
 //Tipo de cadastro de animal
-$tipo_cadastro = ($_POST['tipo_cadastro']) ? $_POST['tipo_cadastro'] : "";
+$tipo_cadastro = ($_POST['tipo_cadastro']) ? $_POST['tipo_cadastro'] : 3;
 $tipo_cadastro = intval($tipo_cadastro);
 
 
@@ -172,7 +172,7 @@ if(!empty($foto)){
     if(!preg_match("/^image\/(pjpeg|jpeg|png|gif|bmp)$/", $foto["type"])){
         $error[1] = "Isso não é uma imagem.";
         } 
-
+/*
     // Pega as dimensões da imagem
     $dimensoes = getimagesize($foto["tmp_name"]);
 
@@ -189,7 +189,7 @@ if(!empty($foto)){
     // Verifica se o tamanho da imagem é maior que o tamanho permitido
     if($foto["size"] > $tamanho) {
             $error[4] = "A imagem deve ter no máximo ".$tamanho." bytes";
-    }
+    }*/
 
     // Se não houver nenhum erro
     if (count($error) == 0) {
@@ -285,7 +285,7 @@ $sql4 = "   INSERT INTO
                             NOW(),
                             $id_animal->anim_id
                         )";
-    //echo $sql4;
+   // echo $sql4;
     $c2 = mysqli_query($conn, $sql4);
 
 

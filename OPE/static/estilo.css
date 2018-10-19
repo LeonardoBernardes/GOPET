@@ -7,20 +7,17 @@
     background-size: cover;
 }
 .home_empreendimento{
-    background-image: url("../static/imagens/beach.jpg");
+   background-image: url("../static/imagens/beach.jpg");
     background-position: top;
     background-size: cover;    
 }
 .nav_bar_empreendimento{
     position: absolute;
-    top: 15%;   
 }
 .nav_bar_usuario{
     position: absolute; 
     height: 100%;
 }
-
-
 .logo_index{
     margin-top: 14%;
     margin-left: 42%;
@@ -73,6 +70,16 @@
     max-width: 1000px;
 }
 
+.atualizarProduto{
+    padding: 2%;
+    margin-top: 6%;
+    margin-bottom: 6%;
+    box-shadow: 0px 0px 10px 1px grey;
+    border-radius: 3px;
+    background: rgba(255, 255, 255, 0.60);
+    max-width: 1000px;
+}
+/*
 #formulario_empreendimento{
     background-image: url("../static/imagens/cat-3266673_1920.jpg");
     background-position: top;
@@ -82,9 +89,9 @@
    background-image: url("../static/imagens/beach.jpg");
     background-position: top;
     background-size: cover; 
-}
+}*/
 .formulario_login{
-    background-image: url("../static/imagens/DogCarro.jpg");
+    /*background-image: url("../static/imagens/DogCarro.jpg");*/
     background-position: top;
     background-size: cover;
 }
@@ -92,12 +99,13 @@
 #cadastro_animal_card{
     background: rgba(255, 255, 255, 0.60);
 }
-
+/*
 table, th, td {
     border: 1px solid black;
     border-collapse: collapse;
+    border-radius: 4px;
 }
-
+*/
 th, td {
     padding: 5px;
 }

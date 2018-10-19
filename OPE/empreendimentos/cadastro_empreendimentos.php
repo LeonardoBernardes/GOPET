@@ -168,11 +168,11 @@ include_once "../menu_footer/menu_latera_empreendimento.php"
                             </div>
                             <div class="col">
                                 <label>Estado: </label> // só sigla
-                                <input class="form-control form-control-sm" type="text" name="estado" id="estado" value='<?php echo $emen_estado ?>'>
+                                <input class="form-control form-control-sm" type="text" name="estado" id="estado" value='<?php echo $emen_estado ?>' maxlength="2">
                             </div>
                             <div class="col">
-                                <label>Pais: // só sigla </label>
-                                <input class="form-control form-control-sm" type="text" name="pais" id="pais" value='<?php echo $emen_pais ?>'>
+                                <label>Pais:  </label> // só sigla
+                                <input class="form-control form-control-sm" type="text" name="pais" id="pais" value='<?php echo $emen_pais ?>' maxlength="2">
                             </div>
                         </div>
                         <div class="form-row">

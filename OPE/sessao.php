@@ -1,5 +1,6 @@
 
 <?php 
+include_once 'config/server.php';
 /*
  * @Author: Leonardo.Bernardes 
  * @Date: 2018-08-13 18:11:37 
@@ -7,8 +8,8 @@
  * @Last Modified time: 2018-09-04 18:46:17
  */
 
-//include_once('C:\wamp\www\PHP\OPE\mysql_conexao\conexao_mysql.php');
-include_once(dirname( __FILE__ ) .'\mysql_conexao\conexao_mysql.php');
+//include_once('C:/wamp/www/PHP/OPE/mysql_conexao/conexao_mysql.php');
+include_once ROOT_PATH.'mysql_conexao/conexao_mysql.php';
 
 // session_start inicia a sessão
 session_start();
@@ -45,18 +46,18 @@ if(mysqli_num_rows($result) > 0)
 
        //var_dump($row);
         if($row->grup_id == 1){
-            header('location:..\OPE\administradores\home_administradores.php');
+            header('location: '.$server_static.'administradores/home_administradores.php');
         }elseif($row->grup_id == 2 || $row->grup_id == 4){
-            header('location:..\OPE\empreendimentos\home_empreendimento.php');
+            header('location: '.$server_static.'empreendimentos/home_empreendimento.php');
         }elseif($row->grup_id == 3 ){
-            header('location:..\OPE\usuarios\home_usuarios.php');
+            header('location: '.$server_static.'usuarios/home_usuarios.php');
         }
     }
 
 }else{
   unset ($_SESSION['login']);
   unset ($_SESSION['senha']);
-  header('location:index.php');
+  header('location: '.$server_static.'index.php');
    
 }
 ?>

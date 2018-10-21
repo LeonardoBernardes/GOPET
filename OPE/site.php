@@ -1,4 +1,5 @@
 <?php 
+include_once 'config/server.php';
 
 session_start();
     if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true))

@@ -1,11 +1,12 @@
 <?php
+include_once '../../config/server.php';
 /*
  * @Author: Leonardo.Bernardes 
  * @Date: 2018-08-15 01:26:47 
  * @Last Modified by: Leonardo.Bernardes
  * @Last Modified time: 2018-09-14 19:54:22
  */
-include_once(dirname( __FILE__ ) .'\..\..\mysql_conexao\conexao_mysql.php');
+include_once ROOT_PATH.'mysql_conexao/conexao_mysql.php';
 session_start();
 
     if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true))
@@ -13,7 +14,7 @@ session_start();
         unset($_SESSION['login']);
         unset($_SESSION['senha']);
         unset($_SESSION['grup_id']);
-        header('location:index.php');
+        header('location:'.$server_static.'index.php');
     }
  
 $logado = $_SESSION['login'];
@@ -95,15 +96,15 @@ while ($row = mysqli_fetch_object($result)) {
                     <td><font color="black"><b>'.$row->prod_promocao.'</b></font></td>
                     <td><font color="black"><b>'.$row->prod_valor_promocao.'</b></font></td>
                     <td><font color="black"><b>'.$status.'</b></font></td>
-                    <td><a class="btn" href="../produtos/atualizar_produtos.php?id='.$row->prod_id.'"><img src="../../static/icones/editar.png" style="width:20px;"/></a></td>
+                    <td><a class="btn" href="<?php echo $server_static;?>produtos/atualizar_produtos.php?id='.$row->prod_id.'"><img src="../../static/icones/editar.png" style="width:20px;"/></a></td>
             </tr>';
 
         
 
 //echo $results;
 }
-include_once("../../menu_footer/menu_empreendimento.php"); 
-//include_once "../menu_footer/menu_empreendimento.php" ;
+include_once(ROOT_PATH."menu_footer/menu_empreendimento.php"); 
+//include_once ROOT_PATH."menu_footer/menu_empreendimento.php" ;
 ?>
 
 <!DOCTYPE html>
@@ -120,13 +121,13 @@ include_once("../../menu_footer/menu_empreendimento.php");
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="../../static/bootstrap/css/bootstrap.css">
-    <!--link rel="stylesheet" href="../../static/estilo.css"-->
+    <link rel="stylesheet" href="<?php echo $server_static;?>static/bootstrap/css/bootstrap.css">
+    <!--link rel="stylesheet" href="<?php echo $server_static;?>static/estilo.css"-->
 
 </head>
 <?php
     
-include_once "../../menu_footer/menu_latera_empreendimento.php" 
+include_once ROOT_PATH."menu_footer/menu_latera_empreendimento.php" 
     
 ?>
 
@@ -166,7 +167,7 @@ include_once "../../menu_footer/menu_latera_empreendimento.php"
 
 
     <?php 
-    include_once("../../menu_footer/footer.php");     
+    include_once(ROOT_PATH."menu_footer/footer.php");     
     ?>
 
 

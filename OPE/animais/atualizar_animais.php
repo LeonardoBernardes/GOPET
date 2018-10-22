@@ -1,5 +1,6 @@
 
 <?php 
+include_once '../config/server.php';
 /*
  * @Author: Leonardo.Bernardes 
  * @Date: 2018-08-14 01:26:29 
@@ -7,7 +8,7 @@
  * @Last Modified time: 2018-09-13 18:57:09
  */
 
-include_once(dirname( __FILE__ ) .'\..\mysql_conexao\conexao_mysql.php');
+include_once ROOT_PATH.'mysql_conexao/conexao_mysql.php';
     if(!isset($_SESSION)) 
     { 
         session_start(); 
@@ -18,7 +19,7 @@ include_once(dirname( __FILE__ ) .'\..\mysql_conexao\conexao_mysql.php');
     {
         unset($_SESSION['login']);
         unset($_SESSION['senha']);
-        header('location:index.php');
+        header('location:'.$server_static.'index.php');
     }
 $logi_id = $_SESSION['logi_id'];
 $logado = $_SESSION['login'];
@@ -141,7 +142,7 @@ if(!empty($anim_id)){
         $endereco_img = $row3->anfo_endereco;
         
         //Criar Funcao para trazer local host como variavel
-        $endereco_img = str_replace('\\', '/',"http://localhost/".'PHP/GOPET/OPE/animais/'.$endereco_img);
+        $endereco_img = str_replace('\\', '/',$server_static.'animais/'.$endereco_img);
     }
 
     
@@ -149,15 +150,15 @@ if(!empty($anim_id)){
 
 
     if ($_SESSION['grup_id'] == 4 || $_SESSION['grup_id'] == 2){
-    include_once("../menu_footer/menu_empreendimento.php"); 
-    include_once("../menu_footer/menu_latera_empreendimento.php");
+    include_once(ROOT_PATH."menu_footer/menu_empreendimento.php"); 
+    include_once(ROOT_PATH."menu_footer/menu_latera_empreendimento.php");
     }
     if ($_SESSION['grup_id'] == 1){    
-    include_once("../menu_footer/menu_administrador.php");
+    include_once(ROOT_PATH."menu_footer/menu_administrador.php");
     }
     if ($_SESSION['grup_id'] == 3){    
-    include_once("../menu_footer/menu_usuario.php");
-    include_once("../menu_footer/menu_latera_usuario.php");
+    include_once(ROOT_PATH."menu_footer/menu_usuario.php");
+    include_once(ROOT_PATH."menu_footer/menu_latera_usuario.php");
     }
 
 ?>
@@ -168,8 +169,8 @@ if(!empty($anim_id)){
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="../static/estilo.css">
+    <link rel="stylesheet" href="<?php echo $server_static;?>static/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="<?php echo $server_static;?>static/estilo.css">
     <title>Gopet</title>
 </head>
 
@@ -309,7 +310,7 @@ if(!empty($anim_id)){
 <footer>
 
     <?php 
-    include_once("../menu_footer/footer.php");    
+    include_once(ROOT_PATH."menu_footer/footer.php");    
     
     ?>
 

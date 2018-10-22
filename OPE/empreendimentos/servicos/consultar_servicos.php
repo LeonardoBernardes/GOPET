@@ -1,11 +1,12 @@
 <?php
+include_once '../../config/server.php';
 /*
  * @Author: Leonardo.Bernardes 
  * @Date: 2018-08-15 01:26:47 
  * @Last Modified by: Leonardo.Bernardes
  * @Last Modified time: 2018-09-14 19:49:39
  */
-include_once(dirname( __FILE__ ) .'\..\..\mysql_conexao\conexao_mysql.php');
+include_once ROOT_PATH.'mysql_conexao/conexao_mysql.php';
 session_start();
 
     if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true))
@@ -13,7 +14,7 @@ session_start();
         unset($_SESSION['login']);
         unset($_SESSION['senha']);
         unset($_SESSION['grup_id']);
-        header('location:index.php');
+        header('location:'.$server_static.'index.php');
     }
  
 $logado = $_SESSION['login'];
@@ -88,11 +89,11 @@ while ($row = mysqli_fetch_object($result)) {
                             <td class="bg-primary"><font color="white"><b>'.$row->serv_promocao.'</b></font></td>
                             <td class="bg-primary"><font color="white"><b>'.$row->serv_valor_promocao.'</b></font></td>
                             <td class="bg-primary"><font color="white"><b>'.$status.'</b></font></td>
-                            <td class="bg-primary"><a href="../servicos/atualizar_servicos.php?id='.$row->serv_id.'"><font color="white"><b> Editar</a></b></font></td>
+                            <td class="bg-primary"><a href="<?php echo $server_static;?>servicos/atualizar_servicos.php?id='.$row->serv_id.'"><font color="white"><b> Editar</a></b></font></td>
                     </tr>';
 //echo $results;
 }
- include_once("../../menu_footer/menu_empreendimento.php"); 
+ include_once(ROOT_PATH."menu_footer/menu_empreendimento.php"); 
  
 ?>
 
@@ -105,8 +106,8 @@ while ($row = mysqli_fetch_object($result)) {
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="../../static/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="../../static/estilo.css">
+    <link rel="stylesheet" href="<?php echo $server_static;?>static/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="<?php echo $server_static;?>static/estilo.css">
     <title>Gopet</title>
 
 </head>
@@ -115,7 +116,7 @@ while ($row = mysqli_fetch_object($result)) {
    
 <?php
     
-include_once "../../menu_footer/menu_latera_empreendimento.php" 
+include_once ROOT_PATH."menu_footer/menu_latera_empreendimento.php" 
     
 ?>
     <div class="one_page home_empreendimento">   
@@ -148,7 +149,7 @@ include_once "../../menu_footer/menu_latera_empreendimento.php"
 <footer>
 
     <?php 
-    include_once("../../menu_footer/footer.php");     
+    include_once(ROOT_PATH."menu_footer/footer.php");     
     ?>
 
 </footer>

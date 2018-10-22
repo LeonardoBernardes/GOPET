@@ -1,5 +1,6 @@
 
 <?php 
+include_once '../config/server.php';
 /*
  * @Author: Leonardo.Bernardes 
  * @Date: 2018-08-14 01:26:29 
@@ -7,14 +8,14 @@
  * @Last Modified time: 2018-08-21 19:54:57
  */
 
-include_once(dirname( __FILE__ ) .'\..\mysql_conexao\conexao_mysql.php');
+include_once ROOT_PATH.'mysql_conexao/conexao_mysql.php';
 
 session_start();
     if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true))
     {
         unset($_SESSION['login']);
         unset($_SESSION['senha']);
-        header('location:index.php');
+        header('location:'.$server_static.'index.php');
     }
  
 $logado = $_SESSION['login'];
@@ -23,7 +24,7 @@ $sql="SELECT * FROM empreendimentos WHERE";
 $result =  mysqli_query($conn, $sql);
 
 
-include_once "../menu_footer/menu_administrador.php" 
+include_once ROOT_PATH."menu_footer/menu_administrador.php" 
 
 ?>
 
@@ -35,8 +36,8 @@ include_once "../menu_footer/menu_administrador.php"
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="../static/estilo.css">
+    <link rel="stylesheet" href="<?php echo $server_static;?>static/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="<?php echo $server_static;?>static/estilo.css">
     <title>Gopet</title>
 </head>
 
@@ -57,7 +58,7 @@ include_once "../menu_footer/menu_administrador.php"
         <input class="btn btn-success btn-sm btn-block" type="submit" value="Salvar Dados"><hr>
         
     </fieldset>
-    <a class="btn btn-dark btn-sm btn-block" href="..\administradores\home_administradores.php"> Voltar</a>
+    <a class="btn btn-dark btn-sm btn-block" href="<?php echo $server_static;?>administradores/home_administradores.php"> Voltar</a>
 </form>
             </div>
             </div>
@@ -67,6 +68,6 @@ include_once "../menu_footer/menu_administrador.php"
             </div>
 </body>
 <?php 
-include_once "../menu_footer/footer.php" 
+include_once ROOT_PATH."menu_footer/footer.php"; 
 ?>
 </html>

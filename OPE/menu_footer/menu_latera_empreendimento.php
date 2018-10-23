@@ -108,7 +108,7 @@ ul{
 
 <body>
 <?php 
-include_once '../config/server.php';
+
 $menu = '';
 
 if ($_SESSION['grup_id'] == 4){

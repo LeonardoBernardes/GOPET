@@ -1,5 +1,5 @@
 <?php
-include_once '../config/server.php';
+
 /*
  * @Author: Leonardo.Bernardes 
  * @Date: 2018-08-09 01:19:46 

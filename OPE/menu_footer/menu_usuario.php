@@ -1,6 +1,6 @@
 
 <?php
-include_once '../config/server.php';
+
 /*
  * @Author: Leonardo.Bernardes 
  * @Date: 2018-09-10 20:52:14 

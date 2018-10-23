@@ -30,7 +30,7 @@ if(!isset($_SESSION))
 <head>
 
     <!-- Icone da Pagina & Titulo -->
-    <link rel="icon" href="<?php echo $server_stativ;?>static/imagens/icon_preto.png">
+    <link rel="icon" href="<?php echo $server_static;?>static/imagens/icon_preto.png">
     <title>GOPET</title>
 
     <!-- Required meta tags -->
@@ -40,13 +40,13 @@ if(!isset($_SESSION))
 
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="<?php echo $server_stativ;?>static/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="<?php echo $server_static;?>static/bootstrap/css/bootstrap.css">
 
     <!--icones legais para colocar no site https://fontawesome.com/icons?d=gallery -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 
     <!-- GOPET CSS -->
-    <link rel="stylesheet" href="<?php echo $server_stativ;?>static/estilo.css">
+    <link rel="stylesheet" href="<?php echo $server_static;?>static/estilo.css">
 
 
 </head>
@@ -54,7 +54,7 @@ if(!isset($_SESSION))
 <body>
 
         <nav class="fixed-top navbar navbar-expand-lg navbar-light bg-light fixed-top">
-        <a class="navbar-brand logo" href="<?php echo $server_stativ;?>empreendimentos/home_empreendimento.php"><img src="<?php echo $server_stativ;?>static/imagens/gopet.png" alt="gopet"></a>
+        <a class="navbar-brand logo" href="<?php echo $server_static;?>empreendimentos/home_empreendimento.php"><img src="<?php echo $server_static;?>static/imagens/gopet.png" alt="gopet"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -65,8 +65,8 @@ if(!isset($_SESSION))
                    Buscar Animais
                   </button>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="<?php echo $server_stativ;?>animais/buscar_animais_geo.php"><img src="<?php echo $server_stativ;?>static/icones/localizacao.png" style="width:20px;"/> Exibir no Mapa</a>
-                    <a class="dropdown-item" href="<?php echo $server_stativ;?>animais/buscar_animais_lista.php"><img src="<?php echo $server_stativ;?>static/icones/lista.png" style="width:20px;"/> Exibir em Lista</a>
+                    <a class="dropdown-item" href="<?php echo $server_static;?>animais/buscar_animais_geo.php"><img src="<?php echo $server_static;?>static/icones/localizacao.png" style="width:20px;"/> Exibir no Mapa</a>
+                    <a class="dropdown-item" href="<?php echo $server_static;?>animais/buscar_animais_lista.php"><img src="<?php echo $server_static;?>static/icones/lista.png" style="width:20px;"/> Exibir em Lista</a>
                   </div>
                 </div>
                 <div class="dropdown">
@@ -75,8 +75,8 @@ if(!isset($_SESSION))
                   Buscar Empreendimentos
                   </button>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="<?php echo $server_stativ;?>empreendimentos/buscar_empreendimentos_geo.php"><img src="<?php echo $server_stativ;?>static/icones/localizacao.png" style="width:20px;"/> Exibir no Mapa</a>
-                    <a class="dropdown-item" href="<?php echo $server_stativ;?>empreendimentos/buscar_empreendimentos_lista.php"><img src="<?php echo $server_stativ;?>static/icones/lista.png" style="width:20px;"/> Exibir em Lista</a>
+                    <a class="dropdown-item" href="<?php echo $server_static;?>empreendimentos/buscar_empreendimentos_geo.php"><img src="<?php echo $server_static;?>static/icones/localizacao.png" style="width:20px;"/> Exibir no Mapa</a>
+                    <a class="dropdown-item" href="<?php echo $server_static;?>empreendimentos/buscar_empreendimentos_lista.php"><img src="<?php echo $server_static;?>static/icones/lista.png" style="width:20px;"/> Exibir em Lista</a>
                   </div>
                 </div>
             </ul>
@@ -88,15 +88,15 @@ if(!isset($_SESSION))
             </form-->
          <ul class="navbar-nav justify-content-end">    
             <li class="nav-item active">
-                <a class="btn" href="<?php echo $server_stativ;?>logaut.php" ><img src="<?php echo $server_stativ;?>static/icones/sair.png" style="width:30px;" alt="gopet"/></a>
+                <a class="btn" href="<?php echo $server_static;?>logaut.php" ><img src="<?php echo $server_static;?>static/icones/sair.png" style="width:30px;" alt="gopet"/></a>
             </li>
             </ul>
         </div>
     </nav>
 
     <!-- Optional JavaScript -->
-    <script src="<?php echo $server_stativ;?>static/jquery.js"></script>
-    <script src="<?php echo $server_stativ;?>static/bootstrap/js/bootstrap.js"></script>
+    <script src="<?php echo $server_static;?>static/jquery.js"></script>
+    <script src="<?php echo $server_static;?>static/bootstrap/js/bootstrap.js"></script>
 </body>
 
 </html>

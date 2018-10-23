@@ -114,11 +114,11 @@ $menu = '';
 if ($_SESSION['grup_id'] == 4){
 
     $menu .='   <li class="nav-item">
-                    <a class="nav-link" href="<?php $server_static;?>empreendimentos/cadastro_empreendimentos.php"><img src="../static/icones/dados.png" style="width:20px;"/> Meus Dados</a>
+                    <a class="nav-link" href="<?php echo $server_static;?>empreendimentos/cadastro_empreendimentos.php"><img src="../static/icones/dados.png" style="width:20px;"/> Meus Dados</a>
                 </li>
 
                 <!--li class="nav-item">
-                    <a class="nav-link" href="<?php $server_static;?>empreendimentos/funcionarios/consultar_funcionarios.php">Meus Funcionários</a>
+                    <a class="nav-link" href="<?php echo $server_static;?>empreendimentos/funcionarios/consultar_funcionarios.php">Meus Funcionários</a>
                 </li-->
             ';
     
@@ -139,16 +139,16 @@ if ($_SESSION['grup_id'] == 4){
         if(!empty($row2)){
 
             $menu .='   <li class="nav-item active">
-                            <a class="nav-link" href="<?php $server_static;?>animais/consulta_animais.php"><img src="../static/icones/animais.png" style="width:20px;"/> Meus Animais </a>
+                            <a class="nav-link" href="<?php echo $server_static;?>animais/consulta_animais.php"><img src="../static/icones/animais.png" style="width:20px;"/> Meus Animais </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="<?php $server_static;?>empreendimentos/produtos/consultar_produtos.php"><img src="../static/icones/produtos.png" style="width:20px;"/> Meus Produtos </a>
+                            <a class="nav-link" href="<?php echo $server_static;?>empreendimentos/produtos/consultar_produtos.php"><img src="../static/icones/produtos.png" style="width:20px;"/> Meus Produtos </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="<?php $server_static;?>empreendimentos/servicos/consultar_servicos.php"><img src="../static/icones/servicos.png" style="width:20px;"/> Meus Serviços </a>
+                            <a class="nav-link" href="<?php echo $server_static;?>empreendimentos/servicos/consultar_servicos.php"><img src="../static/icones/servicos.png" style="width:20px;"/> Meus Serviços </a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" href="<?php $server_static;?>empreendimentos/eventos/consultar_eventos.php"><img src="../static/icones/eventos.png" style="width:20px;"/> Meus Eventos</a>
+                        <a class="nav-link" href="<?php echo $server_static;?>empreendimentos/eventos/consultar_eventos.php"><img src="../static/icones/eventos.png" style="width:20px;"/> Meus Eventos</a>
                         </li>
                         <!--li class="nav-item">
                             <a class="nav-link" href="#">Minhas Doações</a>

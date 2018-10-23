@@ -30,7 +30,7 @@ if(!isset($_SESSION))
 <head>
 
     <!-- Icone da Pagina & Titulo -->
-    <link rel="icon" href="<?php echo $server_static;?>static/imagens/icon_preto.png">
+    <link rel="icon" href="<?php echo $server_static?>static/imagens/icon_preto.png">
     <title>GOPET</title>
 
     <!-- Required meta tags -->

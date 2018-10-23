@@ -83,8 +83,8 @@ include_once ROOT_PATH .'mysql_conexao/conexao_mysql.php';
 
 
     <!-- Optional JavaScript -->
-    <script src="../static/jquery.js"></script>
-    <script src="../static/bootstrap/js/bootstrap.js"></script>
+    <script src="<?php echo $server_static?>static/jquery.js"></script>
+    <script src="<?php echo $server_static?>static/bootstrap/js/bootstrap.js"></script>
 </body>
 
 </html>

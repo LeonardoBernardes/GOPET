@@ -12,7 +12,9 @@ define('ROOT_PATH', $_SERVER['DOCUMENT_ROOT'].'/GOPET/OPE/');
 $server_static = $_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['SERVER_NAME'].'/GOPET/OPE/';
 
 
-// versao beta para chamar arquivos PHP -->
+//IGNORAR DAQUI PRA BAIXO
+//
+//versao beta para chamar arquivos PHP -->
 //usado para chamar arquivos php
 //C:/XAMPP/HTDOCS/FUNDAMENTA/
 $server_dir = $_SERVER['DOCUMENT_ROOT'].'/GOPET/OPE/';

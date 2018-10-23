@@ -30,7 +30,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 
     <!-- GOPET CSS -->
-    <link rel="stylesheet" href="static/estilo.css">
+    <link rel="stylesheet" href="<?php echo $server_static?>static/estilo.css">
         
 
 
@@ -120,8 +120,8 @@
     </div>
 
     <!-- Optional JavaScript -->
-    <script src="static/jquery.js"></script>
-    <script src="static/bootstrap/js/bootstrap.js"></script>
+    <script src="<?php echo $server_static?>static/jquery.js"></script>
+    <script src="<?php echo $server_static?>static/bootstrap/js/bootstrap.js"></script>
 </body>
 
 </html>

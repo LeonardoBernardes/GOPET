@@ -76,7 +76,7 @@ while ($row = mysqli_fetch_object($result)) {
     }
     if(!empty($endereco_img)){
     //Criar Funcao para trazer local host como variavel
-    $endereco_img = str_replace('\\', '/',"http://localhost/".'PHP/GOPET/OPE/empreendimentos/servicos/'.$endereco_img);
+    $endereco_img = str_replace('\\', '/',$server_static.'empreendimentos/servicos/'.$endereco_img);
     }
 
        $results .='<tr>

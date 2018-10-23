@@ -8,7 +8,7 @@ define('ROOT_PATH', $_SERVER['DOCUMENT_ROOT'].'/GOPET/OPE/');
 
 //para chamar qualquer arquivo que nao seja outro arquivo php 
 //ARQUIVOS CSS, JS, IMGs...
-//HTTP://LOCALHOST/FUNDAMENTA/
+//HTTP://LOCALHOST/GOPET/OPE
 $server_static = $_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['SERVER_NAME'].'/GOPET/OPE/';
 
 

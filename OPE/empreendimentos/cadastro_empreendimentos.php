@@ -102,7 +102,7 @@ if(!empty($row2)){
         $endereco_img = $row5->emim_endereco;
     }
     //Criar Funcao para trazer local host como variavel
-    $endereco_img = str_replace('\\', '/',"http://localhost/".'PHP/GOPET/OPE/empreendimentos/'.$endereco_img);
+    $endereco_img = str_replace('\\', '/',$server_static.'empreendimentos/'.$endereco_img);
 }//var_dump(str_replace('/', '\'',$endereco_img));     
 ?>
 

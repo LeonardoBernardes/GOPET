@@ -59,7 +59,7 @@ include_once '../config/server.php';
 
       if(!empty($endereco_img)){
         //Criar Funcao para trazer local host como variavel
-        $endereco_img = str_replace('\\', '/',"http://localhost/".'PHP/GOPET/OPE/empreendimentos/'.$endereco_img);
+        $endereco_img = str_replace('\\', '/',$server_static.'empreendimentos/'.$endereco_img);
       }
       $results .='
    <div class="main">

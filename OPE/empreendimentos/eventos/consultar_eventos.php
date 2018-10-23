@@ -97,7 +97,7 @@ if(isset($ids)){
         }
         if(!empty($endereco_img)){
         //Criar Funcao para trazer local host como variavel
-        $endereco_img = str_replace('\\', '/',"http://localhost/".'PHP/GOPET/OPE/empreendimentos/eventos/'.$endereco_img);
+        $endereco_img = str_replace('\\', '/',$server_static.'empreendimentos/eventos/'.$endereco_img);
         }
 
 

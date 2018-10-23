@@ -56,7 +56,7 @@ $logado = $_SESSION['login'];
                 
  
             <li class="nav-item active">
-                <a class="nav-link" href="<?php echo $server_static;?>administradores/cadastro_grupos.php">Criar Grupo</a
+                <a class="nav-link" href="<?php echo $server_static;?>administradores/cadastro_grupos.php">Criar Grupo</a>
             </li>
             <li class="nav-item active">
                 <a class="nav-link" href="<?php echo $server_static;?>administradores/ativa_usuarios.php">Ativar Usuários</a>

@@ -96,7 +96,7 @@ while ($row = mysqli_fetch_object($result)) {
                     <td><font color="black"><b>'.$row->prod_promocao.'</b></font></td>
                     <td><font color="black"><b>'.$row->prod_valor_promocao.'</b></font></td>
                     <td><font color="black"><b>'.$status.'</b></font></td>
-                    <td><a class="btn" href="<?php echo $server_static;?>produtos/atualizar_produtos.php?id='.$row->prod_id.'"><img src="../../static/icones/editar.png" style="width:20px;"/></a></td>
+                    <td><a class="btn" href="'. $server_static.'produtos/atualizar_produtos.php?id='.$row->prod_id.'"><img src="../../static/icones/editar.png" style="width:20px;"/></a></td>
             </tr>';
 
         

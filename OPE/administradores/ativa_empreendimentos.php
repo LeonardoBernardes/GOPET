@@ -71,7 +71,7 @@ while ($row = mysqli_fetch_object($result)) {
                     <td>'.$row->logi_email.'</td>
                     <td>'.$status.'</td>
                     <td>'.$grupo.'</td>
-                    <td><a href="<?php echo $server_static;?>administradores/atualizar_empreendimentos.php?id='.$row->logi_id.'"> Ativar ou Desativar</a></td>
+                    <td><a href="'. $server_static.'administradores/atualizar_empreendimentos.php?id='.$row->logi_id.'"> Ativar ou Desativar</a></td>
                 </tr>';
 //echo $results;
 }

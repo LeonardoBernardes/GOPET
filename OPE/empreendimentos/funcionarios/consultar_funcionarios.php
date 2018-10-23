@@ -94,7 +94,7 @@ if(!empty($ids)){
                     <td class="bg-primary"><font color="white"><b>'.$row->logi_data_cadastro.'</b></font></td>
                     <td class="bg-primary"><font color="white"><b>'.$row->logi_data_atualizacao.'</b></font></td>
                     <td class="bg-primary"><font color="white"><b>'.$status.'</b></font></td>
-                    <td class="bg-primary"><a href="<?php echo $server_static;?>funcionarios/atualizar_servicos.php?id='.$row->anim_id.'"><font color="white"><b> Editar</a></b></font></td>
+                    <td class="bg-primary"><a href="'. $server_static.'funcionarios/atualizar_servicos.php?id='.$row->anim_id.'"><font color="white"><b> Editar</a></b></font></td>
             </tr>';
 
 

@@ -80,15 +80,15 @@ while ($row = mysqli_fetch_object($result)) {
 
        $results .='<tr>
                             
-                            <td class="bg-primary" ><font color="white"><b>'.$row->serv_id.'</b></font></td>
-                            <td class="bg-primary" ><img style="width:50px;" src="'.$endereco_img.'"/></td>
-                            <td class="bg-primary"><font color="white"><b>'.$row->serv_nome.'</b></font></td>
-                            <td class="bg-primary"><font color="white"><b>'.$row->serv_descricao.'</b></font></td>
-                            <td class="bg-primary"><font color="white"><b>'.$row->serv_valor_total.'</b></font></td>
-                            <td class="bg-primary"><font color="white"><b>'.$row->serv_promocao.'</b></font></td>
-                            <td class="bg-primary"><font color="white"><b>'.$row->serv_valor_promocao.'</b></font></td>
-                            <td class="bg-primary"><font color="white"><b>'.$status.'</b></font></td>
-                            <td class="bg-primary"><a href="../servicos/atualizar_servicos.php?id='.$row->serv_id.'"><font color="white"><b> Editar</a></b></font></td>
+                            <td ><font color="blac+k"><b>'.$row->serv_id.'</b></font></td>
+                            <td ><img style="width:50px;" src="'.$endereco_img.'"/></td>
+                            <td><font color="black"><b>'.$row->serv_nome.'</b></font></td>
+                            <td><font color="black"><b>'.$row->serv_descricao.'</b></font></td>
+                            <td><font color="black"><b>'.$row->serv_valor_total.'</b></font></td>
+                            <td><font color="black"><b>'.$row->serv_promocao.'</b></font></td>
+                            <td><font color="black"><b>'.$row->serv_valor_promocao.'</b></font></td>
+                            <td><font color="black"><b>'.$status.'</b></font></td>
+                            <td class="btn"><a href="../servicos/atualizar_servicos.php?id='.$row->serv_id.'"><img src="../../static/icones/editar.png" style="width:20px;"/></a></td>
                     </tr>';
 //echo $results;
 }
@@ -118,12 +118,14 @@ while ($row = mysqli_fetch_object($result)) {
 include_once "../../menu_footer/menu_latera_empreendimento.php" 
     
 ?>
-    <div class="one_page home_empreendimento">   
+<div >   
     <div class="main">
+        <h2><label style="margin-top:5%;" >Consulta Produtos</label></h2>
+
     <div class="table-responsive">
-    <table class="position-relative table tabelas" style="width:100%">
-        <thead class="thead-dark">
-            <tr>
+    <table id="produtos" class="table table-hover" style="width:100%">
+        <thead>
+            <tr class="bg-success">
                  <th scope="col">ID</th>
                 <th scope="col" style="width:100%">imagem</th>
                 <th scope="col">Nome</th>
@@ -133,12 +135,11 @@ include_once "../../menu_footer/menu_latera_empreendimento.php"
                 <th scope="col">Valor Promoção</th>
                 <th scope="col">Status</th>
                 <th scope="col">Editar</th>
-            </tr>
+                </tr>
         </thead>
         <?php echo $results ?>
     </table>
     </div>
-
    
         
     </div>

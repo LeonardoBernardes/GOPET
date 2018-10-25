@@ -154,17 +154,17 @@ elseif($grup_id == 4 ||$grup_id == 2){
         
             $results .='<tr>
                             
-                            <td class="bg-primary" ><font color="white"><b>'.$row->anim_id.'</b></font></td>
-                            <td class="bg-primary" ><img style="width:50px;" src="'.$endereco_img.'"/></td>
-                            <td class="bg-primary"><font color="white"><b>'.$row->anim_nome.'</b></font></td>
-                            <td class="bg-primary"><font color="white"><b>'.$row->anim_ra.'</b></font></td>
-                            <td class="bg-primary"><font color="white"><b>'.$row->anim_idade.'</b></font></td>
-                            <td class="bg-primary"><font color="white"><b>'.$row->anim_porte.'</b></font></td>
-                            <td class="bg-primary"><font color="white"><b>'.$row->anim_genero.'</b></font></td>
-                            <td class="bg-primary"><font color="white"><b>'.$row->anim_categoria.'</b></font></td>
-                            <td class="bg-primary"><font color="white"><b>'.$row->anim_restricao_doacao.'</b></font></td>
-                            <td class="bg-primary"><font color="white"><b>'.$castracao.'</b></font></td>
-                            <td class="bg-primary"><a href="../animais/atualizar_animais.php?id='.$row->anim_id.'"><font color="white"><b> Editar</a></b></font></td>
+                            <td ><font color="black"><b>'.$row->anim_id.'</b></font></td>
+                            <td ><img style="width:50px;" src="'.$endereco_img.'"/></td>
+                            <td><font color="black"><b>'.$row->anim_nome.'</b></font></td>
+                            <td><font color="black"><b>'.$row->anim_ra.'</b></font></td>
+                            <td><font color="black"><b>'.$row->anim_idade.'</b></font></td>
+                            <td><font color="black"><b>'.$row->anim_porte.'</b></font></td>
+                            <td><font color="black"><b>'.$row->anim_genero.'</b></font></td>
+                            <td><font color="black"><b>'.$row->anim_categoria.'</b></font></td>
+                            <td><font color="black"><b>'.$row->anim_restricao_doacao.'</b></font></td>
+                            <td><font color="black"><b>'.$castracao.'</b></font></td>
+                            <td class="btn"><a href="../animais/atualizar_animais.php?id='.$row->anim_id.'"><img src="../static/icones/editar.png" style="width:20px;"/></a></td>
                     </tr>';
         //echo $results;
         }
@@ -202,12 +202,14 @@ if ($_SESSION['grup_id'] == 3){
     include_once("../menu_footer/menu_latera_usuario.php");
 }
 ?>
-    <div class="one_page home_empreendimento">   
+<div >   
     <div class="main">
+        <h2><label style="margin-top:5%;" >Consulta Produtos</label></h2>
+
     <div class="table-responsive">
-    <table class="position-sticky table tabelas" style="width:100%">
-        <thead class="thead-dark">
-            <tr>
+    <table id="produtos" class="table table-hover" style="width:100%">
+        <thead>
+            <tr class="bg-success">
                 <th scope="col">ID</th>
                 <th scope="col">imagem</th>
                 <th scope="col">Nome</th>
@@ -219,14 +221,15 @@ if ($_SESSION['grup_id'] == 3){
                 <th scope="col">Restrição de adoção</th>
                 <th scope="col">Castração</th>
                 <th scope="col">Editar</th>
-            </tr>
+                </tr>
         </thead>
         <?php echo $results ?>
     </table>
+    </div>
     <?php
     if ($_SESSION['grup_id'] == 4){
         ?>
-        <a class="btn btn-dark" href="..\empreendimentos\home_empreendimento.php"> Voltar</a>
+        <a class="btn btn-dark" href="../../empreendimentos\home_empreendimento.php"> Voltar</a>
         <a class="btn btn-success" href="http://localhost/PHP/GOPET/OPE/animais/cadastro_animais.php">Cadastrar Animais</a>
     <?php
     }

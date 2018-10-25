@@ -77,17 +77,48 @@ $results .='    <div class="main">
                     <div class="container login-empreendimento">
                         <fieldset id="fie">
                             <img style="width:200px;" src="'.$endereco_img.'" style="width:100%"/>
-                            <span class="input-group-text" for="inputGroupSelect01">Nome: '.$row->NOME.'</span>
-                            <span class="input-group-text" for="inputGroupSelect01">Logradouro: '.$row->logradouro.'</span>
-                            <span class="input-group-text" for="inputGroupSelect01">Número: '.$row->numero.'</span>
-                            <span class="input-group-text" for="inputGroupSelect01">Complemento: '.$row->complemento.'</span>
-                            <span class="input-group-text" for="inputGroupSelect01">Bairro: '.$row->bairro.'</span>
-                            <span class="input-group-text" for="inputGroupSelect01">Cidade: '.$row->cidade.'</span>
-                            <span class="input-group-text" for="inputGroupSelect01">Estado: '.$row->estado.'</span>
-                            <span class="input-group-text" for="inputGroupSelect01">Pais: '.$row->pais.'</span>
-                            <span class="input-group-text" for="inputGroupSelect01">CEP: '.$row->cep.'</span>
-                            <span class="input-group-text" for="inputGroupSelect01">Data de Cadastro: '.$row->data_cadastro.'</span>
-                            <span class="input-group-text" for="inputGroupSelect01">Data de Atualizaçao: '.$row->data_atualizacao.'</span><br>
+                            <span for="inputGroupSelect01">Nome: '.$row->NOME.'</span>
+                            <div class="form-row">
+                            <div class="col">                           
+                            <span  for="inputGroupSelect01">Data de Cadastro: '.$row->data_cadastro.'</span>
+                            </div>
+                            <div class="col">                            
+                            <span  for="inputGroupSelect01">Data de Atualizaçao: '.$row->data_atualizacao.'</span><br>
+                            </div>
+                            </div>     
+                            <div class="form-row">
+                            <div class="col">
+                            <span  for="inputGroupSelect01">Logradouro: '.$row->logradouro.'</span>
+                            </div>
+                            <div class="col">
+                            <span for="inputGroupSelect01">Número: '.$row->numero.'</span>
+                            </div>
+                            </div>
+                            <div class="form-row">
+                            <div class="col">
+                            <span  for="inputGroupSelect01">Complemento: '.$row->complemento.'</span>
+                            </div>
+                            <div class="col">
+                            <span for="inputGroupSelect01">Bairro: '.$row->bairro.'</span>
+                            </div>
+                            </div>
+                            <div class="form-row">
+                            <div class="col">
+                            <span  for="inputGroupSelect01">Cidade: '.$row->cidade.'</span>
+                            </div>
+                            <div class="col">
+                            <span  for="inputGroupSelect01">Estado: '.$row->estado.'</span>
+                            </div>
+                            </div>
+                            <div class="form-row">
+                            <div class="col">                            
+                            <span  for="inputGroupSelect01">Pais: '.$row->pais.'</span>
+                            </div>
+                            <div class="col">                            
+                            <span  for="inputGroupSelect01">CEP: '.$row->cep.'</span>
+                            </div>
+                            </div>                       
+                            
                         </fieldset>
                     </div>
                 </div>        

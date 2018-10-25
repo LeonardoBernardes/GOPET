@@ -102,13 +102,13 @@ if(isset($ids)){
 
         $results .='            
             <tr>
-                    <td class="bg-primary" ><font color="white"><b>'.$row->even_id.'</b></font></td>
-                    <td class="bg-primary" ><img style="width:50px;" src="'.$endereco_img.'"/></td>
-                    <td class="bg-primary"><font color="white"><b>'.$row->even_nome.'</b></font></td>
-                    <td class="bg-primary"><font color="white"><b>'.$row->even_descricao.'</b></font></td>
-                    <td class="bg-primary"><font color="white"><b>'.$row->even_data_realizacao.'</b></font></td>
-                    <td class="bg-primary"><font color="white"><b>'.$status.'</b></font></td>
-                    <td class="bg-primary"><a href="../eventos/atualizar_eventos.php?id='.$row->even_id.'"><font color="white"><b> Editar</a></b></font></td>
+                    <td ><font color="black"><b>'.$row->even_id.'</b></font></td>
+                    <td ><img style="width:50px;" src="'.$endereco_img.'"/></td>
+                    <td><font color="black"><b>'.$row->even_nome.'</b></font></td>
+                    <td><font color="black"><b>'.$row->even_descricao.'</b></font></td>
+                    <td><font color="black"><b>'.$row->even_data_realizacao.'</b></font></td>
+                    <td><font color="black"><b>'.$status.'</b></font></td>
+                    <td class="btn"><a href="../eventos/atualizar_eventos.php?id='.$row->even_id.'"><img src="../../static/icones/editar.png" style="width:20px;"/></a></td>
             </tr>';
 
     }
@@ -149,13 +149,14 @@ include_once "../../menu_footer/menu_latera_empreendimento.php"
     
 ?>
 <body>
-
-    <div class="one_page home_empreendimento">   
+<div>   
     <div class="main">
+        <h2><label style="margin-top:5%;" >Consulta Produtos</label></h2>
+
     <div class="table-responsive">
-    <table class="position-sticky table tabelas" style="width:100%">
-        <thead class="thead-dark">
-        <tr class="thead-dark">
+    <table id="produtos" class="table table-hover" style="width:100%">
+        <thead>
+            <tr class="bg-success">
             <th scope="col">ID</th>
             <th scope="col">Imagem</th>
             <th scope="col">Nome</th>
@@ -163,7 +164,7 @@ include_once "../../menu_footer/menu_latera_empreendimento.php"
             <th scope="col">Data de realização</th>
             <th scope="col">Status</th>
             <th scope="col">Editar</th>
-        </tr>
+            </tr>
         </thead>
         <?php echo $results ?>
     </table>

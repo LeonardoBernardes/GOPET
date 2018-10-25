@@ -80,37 +80,56 @@ include_once "../../menu_footer/menu_empreendimento.php" ;
     
     
 </head>
-<body id="formulario_funcionario">
-<div class="main">
-    <div class="container login-form"  >
-        <h2 class="alert alert-warning" ><legend>Cadastrar Funcionário</legend></h2>
+<body id="formulario_empreendimento">
 
+    <div class="main">
+
+        <div class="container login-empreendimento">
+                    <h2 class="btn btn-dark btn-sm btn-block">
+                        <legend>Atualizar Serviços</legend>
+                    </h2><br>
     <form method="post" action="update_servicos.php?id=<?= $serv_id ?>" id="formlogin" name="formlogin" enctype="multipart/form-data">
-    <fieldset id="fie">
-        <legend>Atualizar Serviço</legend><br/>
-        <label>Imagem : </label> 
-        <img src="<?php echo $endereco_img ?>" style="width:400px; heigth:50px;" alt='Foto de exibição' /><br />
-        <input type="file" name="imagem" id="imagem" > <br/>
+    <div class="card-group">
+            <div id="cadastro_animal_card" class="card">
+                    <label>Imagem: </label>
+        <img class="card-img-top" src="<?php echo $endereco_img ?>" style="width:100px; heigth:50px;" alt='Foto de exibição' /><br />
+        <input class="input-group-text btn-lg btn-block" type="file" name="imagem" id="imagem" > <br/>
+        </div>
+        <br>
+        </div>
+        <div class="form-row">
+        <div class="col">
         <label>Nome : </label> 
-        <input class="input-group-text btn-lg btn-block" type="text" name="nome" id="nome" value="<?php echo ($row->serv_nome) ? $row->serv_nome : "" ?>"><br/>
-        <label>Descrição : </label> 
-        <input class="input-group-text btn-lg btn-block" type="text" name="descricao" id="descricao" value="<?php echo ($row->serv_descricao) ? $row->serv_descricao : "" ?>"><br/>
+        <input class="form-control form-control-sm" type="text" name="nome" id="nome" value="<?php echo ($row->serv_nome) ? $row->serv_nome : "" ?>"><br/>
+        </div>
+        <div class="col">
         <label>Valor Total : </label> 
-        <input class="input-group-text btn-lg btn-block" type="number" name="valor_total" id="valor_total" value="<?php echo ($row->serv_valor_total) ? $row->serv_valor_total : 0 ?>"><br/>
+        <input class="form-control form-control-sm" type="number" name="valor_total" id="valor_total" value="<?php echo ($row->serv_valor_total) ? $row->serv_valor_total : 0 ?>"><br/>
+        </div>
+        <div class="col">        
         <label>Possuí Promoção ? </label> 
-        <select class="input-group-text btn-lg btn-block" name="promocao">
+        <select class="form-control form-control-sm" name="promocao">
             <option value="0">Não</option>
             <option value="1">SIM</option>
         </select>
+        </div>
+        </div>
+        <div class="form-row">
+        <div class="col">
         <label>Valor Promoção : </label> 
-        <input class="input-group-text btn-lg btn-block" type="text" name="valor_promocao" id="valor_promocao" value="<?php echo ($row->serv_valor_promocao) ? $row->serv_valor_promocao : "" ?>"><br/>
+        <input class="form-control form-control-sm" type="text" name="valor_promocao" id="valor_promocao" value="<?php echo ($row->serv_valor_promocao) ? $row->serv_valor_promocao : "" ?>"><br/>
+        </div>
+        <div class="col">         
         <label>Status : </label> 
-        <select class="input-group-text btn-lg btn-block" name="status">
+        <select class="form-control form-control-sm" name="status">
             <option value="1" <?php echo $ativado ?>>Ativo</option>
             <option value="0" <?php echo $desativado ?>>Desativado</option>
         </select>
+        </div>
+        </div>
+        <label>Descrição : </label> 
+        <input class="form-control form-control-sm" type="text" name="descricao" id="descricao" value="<?php echo ($row->serv_descricao) ? $row->serv_descricao : "" ?>"><br/>
         <input class="btn btn-success btn-lg btn-block" type="submit" value="Atualizar Serviço">
-        
     </fieldset>
     </div>
 </div>

@@ -10,7 +10,7 @@ include_once 'config/server.php';
 
 include_once ROOT_PATH.'\mysql_conexao/conexao_mysql.php';
 
-session_start();
+/*session_start();
     if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true))
     {
         unset($_SESSION['login']);
@@ -24,7 +24,9 @@ $logado = $_SESSION['login'];
 unset ($_SESSION['login']);
 unset ($_SESSION['senha']);
 
+*/
+unset($_SESSION);
 
-header('location:'.$server_static.' index.php');
+header('location:'.$server_static.'index.php');
 ?>
 

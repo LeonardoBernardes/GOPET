@@ -93,10 +93,10 @@ while ($row = mysqli_fetch_object($result)) {
                     <td><font color="black"><b>'.$row->prod_qtde_estoque.'</b></font></td>
                     <td><font color="black"><b>'.$row->prod_descricao.'</b></font></td>
                     <td><font color="black"><b>'.$row->prod_valor_total.'</b></font></td>
-                    <td><font color="black"><b>'.$row->prod_promocao.'</b></font></td>
-                    <td><font color="black"><b>'.$row->prod_valor_promocao.'</b></font></td>
+                    <!--td><font color="black"><b>'.$row->prod_promocao.'</b></font></td>
+                    <td><font color="black"><b>'.$row->prod_valor_promocao.'</b></font></td-->
                     <td><font color="black"><b>'.$status.'</b></font></td>
-                    <td><a class="btn" href="'. $server_static.'produtos/atualizar_produtos.php?id='.$row->prod_id.'"><img src="../../static/icones/editar.png" style="width:20px;"/></a></td>
+                    <td><a class="btn" href="'.$server_static.'empreendimentos/produtos/atualizar_produtos.php?id='.$row->prod_id.'"><img src="../../static/icones/editar.png" style="width:20px;"/></a></td>
             </tr>';
 
         
@@ -132,9 +132,9 @@ include_once ROOT_PATH."menu_footer/menu_latera_empreendimento.php"
 ?>
 
 <body>
-<div class="one_page home_empreendimento">   
+<div >   
     <div class="main">
-        <h2><label style="margin-top:5%;" >Consulta Produtos</label></h2>
+        <h2><label style="margin-top:5%; margin-left:5%;" >Consulta Produtos</label></h2>
 
     <div class="table-responsive">
     <table id="produtos" class="table table-hover" style="width:100%">
@@ -147,8 +147,8 @@ include_once ROOT_PATH."menu_footer/menu_latera_empreendimento.php"
                 <th >Qtde Estoque</th>
                 <th >Descrição</th>
                 <th >Valor Total</th>
-                <th >Possuí Promoção ?</th>
-                <th >Valor Promoção</th>
+                <!--th >Possuí Promoção ?</th>
+                <th >Valor Promoção</th-->
                 <th >Status</th>
                 <th >Editar</th>
             </tr>
@@ -157,7 +157,8 @@ include_once ROOT_PATH."menu_footer/menu_latera_empreendimento.php"
     </table>
     </div>
 
-   
+        <a class="btn btn-dark" href="../../empreendimentos/home_empreendimento.php"> Voltar</a>
+        <a class="btn btn-success" href="<?php echo $server_static?>empreendimentos/produtos/cadastro_produtos.php">Cadastrar Produto</a>
         
     </div>
 </div>

@@ -79,18 +79,20 @@ while ($row = mysqli_fetch_object($result)) {
     $endereco_img = str_replace('\\', '/',$server_static.'empreendimentos/servicos/'.$endereco_img);
     }
 
-       $results .='<tr>
+       $results .='
+       <tr>
                             
-                            <td class="bg-primary" ><font color="white"><b>'.$row->serv_id.'</b></font></td>
-                            <td class="bg-primary" ><img style="width:50px;" src="'.$endereco_img.'"/></td>
-                            <td class="bg-primary"><font color="white"><b>'.$row->serv_nome.'</b></font></td>
-                            <td class="bg-primary"><font color="white"><b>'.$row->serv_descricao.'</b></font></td>
-                            <td class="bg-primary"><font color="white"><b>'.$row->serv_valor_total.'</b></font></td>
-                            <td class="bg-primary"><font color="white"><b>'.$row->serv_promocao.'</b></font></td>
-                            <td class="bg-primary"><font color="white"><b>'.$row->serv_valor_promocao.'</b></font></td>
-                            <td class="bg-primary"><font color="white"><b>'.$status.'</b></font></td>
-                            <td class="bg-primary"><a href="'. $server_static.'servicos/atualizar_servicos.php?id='.$row->serv_id.'"><font color="white"><b> Editar</a></b></font></td>
-                    </tr>';
+                            <td ><font color="black"><b>'.$row->serv_id.'</b></font></td>
+                            <td ><img style="width:50px;" src="'.$endereco_img.'"/></td>
+                            <td><font color="black"><b>'.$row->serv_nome.'</b></font></td>
+                            <td><font color="black"><b>'.$row->serv_descricao.'</b></font></td>
+                            <td><font color="black"><b>'.$row->serv_valor_total.'</b></font></td>
+                            <!--td><font color="black"><b>'.$row->serv_promocao.'</b></font></td>
+                            <td><font color="black"><b>'.$row->serv_valor_promocao.'</b></font></td-->
+                            <td><font color="black"><b>'.$status.'</b></font></td>
+                            <td class="btn"><a href="'. $server_static.'servicos/atualizar_servicos.php?id='.$row->serv_id.'"><img src="../../static/icones/editar.png" style="width:20px;"/></a></td>
+                    </tr>
+      ';
 //echo $results;
 }
  include_once(ROOT_PATH."menu_footer/menu_empreendimento.php"); 
@@ -108,7 +110,7 @@ while ($row = mysqli_fetch_object($result)) {
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="<?php echo $server_static;?>static/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="<?php echo $server_static;?>static/estilo.css">
-    <title>Gopet</title>
+    <title>GOPET</title>
 
 </head>
 
@@ -119,29 +121,31 @@ while ($row = mysqli_fetch_object($result)) {
 include_once ROOT_PATH."menu_footer/menu_latera_empreendimento.php" 
     
 ?>
-<div >   
+    <div>   
     <div class="main">
-        <h2><label style="margin-top:5%;" >Consulta Produtos</label></h2>
+        <h2><label style="margin-top:5%; margin-left:5%;" >Consulta Serviços</label></h2>
 
     <div class="table-responsive">
-    <table id="produtos" class="table table-hover" style="width:100%">
-        <thead>
+    <table class="table table-hover" style="width:100%">
+        <thead >
             <tr class="bg-success">
                  <th scope="col">ID</th>
                 <th scope="col" style="width:100%">imagem</th>
                 <th scope="col">Nome</th>
                 <th scope="col">Descrição</th>
                 <th scope="col">Valor Total</th>
-                <th scope="col">Possuí Promoção ?</th>
-                <th scope="col">Valor Promoção</th>
+                <!--th scope="col">Possuí Promoção ?</th>
+                <th scope="col">Valor Promoção</th-->
                 <th scope="col">Status</th>
                 <th scope="col">Editar</th>
-                </tr>
+            </tr>
         </thead>
         <?php echo $results ?>
     </table>
     </div>
-   
+
+        <a class="btn btn-dark" href="../../empreendimentos/home_empreendimento.php"> Voltar</a>
+        <a class="btn btn-success" href="<?php echo $server_static?>empreendimentos/servicos/cadastro_servicos.php">Cadastrar Serviço</a>
         
     </div>
 </div>

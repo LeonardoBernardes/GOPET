@@ -25,14 +25,15 @@ include_once '../config/server.php';
     $arr_empreendimentos = array();
 
     $sql = "SELECT
-      empr_id,
-      empr_nome as nome,
-      empr_slogan as slogan,
-      empr_longitude as latitude,
-      empr_latitude as longitude
-    FROM 
-      empreendimentos";
-
+              empr_id,
+              empr_nome as nome,
+              empr_slogan as slogan,
+              empr_longitude as latitude,
+              empr_latitude as longitude
+            FROM 
+              empreendimentos";
+echo $sql;
+return;
     $result = mysqli_query($conn, $sql);
     while($row = mysqli_fetch_object($result)){
 

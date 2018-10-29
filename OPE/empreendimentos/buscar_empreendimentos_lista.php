@@ -62,49 +62,49 @@ include_once '../config/server.php';
         $endereco_img = str_replace('\\', '/',$server_static.'empreendimentos/'.$endereco_img);
       }
       $results .='
-   <div class="main">
-        <div class="container login-empreendimento">
-                <fieldset id="fie">
-                      <img style="width:150px;" src="'.$endereco_img.'" style="width:100% class="img-thumbnail""/>
-                      <span for="inputGroupSelect01">Nome: '.$row->nome.'</span>
-                      <div class="form-row">
-                            <div class="col">    
-                      <span  for="inputGroupSelect01">Logradouro: '.$row->logradouro.'</span>
-                      </div>
-                      <div class="col">
-                      <span  for="inputGroupSelect01">Número: '.$row->numero.'</span>
-                      </div>
-                      </div> 
-                      <div class="form-row">
-                            <div class="col">    
-                      <span  for="inputGroupSelect01">Complemento: '.$row->complemento.'</span>
-                      </div>
-                      <div class="col">
-                      <span  for="inputGroupSelect01">CEP: '.$row->cep.'</span>
-                      </div>
-                      </div> 
-                      <div class="form-row">
+      <div class="main">
+      <div class="container login-empreendimento">
+              <fieldset id="fie">
+                    <img style="width:150px;" src="'.$endereco_img.'" style="width:100% class="img-thumbnail""/>
+                    <span for="inputGroupSelect01">Nome: '.$row->nome.'</span>
+                    <div class="form-row">
+                          <div class="col">    
+                    <span  for="inputGroupSelect01">Logradouro: '.$row->logradouro.'</span>
+                    </div>
+                    <div class="col">
+                    <span  for="inputGroupSelect01">Número: '.$row->numero.'</span>
+                    </div>
+                    </div> 
+                    <div class="form-row">
+                          <div class="col">    
+                    <span  for="inputGroupSelect01">Complemento: '.$row->complemento.'</span>
+                    </div>
+                    <div class="col">
+                    <span  for="inputGroupSelect01">CEP: '.$row->cep.'</span>
+                    </div>
+                    </div> 
+                    <div class="form-row">
+                    <div class="col">    
+                    <span  for="inputGroupSelect01">País: '.$row->pais.'</span>
+                    </div>
+                    <div class="col">
+                    <span  for="inputGroupSelect01">Estado: '.$row->estado.'</span>
+                    </div>
+                    </div> 
+                    <div class="form-row">
                       <div class="col">    
-                      <span  for="inputGroupSelect01">País: '.$row->pais.'</span>
-                      </div>
-                      <div class="col">
-                      <span  for="inputGroupSelect01">Estado: '.$row->estado.'</span>
-                      </div>
-                      </div> 
-                      <div class="form-row">
-                        <div class="col">    
-                      <span  for="inputGroupSelect01">Cidade: '.$row->cidade.'</span>
-                      </div>
-                      <div class="col">
-                      <span for="inputGroupSelect01">Bairro: '.$row->bairro.'</span><hr>
-                      </div>
-                      </div> 
-                      <button id="animais/'.$row->empr_id.'"  class="btn btn-success sticky-top" style="margin-left:15px;" data-toggle="modal" data-target="#myModal" data-whatever="Animais" title="Animais" value="'.$row->empr_id.'" onclick="getId(this)">Animais</button>
-                      <button id="eventos/'.$row->empr_id.'"   class="btn btn-success sticky-top" style="margin-left:15px;" data-toggle="modal" data-target="#myModal" data-whatever="Eventos" title="Eventos" value="'.$row->empr_id.'" onclick="getId(this)">Eventos</button>
-                      <button id="produtos/'.$row->empr_id.'"   class="btn btn-success sticky-top" style="margin-left:15px;" data-toggle="modal" data-target="#myModal" data-whatever="Produtos" title="Produtos" value="'.$row->empr_id.'" onclick="getId(this)">Produtos</button>
-                      <button id="servicos/'.$row->empr_id.'"   class="btn btn-success sticky-top" style="margin-left:15px;" data-toggle="modal" data-target="#myModal" data-whatever="Serviços" title="Serviços" value="'.$row->empr_id.'" onclick="getId(this)">Serviços</button>
-                     </fieldset>
-            </div>
+                    <span  for="inputGroupSelect01">Cidade: '.$row->cidade.'</span>
+                    </div>
+                    <div class="col">
+                    <span for="inputGroupSelect01">Bairro: '.$row->bairro.'</span><hr>
+                    </div>
+                    </div> 
+                    <button id="animais/'.$row->empr_id.'"  class="btn btn-success sticky-top" style="margin-left:15px;" data-toggle="modal" data-target="#myModal" data-whatever="Animais" title="Animais" value="'.$row->empr_id.'" onclick="getId(this)">Animais</button>
+                    <button id="eventos/'.$row->empr_id.'"   class="btn btn-success sticky-top" style="margin-left:15px;" data-toggle="modal" data-target="#myModal" data-whatever="Eventos" title="Eventos" value="'.$row->empr_id.'" onclick="getId(this)">Eventos</button>
+                    <button id="produtos/'.$row->empr_id.'"   class="btn btn-success sticky-top" style="margin-left:15px;" data-toggle="modal" data-target="#myModal" data-whatever="Produtos" title="Produtos" value="'.$row->empr_id.'" onclick="getId(this)">Produtos</button>
+                    <button id="servicos/'.$row->empr_id.'"   class="btn btn-success sticky-top" style="margin-left:15px;" data-toggle="modal" data-target="#myModal" data-whatever="Serviços" title="Serviços" value="'.$row->empr_id.'" onclick="getId(this)">Serviços</button>
+                   </fieldset>
+          </div>
 </div>
 ';
 

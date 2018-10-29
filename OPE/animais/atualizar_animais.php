@@ -191,7 +191,7 @@ if(!empty($anim_id)){
                                 <div id="cadastro_animal_card" class="card">
                                     <label>Imagem: </label>
                                     <img class="card-img-top" src="<?php echo $endereco_img; ?>" style="width:100px; heigth:50px;" alt='Foto de exibição' /><br />
-                                    <input class="input-group-text btn-lg btn-block" type="file" name="imagem" id="imagem" > <br/>
+                                    <input class="card-img-top" type="file" name="imagem1" id="imagem1"> <br/>
                                 </div>
 
                             </div>

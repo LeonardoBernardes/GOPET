@@ -6,6 +6,8 @@
  * @Last Modified time: 2018-09-18 16:28:54
  */
 include_once 'config/server.php';
+//var_dump($_SESSION);
+//return;
 
 ?>
 <!doctype html>
@@ -24,7 +26,7 @@ include_once ROOT_PATH."menu_footer/menu_principal.php"
      <!-- MEIO -->
 <div class="one_page home">
     <h1><img class="logo_index" src="<?php echo $server_static;?>static/imagens/icon_preto.png" alt="" /></h1>
-    <h2 class="frase_index">Sistema que conecta pessoas e animais</h2>
+    <h2 class="frase_index">Sistema para conectar pessoas e animais para adoção</h2>
 </div>
 
 <?php

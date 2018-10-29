@@ -79,43 +79,27 @@ include_once ROOT_PATH."menu_footer/menu_empreendimento.php";
     
     
 </head>
-<body id="formulario_empreendimento">
-
-    <div class="main">
-
-        <div class="container login-empreendimento">
-                    <h2 class="btn btn-dark btn-sm btn-block">
-                        <legend>Atualizar Animal</legend>
-                    </h2><br>
+<body id="formulario_funcionario">
+<div class="main">
+    <div class="container login-form"  >
+        <h2 class="alert alert-warning" ><legend>Cadastrar Funcionário</legend></h2>
 <form method="post" action="update_eventos.php?id=<?= $even_id ?>" id="formlogin" name="formlogin" enctype="multipart/form-data">
     <fieldset id="fie">
-    <div class="card-group">
-        <div id="cadastro_animal_card" class="card">
-            <label>Imagem: </label>
-            <img class="card-img-top" src="<?php echo $endereco_img; ?>" style="width:100px; heigth:50px;" alt='Foto de exibição' /><br />
-            <input class="input-group-text btn-lg btn-block" type="file" name="imagem" id="imagem" > <br/>
-        </div>
-        </div>
-        <br>
-        <div class="form-row">
-        <div class="col">
-        <label>Nome </label>
-        <input class="form-control form-control-sm" type="text" name="nome" id="nome" value="<?php echo ($row->even_nome) ? $row->even_nome : "" ?>"><br/>
-        </div>
-        <div class="col">
+        <legend>Atualizar Evento</legend><br/>
+        <label>Imagem : </label> 
+        <img src="<?php echo $endereco_img ?>" style="width:400px; heigth:50px;" alt='Foto de exibição' /><br />
+        <input class="input-group-text btn-lg btn-block" type="file" name="imagem" id="imagem" > <br/>
+        <label>Nome : </label> 
+        <input class="input-group-text btn-lg btn-block" type="text" name="nome" id="nome" value="<?php echo ($row->even_nome) ? $row->even_nome : "" ?>"><br/>
+        <label>Descrição : </label> 
+        <input class="input-group-text btn-lg btn-block" type="text" name="descricao" id="descricao" value="<?php echo ($row->even_descricao) ? $row->even_descricao : "" ?>"><br/>
         <label>Data Realização : </label> 
-        <input class="form-control form-control-sm" type="text" name="data_realizacao" id="data_realizacao" value="<?php echo ($row->even_data_realizacao) ? $row->even_data_realizacao : "" ?>"><br/>
-        </div>
-        <div class="col">        
+        <input class="input-group-text btn-lg btn-block" type="text" name="data_realizacao" id="data_realizacao" value="<?php echo ($row->even_data_realizacao) ? $row->even_data_realizacao : "" ?>"><br/>
         <label>Status : </label> 
-        <select class="form-control form-control-sm" name="status">
+        <select class="input-group-text btn-lg btn-block" name="status">
             <option value="1" <?php echo $ativado ?>>Ativo</option>
             <option value="0" <?php echo $desativado ?>>Desativado</option>
         </select>
-        </div>
-        </div>
-        <label>Descrição : </label> 
-        <input class="form-control form-control-sm" type="text" name="descricao" id="descricao" value="<?php echo ($row->even_descricao) ? $row->even_descricao : "" ?>"><br/>
         <input class="btn btn-dark btn-lg btn-block" type="submit" value="Atualizar Evento">
         
     </fieldset>

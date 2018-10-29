@@ -84,17 +84,46 @@ if(isset($ids)){
         $endereco_img = str_replace('\\', '/',$server_static.'animais/'.$endereco_img);
         }
         $results .='
-                    <div class="col-md-12">
+                <div class="bg-light p-4 col-md-12">
+                    <div class="form-row">
+                        <div class="col">
                         <img style="width:200px;" src="'.$endereco_img.'" style="width:100%"/>
-                        <span class="input-group-text" for="inputGroupSelect01">Nome: '.$row->anim_nome.'</span>
-                        <span class="input-group-text" for="inputGroupSelect01">RGA: '.$row->anim_ra.'</span>
-                        <span class="input-group-text" for="inputGroupSelect01">Idade: '.$row->anim_idade.'</span>
-                        <span class="input-group-text" for="inputGroupSelect01">Porte: '.$row->anim_porte.'</span>
-                        <span class="input-group-text" for="inputGroupSelect01">Gênero: '.$row->anim_genero.'</span>
-                        <span class="input-group-text" for="inputGroupSelect01">Categoria: '.$row->anim_categoria.'</span>
-                        <span class="input-group-text" for="inputGroupSelect01">Restrição de adoção: '.$row->anim_restricao_doacao.'</span>
-                        <span class="input-group-text" for="inputGroupSelect01">Castrado ? '.$castracao.'</span><br>
-                    </div>            
+                        </div>
+                        <div class="col">
+                        <span style="color:"#33cc00;" for="inputGroupSelect01"><h2><b> Nome: </b> '.$row->anim_nome.'<h2></span><br>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-row">
+                        <div class="col">
+                        <span for="inputGroupSelect01"><b>RGA:</b> '.$row->anim_ra.'</span><br>
+                        </div>
+                        <div class="col">
+                        <span for="inputGroupSelect01"><b>Idade:</b>'.$row->anim_idade.'</span><br>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col">
+                        <span for="inputGroupSelect01"><b>Porte: </b>'.$row->anim_porte.'</span><br>
+                        </div>
+                        <div class="col">
+                        <span for="inputGroupSelect01"><b>Gênero: </b>'.$row->anim_genero.'</span><br>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col">
+                        <span for="inputGroupSelect01"><b> Categoria: </b>'.$row->anim_categoria.'</span><br>
+                        </div>
+                        <div class="col">
+                        <span for="inputGroupSelect01"><b> Restrição de adoção: </b>'.$row->anim_restricao_doacao.'</span><br>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col">
+                        <span for="inputGroupSelect01"><b> Castrado ? </b>'.$castracao.'</span><hr>
+                        </div>
+                    </div>  
+                </div>            
             ';
     
     //echo $results;

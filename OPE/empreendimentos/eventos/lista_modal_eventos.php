@@ -77,14 +77,32 @@ if(isset($ids)){
         }
 
   
-        $results .='
-                    <div class="col-md-12">
-                            <img src="'.$endereco_img.'" style="width:100%"/>
-                            <span class="input-group-text" for="inputGroupSelect01">Nome: '.$row->even_nome.'</span><br>
-                            <span class="input-group-text" for="inputGroupSelect01">Descrição: '.$row->even_descricao.'</span><br>
-                            <span class="input-group-text" for="inputGroupSelect01">Data da Realização: '.$row->even_data_realizacao.'</span><br>
-                            <span class="input-group-text" for="inputGroupSelect01">Status: '.$row->even_status.'</span><br>
-                    </div>';
+        $results .='<div class="col-md-12 bg-light p-4">
+                        <div class="col-md-6">
+                            <!--div class="form-row"-->
+                                <!--div class="col"-->
+                                    <img src="'.$endereco_img.'" style="width:100%"/>
+                                <!--/div-->
+                                
+                            <!--/div-->
+                        </div>
+                        <div class="col-md-6">
+                            <!--div class="form-row"-->
+                                <div class="col">
+                                    <span for="inputGroupSelect01">Nome: '.$row->even_nome.'</span><br>
+                                </div>
+                                <div class="col">
+                                    <span for="inputGroupSelect01">Descrição: '.$row->even_descricao.'</span><br>
+                                    <span for="inputGroupSelect01">Status: '.$row->even_status.'</span><br>
+                                </div>
+                                <div class="col">
+                                    <span for="inputGroupSelect01">Data da Realização: '.$row->even_data_realizacao.'</span><br>
+                                </div>
+                            <!--/div-->
+                        </div>
+                            
+                    </div>
+                    ';
     }
 }
 if(empty($results)){

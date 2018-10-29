@@ -1,5 +1,6 @@
 <?php
-include_once(dirname( __FILE__ ) .'\..\mysql_conexao\conexao_mysql.php');
+
+include_once ROOT_PATH .'mysql_conexao/conexao_mysql.php';
 
 if(!isset($_SESSION)) 
     { 
@@ -11,7 +12,7 @@ if(!isset($_SESSION))
         unset($_SESSION['login']);
         unset($_SESSION['senha']);
         unset($_SESSION['grup_id']);
-        header('location:index.php');
+        header('location:'.$server_static.'index.php');
     }
     //var_dump($_SESSION);
     $logi_id = $_SESSION['logi_id'];
@@ -83,7 +84,7 @@ $menu = '';
 if ($_SESSION['grup_id'] == 3){
 
     $menu .='   <li class="nav-item">
-                    <a class="nav-link" href="../usuarios/cadastro_usuarios.php"><img src="../static/icones/dados.png" style="width:20px;"/> Meus Dados </a>
+                    <a class="nav-link" href="'. $server_static.'usuarios/cadastro_usuarios.php"><img src="../static/icones/dados.png" style="width:20px;"/> Meus Dados </a>
                 </li>
 
             ';
@@ -105,10 +106,10 @@ if ($_SESSION['grup_id'] == 3){
         if(!empty($row2)){
 
             $menu .='   <li class="nav-item">
-                            <a class="nav-link" href="http://localhost/PHP/GOPET/OPE/animais/consulta_animais.php"><img src="../static/icones/animais.png" style="width:20px;"/> Meus Animais </a>
+                            <a class="nav-link" href="'. $server_static.'animais/consulta_animais.php"><img src="../static/icones/animais.png" style="width:20px;"/> Meus Animais </a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" href="http://localhost/PHP/GOPET/OPE/usuarios/eventos/consultar_eventos.php"><img src="../static/icones/eventos.png" style="width:20px;"/> Meus Eventos</a>
+                        <a class="nav-link" href="'. $server_static.'usuarios/eventos/consultar_eventos.php"><img src="../static/icones/eventos.png" style="width:20px;"/> Meus Eventos</a>
                         </li>
                       
             ';

@@ -1,5 +1,6 @@
 
 <?php 
+include_once '../config/server.php';
 /*
  * @Author: Leonardo.Bernardes 
  * @Date: 2018-08-14 01:26:29 
@@ -7,7 +8,7 @@
  * @Last Modified time: 2018-09-29 12:46:22
  */
 
-include_once(dirname( __FILE__ ) .'\..\mysql_conexao\conexao_mysql.php');
+include_once ROOT_PATH .'mysql_conexao/conexao_mysql.php';
 //session_start();
 if(!isset($_SESSION)) 
     { 
@@ -17,7 +18,7 @@ if(!isset($_SESSION))
     {
         unset($_SESSION['login']);
         unset($_SESSION['senha']);
-        header('location:index.php');
+        header('location:'.$server_static.'index.php');
     }
 $logi_id = $_SESSION['logi_id'];
 $logado = $_SESSION['login'];
@@ -100,7 +101,7 @@ if(!empty($row2)){
         $endereco_img = $row5->usim_endereco;
     }
     //Criar Funcao para trazer local host como variavel
-    $endereco_img = str_replace('\\', '/',"http://localhost/".'PHP/GOPET/OPE/usuarios/'.$endereco_img);
+    $endereco_img = str_replace('\\', '/',$server_static.'usuarios/'.$endereco_img);
 }//var_dump(str_replace('/', '\'',$endereco_img));     
 ?>
 
@@ -109,7 +110,7 @@ if(!empty($row2)){
 <head>
 
     <!-- Icone da Pagina & Titulo -->
-    <link rel="icon" href="../static/imagens/icon_preto.png">
+    <link rel="icon" href="<?php echo $server_static;?>static/imagens/icon_preto.png">
     <title>GoPet</title>
 
     <!-- Required meta tags -->
@@ -119,21 +120,21 @@ if(!empty($row2)){
 
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="../../OPE/static/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="<?php echo $server_static;?>static/bootstrap/css/bootstrap.css">
 
     <!--icones legais para colocar no site https://fontawesome.com/icons?d=gallery -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 
     <!-- GOPET CSS -->
-    <link rel="stylesheet" href="../static/estilo.css">
+    <link rel="stylesheet" href="<?php echo $server_static;?>static/estilo.css">
         
 
 
 </head>
 <body>
 <?php
- include_once("../menu_footer/menu_latera_usuario.php");    
- include_once("../menu_footer/menu_usuario.php"); 
+ include_once(ROOT_PATH."menu_footer/menu_latera_usuario.php");    
+ include_once(ROOT_PATH."menu_footer/menu_usuario.php"); 
 ?>
 
 <div id="formulario_empreendimento">
@@ -217,7 +218,7 @@ if(!empty($row2)){
                     <hr>
                     <input class="btn btn-success btn-sm btn-block" type="submit" value="Salvar Dados">
                     <hr>
-                    <a class="btn btn-dark btn-sm btn-block" href="../usuarios/home_usuarios.php"> Voltar</a>
+                    <a class="btn btn-dark btn-sm btn-block" href="<?php echo $server_static;?>usuarios/home_usuarios.php"> Voltar</a>
                 </fieldset>
 
             </form>
@@ -231,7 +232,7 @@ if(!empty($row2)){
 
 
     <?php 
-    include_once("../menu_footer/footer.php");     
+    include_once(ROOT_PATH."menu_footer/footer.php");     
     ?>
 
 </footer>

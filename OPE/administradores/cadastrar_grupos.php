@@ -1,5 +1,6 @@
 
 <?php 
+include_once '../config/server.php';
 /*
  * @Author: Leonardo.Bernardes 
  * @Date: 2018-08-14 01:34:11 
@@ -7,13 +8,13 @@
  * @Last Modified time: 2018-09-04 01:10:31
  */
 
-include_once(dirname( __FILE__ ) .'\..\mysql_conexao\conexao_mysql.php');
+include_once ROOT_PATH.'mysql_conexao/conexao_mysql.php';
 session_start();
     if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true))
     {
         unset($_SESSION['login']);
         unset($_SESSION['senha']);
-        header('location:index.php');
+        header('location:'.$server_static.'index.php');
     }
  
 $logado = $_SESSION['login'];

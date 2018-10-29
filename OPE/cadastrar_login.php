@@ -1,5 +1,6 @@
 
-<?php 
+<?php
+include_once 'config/server.php';
 /*
  * @Author: Leonardo.Bernardes 
  * @Date: 2018-08-14 01:34:11 
@@ -7,7 +8,7 @@
  * @Last Modified time: 2018-09-05 21:24:26
  */
 
-include_once(dirname( __FILE__ ) .'\mysql_conexao\conexao_mysql.php');
+include_once ROOT_PATH.'mysql_conexao/conexao_mysql.php';
 
 $logi_nome =  ($_POST['login']) ? $_POST['login'] : "";
 $logi_email = ($_POST['email']) ? $_POST['email'] : "";
@@ -35,6 +36,6 @@ $sql2 = "   INSERT INTO
 //echo $sql2;
 $c2 = mysqli_query($conn, $sql2);
 
-header('location:..\OPE\index.php');
+header('location: '.$server_static.' index.php');
 
 ?>

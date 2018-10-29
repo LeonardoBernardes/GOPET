@@ -1,4 +1,5 @@
 <?php
+include_once '../config/server.php';
 /*
  * @Author: Leonardo.Bernardes 
  * @Date: 2018-08-14 20:59:32 
@@ -7,9 +8,9 @@
  */
 
 //var_dump($_SESSION);
-
+include_once '../config/server.php';
     
-include_once "../menu_footer/menu_empreendimento.php" 
+include_once ROOT_PATH."menu_footer/menu_empreendimento.php" 
     
 
 ?>
@@ -22,7 +23,7 @@ include_once "../menu_footer/menu_empreendimento.php"
 <!-- MEIO -->
 <?php
     
-include_once "../menu_footer/menu_latera_empreendimento.php" 
+include_once ROOT_PATH."menu_footer/menu_latera_empreendimento.php" ;
     
 ?>
 <div class="main">
@@ -39,7 +40,7 @@ include_once "../menu_footer/menu_latera_empreendimento.php"
     
 <?php
     
-include_once "../menu_footer/footer.php" 
+include_once ROOT_PATH."menu_footer/footer.php" 
     
 ?>
 

@@ -1,7 +1,4 @@
-<html>
 
-<body>
-</body>
 <footer class="page-footer font-small cyan darken-3 bg-light">
 
     <!-- Footer Elements -->
@@ -58,4 +55,5 @@
 
 </footer>
 
+</body>
 </html>

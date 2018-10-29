@@ -1,8 +1,6 @@
-
-  
 <?php
-    
-include_once "../menu_footer/menu_administrador.php" 
+include_once '../config/server.php';
+include_once ROOT_PATH."menu_footer/menu_administrador.php" ;
     
 ?>
 
@@ -12,8 +10,8 @@ include_once "../menu_footer/menu_administrador.php"
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="../static/estilo.css">
+    <link rel="stylesheet" href="<?php echo $server_static;?>static/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="<?php echo $server_static;?>static/estilo.css">
     <title>Gopet</title>
 </head>
        
@@ -27,13 +25,13 @@ include_once "../menu_footer/menu_administrador.php"
 </div>
 </div>
 
-    <script src="../static/jquery.js"></script>
-    <script src="../static/bootstrap/js/bootstrap.js"></script>
+    <script src="<?php echo $server_static;?>static/jquery.js"></script>
+    <script src="<?php echo $server_static;?>static/bootstrap/js/bootstrap.js"></script>
 
 
 
 <?php
     
-include_once "../menu_footer/footer.php" 
+include_once ROOT_PATH."menu_footer/footer.php" 
     
 ?>

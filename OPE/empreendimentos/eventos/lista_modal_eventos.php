@@ -1,4 +1,5 @@
 <?php 
+include_once '../../config/server.php';
 /*
  * @Author: Leonardo.Bernardes 
  * @Date: 2018-10-03 23:37:04 
@@ -6,7 +7,7 @@
  * @Last Modified time: 2018-10-04 20:31:16
  */
 
-include_once(dirname( __FILE__ ) .'\..\..\mysql_conexao\conexao_mysql.php');
+include_once ROOT_PATH.'mysql_conexao/conexao_mysql.php';
 
 $empr_id = ($_GET['empr_id']) ? $_GET['empr_id'] : ""; 
 $results = '';
@@ -72,7 +73,7 @@ if(isset($ids)){
         }
         if(!empty($endereco_img)){
         //Criar Funcao para trazer local host como variavel
-        $endereco_img = str_replace('\\', '/',"http://localhost/".'PHP/GOPET/OPE/empreendimentos/eventos/'.$endereco_img);
+        $endereco_img = str_replace('\\', '/',$server_static.'empreendimentos/eventos/'.$endereco_img);
         }
 
   

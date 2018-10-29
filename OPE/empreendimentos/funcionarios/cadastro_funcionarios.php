@@ -1,5 +1,6 @@
 <?php
-include_once("../../menu_footer/menu_empreendimento.php"); 
+include_once '../../config/server.php';
+include_once(ROOT_PATH."menu_footer/menu_empreendimento.php"); 
 ?>
 
 <html>
@@ -9,8 +10,8 @@ include_once("../../menu_footer/menu_empreendimento.php");
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="../../static/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="../../static/estilo.css">
+    <link rel="stylesheet" href="<?php echo $server_static;?>static/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="<?php echo $server_static;?>static/estilo.css">
     
     
 </head>
@@ -18,7 +19,7 @@ include_once("../../menu_footer/menu_empreendimento.php");
 <body id="formulario_funcionario">
 <?php
     
-include_once "../../menu_footer/menu_latera_empreendimento.php" 
+include_once ROOT_PATH."menu_footer/menu_latera_empreendimento.php" 
     
 ?>
 <div>
@@ -50,7 +51,7 @@ include_once "../../menu_footer/menu_latera_empreendimento.php"
 <footer>
 
     <?php 
-    include_once("../../menu_footer/footer.php");     
+    include_once(ROOT_PATH."menu_footer/footer.php");     
     ?>
 
 </footer>

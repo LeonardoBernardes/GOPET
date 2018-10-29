@@ -1,4 +1,5 @@
 <?php
+include_once '../config/server.php';
 /*
  * @Author: Leonardo.Bernardes 
  * @Date: 2018-08-14 20:59:32 
@@ -18,7 +19,7 @@
 <head>
 
     <!-- Icone da Pagina & Titulo -->
-    <link rel="icon" href="../static/imagens/icon_preto.png">
+    <link rel="icon" href="<?php echo $server_static;?>static/imagens/icon_preto.png">
     <title>GoPet</title>
 
     <!-- Required meta tags -->
@@ -28,20 +29,20 @@
 
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="<?php echo $server_static;?>static/bootstrap/css/bootstrap.css">
 
     <!--icones legais para colocar no site https://fontawesome.com/icons?d=gallery -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 
     <!-- GOPET CSS -->
-    <link rel="stylesheet" href="../static/estilo.css">
+    <link rel="stylesheet" href="<?php echo $server_static;?>static/estilo.css">
         
 
 
 </head>
     <body>
-    <?php include_once("../menu_footer/menu_latera_usuario.php"); 
-        include_once("../menu_footer/menu_usuario.php"); 
+    <?php include_once(ROOT_PATH."menu_footer/menu_latera_usuario.php"); 
+        include_once(ROOT_PATH."menu_footer/menu_usuario.php"); 
         
     ?>
        <div class="main">
@@ -54,6 +55,6 @@
     </body> 
     
 <?php 
-    include_once("../menu_footer/footer.php"); 
+    include_once(ROOT_PATH."menu_footer/footer.php"); 
 ?>   
 </html>

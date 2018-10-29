@@ -1,4 +1,5 @@
 <?php 
+include_once '../config/server.php';
 /*
  * @Author: Leonardo.Bernardes 
  * @Date: 2018-10-03 23:37:04 
@@ -6,7 +7,7 @@
  * @Last Modified time: 2018-10-04 20:41:46
  */
 
-include_once(dirname( __FILE__ ) .'\..\mysql_conexao\conexao_mysql.php');
+include_once ROOT_PATH.'mysql_conexao/conexao_mysql.php';
 
 session_start();
     
@@ -16,7 +17,7 @@ session_start();
             //unset($_SESSION['login']);
             //unset($_SESSION['senha']);
             //unset($_SESSION['grup_id']);
-            header('location:index.php');
+            header('location:'.$server_static.'index.php');
         }
 
 //$empr_id = ($_GET['empr_id']) ? $_GET['empr_id'] : ""; 
@@ -65,7 +66,7 @@ while($row = mysqli_fetch_object($result)){
 
         if(!empty($endereco_img)){
             //Criar Funcao para trazer local host como variavel
-            $endereco_img = str_replace('\\', '/',"http://localhost/".'PHP/GOPET/OPE/animais/'.$endereco_img);
+            $endereco_img = str_replace('\\', '/',$server_static.'animais/'.$endereco_img);
         }
 
         //if(!empty($row->usan_flag) || !empty($row->eman_flag)){
@@ -145,8 +146,8 @@ if(empty($results)){
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="../static/estilo.css">
+    <link rel="stylesheet" href="<?php echo $server_static;?>static/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="<?php echo $server_static;?>static/estilo.css">
 
 
 </head>
@@ -157,15 +158,15 @@ if(empty($results)){
 
 <?php
 if ($_SESSION['grup_id'] == 4){
-    include_once("../menu_footer/menu_empreendimento.php"); 
-    include_once("../menu_footer/menu_latera_empreendimento.php");
+    include_once(ROOT_PATH."menu_footer/menu_empreendimento.php"); 
+    include_once(ROOT_PATH."menu_footer/menu_latera_empreendimento.php");
     }
     if ($_SESSION['grup_id'] == 1){    
-    include_once("../menu_footer/menu_administrador.php");
+        include_once(ROOT_PATH."menu_footer/menu_administrador.php");
     }
     if ($_SESSION['grup_id'] == 3){    
-    include_once("../menu_footer/menu_usuario.php");
-    include_once("../menu_footer/menu_latera_usuario.php");
+        include_once(ROOT_PATH."menu_footer/menu_usuario.php");
+        include_once(ROOT_PATH."menu_footer/menu_latera_usuario.php");
     }
 ?>    
 <div id="formulario_empreendimento">
@@ -208,7 +209,7 @@ if ($_SESSION['grup_id'] == 4){
 <footer>
 
 <?php 
-include_once("../menu_footer/footer.php");     
+include_once(ROOT_PATH."menu_footer/footer.php");     
 ?>
 
 </footer>

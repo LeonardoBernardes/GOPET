@@ -1,4 +1,5 @@
 <?php
+
 /*
  * @Author: Leonardo.Bernardes 
  * @Date: 2018-08-09 01:19:46 
@@ -13,7 +14,7 @@
 <head>
 
     <!-- Icone da Pagina & Titulo -->
-    <link rel="icon" href="../static/imagens/icon_preto.png">
+    <link rel="icon" href="<?php echo $server_static;?>static/imagens/icon_preto.png">
     <title>GoPet</title>
 
     <!-- Required meta tags -->
@@ -23,13 +24,13 @@
 
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="../OPE/static/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="<?php echo $server_static;?>static/bootstrap/css/bootstrap.css">
 
     <!--icones legais para colocar no site https://fontawesome.com/icons?d=gallery -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 
     <!-- GOPET CSS -->
-    <link rel="stylesheet" href="static/estilo.css">
+    <link rel="stylesheet" href="<?php echo $server_static?>static/estilo.css">
         
 
 
@@ -119,8 +120,8 @@
     </div>
 
     <!-- Optional JavaScript -->
-    <script src="static/jquery.js"></script>
-    <script src="static/bootstrap/js/bootstrap.js"></script>
+    <script src="<?php echo $server_static?>static/jquery.js"></script>
+    <script src="<?php echo $server_static?>static/bootstrap/js/bootstrap.js"></script>
 </body>
 
 </html>

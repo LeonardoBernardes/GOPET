@@ -1,4 +1,7 @@
-<?php?>
+<?php
+include_once 'config/server.php';
+
+?>
 
 <!doctype html>
 
@@ -7,7 +10,7 @@
 
 <?php
     
-include_once "menu_footer/menu_principal.php" 
+include_once ROOT_PATH."menu_footer/menu_principal.php"; 
     
 ?>
 <body class="formulario_login">
@@ -36,7 +39,7 @@ include_once "menu_footer/menu_principal.php"
 
                     <input class="btn btn-success btn-lg btn-block" type="submit" value="Cadastrar">
                     <hr>
-                    <p>Deseja se Logar? <a href="index.php">clique aqui</a></p>
+                    <p>Deseja se Logar? <a href="<?php echo $server_static;?>index.php">clique aqui</a></p>
                 </fieldset>
             </form>
         </div>
@@ -49,8 +52,8 @@ include_once "menu_footer/menu_principal.php"
 <footer>
 <?php
     
-include_once "menu_footer/footer.php" 
-    
+include_once ROOT_PATH."menu_footer/footer.php" 
+    ;
 ?>    
 </footer>
 

@@ -5,13 +5,13 @@
 //C:/XAMPP/HTDOCS/FUNDAMENTA/
 define('ROOT_PATH', $_SERVER['DOCUMENT_ROOT'].'/GOPET/OPE/');
 
-
+//var_dump(ROOT_PATH);
 //para chamar qualquer arquivo que nao seja outro arquivo php 
 //ARQUIVOS CSS, JS, IMGs...
 //HTTP://LOCALHOST/GOPET/OPE
 $server_static = $_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['SERVER_NAME'].'/GOPET/OPE/';
 
-
+//var_dump($server_static);
 //IGNORAR DAQUI PRA BAIXO
 //
 //versao beta para chamar arquivos PHP -->

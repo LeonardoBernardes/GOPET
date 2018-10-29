@@ -29,7 +29,6 @@ $sql="  SELECT
             AND `logi_senha`= '$senha'
         ";
 
-//break;
 $result =  mysqli_query($conn, $sql);
 
 

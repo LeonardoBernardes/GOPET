@@ -94,8 +94,8 @@ body {
      
     }
 #menu_lateral{
-    background: #28a745;
-    box-shadow: 3px 0px black;
+    background: #4fdc6f;
+    box-shadow: 3px 0px white;
     color:rgb(0, 0, 0) !important;
     line-height: 4.5;
 }

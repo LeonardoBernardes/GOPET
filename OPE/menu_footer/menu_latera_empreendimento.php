@@ -138,8 +138,10 @@ if ($_SESSION['grup_id'] == 4){
 
         if(!empty($row2)){
 
-            $menu .='   <li class="nav-item">
-                            <a class="nav-link" href="'. $server_static.'animais/consulta_animais.php"><img src="'. $server_static.'static/icones/animais.png" style="width:20px;"/> Meus Animais </a>
+            $menu .='   
+            <nav aria-label="Page navigation example">
+                    <li class="page-item">
+                            <a class="page-link" href="'. $server_static.'animais/consulta_animais.php"><img src="'. $server_static.'static/icones/animais.png" style="width:20px;"/> Meus Animais </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="'. $server_static.'empreendimentos/produtos/consultar_produtos.php"><img src="'. $server_static.'static/icones/produtos.png" style="width:20px;"/> Meus Produtos </a>
@@ -156,6 +158,7 @@ if ($_SESSION['grup_id'] == 4){
                         <li class="nav-item">
                             <a class="nav-link" href="#">Favoritos</a>
                         </li-->
+                        </nav>
             ';
 
         }

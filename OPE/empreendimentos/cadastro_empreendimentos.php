@@ -128,11 +128,11 @@ include_once ROOT_PATH."menu_footer/menu_latera_empreendimento.php"
                     </h2><br>
                     <div class="card-group">
                         <div id="cadastro_animal_card" class="card">
-                            <img src="<?php echo $endereco_img ?>" style="width:250px; heigth:50px;" alt='Foto de exibição' /><br />
+                            <img src="<?php echo $endereco_img ?>" style="width:150; heigth:50px;" alt='Foto de exibição' /><br />
                             <input type="file" name="logo" id="logo"> <br/>
                         </div>
                     </div>
-                    <hr>
+                    <br>
                     <div class="form-row">
                         <div class="col">
                             <label>Nome </label>
@@ -157,11 +157,11 @@ include_once ROOT_PATH."menu_footer/menu_latera_empreendimento.php"
                     <input class="form-control form-control-sm" type="text" name="slogan" id="slogan" value='<?php echo $empr_slogan ?>'>
 
                     <fieldset id="fie"><br>
-                        <hr>
 
-                        <h2 class="btn btn-dark btn-sm btn-block">
+                        <h2 class="btn btn-secondary btn-sm btn-block">
                             <legend>Endereço</legend>
                         </h2>
+                        <br>
                         <div class="form-row">
                             <div class="col">
                                 <label>Cidade</label>
@@ -201,10 +201,8 @@ include_once ROOT_PATH."menu_footer/menu_latera_empreendimento.php"
                             </div>
                         </div>
                     </fieldset>
-                    <hr>
+                    <br>
                     <input class="btn btn-success btn-sm btn-block" type="submit" value="Salvar Dados">
-                    <hr>
-                    <a class="btn btn-dark btn-sm btn-block" href="<?php echo $server_static;?>empreendimentos/home_empreendimento.php"> Voltar</a>
                 </fieldset>
 
             </form>

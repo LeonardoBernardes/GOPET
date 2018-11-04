@@ -87,7 +87,7 @@ if(!isset($_SESSION))
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
             </form-->
          <ul class="navbar-nav justify-content-end">    
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="btn" href="<?php echo $server_static;?>logaut.php" ><img src="<?php echo $server_static;?>static/icones/sair.png" style="width:30px;" alt="gopet"/></a>
             </li>
             </ul>

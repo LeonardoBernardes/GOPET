@@ -46,12 +46,9 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="index.php">Home</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" href="#">O projeto</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item ">
                     <a class="nav-link" href="index.php">Mapa</a>
                 </li>
                 <li class="nav-item">
@@ -68,22 +65,22 @@
                 </li>
             </ul>
 
-            <form class="form-inline my-2 my-lg-0">
+           <!-- <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Search">
 
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
-            </form>
+            </form>-->
          <ul class="navbar-nav justify-content-end">    
             <li class="nav-item">
                 <a class="nav-link" href="#" data-toggle="modal" data-target="#card_login">
                      <i class="fa fa-user-circle fa-2x"></i>
                 </a>
             </li>
-            <li>
+           <!-- <li>
                 <a class="nav-link" href="cadastro_login.php">
                     <i class="fa fa-user-plus fa-2x"></i>
                 </a>
-            </li>
+            </li> -->
             </ul>
         </div>
     </nav>

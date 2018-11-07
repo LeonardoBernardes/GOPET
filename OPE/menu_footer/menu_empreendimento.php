@@ -37,7 +37,9 @@ if(!isset($_SESSION))
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-
+    <!-- Optional JavaScript -->
+    <script src="<?php echo $server_static;?>static/jquery.js"></script>
+    <script src="<?php echo $server_static;?>static/bootstrap/js/bootstrap.js"></script>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="<?php echo $server_static;?>static/bootstrap/css/bootstrap.css">
@@ -94,9 +96,7 @@ if(!isset($_SESSION))
         </div>
     </nav>
 
-    <!-- Optional JavaScript -->
-    <script src="<?php echo $server_static;?>static/jquery.js"></script>
-    <script src="<?php echo $server_static;?>static/bootstrap/js/bootstrap.js"></script>
+  
 </body>
 
 </html>

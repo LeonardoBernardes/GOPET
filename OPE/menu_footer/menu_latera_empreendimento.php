@@ -1,5 +1,8 @@
 
 <!DOCTYPE html>
+ <!-- Optional JavaScript -->
+ <script src="<?php echo $server_static;?>static/jquery.js"></script>
+    <script src="<?php echo $server_static;?>static/bootstrap/js/bootstrap.js"></script>
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,34 +10,7 @@
 body {
     font-family: "Lato", sans-serif;
 }
-/*
-#navbar {
-  overflow: hidden;
-  background-color: #333;
-}
 
-#navbar a {
-  float: left;
-  display: block;
-  color: #f2f2f2;
-  color:rgb(0, 0, 0) !important;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-}*/
-/*
-#navbar a:hover {
-  background-color: #ddd;
-  color: black;
-}*/
-/*
-#navbar a.active {
-  background-color: #4CAF50;
-  color: white;
-}
-
-*/
 .sidenav {
     width: 180px;
     height:100%;
@@ -125,7 +101,7 @@ if ($_SESSION['grup_id'] == 4){
 }              
     if($_SESSION['logi_status'] == 1){ 
 
-        $sql = "SELECT
+        /*$sql = "SELECT
                     empr_id
                 FROM
                     login_x_empreendimentos
@@ -136,12 +112,12 @@ if ($_SESSION['grup_id'] == 4){
         $result = mysqli_query($conn, $sql);
         $row2 = mysqli_fetch_object($result);
 
-        if(!empty($row2)){
+        if(!empty($row2)){*/
 
             $menu .='   
             <nav aria-label="Page navigation example">
-                    <li class="page-item">
-                            <a class="page-link" href="'. $server_static.'animais/consulta_animais.php"><img src="'. $server_static.'static/icones/animais.png" style="width:20px;"/> Meus Animais </a>
+                    <li class="nav-item">
+                            <a class="nav-link" href="'. $server_static.'animais/consulta_animais.php"><img src="'. $server_static.'static/icones/animais.png" style="width:20px;"/> Meus Animais </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="'. $server_static.'empreendimentos/produtos/consultar_produtos.php"><img src="'. $server_static.'static/icones/produtos.png" style="width:20px;"/> Meus Produtos </a>
@@ -161,7 +137,7 @@ if ($_SESSION['grup_id'] == 4){
                         </nav>
             ';
 
-        }
+       // }
     }
 
 

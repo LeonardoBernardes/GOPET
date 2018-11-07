@@ -113,7 +113,7 @@ include_once ROOT_PATH."menu_footer/menu_empreendimento.php" ;
                 <label>Valor Total : </label> 
                 <input class="input-group-text btn-lg btn-block" type="number" name="valor_total" id="valor_total" value="<?php echo ($row->prod_valor_total) ? $row->prod_valor_total : 0 ?>"><br/>
             </div>
-            <div class="col">
+            <!--div class="col">
                     <label>Possuí Promoção ? </label> 
                     <select class="input-group-text btn-lg btn-block" name="promocao">
                         <option value="0">Não</option>
@@ -123,7 +123,7 @@ include_once ROOT_PATH."menu_footer/menu_empreendimento.php" ;
             <div class="col">
                 <label>Valor Promoção : </label> 
                 <input class="input-group-text btn-lg btn-block" type="text" name="valor_promocao" id="valor_promocao" value="<?php echo ($row->prod_valor_promocao) ? $row->prod_valor_promocao : "" ?>"><br/>
-            </div>
+            </div-->
             <div class="col">
             <label>Status : </label> 
                 <select class="input-group-text btn-lg btn-block" name="status">

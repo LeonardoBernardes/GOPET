@@ -18,7 +18,9 @@ if(!isset($_SESSION))
     $logi_id = $_SESSION['logi_id'];
 ?>
 <!DOCTYPE html>
-
+ <!-- Optional JavaScript -->
+ <script src="<?php echo $server_static;?>static/jquery.js"></script>
+    <script src="<?php echo $server_static;?>static/bootstrap/js/bootstrap.js"></script>
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">

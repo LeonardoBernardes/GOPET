@@ -109,7 +109,7 @@ if(isset($ids)){
                     <td><font color="black"><b>'.$row->even_descricao.'</b></font></td>
                     <td><font color="black"><b>'.$row->even_data_realizacao.'</b></font></td>
                     <td><font color="black"><b>'.$status.'</b></font></td>
-                    <td class="btn"><a href="'. $server_static.'eventos/atualizar_eventos.php?id='.$row->even_id.'"><img src="../../static/icones/editar.png" style="width:20px;"/></a></td>
+                    <td class="btn"><a href="'. $server_static.'/empreendimentos/eventos/atualizar_eventos.php?id='.$row->even_id.'"><img src="../../static/icones/editar.png" style="width:20px;"/></a></td>
             </tr>          
             ';
 

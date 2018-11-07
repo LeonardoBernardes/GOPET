@@ -90,7 +90,7 @@ while ($row = mysqli_fetch_object($result)) {
                             <!--td><font color="black"><b>'.$row->serv_promocao.'</b></font></td>
                             <td><font color="black"><b>'.$row->serv_valor_promocao.'</b></font></td-->
                             <td><font color="black"><b>'.$status.'</b></font></td>
-                            <td class="btn"><a href="'. $server_static.'servicos/atualizar_servicos.php?id='.$row->serv_id.'"><img src="../../static/icones/editar.png" style="width:20px;"/></a></td>
+                            <td class="btn"><a href="'. $server_static.'empreendimentos/servicos/atualizar_servicos.php?id='.$row->serv_id.'"><img src="../../static/icones/editar.png" style="width:20px;"/></a></td>
                     </tr>
       ';
 //echo $results;
@@ -121,7 +121,7 @@ while ($row = mysqli_fetch_object($result)) {
 include_once ROOT_PATH."menu_footer/menu_latera_empreendimento.php" 
     
 ?>
-    <div>   
+<div>   
     <div class="main">
         <h2><label style="margin-top:5%; margin-left:5%;" >Consulta Serviços</label></h2>
 

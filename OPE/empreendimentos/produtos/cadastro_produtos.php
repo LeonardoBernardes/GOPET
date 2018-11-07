@@ -85,7 +85,7 @@ include_once ROOT_PATH."menu_footer/menu_latera_empreendimento.php"
                                     <label>Valor Total  </label>
                                     <input class="form-control form-control-sm" type="number" name="valor_total" id="valor_total"><br/>
                                 </div>
-                                <div class="col">
+                                <!--div class="col">
                                     <label>Possuí Promoção ? </label>
                                     <select class="form-control form-control-sm" name="promocao">
                                         <option value="0" selected>Não</option>
@@ -95,7 +95,7 @@ include_once ROOT_PATH."menu_footer/menu_latera_empreendimento.php"
                                 <div class="col">
                                     <label>Valor Promoção  </label>
                                     <input class="form-control form-control-sm" type="text" name="valor_promocao" id="valor_promocao"><br/>
-                                </div>
+                                </div-->
                             </div>
                             <label>Descrição  </label>
                             <textarea class="form-control form-control-sm" type="text" name="descricao" id="descricao"></textarea><br/>

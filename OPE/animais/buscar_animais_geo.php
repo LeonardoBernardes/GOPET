@@ -65,7 +65,6 @@ include_once '../config/server.php';
 <head>
     <!-- Criador de objeto marker no google maps -->
     <script>
-        alert()
       var markers =
         [
           //cria um array em js de objetos de empreendimentos

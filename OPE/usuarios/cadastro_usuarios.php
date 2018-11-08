@@ -160,7 +160,7 @@ if(!empty($row2)){
                             <input class="form-control form-control-sm" type="text" name="nome" id="nome" value='<?php echo $usua_nome ?>'>
                         </div>
                         <div class="col">
-                            <label>Cnpj </label>
+                            <label>CPF </label>
                             <input class="form-control form-control-sm" type="text" name="cpf" id="cpf" value='<?php echo $usua_cpf ?>'>
                         </div>
                         <div class="col">

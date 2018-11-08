@@ -93,7 +93,7 @@ if ($_SESSION['grup_id'] == 3){
     
 }              
     if($_SESSION['logi_status'] == 1){ 
-
+        /*
         $sql = "SELECT
                     usua_id
                 FROM
@@ -106,17 +106,27 @@ if ($_SESSION['grup_id'] == 3){
         $row2 = mysqli_fetch_object($result);
 
         if(!empty($row2)){
-
+*/
             $menu .='   <li class="nav-item">
                             <a class="nav-link" href="'. $server_static.'animais/consulta_animais.php"><img src="../static/icones/animais.png" style="width:20px;"/> Meus Animais </a>
                         </li>
                         <li class="nav-item">
                         <a class="nav-link" href="'. $server_static.'usuarios/eventos/consultar_eventos.php"><img src="../static/icones/eventos.png" style="width:20px;"/> Meus Eventos</a>
                         </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="'. $server_static.'usuarios/favoritos.php"><img src="../static/icones/favoritos.png" style="width:20px;"/> Favoritos</a>
+                        </li>
+                        <!--li class="nav-item">
+                            <a class="nav-link" href="'. $server_static.'usuarios/favoritos_animais.php"><img src="../static/icones/eventos.png" style="width:20px;"/> Animais Favoritos</a>
+                        </li-->
+                        <!--li class="nav-item">
+                        <a class="nav-link" href="'. $server_static.'usuarios/favoritos_empreendimentos.php"><img src="../static/icones/eventos.png" style="width:20px;"/> Empreendimentos Favoritos</a>
+                        </li-->
+                       
                       
             ';
 
-        }
+      //  }
     }
 
 

@@ -18,20 +18,39 @@
     position: absolute; 
     height: 100%;
 }
-.navbar-light .navbar-nav .nav-link{
+.item-menu-usuario{
     border:1px solid ;
-    transition: 1s;
+    transition: 1.2s;
     border-radius: 0.2em;
     padding: 10px;
     border-color: green;
+    margin-bottom: 5px;
 }
-.navbar-light .navbar-nav .nav-link:hover{
-    background-color: #79ff93;
+.item-menu-usuario:hover{
+    background-color: #b4ffc3;
     border:1px solid;
     transition: 1s;
-    border-radius: 0em 2em 2em 0em;
+    border-radius: 0em 2em 0em 0em;
     border-color: green;
     padding: 10px;
+    box-shadow: 0px 0px 5px black;
+}
+.item-menu-empreendimento{
+    border:1px solid ;
+    transition: 1.2s;
+    border-radius: 0.2em;
+    padding: 10px;
+    border-color: green;
+    margin-bottom: 5px;
+}
+.item-menu-empreendimento:hover{
+    background-color: #b4ffc3;
+    border:1px solid;
+    transition: 1s;
+    border-radius: 0em 2em 0em 0em;
+    border-color: green;
+    padding: 10px;
+    box-shadow: 0px 0px 5px black;
 }
 .logo_index{
     margin-top: 14%;

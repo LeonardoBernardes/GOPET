@@ -85,7 +85,7 @@ $menu = '';
 //var_dump($_SESSION);
 if ($_SESSION['grup_id'] == 3){
 
-    $menu .='   <li class="nav-item">
+    $menu .='   <li class="nav-item item-menu-usuario">
                     <a class="nav-link" href="'. $server_static.'usuarios/cadastro_usuarios.php"><img src="'. $server_static.'static/icones/dados.png" style="width:20px;"/> Meus Dados </a>
                 </li>
 
@@ -107,19 +107,19 @@ if ($_SESSION['grup_id'] == 3){
 
         if(!empty($row2)){
 */
-            $menu .='   <li class="nav-item">
+            $menu .='   <li class="nav-item item-menu-usuario">
                             <a class="nav-link" href="'. $server_static.'animais/consulta_animais.php"><img src="'. $server_static.'static/icones/animais.png" style="width:20px;"/> Meus Animais </a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item item-menu-usuario">
                         <a class="nav-link" href="'. $server_static.'usuarios/eventos/consultar_eventos.php"><img src="'. $server_static.'static/icones/eventos.png" style="width:20px;"/> Meus Eventos</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item item-menu-usuario">
                         <a class="nav-link" href="'. $server_static.'usuarios/favoritos.php"><img src="'. $server_static.'static/icones/favoritos.png" style="width:20px;"/> Favoritos</a>
                         </li>
-                        <!--li class="nav-item">
+                        <!--li class="nav-item item-menu-usuario">
                             <a class="nav-link" href="'. $server_static.'usuarios/favoritos_animais.php"><img src="'. $server_static.'static/icones/eventos.png" style="width:20px;"/> Animais Favoritos</a>
                         </li-->
-                        <!--li class="nav-item">
+                        <!--li class="nav-item item-menu-usuario">
                         <a class="nav-link" href="'. $server_static.'usuarios/favoritos_empreendimentos.php"><img src="'. $server_static.'static/icones/eventos.png" style="width:20px;"/> Empreendimentos Favoritos</a>
                         </li-->
                        

@@ -89,7 +89,7 @@ $menu = '';
 
 if ($_SESSION['grup_id'] == 4){
 
-    $menu .='   <li class="nav-item">
+    $menu .='   <li class="nav-item item-menu-empreendimento">
                     <a class="nav-link" href="'. $server_static.'empreendimentos/cadastro_empreendimentos.php"><img src="'. $server_static.'static/icones/dados.png" style="width:20px;"/> Meus Dados</a>
                 </li>
             ';
@@ -112,22 +112,22 @@ if ($_SESSION['grup_id'] == 4){
 
             $menu .='   
             <nav aria-label="Page navigation example">
-                    <li class="nav-item">
+                    <li class="nav-item item-menu-empreendimento">
                             <a class="nav-link" href="'. $server_static.'animais/consulta_animais.php"><img src="'. $server_static.'static/icones/animais.png" style="width:20px;"/> Meus Animais </a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item item-menu-empreendimento">
                             <a class="nav-link" href="'. $server_static.'empreendimentos/produtos/consultar_produtos.php"><img src="'. $server_static.'static/icones/produtos.png" style="width:20px;"/> Meus Produtos </a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item item-menu-empreendimento">
                             <a class="nav-link" href="'. $server_static.'empreendimentos/servicos/consultar_servicos.php"><img src="'. $server_static.'static/icones/servicos.png" style="width:20px;"/> Meus Serviços </a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item item-menu-empreendimento">
                         <a class="nav-link" href="'. $server_static.'empreendimentos/eventos/consultar_eventos.php"><img src="'. $server_static.'static/icones/eventos.png" style="width:20px;"/> Meus Eventos</a>
                         </li>
-                        <!--li class="nav-item">
+                        <!--li class="nav-item item-menu-empreendimento">
                             <a class="nav-link" href="#">Minhas Doações</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item item-menu-empreendimento">
                             <a class="nav-link" href="#">Favoritos</a>
                         </li-->
                         </nav>

@@ -36,6 +36,6 @@ $sql2 = "   INSERT INTO
 //echo $sql2;
 $c2 = mysqli_query($conn, $sql2);
 
-header('location: '.$server_static.' index.php');
+header('location: '.$server_static.'index.php');
 
 ?>

@@ -8,7 +8,7 @@ include_once 'config/server.php';
  * @Last Modified time: 2018-08-21 19:45:04
  */
 
-include_once ROOT_PATH.'\mysql_conexao/conexao_mysql.php';
+include_once ROOT_PATH.'/mysql_conexao/conexao_mysql.php';
 
 /*session_start();
     if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true))

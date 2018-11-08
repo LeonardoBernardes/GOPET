@@ -76,7 +76,7 @@ while ($row = mysqli_fetch_object($result)) {
 //echo $results;
 }
  
-include_once ROOT_PATH."enu_footer/menu_administrador.php" 
+include_once ROOT_PATH."menu_footer/menu_administrador.php" 
     
 ?>
 

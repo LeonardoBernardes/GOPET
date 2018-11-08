@@ -12,7 +12,9 @@ include_once '../config/server.php';
    
  
 ?>
-           
+               <!-- Optional JavaScript -->
+    <script src="<?php echo $server_static?>static/jquery.js"></script>
+    <script src="<?php echo $server_static?>static/bootstrap/js/bootstrap.js"></script>
     
 
 <html>

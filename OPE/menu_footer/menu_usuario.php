@@ -11,7 +11,9 @@ include_once ROOT_PATH .'mysql_conexao/conexao_mysql.php';
 
 ?>
 
-
+    <!-- Optional JavaScript -->
+    <script src="<?php echo $server_static?>static/jquery.js"></script>
+    <script src="<?php echo $server_static?>static/bootstrap/js/bootstrap.js"></script>
 <html>
 
 <head>
@@ -65,12 +67,6 @@ include_once ROOT_PATH .'mysql_conexao/conexao_mysql.php';
                   </div>
                 </div>
             </ul>
-
-            <!--form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Search">
-
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
-            </form-->
          <ul class="navbar-nav justify-content-end">    
             <li class="nav-item active">
                 <a class="btn" href="<?php echo $server_static;?>logaut.php" ><img src="../static/icones/sair.png" style="width:30px;" alt="gopet"/></a>
@@ -78,13 +74,6 @@ include_once ROOT_PATH .'mysql_conexao/conexao_mysql.php';
             </ul>
         </div>
     </nav>
-
-  
-
-
-    <!-- Optional JavaScript -->
-    <script src="<?php echo $server_static?>static/jquery.js"></script>
-    <script src="<?php echo $server_static?>static/bootstrap/js/bootstrap.js"></script>
 </body>
 
 </html>

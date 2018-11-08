@@ -104,7 +104,9 @@ if(!empty($row2)){
     $endereco_img = str_replace('\\', '/',$server_static.'usuarios/'.$endereco_img);
 }//var_dump(str_replace('/', '\'',$endereco_img));     
 ?>
-
+    <!-- Optional JavaScript -->
+    <script src="<?php echo $server_static?>static/jquery.js"></script>
+    <script src="<?php echo $server_static?>static/bootstrap/js/bootstrap.js"></script>
 <html>
 
 <head>

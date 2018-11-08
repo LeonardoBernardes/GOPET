@@ -134,6 +134,9 @@ if(empty($results)){
 
 
 ?>
+    <!-- Optional JavaScript -->
+    <script src="<?php echo $server_static?>static/jquery.js"></script>
+    <script src="<?php echo $server_static?>static/bootstrap/js/bootstrap.js"></script>
 <!DOCTYPE html>
 <html>
 
@@ -212,6 +215,4 @@ include_once(ROOT_PATH."menu_footer/footer.php");
 </footer>
 
 </html>
-   <!-- Optional JavaScript -->
-   <script src="<?php echo $server_static;?>static/jquery.js"></script>
-    <script src="<?php echo $server_static;?>static/bootstrap/js/bootstrap.js"></script>
+  

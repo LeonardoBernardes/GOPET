@@ -62,7 +62,8 @@ $sql3 = "   INSERT INTO
                          $even_status,
                          NOW()
                     )";
-//echo $sql3;
+echo $sql3;
+return;
 $c2 = mysqli_query($conn, $sql3);
 
 $query= " SELECT max(even_id) as even_id from eventos";
@@ -74,7 +75,7 @@ $row3 = mysqli_fetch_object($result);
 $sql3 = "   INSERT INTO 
                 usuarios_x_eventos 
                     (
-                        empr_id,
+                        usua_id,
                         even_id,
                         emev_data_cadastro   
                     )
@@ -91,6 +92,7 @@ $c3 = mysqli_query($conn, $sql3);
 if (!empty($foto["name"])) {
             
     //   Controle de tamanho de imagens
+    /*
         // Largura máxima em pixels
         $largura = 3000;
         // Altura máxima em pixels
@@ -122,7 +124,7 @@ if (!empty($foto["name"])) {
         if($foto["size"] > $tamanho) {
                 $error[4] = "A imagem deve ter no máximo ".$tamanho." bytes";
         }
-    
+    */
         // Se não houver nenhum erro
         if (count($error) == 0) {
         

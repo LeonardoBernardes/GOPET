@@ -108,7 +108,7 @@ if(isset($ids)){
                         <td>'.$row->even_descricao.'</td>
                         <td>'.$row->even_data_realizacao.'</td>
                         <td>'.$status.'</td>
-                        <td><a href="http://localhost/PHP/GOPET/OPE/usuarios/eventos/atualizar_eventos.php?id='.$row->even_id.'"> Editar</a></td>
+                        <td><a href="'.$server_static.'usuarios/eventos/atualizar_eventos.php?id='.$row->even_id.'"> Editar</a></td>
                     </tr>';
     //echo $results;
     }
@@ -120,7 +120,9 @@ if(isset($ids)){
 
 // include_once ROOT_PATH."menu_footer/menu_empreendimento.php" ;
 ?>
-
+<!-- Optional JavaScript -->    
+<script src="<?php echo $server_static?>static/jquery.js"></script> 
+<script src="<?php echo $server_static?>static/bootstrap/js/bootstrap.js"></script> 
 <!DOCTYPE html>
 <html>
 
@@ -158,7 +160,7 @@ include_once ROOT_PATH."menu_footer/menu_latera_usuario.php"
     <h2 style="margin-top:10%;">
         <legend><b>Meus Eventos</b></legend>
     </h2><br>
-    <a class="btn btn-success"  href="http://localhost/PHP/GOPET/OPE/usuarios/eventos/cadastro_eventos.php">Cadastrar Eventos</a>
+    <a class="btn btn-success"  href="<?php echo $server_static?>usuarios/eventos/cadastro_eventos.php">Cadastrar Eventos</a>
     <table class="table tabelas" style="width:100%">
         <tr class="thead-dark">
             <th scope="col">ID</th>

@@ -175,7 +175,9 @@ elseif($grup_id == 4 ||$grup_id == 2){
      include_once ROOT_PATH."menu_footer/menu_empreendimento.php"; 
 
     ?>
-    
+<!-- Optional JavaScript -->    
+<script src="<?php echo $server_static?>static/jquery.js"></script> 
+<script src="<?php echo $server_static?>static/bootstrap/js/bootstrap.js"></script>
 <!DOCTYPE html>
 <html>
 

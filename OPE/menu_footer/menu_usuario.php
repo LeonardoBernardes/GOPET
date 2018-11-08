@@ -51,8 +51,8 @@ include_once ROOT_PATH .'mysql_conexao/conexao_mysql.php';
                     Buscar Animais
                   </button>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="<?php echo $server_static;?>animais/buscar_animais_geo.php"><img src="../static/icones/localizacao.png" style="width:20px;"/> Exibir no Mapa</a>
-                    <a class="dropdown-item" href="<?php echo $server_static;?>animais/buscar_animais_lista.php"><img src="../static/icones/lista.png" style="width:20px;"/> Exibir em Lista</a>
+                    <a class="dropdown-item" href="<?php echo $server_static;?>animais/buscar_animais_geo.php"><img src="<?php echo $server_static;?>static/icones/localizacao.png" style="width:20px;"/> Exibir no Mapa</a>
+                    <a class="dropdown-item" href="<?php echo $server_static;?>animais/buscar_animais_lista.php"><img src="<?php echo $server_static;?>static/icones/lista.png" style="width:20px;"/> Exibir em Lista</a>
                   </div>
                 </div>
                 <div class="dropdown">
@@ -60,14 +60,14 @@ include_once ROOT_PATH .'mysql_conexao/conexao_mysql.php';
                     Buscar Empreendimentos
                   </button>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="<?php echo $server_static;?>empreendimentos/buscar_empreendimentos_geo.php"><img src="../static/icones/localizacao.png" style="width:20px;"/> Exibir no Mapa</a>
-                    <a class="dropdown-item" href="<?php echo $server_static;?>empreendimentos/buscar_empreendimentos_lista.php"><img src="../static/icones/lista.png" style="width:20px;"/> Exibir em Lista</a>
+                    <a class="dropdown-item" href="<?php echo $server_static;?>empreendimentos/buscar_empreendimentos_geo.php"><img src="<?php echo $server_static;?>static/icones/localizacao.png" style="width:20px;"/> Exibir no Mapa</a>
+                    <a class="dropdown-item" href="<?php echo $server_static;?>empreendimentos/buscar_empreendimentos_lista.php"><img src="<?php echo $server_static;?>static/icones/lista.png" style="width:20px;"/> Exibir em Lista</a>
                   </div>
                 </div>
             </ul>
          <ul class="navbar-nav justify-content-end">    
             <li class="nav-item active">
-                <a class="btn" href="<?php echo $server_static;?>logaut.php" ><img src="../static/icones/sair.png" style="width:30px;" alt="gopet"/></a>
+                <a class="btn" href="<?php echo $server_static;?>logaut.php" ><img src="<?php echo $server_static;?>static/icones/sair.png" style="width:30px;" alt="gopet"/></a>
             </li>
             </ul>
         </div>

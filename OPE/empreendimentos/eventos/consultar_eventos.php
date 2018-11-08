@@ -102,7 +102,7 @@ if(isset($ids)){
 
 
         $results .='  
-        <tr>
+                <tr>
                     <td ><font color="black"><b>'.$row->even_id.'</b></font></td>
                     <td ><img style="width:50px;" src="'.$endereco_img.'"/></td>
                     <td><font color="black"><b>'.$row->even_nome.'</b></font></td>
@@ -110,7 +110,7 @@ if(isset($ids)){
                     <td><font color="black"><b>'.$row->even_data_realizacao.'</b></font></td>
                     <td><font color="black"><b>'.$status.'</b></font></td>
                     <td class="btn"><a href="'. $server_static.'/empreendimentos/eventos/atualizar_eventos.php?id='.$row->even_id.'"><img src="../../static/icones/editar.png" style="width:20px;"/></a></td>
-            </tr>          
+                </tr>          
             ';
 
     }

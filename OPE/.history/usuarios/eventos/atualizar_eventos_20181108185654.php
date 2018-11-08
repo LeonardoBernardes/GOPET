@@ -64,13 +64,10 @@ $endereco_img = str_replace('\\', '/',$server_static.'usuarios/eventos/'.$endere
 }
 
     
-include_once ROOT_PATH."menu_footer/menu_latera_usuario.php";
-include_once ROOT_PATH."menu_footer/menu_usuario.php";
+include_once ROOT_PATH."menu_footer/menu_latera_empreendimento.php";
+include_once ROOT_PATH."menu_footer/menu_empreendimento.php";
 
 ?>
-<!-- Optional JavaScript -->    
-<script src="<?php echo $server_static?>static/jquery.js"></script> 
-<script src="<?php echo $server_static?>static/bootstrap/js/bootstrap.js"></script> 
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">

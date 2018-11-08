@@ -138,6 +138,18 @@ if(isset($ids)){
     <link rel="stylesheet" href="<?php echo $server_static;?>static/estilo.css">
     <title>GOPET</title>
 
+    <style>
+        table, th, td {
+                border: 1px solid black;
+                border-collapse: collapse;
+            }
+            th, td {
+                padding: 5px;
+            }
+            th {
+                text-align: left;
+            }
+    </style>
 </head>
 
 <body>

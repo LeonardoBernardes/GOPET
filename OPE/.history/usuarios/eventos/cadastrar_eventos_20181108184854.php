@@ -77,7 +77,7 @@ $sql3 = "   INSERT INTO
                     (
                         usua_id,
                         even_id,
-                        usev_data_cadastro   
+                        emev_data_cadastro   
                     )
             VALUES 
                     (
@@ -147,7 +147,7 @@ if (!empty($foto["name"])) {
                             WHERE
                                 even_id = $row3->even_id
                             ";
-            //echo $sql_verifica;
+                            echo $sql_verifica;
             $v = mysqli_query($conn, $sql_verifica);
             $row4 = mysqli_fetch_object($v);
     

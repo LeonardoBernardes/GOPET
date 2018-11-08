@@ -101,17 +101,15 @@ if(isset($ids)){
         }
 
 
-        $results .='
-                <tr>
-                    <td ><font color="black"><b>'.$row->even_id.'</b></font></td>
-                    <td ><img style="width:50px;" src="'.$endereco_img.'"/></td>
-                    <td><font color="black"><b>'.$row->even_nome.'</b></font></td>
-                    <td><font color="black"><b>'.$row->even_descricao.'</b></font></td>
-                    <td><font color="black"><b>'.$row->even_data_realizacao.'</b></font></td>
-                    <td><font color="black"><b>'.$status.'</b></font></td>
-                    <td class="btn"><a href="'.$server_static.'usuarios/eventos/atualizar_eventos.php?id='.$row->even_id.'"><img src="../../static/icones/editar.png" style="width:20px;"/></a></td>
-                </tr>     
-    ';
+        $results .='<tr>
+                        <td>'.$row->even_id.'</td>
+                        <td><img src="'.$endereco_img.'"/></td>
+                        <td>'.$row->even_nome.'</td>
+                        <td>'.$row->even_descricao.'</td>
+                        <td>'.$row->even_data_realizacao.'</td>
+                        <td>'.$status.'</td>
+                        <td><a href="'.$server_static.'usuarios/eventos/atualizar_eventos.php?id='.$row->even_id.'"> Editar</a></td>
+                    </tr>';
     //echo $results;
     }
 }
@@ -138,6 +136,18 @@ if(isset($ids)){
     <link rel="stylesheet" href="<?php echo $server_static;?>static/estilo.css">
     <title>GOPET</title>
 
+    <style>
+        table, th, td {
+                border: 1px solid black;
+                border-collapse: collapse;
+            }
+            th, td {
+                padding: 5px;
+            }
+            th {
+                text-align: left;
+            }
+    </style>
 </head>
 
 <body>

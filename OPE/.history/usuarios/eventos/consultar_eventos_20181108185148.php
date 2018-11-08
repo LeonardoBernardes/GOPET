@@ -101,17 +101,15 @@ if(isset($ids)){
         }
 
 
-        $results .='
-                <tr>
-                    <td ><font color="black"><b>'.$row->even_id.'</b></font></td>
-                    <td ><img style="width:50px;" src="'.$endereco_img.'"/></td>
-                    <td><font color="black"><b>'.$row->even_nome.'</b></font></td>
-                    <td><font color="black"><b>'.$row->even_descricao.'</b></font></td>
-                    <td><font color="black"><b>'.$row->even_data_realizacao.'</b></font></td>
-                    <td><font color="black"><b>'.$status.'</b></font></td>
-                    <td class="btn"><a href="'.$server_static.'usuarios/eventos/atualizar_eventos.php?id='.$row->even_id.'"><img src="../../static/icones/editar.png" style="width:20px;"/></a></td>
-                </tr>     
-    ';
+        $results .='<tr>
+                        <td>'.$row->even_id.'</td>
+                        <td><img src="'.$endereco_img.'"/></td>
+                        <td>'.$row->even_nome.'</td>
+                        <td>'.$row->even_descricao.'</td>
+                        <td>'.$row->even_data_realizacao.'</td>
+                        <td>'.$status.'</td>
+                        <td><a href="'.$server_static.'usuarios/eventos/atualizar_eventos.php?id='.$row->even_id.'"> Editar</a></td>
+                    </tr>';
     //echo $results;
     }
 }
@@ -138,6 +136,18 @@ if(isset($ids)){
     <link rel="stylesheet" href="<?php echo $server_static;?>static/estilo.css">
     <title>GOPET</title>
 
+    <style>
+        table, th, td {
+                border: 1px solid black;
+                border-collapse: collapse;
+            }
+            th, td {
+                padding: 5px;
+            }
+            th {
+                text-align: left;
+            }
+    </style>
 </head>
 
 <body>
@@ -146,42 +156,32 @@ if(isset($ids)){
 include_once ROOT_PATH."menu_footer/menu_latera_usuario.php" 
     
 ?>
- <body>
-
-<div>   
-<div class="main">
-    <h2><label style="margin-top:5%; margin-left:5%;" >Consulta Eventos</label></h2>
-   
-<div class="table-responsive">
-<table class="table table-hover" style="width:100%">
-    <thead>
-    <tr class="bg-success">
-        <th scope="col">ID</th>
-        <th scope="col">Imagem</th>
-        <th scope="col">Nome</th>
-        <th scope="col">Descrição</th>
-        <th scope="col">Data de realização</th>
-        <th scope="col">Status</th>
-        <th scope="col">Editar</th>
-    </tr>
-    </thead>
-    <?php echo $results ?>
-</table>
-</div>
-    <a class="btn btn-dark" href="<?php echo $server_static?>usuarios/home_usuarios.php"> Voltar</a>
-    <a class="btn btn-success" href="<?php echo $server_static?>usuarios/eventos/cadastro_eventos.php">Cadastrar Evento</a>
-    
-
-    
-</div>
-</div>
+    <div class="main">
+    <h2 style="margin-top:10%;">
+        <legend><b>Meus Eventos</b></legend>
+    </h2><br>
+    <a class="btn btn-success"  href="<?php echo $server_static?>usuarios/eventos/cadastro_eventos.php">Cadastrar Eventos</a>
+    <table class="table tabelas" style="width:100%">
+        <tr class="thead-dark">
+            <th scope="col">ID</th>
+            <th scope="col">Imagem</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Descrição</th>
+            <th scope="col">Data de realização</th>
+            <th scope="col">Status</th>
+            <th scope="col">Editar</th>
+        </tr>
+        <?php echo $results ?>
+    </table>
+    <a class="btn btn-dark" href="..\home_usuarios.php"> Voltar</a>
+    </div>
 </body>
 
 <footer>
 
-<?php 
-include_once(ROOT_PATH."menu_footer/footer.php");     
-?>
+    <?php 
+    include_once(ROOT_PATH."menu_footer/footer.php");     
+    ?>
 
 </footer>
 

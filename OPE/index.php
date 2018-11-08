@@ -118,7 +118,7 @@ margin-top:8%;
       <div class="row">
         <div class="span3 features">
           <i class="icon-circled icon-32 icon-suitcase left active"></i>
-          <h4>Responsive bootstrap</h4>
+          <h4>Empresa</h4>
           <div class="dotted_line">
           </div>
           <p class="left">

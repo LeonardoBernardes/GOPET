@@ -31,6 +31,15 @@ margin-top:8%;
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="<?php echo $server_static;?>static/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="<?php echo $server_static;?>static/estilo.css">
+      <link href="https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600,700" rel="stylesheet">
+  <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+  <link href="assets/css/docs.css" rel="stylesheet">
+  <link href="assets/css/prettyPhoto.css" rel="stylesheet">
+  <link href="assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+  <link href="assets/css/flexslider.css" rel="stylesheet">
+  <link href="assets/css/sequence.css" rel="stylesheet">
+  <link href="assets/css/style.css" rel="stylesheet">
+  <link href="assets/color/default.css" rel="stylesheet">
     <title>Gopet</title>
 </head>
 
@@ -43,124 +52,137 @@ margin-top:8%;
 
       
 
-      <!-- Marketing messaging and featurettes
-      ================================================== -->
-      <!-- Wrap the rest of the page in another container to center all the content. -->
 
-      <div class="container marketing">
-
-        <!-- Three columns of text below the carousel -->
-        <div id="index" class="row">
-          <div class="col-lg-4">
-            <img class="rounded-circle" src="../OPE/static/imagens/android.jpg" alt="Generic placeholder image" width="140" height="140">
-            <h2>Aplicativo</h2><span class="text-muted">
-              <p>Nossa ferramenta também está disponivel na versão android.</p></span>
-            <p><a class="btn btn-outline-dark" href="#" role="button">Download &raquo;</a></p>
-          </div><!-- /.col-lg-4 -->
-          <div class="col-lg-4">
-            <img class="rounded-circle" src="../OPE/static/imagens/produtos.jpg" alt="Generic placeholder image" width="140" height="140">
-            <h2>Produto</h2><span class="text-muted">
-              <p>
-                ● Perfume.
-            <br>
-                ● Shampoo.
-            <br>
-                ● Sabonete.
-              </p>
-            </span>
-              <p><a class="btn btn-outline-dark" href="#" role="button">Mais detalhes</a></p>
-          </div><!-- /.col-lg-4 -->
-          <div class="col-lg-4">
-            <img class="rounded-circle" src="../OPE/static/imagens/parceria.jpg" alt="Generic placeholder image" width="140" height="140">
-            <h2>Parceria</h2><span class="text-muted">
-            <p>
-                ● PetShop.
-            <br>
-                ● PetDog.
-            <br>
-                ● PetHit.
-              </p></span>
-            <p><a class="btn btn-outline-dark" href="#" role="button">Mais detalhes</a></p>
-          </div><!-- /.col-lg-4 -->
-        </div><!-- /.row -->
-
-
-        <!-- START THE FEATURETTES -->
-
-        <hr class="featurette-divider">
-
-        <div class="row featurette">
-          <div class="col-md-7">
-            <h2 class="featurette-heading">Introdução <span class="text-muted">da nossa ferramenta.</span></h2>
-              <p class="lead">O Sistema <b>GOPET</b> é uma ferramenta web para facilitar adoção de animais,
-                seja ele pertencente a uma instituição de doação ou de alguma família que tem
-                a intensão de doar. Além disso, os usuários cadastrados poderão fornecer a
-                localização de animais abandonados ou resgatar os mesmos. Paralelamente
-                clínicas especializadas no tratamento de animais e outros empreendimentos,
-                tais como Pet Shop, poderão publicar os seus serviços e futuramente produtos
-                oferecidos. Assim como aumentar a divulgação de eventos relacionados aos
-                pets.</p>
+  <section id="intro">
+    <div class="jumbotron masthead">
+      <div class="container">
+        <!-- slider navigation -->
+        <div class="sequence-nav">
+          <div class="prev">
+            <span></span>
           </div>
-          <div class="col-md-5">
-            <img class="featurette-image img-fluid mx-auto" src="../OPE/static/imagens/introducao.jpg" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+          <div class="next">
+            <span></span>
           </div>
         </div>
-
-        <hr class="featurette-divider">
-
-        <div class="row featurette">
-          <div class="col-md-7 order-md-2">
-            <h2 class="featurette-heading">Problemas <span class="text-muted">encontrados</span></h2>
-            <p class="lead">De acordo com estudos da OMS (Organização Mundial da Saúde) em 2014
-                relata que há cerca de 30 milhões de animais abandonados no Brasil (MAPAA,
-                2015). Porém, esse número é reflexo da lotação de animais em ONGs
-                (Organização não Governamental) que realizam o resgate desses animais,
-                falta de informação sobre os animais perdidos, baixa divulgação de ONGs e
-                empreendimentos que tem o objetivo de proporcionar saúde de qualidade para
-                os animais e pouca conscientização da população relacionada aos maus-tratos
-                e abandono.</p>
-          </div>
-          <div class="col-md-5 order-md-1">
-            <img class="featurette-image img-fluid mx-auto" src="../OPE/static/imagens/problemas.jpg" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
-          </div>
-        </div>
-
-        <hr class="featurette-divider">
-
-        <div class="row featurette">
-          <div class="col-md-7">
-            <h2 class="featurette-heading">Objetivo <span class="text-muted">para criação do software.</span></h2>
-            <p class="lead">Criar um sistema web para auxiliar na redução da quantidade de animais
-                nas ruas e proporcionar um novo lar a estes animais. Os objetivos
-                específicos do trabalho são:
-               <br>
-                ● Auxiliar a adoção, doação e resgate de animais.
-                <br>
-                
-                ● Facilitar a localização de animais abandonados e empreendimentos
-                que cuidam da saúde e bem-estar animal.
-               <br>
-                ● Aumentar a divulgação de eventos relacionados aos pets.
-                <br>
-                ● Maior controle no gerenciamento de animais resgatados e adotados.
-                <br>
-                ● Acessível por múltiplas plataformas.
-                <br>
-                ● Incentivar a adoção de animais.
-              </p>
-          </div>
-          <div class="col-md-5">
-            <img class="featurette-image img-fluid mx-auto" src="../OPE/static/imagens/objetivos.jpg" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+        <!-- end slider navigation -->
+        <div class="row">
+          <div class="span12">
+            <div id="slider_holder">
+              <div id="sequence">
+                <ul>
+                  <!-- Layer 1 -->
+                  <li>
+                    <div class="info animate-in">
+                      <h2>GoPet</h2>
+                      <br>
+                      <p>
+                         Sistema que Conecta pessoas e Animais
+                      </p>
+                    </div>
+                    <img class="slider_img animate-in" src="static/imagens/dog-188273_1920.jpg" alt="">
+                  </li>
+                  <!-- Layer 2 -->
+                  <li>
+                    <div class="info">
+                      <h2>Negocio</h2>
+                      <br>
+                      <p>
+                       Anuncie Já.
+                      </p>
+                    </div>
+                    <img class="slider_img" src="static/imagens/cao-aventura.jpg" alt="">
+                  </li>
+                  <!-- Layer 3 -->
+                  <li>
+                    <div class="info">
+                      <h2>GoPet</h2>
+                      <br>
+                      <p>
+                        Sistema que Conecta pessoas e Animais
+                      </p>
+                    </div>
+                    <img class="slider_img" src="static/imagens/adorable-car.jpg" alt="">
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <!-- Sequence Slider::END-->
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+  <section id="maincontent">
+    <div class="container">
+      <div class="row">
+        <div class="span3 features">
+          <i class="icon-circled icon-32 icon-suitcase left active"></i>
+          <h4>Responsive bootstrap</h4>
+          <div class="dotted_line">
+          </div>
+          <p class="left">
+            Nossa parceria pode ser seu melhor negocio, anunciamos seus produtos, seus serviços por um preço muito acessivel.
+          </p>
+        </div>
+        <div class="span3 features">
+          <i class="icon-circled icon-32 icon-plane left"></i>
+          <h4>Sua viagem, Nossa ajuda</h4>
+          <div class="dotted_line">
+          </div>
+          <p class="left">
+            Utilize seu dia como um apoio para sociedade, facil e simples com apenas um clique e uma foto você ja pode tirar um animal da rua.
+          </p>
+        </div>
+        <div class="span3 features">
+          <i class="icon-circled icon-32 icon-wrench left"></i>
+          <h4>Ferramenta</h4>
+          <div class="dotted_line">
+          </div>
+          <p class="left">
+            Sistema que Conecta pessoas e animais.
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="">
+          <div class="tagline centered">
+            <div class="row">
+              <div class="span12">
+                <div class="tagline_text">
+                  <h2>Aplicativo</h2>
+                </div>
+                <div class="btn-toolbar cta">
+                  <a class="btn btn-large btn-color" href="#">
+							<i class="icon-plane icon-white"></i> Download </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- end tagline -->
+        </div>
+      </div>
+      
 
-        <!-- /END THE FEATURETTES -->
+  <!-- JavaScript Library Files -->
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/jquery.easing.js"></script>
+  <script src="assets/js/google-code-prettify/prettify.js"></script>
+  <script src="assets/js/modernizr.js"></script>
+  <script src="assets/js/bootstrap.js"></script>
+  <script src="assets/js/jquery.elastislide.js"></script>
+  <script src="assets/js/sequence/sequence.jquery-min.js"></script>
+  <script src="assets/js/sequence/setting.js"></script>
+  <script src="assets/js/jquery.prettyPhoto.js"></script>
+  <script src="assets/js/application.js"></script>
+  <script src="assets/js/jquery.flexslider.js"></script>
+  <script src="assets/js/hover/jquery-hover-effect.js"></script>
+  <script src="assets/js/hover/setting.js"></script>
 
-      </div><!-- /.container -->
+  <!-- Template Custom JavaScript File -->
+  <script src="assets/js/custom.js"></script>
 
 
-      <!-- FOOTER -->
-     
     </main>
 <?php
     
@@ -169,9 +191,6 @@ include_once ROOT_PATH."menu_footer/footer.php"
 ?>
 
 
-<!-- Optional JavaScript -->
-<script src="static/jquery.js"></script>
-<script src="static/bootstrap/js/bootstrap.js"></script>
 </body>
 </html>
 

@@ -2,7 +2,7 @@
 
 include_once ROOT_PATH .'mysql_conexao/conexao_mysql.php';
 
-if(!isset($_SESSION)) 
+    if(!isset($_SESSION)) 
     { 
         session_start(); 
     } 

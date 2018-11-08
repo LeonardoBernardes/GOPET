@@ -36,13 +36,11 @@ include_once ROOT_PATH .'mysql_conexao/conexao_mysql.php';
 
     <!-- GOPET CSS -->
     <link rel="stylesheet" href="<?php echo $server_static;?>static/estilo.css">
-
-
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-        <a class="navbar-brand logo" href="<?php echo $server_static;?>usuarios/home_usuarios.php"><img src="../static/imagens/gopet.png" alt="gopet"></a>
+        <a class="navbar-brand logo" href="<?php echo $server_static;?>usuarios/home_usuarios.php"><img src="<?php echo $server_static;?>static/imagens/gopet.png" alt="gopet"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>

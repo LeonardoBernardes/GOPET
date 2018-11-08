@@ -92,10 +92,6 @@ if ($_SESSION['grup_id'] == 4){
     $menu .='   <li class="nav-item">
                     <a class="nav-link" href="'. $server_static.'empreendimentos/cadastro_empreendimentos.php"><img src="'. $server_static.'static/icones/dados.png" style="width:20px;"/> Meus Dados</a>
                 </li>
-
-                <!--li class="nav-item">
-                    <a class="nav-link" href="'. $server_static .'empreendimentos/funcionarios/consultar_funcionarios.php">Meus Funcionários</a>
-                </li-->
             ';
     
 }              

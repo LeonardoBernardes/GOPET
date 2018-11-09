@@ -102,8 +102,6 @@ include_once ROOT_PATH."menu_footer/menu_latera_empreendimento.php"
                             <hr>
                         </fieldset>
                         <input class="btn btn-success btn-sm btn-block" type="submit" value="Cadastrar">
-                        <hr>
-                        <a class="btn btn-dark btn-sm btn-block" href="..\home_empreendimento.php"> Voltar</a>
                     </form>
                 </fieldset>
             <!--/form-->

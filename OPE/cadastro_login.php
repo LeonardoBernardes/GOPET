@@ -28,6 +28,7 @@ include_once ROOT_PATH."menu_footer/menu_principal.php";
                     <input class="input-group-text btn-lg btn-block" type="text" name="login" id="login"><br/>
                     <label>E-mail </label> 
                     <input class="input-group-text btn-lg btn-block" type="text" name="email" id="email"><br/>
+                    
                     <label>Tipo de Usuario  </label>      
                     <select class="input-group-text btn-lg btn-block" name="tipo_usuario">
                         <!--option value="">ADMINISTRADOR</option-->

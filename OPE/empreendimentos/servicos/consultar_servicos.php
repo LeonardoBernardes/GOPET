@@ -128,7 +128,7 @@ include_once ROOT_PATH."menu_footer/menu_latera_empreendimento.php"
     <div class="table-responsive">
     <table class="table table-hover" style="width:100%">
         <thead >
-            <tr class="bg-success">
+            <tr style="background:#4fdc6f">
                  <th scope="col">ID</th>
                 <th scope="col" style="width:100%">imagem</th>
                 <th scope="col">Nome</th>

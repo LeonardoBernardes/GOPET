@@ -71,10 +71,20 @@ include_once '../config/server.php';
           "imagem" => str_replace('\\', '/',$server_static.'empreendimentos/'.$endereco_img)
         ];
       }
-    include_once(ROOT_PATH."menu_footer/menu_latera_empreendimento.php");
-    include_once(ROOT_PATH."menu_footer/menu_empreendimento.php"); 
+      if ($_SESSION['grup_id'] == 4){
+        include_once(ROOT_PATH."menu_footer/menu_empreendimento.php"); 
+        include_once(ROOT_PATH."menu_footer/menu_latera_empreendimento.php");
+        }
+        if ($_SESSION['grup_id'] == 1){    
+            include_once(ROOT_PATH."menu_footer/menu_administrador.php");
+        }
+        if ($_SESSION['grup_id'] == 3){    
+            include_once(ROOT_PATH."menu_footer/menu_usuario.php");
+            include_once(ROOT_PATH."menu_footer/menu_latera_usuario.php");
+        }
     ?>
-    
+<script src="<?php echo $server_static;?>static/jquery.js"></script>
+<script src="<?php echo $server_static;?>static/bootstrap/js/bootstrap.js"></script> 
 <!DOCTYPE html>
 <html>
 

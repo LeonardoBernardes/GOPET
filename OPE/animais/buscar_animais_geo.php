@@ -8,7 +8,7 @@ include_once '../config/server.php';
  */
     include_once ROOT_PATH .'mysql_conexao/conexao_mysql.php';
     session_start();
-    
+    $json_a = '';
         if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true))
         {
             unset($_SESSION['login']);
@@ -81,30 +81,55 @@ include_once '../config/server.php';
         }
       }
 
+      //validação de imagem no cadastro
+      if(!empty($row->imagem)){
+        $endereco_img = $row->imagem;
+      }
+
         $arr_animais[$row->id] = [
-          "nome" => $row->nome,
-          "idade"=> $row->idade,
-          "porte"=> $row->porte,
-          "genero"=> $row->genero,
-          "categoria"=> $row->categoria,
-          "restricao"=> $restr,
-          "castracao"=> $castracao,
-          "imagem"=>$row->imagem,
-          "endereco" => $row->endereco,
-          "numero" => $row->numero,
-          "complemento" => $row->complemento,
-          "estado" => $row->estado,
-          "cidade" => $row->cidade,
-          "bairro" => $row->bairro,
-          "cep" => $row->cep,
-          "latitude" => floatVal($row->latitude),
-          "longitude" => floatVal($row->longitude)
+          "nome" => ($row->nome) ? $row->nome : "teste",
+          "idade"=> ($row->idade) ? $row->idade : 0,
+          "porte"=> ($row->porte) ? $row->porte : "teste",
+          "genero"=> ($row->genero) ? $row->genero : "teste",
+          "categoria"=> ($row->categoria) ? $row->categoria : "teste",
+          "restricao"=> ($restr) ? $restr : "teste",
+          "castracao"=> ($castracao)? $castracao : "teste",
+          "imagem"=>(str_replace('\\', '/',$server_static.'animais/'.$endereco_img)) ? str_replace('\\', '/',$server_static.'animais/'.$endereco_img) : "teste",
+          "endereco" => ($row->endereco) ? $row->endereco : "teste",
+          "numero" => ($row->numero) ? $row->numero : "teste",
+          "complemento" => ($row->complemento) ? $row->complemento : "teste",
+          "estado" => ($row->estado) ? $row->estado : "teste",
+          "cidade" => ($row->cidade) ? $row->cidade : "teste",
+          "bairro" => ($row->bairro) ? $row->bairro : "teste",
+          "cep" => ($row->cep) ? $row->cep : "teste",
+          "latitude" => (floatVal($row->latitude)) ? floatVal($row->latitude) : "0",
+          "longitude" =>( floatVal($row->longitude))? floatVal($row->longitude) : "0"
         ];
       }
-    include_once(ROOT_PATH."menu_footer/menu_latera_empreendimento.php");
-    include_once(ROOT_PATH."menu_footer/menu_empreendimento.php"); 
+
+/*
+      foreach($arr_animais as $empr){
+        $json_a .= '{nome:"'.$empr['nome'].'", idade:'.$empr['idade'].', porte:"'.$empr['porte'].'", genero:"'.$empr['genero'].'", categoria:"'.$empr['categoria'].
+          '", restricao:"'.$empr['restricao'].'", castracao:"'.$empr['castracao'].'", imagem:"'.$empr['imagem'].'", endereco:"'.$empr['endereco'].
+          '", numero:"'.$empr['numero'].'", complemento:"'.$empr['complemento'].'", estado:"'.$empr['estado'].'", cidade:"'.$empr['cidade'].
+          '", bairro:"'.$empr['bairro'].'", cep:"'.$empr['cep'].'", latitude:'.$empr['latitude'].',longitude:'.$empr['longitude'].'},';
+      }
+      $json_a = substr($json_a,0,-1);
+*/
+
+      if ($_SESSION['grup_id'] == 4){
+        include_once(ROOT_PATH."menu_footer/menu_empreendimento.php"); 
+        include_once(ROOT_PATH."menu_footer/menu_latera_empreendimento.php");
+        }
+        if ($_SESSION['grup_id'] == 1){    
+            include_once(ROOT_PATH."menu_footer/menu_administrador.php");
+        }
+        if ($_SESSION['grup_id'] == 3){    
+            include_once(ROOT_PATH."menu_footer/menu_usuario.php");
+            include_once(ROOT_PATH."menu_footer/menu_latera_usuario.php");
+        }
     ?>
-    
+
 <!DOCTYPE html>
 <html>
 
@@ -115,11 +140,30 @@ include_once '../config/server.php';
         [
           //cria um array em js de objetos de empreendimentos
           <?php
+            /*foreach($arr_animais as $empr){
+                        echo $json_a;
+            }*/
+
             foreach($arr_animais as $empr){
-              echo '{nome:"'.$empr['nome'].'", idade:'.$empr['idade'].', porte:"'.$empr['porte'].'", genero:"'.$empr['genero'].'", categoria:"'.$empr['categoria'].
-                '", restricao:"'.$empr['restricao'].'", castracao:"'.$empr['castracao'].'", imagem:"'.$empr['imagem'].'", endereco:"'.$empr['endereco'].
-                '", numero:"'.$empr['numero'].'", complemento:"'.$empr['complemento'].'", estado:"'.$empr['estado'].'", cidade:"'.$empr['cidade'].
-                '", bairro:"'.$empr['bairro'].'", cep:"'.$empr['cep'].'", latitude:'.$empr['latitude'].',longitude:'.$empr['longitude'].'},';
+              echo '{ 
+                      nome:"'.$empr['nome'].'", 
+                      idade:'.$empr['idade'].', 
+                      porte:"'.$empr['porte'].'", 
+                      genero:"'.$empr['genero'].'", 
+                      categoria:"'.$empr['categoria'].'", 
+                      restricao:"'.$empr['restricao'].'", 
+                      castracao:"'.$empr['castracao'].'", 
+                      imagem:"'.$empr['imagem'].'", 
+                      endereco:"'.$empr['endereco'].'", 
+                      numero:"'.$empr['numero'].'", 
+                      complemento:"'.$empr['complemento'].'", 
+                      estado:"'.$empr['estado'].'", 
+                      cidade:"'.$empr['cidade'].'", 
+                      bairro:"'.$empr['bairro'].'", 
+                      cep:"'.$empr['cep'].'", 
+                      latitude:'.$empr['latitude'].',
+                      longitude:'.$empr['longitude'].'
+                    },';
             }
           ?>  
         ];
@@ -147,9 +191,21 @@ include_once '../config/server.php';
 
 </head>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1nkX5KVBXgDHas0sYoCXqws8MzKCWBcQ&callback=initMap"async defer></script>
-
+<?php  if ($_SESSION['grup_id'] == 4){
+        include_once(ROOT_PATH."menu_footer/menu_empreendimento.php"); 
+        include_once(ROOT_PATH."menu_footer/menu_latera_empreendimento.php");
+        }
+        if ($_SESSION['grup_id'] == 1){    
+            include_once(ROOT_PATH."menu_footer/menu_administrador.php");
+        }
+        if ($_SESSION['grup_id'] == 3){    
+            include_once(ROOT_PATH."menu_footer/menu_usuario.php");
+            include_once(ROOT_PATH."menu_footer/menu_latera_usuario.php");
+        } ?>
 <!--script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1nkX5KVBXgDHas0sYoCXqws8MzKCWBcQ&libraries=places"></script-->
 <body>
+
+
     <div id="map"></div>
    
      
@@ -188,27 +244,27 @@ include_once '../config/server.php';
               '</div>'+
             '</div>';
 
-        //Declaração para a criação de janela com descrição no marcador
-        var infowindow = new google.maps.InfoWindow({
-          content: contentString
-        });
-        
-        //Criação de marcador
-          var marker = new google.maps.Marker({
-            position: new google.maps.LatLng( markers[o].latitude, markers[o].longitude),
-            map: map,
-            title: markers[o].nome
+          //Declaração para a criação de janela com descrição no marcador
+          var infowindow = new google.maps.InfoWindow({
+            content: contentString
           });
         
-        /*
-        //Definição de ação quando usuário clicar no marcador
-          marker.addListener('click', function() {
-            infowindow.open(map, marker);
-          });
+          //Criação de marcador
+            var marker = new google.maps.Marker({
+              position: new google.maps.LatLng( markers[o].latitude, markers[o].longitude),
+              map: map,
+              title: markers[o].nome
+            });
+        
+          /*
+          //Definição de ação quando usuário clicar no marcador
+            marker.addListener('click', function() {
+              infowindow.open(map, marker);
+            });
+          }
+          */
+          setMessage(marker,contentString);
         }
-        */
-        setMessage(marker,contentString);
-      }
       }
 
       function setMessage(marker, contentString) {
@@ -228,5 +284,6 @@ include_once '../config/server.php';
     ?>
 
 </footer>
-
+<script src="<?php echo $server_static;?>static/jquery.js"></script>
+<script src="<?php echo $server_static;?>static/bootstrap/js/bootstrap.js"></script>
 </html>

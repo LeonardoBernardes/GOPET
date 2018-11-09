@@ -44,6 +44,20 @@ $anen_pais = ($_POST['pais']) ? $_POST['pais'] : '';
 $anen_cep = ($_POST['cep']) ? $_POST['cep'] : '';
 
 
+
+//substituição de espaço em branco por +
+$geo_logradouro = str_replace(" ","+",$anen_logradouro);
+$geo_cidade =  str_replace(" ","+",$anen_cidade);
+$geo_bairro =  str_replace(" ","+",$anen_bairro);
+
+//var json_geolocalizacao
+$str =  file_get_contents("https://maps.googleapis.com/maps/api/geocode/json?address=$geo_logradouro,+$geo_cidade,+$anen_pais&key=AIzaSyC1nkX5KVBXgDHas0sYoCXqws8MzKCWBcQ");
+$json = json_decode($str, true);
+
+$lat = ($json["results"][0]["geometry"]['location']['lat']);
+$lng = ($json["results"][0]["geometry"]['location']['lng']);
+
+
 $sql =" UPDATE 
             animais
         SET 
@@ -63,7 +77,53 @@ $sql =" UPDATE
 //echo $sql;
 $result =  mysqli_query($conn, $sql);
 
+$sql_select = " SELECT
+                    anim_id
+                FROM
+                    animais_endereco
+                WHERE
+                    anim_id  = $anim_id";
+$result33 =  mysqli_query($conn, $sql_select);
+$row = mysqli_fetch_object($result33);
+if(empty($row)){
+    
+//Cadastro de endereço de animais
+$sql4 = "   INSERT INTO 
+                    animais_endereco 
+                        (
+                            anen_pais,
+                            anen_estado,
+                            anen_cidade,
+                            anen_bairro,
+                            anen_logradouro,
+                            anen_numero,
+                            anen_complemento,
+                            anen_cep,
+                            anen_data_cadastro,
+                            anim_id,
+                            anen_longitude,
+                            anen_latitude
+                        )
+                VALUES 
+                        (
+                            '$anen_pais',
+                            '$anen_estado',
+                            '$anen_cidade',
+                            '$anen_bairro',
+                            '$anen_logradouro',
+                             $anen_numero,
+                            '$anen_complemento',
+                             $anen_cep,
+                            NOW(),
+                            $anim_id,
+                            $lng,
+                            $lat
+                        )";
+//echo $sql4;
+//return;
+$c2 = mysqli_query($conn, $sql4);
 
+}else{
 $sql2 = "   UPDATE 
                 animais_endereco
             SET 
@@ -75,12 +135,16 @@ $sql2 = "   UPDATE
                 anen_estado = '$anen_estado',
                 anen_pais = '$anen_pais',
                 anen_cep = $anen_cep,
-                anen_data_atualizacao = NOW()
-
+                anen_data_atualizacao = NOW(),
+                anen_longitude = $lng,
+                anen_latitude = $lat
             WHERE 
                 anim_id  = $anim_id";
-$result =  mysqli_query($conn, $sql2);
 
+//echo $sql2;
+//return;
+$result =  mysqli_query($conn, $sql2);
+}
 
 // Se a foto estiver sido selecionada
 if (!empty($foto["name"])) {

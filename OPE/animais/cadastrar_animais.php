@@ -302,7 +302,7 @@ $sql4 = "   INSERT INTO
                             $lng,
                             $lat
                         )";
-   // echo $sql4;
+
     $c2 = mysqli_query($conn, $sql4);
 
 

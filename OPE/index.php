@@ -46,7 +46,11 @@ margin-top:8%;
 
 <body >
   
-<?php if(isset($_SESSION['loginErro'])){
+<?php if(empty($_SESSION['loginErro'])){
+
+var_dump("TESTE");
+ return;
+
  $result = '<p class="alert alert-danger">'.$_SESSION['loginErro'].'</p>';
     echo $result;
     unset($_SESSION['loginErro']);

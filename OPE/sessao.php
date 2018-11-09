@@ -56,6 +56,7 @@ if(mysqli_num_rows($result) > 0)
 }else{
   unset ($_SESSION['login']);
   unset ($_SESSION['senha']);
+  $_SESSION['loginErro'] = 'Sua senha ou login está errado.';
   header('location: '.$server_static.'index.php');
    
 }

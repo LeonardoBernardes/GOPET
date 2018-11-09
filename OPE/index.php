@@ -10,6 +10,7 @@ include_once 'config/server.php';
 //return;
 
 ?>
+
 <!doctype html>
 <html lang="pt-br">
 
@@ -45,15 +46,19 @@ margin-top:8%;
 
 <body >
   
-
+<?php if(isset($_SESSION['loginErro'])){
+ $result = '<p class="alert alert-danger">'.$_SESSION['loginErro'].'</p>';
+    echo $result;
+    unset($_SESSION['loginErro']);
+}?>
+     
     
      <!-- MEIO -->
  <main role="main">
 
-      
-
 
   <section id="intro">
+      
     <div class="jumbotron masthead">
       <div class="container">
         <!-- slider navigation -->
@@ -85,10 +90,10 @@ margin-top:8%;
                   <!-- Layer 2 -->
                   <li>
                     <div class="info">
-                      <h2>Negocio</h2>
+                      <h2>Negocios</h2>
                       <br>
                       <p>
-                       Anuncie Já.
+                       Anuncie seus produtos & serviço conosco e ganhe cliente novos.
                       </p>
                     </div>
                     <img class="slider_img" src="static/imagens/cao-aventura.jpg" alt="">
@@ -96,10 +101,10 @@ margin-top:8%;
                   <!-- Layer 3 -->
                   <li>
                     <div class="info">
-                      <h2>GoPet</h2>
+                      <h2>Lar</h2>
                       <br>
                       <p>
-                        Sistema que Conecta pessoas e Animais
+                       Encontre aqui seu novo animal de estimação, GRATUITO, lembre-se além de você entregar a ele um lar, você está tirando um vida do perigo.
                       </p>
                     </div>
                     <img class="slider_img" src="static/imagens/adorable-car.jpg" alt="">
@@ -126,12 +131,12 @@ margin-top:8%;
           </p>
         </div>
         <div class="span3 features">
-          <i class="icon-circled icon-32 icon-plane left"></i>
-          <h4>Sua viagem, Nossa ajuda</h4>
+          <i class="icon-circled icon-32 icon-cloud-upload left"></i>
+          <h4>Apoio</h4>
           <div class="dotted_line">
           </div>
           <p class="left">
-            Utilize seu dia como um apoio para sociedade, facil e simples com apenas um clique e uma foto você ja pode tirar um animal da rua.
+            Utilize seu dia como um apoio para sociedade, facil e simples, com apenas um clique e uma foto você ja pode tirar um animal da rua.
           </p>
         </div>
         <div class="span3 features">
@@ -145,23 +150,22 @@ margin-top:8%;
         </div>
       </div>
       <div class="row">
-        <div class="">
           <div class="tagline centered">
             <div class="row">
               <div class="span12">
                 <div class="tagline_text">
                   <h2>Aplicativo</h2>
                 </div>
-                <div class="btn-toolbar cta">
-                  <a class="btn btn-large btn-color" href="#">
-							<i class="icon-plane icon-white"></i> Download </a>
+                  <a  class="btn btn-large btn-color" href="#">
+							<img src="<?php echo $server_static;?>static/icones/download.png" style="width:20px;"/>  Download 
+                    </a>
                 </div>
               </div>
             </div>
           </div>
           <!-- end tagline -->
         </div>
-      </div>
+
       
 
   <!-- JavaScript Library Files -->

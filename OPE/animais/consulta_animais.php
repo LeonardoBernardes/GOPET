@@ -213,7 +213,7 @@ if ($_SESSION['grup_id'] == 3){
     <div class="table-responsive">
     <table class="table table-hover" style="width:100%">
         <thead >
-            <tr  class="bg-success">
+            <tr style="background:#4fdc6f">
                 <th scope="col">ID</th>
                 <th scope="col">imagem</th>
                 <th scope="col">Nome</th>
@@ -239,7 +239,7 @@ if ($_SESSION['grup_id'] == 3){
     if ($_SESSION['grup_id'] == 3){    
     ?>
         
-       <a class="btn btn-dark" href="<?php echo $server_static;?>usuarios/home_usuarios.php"> Voltar</a>
+       <a class="btn btn-dark" href="<?php echo $server_static;?>animais/home_usuarios.php"> Voltar</a>
        <a class="btn btn-success" href="<?php echo $server_static;?>animais/cadastro_animais.php">Cadastrar Animais</a>
     <?php
     }

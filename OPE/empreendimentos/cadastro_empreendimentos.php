@@ -109,9 +109,33 @@ if(!empty($row2)){
 <html>
 
 <head>
-
+<script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+    
 </head>
+    
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
+<script>
+    $(document).ready(function () { 
+        
+        $('#cnpj').mask('00.000.000/0000-00');
+        $('#rg').mask('99.999.999-9');
+        $("#salario").mask('000.000.00');
+        $("#vale_transporte").mask('000.000.00');
+        $("#telefone").mask("(99) 9999-9999");     // Máscara para TELEFONE
 
+        $("#cep").mask("99999-999");    // Máscara para CEP
+
+        $("#data").mask("99/99/9999");    // Máscara para DATA
+
+        $("#cnpj").mask("99.999.999/9999-99");    // Máscara para CNPJ
+
+        $('#rg').mask('99.999.999-9');    // Máscara para RG<br/>
+
+        $('#agencia').mask('9999-9');    // Máscara para AGÊNCIA BANCÁRIA
+
+        $('#conta').mask('99.999-9');    // Máscara para CONTA BANCÁRIA
+    });
+</script>
 <body id="formulario_empreendimento">
 <?php
     
@@ -144,7 +168,7 @@ include_once ROOT_PATH."menu_footer/menu_latera_empreendimento.php"
                         </div>
                         <div class="col">
                             <label>Data Abertura </label>
-                            <input class="form-control form-control-sm" type="text" name="data_abertura" id="data_abertura" value='<?php echo $empr_dt_abertura ?>'>
+                            <input class="form-control form-control-sm" type="date" name="data_abertura" id="data_abertura" value='<?php echo $empr_dt_abertura ?>'>
                         </div>
                         <div class="col">
                             <label>Responsavel </label>

@@ -178,8 +178,6 @@ $logi_id = $_SESSION['logi_id'];
                                 </div>
                             </fieldset>
                             <input class="btn btn-success btn-sm btn-block" type="submit" value="Cadastrar">
-                        <hr>
-                        <a class="btn btn-dark btn-sm btn-block" href="consulta_animais.php"> Voltar</a>
                        </fieldset>
                     </form>
             </form>

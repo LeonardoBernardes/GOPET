@@ -157,6 +157,7 @@ include_once '../config/server.php';
     <a class="btn btn-dark" href="..\empreendimentos\home_empreendimento.php"> Voltar</a>
 </body>
 <script>
+      alert();
       function initMap() {
       
         var centro = {lat: -11.235, lng: -51.9253};

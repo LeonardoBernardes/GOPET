@@ -25,30 +25,66 @@ include_once '../config/server.php';
     $arr_empreendimentos = array();
 
     $sql = "SELECT
-              empr_id,
-              empr_nome as nome,
-              empr_slogan as slogan,
-              empr_longitude as latitude,
-              empr_latitude as longitude
+              empreendimentos_enderecos.emen_id as id,
+              empreendimentos.empr_nome as nome,
+              empreendimentos.empr_slogan as slogan,
+              empreendimentos_enderecos.emen_logradouro as endereco,
+              empreendimentos_enderecos.emen_numero as numero,
+              empreendimentos_enderecos.emen_estado as estado,
+              empreendimentos_enderecos.emen_cidade as cidade,
+              empreendimentos_enderecos.emen_bairro as bairro,
+              empreendimentos_enderecos.emen_cep as cep,
+              empreendimentos_enderecos.emen_longitude as latitude,
+              empreendimentos_enderecos.emen_latitude as longitude,
+              empreendimentos_imagens.emim_endereco as imagem
             FROM 
-              empreendimentos";
-echo $sql;
-return;
+              empreendimentos_enderecos
+            INNER JOIN
+              empreendimentos
+            ON
+              (empreendimentos_enderecos.empr_id = empreendimentos.empr_id)
+            INNER JOIN
+              empreendimentos_imagens
+            ON
+              (empreendimentos_enderecos.empr_id = empreendimentos_imagens.empr_id)";
+//echo $sql;
+//return;
     $result = mysqli_query($conn, $sql);
     while($row = mysqli_fetch_object($result)){
 
-        $arr_empreendimento[$row->empr_id] = [
+      //validação de imagem no cadastro
+      if(!empty($row->imagem)){
+        $endereco_img = $row->imagem;
+      }
+
+        $arr_empreendimento[$row->id] = [
           "nome" => $row->nome,
           "slogan" => $row->slogan,
+          "endereco" => $row->endereco,
+          "numero" => $row->numero,
+          "estado" => $row->estado,
+          "cidade" => $row->cidade,
+          "bairro" => $row->bairro,
+          "cep" => $row->cep,
           "latitude" => floatVal($row->latitude),
-          "longitude" => floatVal($row->longitude)
+          "longitude" => floatVal($row->longitude),
+          "imagem" => str_replace('\\', '/',$server_static.'empreendimentos/'.$endereco_img)
         ];
       }
-    
-    include_once(ROOT_PATH."menu_footer/menu_latera_empreendimento.php");
-    include_once(ROOT_PATH."menu_footer/menu_empreendimento.php"); 
+      if ($_SESSION['grup_id'] == 4){
+        include_once(ROOT_PATH."menu_footer/menu_empreendimento.php"); 
+        include_once(ROOT_PATH."menu_footer/menu_latera_empreendimento.php");
+        }
+        if ($_SESSION['grup_id'] == 1){    
+            include_once(ROOT_PATH."menu_footer/menu_administrador.php");
+        }
+        if ($_SESSION['grup_id'] == 3){    
+            include_once(ROOT_PATH."menu_footer/menu_usuario.php");
+            include_once(ROOT_PATH."menu_footer/menu_latera_usuario.php");
+        }
     ?>
-    
+<script src="<?php echo $server_static;?>static/jquery.js"></script>
+<script src="<?php echo $server_static;?>static/bootstrap/js/bootstrap.js"></script> 
 <!DOCTYPE html>
 <html>
 
@@ -59,12 +95,15 @@ return;
         [
           //cria um array em js de objetos de empreendimentos
           <?php
-            $inc=0;
             foreach($arr_empreendimento as $empr){
-              echo '{nome:"'.$empr['nome'].'", latitude:'.$empr['latitude'].',longitude:'.$empr['longitude'].'},';
+              echo '{nome:"'.$empr['nome'].'",slogan:"'.$empr['slogan'].'", endereco:"'.$empr['endereco'].
+                '", numero:"'.$empr['numero'].'", estado:"'.$empr['estado'].'", cidade:"'.$empr['cidade'].
+                '", bairro:"'.$empr['bairro'].'", cep:"'.$empr['cep'].'", latitude:'.$empr['latitude'].
+                ', longitude:'.$empr['longitude'].', imagem:"'.$empr['imagem'].'"},';
             }
           ?>  
         ];
+
     </script>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -112,30 +151,28 @@ return;
         for(var o in markers){
 
           //Criação de descrição do marcador 
-          var contentString = '<div id="content">'+
-            '<div id="siteNotice">'+
-            '</div>'+
-            '<h1 id="firstHeading" class="firstHeading">Uluru</h1>'+
-            '<div id="bodyContent">'+
-            '<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large ' +
-            'sandstone rock formation in the southern part of the '+
-            'Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) '+
-            'south west of the nearest large town, Alice Springs; 450&#160;km '+
-            '(280&#160;mi) by road. Kata Tjuta and Uluru are the two major '+
-            'features of the Uluru - Kata Tjuta National Park. Uluru is '+
-            'sacred to the Pitjantjatjara and Yankunytjatjara, the '+
-            'Aboriginal people of the area. It has many springs, waterholes, '+
-            'rock caves and ancient paintings. Uluru is listed as a World '+
-            'Heritage Site.</p>'+
-            '<p>Attribution: Uluru, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'+
-            'https://en.wikipedia.org/w/index.php?title=Uluru</a> '+
-            '(last visited June 22, 2009).</p>'+
-            '</div>'+
+          var contentString = 
+          '<div id="content">'+
+              '<div id="siteNotice">'+
+              '<img style="width:200px;" src="'+markers[o].imagem+'" style="width:100%"/>'+
+              '</div>'+
+              '<h1 id="firstHeading" class="firstHeading">'+ 
+                markers[o].nome +
+              '</h1>'+
+              '<div id="bodyContent">'+
+                '<p>'+
+                  markers[o].endereco +', '+ markers[o].numero + ' - ' + markers[o].bairro + ',' + markers[o].cidade + ' - ' + markers[o].cep+  
+                '</p>'+
+                '<p>'+
+                  markers[o].slogan +
+                '</p>'+
+              '</div>'+
             '</div>';
 
         //Declaração para a criação de janela com descrição no marcador
         var infowindow = new google.maps.InfoWindow({
-          content: contentString
+          content: contentString,
+          position: new google.maps.LatLng( markers[o].latitude, markers[o].longitude)
         });
         
         //Criação de marcador
@@ -145,13 +182,28 @@ return;
             title: markers[o].nome
           });
         
+        /*
         //Definição de ação quando usuário clicar no marcador
           marker.addListener('click', function() {
+            infowindow.setContent(contentString);
             infowindow.open(map, marker);
           });
         }
-        
+        */
+        setMessage(marker,contentString);
       }
+    }
+      
+      function setMessage(marker, contentString) {
+        var infowindow = new google.maps.InfoWindow({
+          content: contentString
+        });
+
+        marker.addListener('click', function() {
+          infowindow.open(marker.get('map'), marker);
+        });
+      }
+
 </script>
 <footer>
 

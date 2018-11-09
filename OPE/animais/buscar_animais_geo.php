@@ -8,7 +8,7 @@ include_once '../config/server.php';
  */
     include_once ROOT_PATH .'mysql_conexao/conexao_mysql.php';
     session_start();
-    
+    $json_a = '';
         if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true))
         {
             unset($_SESSION['login']);
@@ -25,40 +25,112 @@ include_once '../config/server.php';
     $arr_animais = array();
 
     $sql = "SELECT
-                anen_id as id,
-                anen_logradouro as logradouro,
-                anen_numero as numero,
-                anen_complemento as complemento,
-                anen_estado as estado,
-                anen_cidade as cidade,
-                anen_bairro as bairro,
-                anen_cep as cep,
-                anen_longitude as latitude,
-                anen_latitude as longitude
+              animais.anim_id as id,
+              animais.anim_nome as nome,
+              animais.anim_idade as idade,
+              animais.anim_porte as porte,
+              animais.anim_genero as genero,
+              animais.anim_categoria as categoria,
+              animais.anim_restricao_doacao as restricao,
+              animais.anim_castracao as castracao,
+              animais_fotos.anfo_endereco as imagem,
+              animais_endereco.anen_logradouro as endereco,
+              animais_endereco.anen_numero as numero,
+              animais_endereco.anen_logradouro as complemento,
+              animais_endereco.anen_pais as pais,
+              animais_endereco.anen_estado as estado,
+              animais_endereco.anen_cidade as cidade,
+              animais_endereco.anen_bairro as bairro,
+              animais_endereco.anen_cep as cep,
+              animais_endereco.anen_longitude as latitude,
+              animais_endereco.anen_latitude as longitude
             FROM 
-                animais_endereco";
-
+              animais
+            INNER JOIN
+              animais_fotos
+            ON 
+              (animais.anim_id = animais_fotos.anim_id)
+            INNER JOIN
+              animais_endereco
+            ON 
+              (animais.anim_id = animais_endereco.anim_id)";
+//cho $sql;
+//return;
     $result = mysqli_query($conn, $sql);
     while($row = mysqli_fetch_object($result)){
 
+      //valor restrição doação nulo
+      if(empty($row->restricao)){
+        $restr="Não Possui";
+      }
+      else{
+        $restr=$row->restricao;
+      }
+
+      //Valor castração
+      if($row->anim_castracao = 1)
+      {
+        $castracao = "sim";
+      }
+      else{
+        if($row->anim_castracao = 1)
+        {
+          $castracao = "não";
+        }
+        else{
+          $castracao = "não informado";
+        }
+      }
+
+      //validação de imagem no cadastro
+      if(!empty($row->imagem)){
+        $endereco_img = $row->imagem;
+      }
+
         $arr_animais[$row->id] = [
-          "id" => $row->id,
-          "logradouro" => $row->logradouro,
-          "numero" => $row->numero,
-          "complemento" => $row->complemento,
-          "anen_estado" => $row->estado,
-          "anen_cidade" => $row->cidade,
-          "anen_bairro" => $row->bairro,
-          "anen_cep" => $row->cep,
-          "latitude" => floatVal($row->latitude),
-          "longitude" => floatVal($row->longitude)
+          "nome" => ($row->nome) ? $row->nome : "teste",
+          "idade"=> ($row->idade) ? $row->idade : 0,
+          "porte"=> ($row->porte) ? $row->porte : "teste",
+          "genero"=> ($row->genero) ? $row->genero : "teste",
+          "categoria"=> ($row->categoria) ? $row->categoria : "teste",
+          "restricao"=> ($restr) ? $restr : "teste",
+          "castracao"=> ($castracao)? $castracao : "teste",
+          "imagem"=>(str_replace('\\', '/',$server_static.'animais/'.$endereco_img)) ? str_replace('\\', '/',$server_static.'animais/'.$endereco_img) : "teste",
+          "endereco" => ($row->endereco) ? $row->endereco : "teste",
+          "numero" => ($row->numero) ? $row->numero : "teste",
+          "complemento" => ($row->complemento) ? $row->complemento : "teste",
+          "estado" => ($row->estado) ? $row->estado : "teste",
+          "cidade" => ($row->cidade) ? $row->cidade : "teste",
+          "bairro" => ($row->bairro) ? $row->bairro : "teste",
+          "cep" => ($row->cep) ? $row->cep : "teste",
+          "latitude" => (floatVal($row->latitude)) ? floatVal($row->latitude) : "0",
+          "longitude" =>( floatVal($row->longitude))? floatVal($row->longitude) : "0"
         ];
       }
-    
-    include_once(ROOT_PATH."menu_footer/menu_latera_empreendimento.php");
-    include_once(ROOT_PATH."menu_footer/menu_empreendimento.php"); 
+
+/*
+      foreach($arr_animais as $empr){
+        $json_a .= '{nome:"'.$empr['nome'].'", idade:'.$empr['idade'].', porte:"'.$empr['porte'].'", genero:"'.$empr['genero'].'", categoria:"'.$empr['categoria'].
+          '", restricao:"'.$empr['restricao'].'", castracao:"'.$empr['castracao'].'", imagem:"'.$empr['imagem'].'", endereco:"'.$empr['endereco'].
+          '", numero:"'.$empr['numero'].'", complemento:"'.$empr['complemento'].'", estado:"'.$empr['estado'].'", cidade:"'.$empr['cidade'].
+          '", bairro:"'.$empr['bairro'].'", cep:"'.$empr['cep'].'", latitude:'.$empr['latitude'].',longitude:'.$empr['longitude'].'},';
+      }
+      $json_a = substr($json_a,0,-1);
+*/
+
+      if ($_SESSION['grup_id'] == 4){
+        include_once(ROOT_PATH."menu_footer/menu_empreendimento.php"); 
+        include_once(ROOT_PATH."menu_footer/menu_latera_empreendimento.php");
+        }
+        if ($_SESSION['grup_id'] == 1){    
+            include_once(ROOT_PATH."menu_footer/menu_administrador.php");
+        }
+        if ($_SESSION['grup_id'] == 3){    
+            include_once(ROOT_PATH."menu_footer/menu_usuario.php");
+            include_once(ROOT_PATH."menu_footer/menu_latera_usuario.php");
+        }
     ?>
-    
+
 <!DOCTYPE html>
 <html>
 
@@ -69,9 +141,30 @@ include_once '../config/server.php';
         [
           //cria um array em js de objetos de empreendimentos
           <?php
-            $inc=0;
+            /*foreach($arr_animais as $empr){
+                        echo $json_a;
+            }*/
+
             foreach($arr_animais as $empr){
-              echo '{id:"'.$empr['id'].'", latitude:'.$empr['latitude'].',longitude:'.$empr['longitude'].'},';
+              echo '{ 
+                      nome:"'.$empr['nome'].'", 
+                      idade:'.$empr['idade'].', 
+                      porte:"'.$empr['porte'].'", 
+                      genero:"'.$empr['genero'].'", 
+                      categoria:"'.$empr['categoria'].'", 
+                      restricao:"'.$empr['restricao'].'", 
+                      castracao:"'.$empr['castracao'].'", 
+                      imagem:"'.$empr['imagem'].'", 
+                      endereco:"'.$empr['endereco'].'", 
+                      numero:"'.$empr['numero'].'", 
+                      complemento:"'.$empr['complemento'].'", 
+                      estado:"'.$empr['estado'].'", 
+                      cidade:"'.$empr['cidade'].'", 
+                      bairro:"'.$empr['bairro'].'", 
+                      cep:"'.$empr['cep'].'", 
+                      latitude:'.$empr['longitude'].',
+                      longitude:'.$empr['latitude'].'
+                    },';
             }
           ?>  
         ];
@@ -99,9 +192,21 @@ include_once '../config/server.php';
 
 </head>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1nkX5KVBXgDHas0sYoCXqws8MzKCWBcQ&callback=initMap"async defer></script>
-
+<?php  if ($_SESSION['grup_id'] == 4){
+        include_once(ROOT_PATH."menu_footer/menu_empreendimento.php"); 
+        include_once(ROOT_PATH."menu_footer/menu_latera_empreendimento.php");
+        }
+        if ($_SESSION['grup_id'] == 1){    
+            include_once(ROOT_PATH."menu_footer/menu_administrador.php");
+        }
+        if ($_SESSION['grup_id'] == 3){    
+            include_once(ROOT_PATH."menu_footer/menu_usuario.php");
+            include_once(ROOT_PATH."menu_footer/menu_latera_usuario.php");
+        } ?>
 <!--script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1nkX5KVBXgDHas0sYoCXqws8MzKCWBcQ&libraries=places"></script-->
 <body>
+
+
     <div id="map"></div>
    
      
@@ -123,44 +228,54 @@ include_once '../config/server.php';
 
           //Criação de descrição do marcador 
           var contentString = '<div id="content">'+
-            '<div id="siteNotice">'+
-            '</div>'+
-            '<h1 id="firstHeading" class="firstHeading">Uluru</h1>'+
-            '<div id="bodyContent">'+
-            '<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large ' +
-            'sandstone rock formation in the southern part of the '+
-            'Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) '+
-            'south west of the nearest large town, Alice Springs; 450&#160;km '+
-            '(280&#160;mi) by road. Kata Tjuta and Uluru are the two major '+
-            'features of the Uluru - Kata Tjuta National Park. Uluru is '+
-            'sacred to the Pitjantjatjara and Yankunytjatjara, the '+
-            'Aboriginal people of the area. It has many springs, waterholes, '+
-            'rock caves and ancient paintings. Uluru is listed as a World '+
-            'Heritage Site.</p>'+
-            '<p>Attribution: Uluru, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'+
-            'https://en.wikipedia.org/w/index.php?title=Uluru</a> '+
-            '(last visited June 22, 2009).</p>'+
-            '</div>'+
+              '<div id="siteNotice">'+
+              '<img style="width:200px;" src="'+markers[o].imagem+'" style="width:100%"/>'+
+              '</div>'+
+              '<h1 id="firstHeading" class="firstHeading">'+ 
+                markers[o].nome +
+              '</h1>'+
+              '<div id="bodyContent">'+
+                '<p>'+
+                  'Idade:'+markers[o].idade+'<br/> Porte: ' + markers[o].porte + '<br/>Genero: '+ markers[o].genero+'<br/>Categoria: '+markers[o].categoria +
+                  '<br/>Restrição: '+ markers[o].restricao+'<br/>Castração: '+ markers[o].castracao+
+                '</p>'+
+                '<p>'+
+                  markers[o].endereco +', '+ markers[o].numero + ' - ' + markers[o].bairro + ',' + markers[o].cidade + ' - ' + markers[o].cep+  
+                '</p>'+
+              '</div>'+
             '</div>';
 
-        //Declaração para a criação de janela com descrição no marcador
+          //Declaração para a criação de janela com descrição no marcador
+          var infowindow = new google.maps.InfoWindow({
+            content: contentString
+          });
+        
+          //Criação de marcador
+            var marker = new google.maps.Marker({
+              position: new google.maps.LatLng( markers[o].latitude, markers[o].longitude),
+              map: map,
+              title: markers[o].nome
+            });
+        
+          /*
+          //Definição de ação quando usuário clicar no marcador
+            marker.addListener('click', function() {
+              infowindow.open(map, marker);
+            });
+          }
+          */
+          setMessage(marker,contentString);
+        }
+      }
+
+      function setMessage(marker, contentString) {
         var infowindow = new google.maps.InfoWindow({
           content: contentString
         });
-        
-        //Criação de marcador
-          var marker = new google.maps.Marker({
-            position: new google.maps.LatLng( markers[o].latitude, markers[o].longitude),
-            map: map,
-            title: markers[o].nome
-          });
-        
-        //Definição de ação quando usuário clicar no marcador
-          marker.addListener('click', function() {
-            infowindow.open(map, marker);
-          });
-        }
-        
+
+        marker.addListener('click', function() {
+          infowindow.open(marker.get('map'), marker);
+        });
       }
 </script>
 <footer>
@@ -170,5 +285,6 @@ include_once '../config/server.php';
     ?>
 
 </footer>
-
+<script src="<?php echo $server_static;?>static/jquery.js"></script>
+<script src="<?php echo $server_static;?>static/bootstrap/js/bootstrap.js"></script>
 </html>

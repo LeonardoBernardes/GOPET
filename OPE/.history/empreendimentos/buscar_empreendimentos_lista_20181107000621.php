@@ -4,7 +4,7 @@ include_once '../config/server.php';
  * @Author: Rafael Yuiti Haga
  * @Date: 2018-09-12 19:55:28 
  * @Last Modified by: Leonardo.Bernardes
- * @Last Modified time: 2018-11-08 20:23:38
+ * @Last Modified time: 2018-10-04 20:20:16
  */
     include_once ROOT_PATH .'mysql_conexao/conexao_mysql.php';
     session_start();
@@ -67,7 +67,6 @@ include_once '../config/server.php';
               <fieldset id="fie">
                     <img style="width:150px;" src="'.$endereco_img.'" style="width:100% class="img-thumbnail""/>
                     <span for="inputGroupSelect01">Nome: '.$row->nome.'</span>
-                   
                     <div class="form-row">
                           <div class="col">    
                     <span  for="inputGroupSelect01">Logradouro: '.$row->logradouro.'</span>

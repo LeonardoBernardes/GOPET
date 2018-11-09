@@ -73,9 +73,7 @@ if(empty($row2)){
                             empr_slogan,
                             empr_responsavel,
                             empr_status,
-                            empr_data_cadastro,
-                            empr_longitude,
-                            empr_latitude    
+                            empr_data_cadastro   
                         )
                 VALUES 
                         (
@@ -86,9 +84,7 @@ if(empty($row2)){
                             '$empr_slogan',
                             '$empr_responsavel',
                             0,
-                            NOW(),
-                            $lat,
-                            $lng
+                            NOW()
                         )";
     //echo $sql2;
     $c2 = mysqli_query($conn, $sql2);
@@ -155,7 +151,9 @@ if(empty($row3)){
                             emen_complemento,
                             emen_cep,
                             emen_data_cadastro,
-                            empr_id
+                            empr_id,
+                            emen_longitude,
+                            emen_latitude 
                         )
                 VALUES 
                         (
@@ -168,7 +166,9 @@ if(empty($row3)){
                             '$emen_complemento',
                             $emen_cep,
                             NOW(),
-                            $row2->empr_id
+                            $row2->empr_id,
+                            $lat,
+                            $lng
                         )";
     //echo $sql4;
     $c2 = mysqli_query($conn, $sql4);
@@ -186,7 +186,9 @@ if(empty($row3)){
                     emen_numero = '$emen_numero',
                     emen_complemento = '$emen_complemento',
                     emen_cep = '$emen_cep',
-                    emen_data_atualizacao = NOW()   
+                    emen_data_atualizacao = NOW(),
+                    emen_longitude = $lat,
+                    emen_latitude = $lng   
                         
                 WHERE 
                     empr_id = $row2->empr_id";

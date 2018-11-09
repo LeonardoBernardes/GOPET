@@ -51,6 +51,18 @@ $anen_cidade = ($_POST['cidade']) ? $_POST['cidade'] : "";
 $anen_bairro = ($_POST['bairro']) ? $_POST['bairro'] : "";
 $anen_cep = ($_POST['cep']) ? $_POST['cep'] : 0;
 
+//substituição de espaço em branco por +
+$geo_logradouro = str_replace(" ","+",$anen_logradouro);
+$geo_cidade =  str_replace(" ","+",$anen_cidade);
+$geo_bairro =  str_replace(" ","+",$anen_bairro);
+
+//var json_geolocalizacao
+$str = file_get_contents("https://maps.googleapis.com/maps/api/geocode/json?address=$geo_logradouro,+$geo_cidade,+$anen_pais&key=AIzaSyC1nkX5KVBXgDHas0sYoCXqws8MzKCWBcQ");
+$json = json_decode($str, true);
+
+$lat = ($json["results"][0]["geometry"]['location']['lat']);
+$lng = ($json["results"][0]["geometry"]['location']['lng']);
+
 
 //Inserção dos dados do animal
 $sql = "INSERT INTO 
@@ -271,7 +283,9 @@ $sql4 = "   INSERT INTO
                             anen_complemento,
                             anen_cep,
                             anen_data_cadastro,
-                            anim_id
+                            anim_id,
+                            anen_longitude,
+                            anen_latitude
                         )
                 VALUES 
                         (
@@ -284,9 +298,11 @@ $sql4 = "   INSERT INTO
                             '$anen_complemento',
                              $anen_cep,
                             NOW(),
-                            $id_animal->anim_id
+                            $id_animal->anim_id,
+                            $lng,
+                            $lat
                         )";
-   // echo $sql4;
+
     $c2 = mysqli_query($conn, $sql4);
 
 

@@ -41,14 +41,19 @@ include_once ROOT_PATH."menu_footer/menu_latera_usuario.php"
     
 ?>
 <div class='main' style="margin-top:7%;">
-    <button class="btn btn-dark" href="<?php echo $server_static?>usuarios/favoritos_animais.php" style="width:100%; height:30%; text-align:center; font-size:24px;">Meus Animais Favoritos</button><br><br>
-    <button class="btn btn-success" href="<?php echo $server_static?>usuarios/favoritos_empreendimentos.php" style="width:100%; height:30%; text-align:center; font-size:24px;">Meus Empreendimentos Favoritos</button>
+    <button onclick="animaisFavoritos()" class="btn btn-dark"  style="width:100%; height:30%; text-align:center; font-size:24px;">Meus Animais Favoritos</button><br><br>
+    <button onclick="empreendimentosFavoritos()" class="btn btn-success"  style="width:100%; height:30%; text-align:center; font-size:24px;">Meus Empreendimentos Favoritos</button>
 </div>
 </body>
 <script>
 
+function animaisFavoritos(){
+    window.location.href="<?php echo $server_static?>usuarios/favoritos_animais.php";
+}
 
-
+function empreendimentosFavoritos(){
+    window.location.href="<?php echo $server_static?>usuarios/favoritos_empreendimentos.php";
+}
 </script>
 </html>
 <footer>

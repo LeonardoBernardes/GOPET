@@ -23,6 +23,7 @@ session_start();
 //$empr_id = ($_GET['empr_id']) ? $_GET['empr_id'] : ""; 
 $results = '';
 $endereco_img = '';
+$favoritar = '';
 $sql3 ="SELECT 
             ANIM_ID.ANIM_ID,
             ANIM_ID.ANIM_NOME AS NOME,
@@ -68,15 +69,16 @@ while($row = mysqli_fetch_object($result)){
             //Criar Funcao para trazer local host como variavel
             $endereco_img = str_replace('\\', '/',$server_static.'animais/'.$endereco_img);
         }
+if($_SESSION['grup_id'] == 3){
+    $favoritar ="<button onclick='favoritar()' class='btn btn-success btn-sm' style='margin-left:10%;'>Favoritar</button>";
+}
 
-        //if(!empty($row->usan_flag) || !empty($row->eman_flag)){
-        //    
-        //}
 $results .='<div class="main">
                 <div class="container login-empreendimento">
                     <fieldset id="fie">
                         <img style="width:200px;" src="'.$endereco_img.'" style="width:100%"/>
                         <span for="inputGroupSelect01">Nome: '.$row->NOME.'</span>
+                        '.$favoritar.'
                         <div class="form-row">
                         <div class="col">                           
                         <span  for="inputGroupSelect01">Data de Cadastro: '.$row->data_cadastro.'</span>
@@ -213,6 +215,11 @@ include_once(ROOT_PATH."menu_footer/footer.php");
 ?>
 
 </footer>
+<script>
+function favoritar(){
+    window.location.href="<?php echo $server_static?>usuarios/favoritos_animais.php";
+}
 
+</script>
 </html>
   

@@ -54,7 +54,8 @@ include_once '../config/server.php';
               animais_endereco
             ON 
               (animais.anim_id = animais_endereco.anim_id)";
-
+//cho $sql;
+//return;
     $result = mysqli_query($conn, $sql);
     while($row = mysqli_fetch_object($result)){
 
@@ -161,8 +162,8 @@ include_once '../config/server.php';
                       cidade:"'.$empr['cidade'].'", 
                       bairro:"'.$empr['bairro'].'", 
                       cep:"'.$empr['cep'].'", 
-                      latitude:'.$empr['latitude'].',
-                      longitude:'.$empr['longitude'].'
+                      latitude:'.$empr['longitude'].',
+                      longitude:'.$empr['latitude'].'
                     },';
             }
           ?>  
@@ -213,7 +214,6 @@ include_once '../config/server.php';
     <a class="btn btn-dark" href="..\empreendimentos\home_empreendimento.php"> Voltar</a>
 </body>
 <script>
-      alert();
       function initMap() {
       
         var centro = {lat: -11.235, lng: -51.9253};

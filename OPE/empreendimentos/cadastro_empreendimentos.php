@@ -113,29 +113,7 @@ if(!empty($row2)){
     
 </head>
     
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
-<script>
-    $(document).ready(function () { 
-        
-        $('#cnpj').mask('00.000.000/0000-00');
-        $('#rg').mask('99.999.999-9');
-        $("#salario").mask('000.000.00');
-        $("#vale_transporte").mask('000.000.00');
-        $("#telefone").mask("(99) 9999-9999");     // Máscara para TELEFONE
 
-        $("#cep").mask("99999-999");    // Máscara para CEP
-
-        $("#data").mask("99/99/9999");    // Máscara para DATA
-
-        $("#cnpj").mask("99.999.999/9999-99");    // Máscara para CNPJ
-
-        $('#rg').mask('99.999.999-9');    // Máscara para RG<br/>
-
-        $('#agencia').mask('9999-9');    // Máscara para AGÊNCIA BANCÁRIA
-
-        $('#conta').mask('99.999-9');    // Máscara para CONTA BANCÁRIA
-    });
-</script>
 <body id="formulario_empreendimento">
 <?php
     
@@ -187,17 +165,24 @@ include_once ROOT_PATH."menu_footer/menu_latera_empreendimento.php"
                         </h2>
                         <br>
                         <div class="form-row">
+                           <div class="col-md-12">
+                            <div class="col">
+                                <label>CEP  </label>
+                                <input class="form-control form-control-sm" required type="text" name="cep" id="cep" value='<?php echo $emen_cep ?>'>
+                                <input type="button" class="btn btn-success" value="Valida cep" onclick="valida_cep()">
+                            </div>
+                            </div>
                             <div class="col">
                                 <label>Cidade</label>
-                                <input class="form-control form-control-sm" type="text" name="cidade" id="cidade" value='<?php echo $emen_cidade ?>'>
+                                <input class="form-control form-control-sm" readonly type="text" name="cidade" id="cidade" value='<?php echo $emen_cidade ?>'>
                             </div>
                             <div class="col">
-                                <label>Estado: </label> // só sigla
-                                <input class="form-control form-control-sm" type="text" name="estado" id="estado" value='<?php echo $emen_estado ?>' maxlength="2">
+                                <label>Estado: </label> 
+                                <input class="form-control form-control-sm" readonly type="text" name="estado" id="estado" value='<?php echo $emen_estado ?>' maxlength="2">
                             </div>
                             <div class="col">
-                                <label>Pais:  </label> // só sigla
-                                <input class="form-control form-control-sm" type="text" name="pais" id="pais" value='<?php echo $emen_pais ?>' maxlength="2">
+                                <label>Pais:  </label> 
+                                <input class="form-control form-control-sm" readonly type="text" name="pais" id="pais" value='<?php echo $emen_pais ?>' maxlength="2">
                             </div>
                         </div>
                         <div class="form-row">
@@ -219,10 +204,7 @@ include_once ROOT_PATH."menu_footer/menu_latera_empreendimento.php"
                                 <label>Complemento  </label>
                                 <input class="form-control form-control-sm" type="text" name="complemento" id="complemento" value='<?php echo $emen_complemento ?>'>
                             </div>
-                            <div class="col">
-                                <label>CEP  </label>
-                                <input class="form-control form-control-sm" type="text" name="cep" id="cep" value='<?php echo $emen_cep ?>'>
-                            </div>
+                            
                         </div>
                     </fieldset>
                     <br>
@@ -232,7 +214,25 @@ include_once ROOT_PATH."menu_footer/menu_latera_empreendimento.php"
             </form>
         </div>
     </div>
+<script>
 
+    //$(document).ready(function() {
+        function valida_cep() {
+            var cep = $('#cep').val();
+            var ender = $.getJSON("https://viacep.com.br/ws/" + cep + "/json/", function(data) {
+                var logradouro = ender["responseJSON"].logradouro;
+                var localidade = ender["responseJSON"].localidade;
+                var bairro = ender["responseJSON"].bairro;
+                var uf = ender["responseJSON"].uf;
+                $('#cidade').val(localidade);
+                $('#estado').val(uf);
+                $('#bairro').val(bairro);
+                $('#logradouro').val(logradouro);
+                console.log(ender['responseJSON']);
+            });
+        };
+    //});
+</script>
 
 </body>
 <footer>

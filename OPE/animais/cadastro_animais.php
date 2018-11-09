@@ -9,6 +9,25 @@ include_once '../config/server.php';
 
 include_once ROOT_PATH.'mysql_conexao/conexao_mysql.php';
 
+/*$cidade="";
+$bairro="";
+$logradouro ="";
+
+
+if(isset($_POST['valida-cep'])){
+    
+    $cep = $_POST['cep'];
+    
+    $ver = json_decode(file_get_contents("https://viacep.com.br/ws/".$cep."/json/"),true);
+        $cidade = $ver['cidade'];
+        $bairro = $ver['bairro'];
+        $logradouro = $ver['logradouro'];
+    
+    header('refresh:0');
+}*/
+
+
+
 session_start();
     if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true))
     {
@@ -28,7 +47,7 @@ $logi_id = $_SESSION['logi_id'];
     include_once(ROOT_PATH."menu_footer/menu_latera_empreendimento.php");
     }
     if ($_SESSION['grup_id'] == 1){    
-    include_once(ROOT_PATH."menu_footer/menu_administrador.php");
+        include_once(ROOT_PATH."menu_footer/menu_administrador.php");
     }
     if ($_SESSION['grup_id'] == 3){    
     include_once(ROOT_PATH."menu_footer/menu_usuario.php");
@@ -39,7 +58,11 @@ $logi_id = $_SESSION['logi_id'];
 <!-- Optional JavaScript -->    
 <script src="<?php echo $server_static?>static/jquery.js"></script> 
 <script src="<?php echo $server_static?>static/bootstrap/js/bootstrap.js"></script> 
+
+
+
 <html>
+
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -139,27 +162,36 @@ $logi_id = $_SESSION['logi_id'];
                                     <legend>Endereço</legend>
                                 </h2>
                                 <div class="form-row">
+                                   <div class="col-md-12 text-center">
+                                   <div class="col">
+                                    <label>CEP  </label>
+                                        <input class="form-control form-control-sm" type="text" name="cep" id="cep"><br/>
+                                    </div>
+                                    <div class="col">
+                                        <input class="btn btn-success btn-lg" type="button" onclick="valida_cep()" value="Validar CEP" name="valida-cep"><br/>
+                                    </div>
+                                    </div>
                                     <div class="col">
                                         <label>Pais  </label>
-                                        <input class="form-control form-control-sm" type="text" name="pais" id="pais" maxlength="2"><br/>
+                                        <input class="form-control form-control-sm" value="BR" readonly type="text" name="pais" id="pais" maxlength="2"><br/>
                                     </div>
                                     <div class="col">
                                         <label>Estado  </label>
-                                        <input class="form-control form-control-sm" type="text" name="estado" id="estado" maxlength="2"><br/>
+                                        <input class="form-control form-control-sm" value="" readonly type="text" name="estado" id="estado" maxlength="2"><br/>
                                     </div>
                                     <div class="col">
                                         <label>Cidade </label>
-                                        <input class="form-control form-control-sm" type="text" name="cidade" id="cidade"><br/>
+                                        <input class="form-control form-control-sm" type="text" readonly name="cidade" id="cidade"><br/>
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="col">
                                         <label>Bairro </label>
-                                        <input class="form-control form-control-sm" type="text" name="bairro" id="bairro"><br/>
+                                        <input class="form-control form-control-sm"  type="text" name="bairro"  id="bairro"><br/>
                                     </div>
                                     <div class="col">
                                         <label>Logradouro </label>
-                                        <input class="form-control form-control-sm" type="text" name="logradouro" id="logradouro">
+                                        <input class="form-control form-control-sm" type="text"  name="logradouro" id="logradouro">
                                     </div>
                                     <div class="col">
                                         <label>Número  </label>
@@ -171,10 +203,8 @@ $logi_id = $_SESSION['logi_id'];
                                         <label>Complemento  </label>
                                         <input class="form-control form-control-sm" type="text" name="complemento" id="complemento"><br/>
                                     </div>
-                                    <div class="col">
-                                        <label>CEP  </label>
-                                        <input class="form-control form-control-sm" type="text" name="cep" id="cep"><br/>
-                                    </div>
+                                    
+                                    
                                 </div>
                             </fieldset>
                             <input class="btn btn-success btn-sm btn-block" type="submit" value="Cadastrar">
@@ -183,15 +213,32 @@ $logi_id = $_SESSION['logi_id'];
             </form>
         </div>
     </div>
+<script>
+    //$(document).ready(function() {
+        function valida_cep() {
+            var cep = $('#cep').val();
+            var ender = $.getJSON("https://viacep.com.br/ws/" + cep + "/json/", function(data) {
+                var logradouro = ender["responseJSON"].logradouro;
+                var localidade = ender["responseJSON"].localidade;
+                var bairro = ender["responseJSON"].bairro;
+                var uf = ender["responseJSON"].uf;
+                $('#cidade').val(localidade);
+                $('#estado').val(uf);
+                $('#bairro').val(bairro);
+                $('#logradouro').val(logradouro);
+                console.log(ender['responseJSON']);
+            });
+        };
+    //});
+</script>
 </body>
 <footer>
+    
+    
 
     <?php 
     include_once(ROOT_PATH."menu_footer/footer.php");    
     
     ?>
-
-</footer>
-       
-</html>      
+      
         

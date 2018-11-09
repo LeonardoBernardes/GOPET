@@ -179,20 +179,28 @@ if(!empty($row2)){
                             <legend>Endereço</legend>
                         </h2>
                         <div class="form-row">
+                           <div class="col-md-12">
+                            <div class="col">
+                                <label>CEP  </label>
+                                <input class="form-control form-control-sm" required type="text" name="cep" id="cep" value='<?php echo $usua_cep ?>'>
+                                <input type="button" class="btn btn-success" value="Valida cep" onclick="valida_cep()">
+                            </div>
+                            </div>
                             <div class="col">
                                 <label>Cidade</label>
-                                <input class="form-control form-control-sm" type="text" name="cidade" id="cidade" value='<?php echo $usua_cidade ?>'>
+                                <input class="form-control form-control-sm" type="text" name="cidade" readonly id="cidade" value='<?php echo $usua_cidade ?>'>
                             </div>
                             <div class="col">
-                                <label>Estado: </label> // só sigla
-                                <input class="form-control form-control-sm" type="text" name="estado" id="estado" value='<?php echo $usua_estado ?>'>
+                                <label>Estado: </label> 
+                                <input class="form-control form-control-sm" type="text" name="estado" readonly id="estado" value='<?php echo $usua_estado ?>'>
                             </div>
                             <div class="col">
-                                <label>Pais: // só sigla </label>
-                                <input class="form-control form-control-sm" type="text" name="pais" id="pais" value='<?php echo $usua_pais ?>'>
+                                <label>Pais:  </label>
+                                <input class="form-control form-control-sm" type="text" name="pais" readonly id="pais" value='<?php echo $usua_pais ?>'>
                             </div>
                         </div>
                         <div class="form-row">
+                           
                             <div class="col">
                                 <label>Bairro  </label>
                                 <input class="form-control form-control-sm" type="text" name="bairro" id="bairro" value='<?php echo $usua_bairro ?>'>
@@ -211,10 +219,8 @@ if(!empty($row2)){
                                 <label>Complemento  </label>
                                 <input class="form-control form-control-sm" type="text" name="complemento" id="complemento" value='<?php echo $usua_complemento ?>'>
                             </div>
-                            <div class="col">
-                                <label>CEP  </label>
-                                <input class="form-control form-control-sm" type="text" name="cep" id="cep" value='<?php echo $usua_cep ?>'>
-                            </div>
+                            
+                            
                         </div>
                     </fieldset>
                     <hr>
@@ -227,7 +233,25 @@ if(!empty($row2)){
         </div>
         </div>
     </div>
+<script>
 
+    //$(document).ready(function() {
+        function valida_cep() {
+            var cep = $('#cep').val();
+            var ender = $.getJSON("https://viacep.com.br/ws/" + cep + "/json/", function(data) {
+                var logradouro = ender["responseJSON"].logradouro;
+                var localidade = ender["responseJSON"].localidade;
+                var bairro = ender["responseJSON"].bairro;
+                var uf = ender["responseJSON"].uf;
+                $('#cidade').val(localidade);
+                $('#estado').val(uf);
+                $('#bairro').val(bairro);
+                $('#logradouro').val(logradouro);
+                console.log(ender['responseJSON']);
+            });
+        };
+    //});
+</script>
 
 </body>
 <footer>

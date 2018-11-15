@@ -47,10 +47,10 @@ include_once ROOT_PATH."menu_footer/menu_latera_empreendimento.php"
         <div class="container login-empreendimento">
             
                 <fieldset id="fie">
-                    <h2 class="btn btn-dark btn-sm btn-block">
+                    <h2 style="background:#4fdc6f; color:white;" class="btn btn-sm btn-block">
                         <legend>Cadastrar Evento</legend>
                     </h2>
-                    <hr>
+                    <br>
                     <form method="post" action="cadastrar_eventos.php" id="formlogin" name="formlogin" enctype="multipart/form-data">
                         <fieldset id="fie">
                             <div class="card-group">
@@ -80,9 +80,8 @@ include_once ROOT_PATH."menu_footer/menu_latera_empreendimento.php"
                             </div>
                             <label>Descrição</label>
                             <textarea class="form-control form-control-sm" type="text" name="descricao" id="descricao"></textarea>
-                            <hr>
-
-                            <input class="btn btn-success btn-sm btn-block" type="submit" value="Cadastrar">
+                                <br>
+                            <input style="background:#4fdc6f; color:white;" class="btn" type="submit" value="Cadastrar">
 
                         </fieldset>
 

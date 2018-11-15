@@ -47,7 +47,7 @@ include_once ROOT_PATH .'mysql_conexao/conexao_mysql.php';
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                  <li class="nav-item active">
-                    <a class="nav-link" href="../index.php">Home</a>
+                    <a class="nav-link" href="<?php echo $server_static;?>index.php">Home</a>
                 </li>
                 <div class="dropdown">
                   <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

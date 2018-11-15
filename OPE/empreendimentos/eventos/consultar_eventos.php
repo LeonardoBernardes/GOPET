@@ -154,19 +154,19 @@ include_once ROOT_PATH."menu_footer/menu_latera_empreendimento.php"
 
     <div>   
     <div class="main">
-        <h2><label style="margin-top:5%; margin-left:5%;" >Consulta Eventos</label></h2>
+        <h2 align="center"><label style="margin-top:5%; margin-left:5%;" >Consulta Eventos</label></h2>
        
     <div class="table-responsive">
     <table class="table table-hover" style="width:100%">
         <thead>
         <tr style="background:#4fdc6f">
-            <th scope="col">ID</th>
-            <th scope="col">Imagem</th>
-            <th scope="col">Nome</th>
-            <th scope="col">Descrição</th>
-            <th scope="col">Data de realização</th>
-            <th scope="col">Status</th>
-            <th scope="col">Editar</th>
+            <th style="color:white;" scope="col">ID</th>
+            <th style="color:white;" scope="col">Imagem</th>
+            <th style="color:white;" scope="col">Nome</th>
+            <th style="color:white;" scope="col">Descrição</th>
+            <th style="color:white;" scope="col">Data de realização</th>
+            <th style="color:white;" scope="col">Status</th>
+            <th style="color:white;" scope="col">Editar</th>
         </tr>
         </thead>
         <?php echo $results ?>

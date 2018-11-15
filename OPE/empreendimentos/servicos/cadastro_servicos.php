@@ -48,7 +48,7 @@ include_once ROOT_PATH."menu_footer/menu_latera_empreendimento.php"
         <div class="container login-empreendimento">
            
                 <fieldset id="fie">
-                    <h2 class="btn btn-dark btn-sm btn-block">
+                    <h2 style="background:#4fdc6f; color:white;" class="btn btn-sm btn-block">
                         <legend>Cadastrar Serviços</legend>
                     </h2><br>
                     <form method="post" action="cadastrar_servicos.php" id="formlogin" name="formlogin" enctype="multipart/form-data">
@@ -94,12 +94,10 @@ include_once ROOT_PATH."menu_footer/menu_latera_empreendimento.php"
                             <label>Descrição </label>
                             <textarea class="form-control form-control-sm" type="text" name="descricao" id="descricao"></textarea><br/>
                             <hr>
-                            <input class="btn btn-success btn-sm btn-block" type="submit" value="Cadastrar">
-                            <hr>
+                            <input style="background:#4fdc6f; color:white;" class="btn" type="submit" value="Cadastrar">
                         </fieldset>
 
                     </form>
-                    <a class="btn btn-dark btn-sm btn-block" href="..\home_empreendimento.php"> Voltar</a>
 
                 </fieldset>
   

@@ -48,7 +48,7 @@ include_once ROOT_PATH."menu_footer/menu_latera_empreendimento.php"
         <div class="container login-empreendimento">
             <!--form method="post" action="cadastrar_empreendimento.php" id="formlogin" name="formlogin" enctype="multipart/form-data" -->
                 <fieldset id="fie">
-                    <h2 class="btn btn-dark btn-sm btn-block">
+                    <h2 style="background:#4fdc6f; color:white;" class="btn btn-sm btn-block">
                         <legend>Cadastrar Produto</legend>
                     </h2><br>
                     <form method="post" action="cadastrar_produtos.php" id="formlogin" name="formlogin" enctype="multipart/form-data">
@@ -99,9 +99,8 @@ include_once ROOT_PATH."menu_footer/menu_latera_empreendimento.php"
                             </div>
                             <label>Descrição  </label>
                             <textarea class="form-control form-control-sm" type="text" name="descricao" id="descricao"></textarea><br/>
-                            <hr>
                         </fieldset>
-                        <input class="btn btn-success btn-sm btn-block" type="submit" value="Cadastrar">
+                        <input style="background:#4fdc6f; color:white;" class="btn" type="submit" value="Cadastrar">
                     </form>
                 </fieldset>
             <!--/form-->

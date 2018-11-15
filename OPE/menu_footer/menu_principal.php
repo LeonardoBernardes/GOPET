@@ -15,7 +15,7 @@ session_start();
 <head>
 
     <!-- Icone da Pagina & Titulo -->
-    <link rel="icon" href="static/imagens/icon_preto.png">
+    <link rel="icon" href="../static/imagens/icon_preto.png">
     <title>GoPet</title>
 
     <!-- Required meta tags -->
@@ -52,11 +52,11 @@ session_start();
                 
             </ul>
 
-            <form class="form-inline my-2 my-lg-0">
+            <!--<form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Search">
 
                 <button style="background:#4fdc6f; color:white;" class="btn" type="submit">Pesquisar</button>
-            </form>
+            </form>-->
          <ul class="navbar-nav justify-content-end">   
         <?php if (!empty($_SESSION['grup_id'])){
                 if ($_SESSION['grup_id'] == 2 || $_SESSION['grup_id'] == 4)
@@ -66,7 +66,11 @@ session_start();
                                 <a class="nav-link" href="empreendimentos/cadastro_empreendimentos.php">
                                      <i class="fa fa-user-circle fa-2x"></i>&nbsp; Meus Dados
                                 </a>
-                            </li>';
+                            </li>
+                            <li class="nav-item active">
+                                <a class="btn" href="logaut.php" ><img src="static/icones/sair.png" style="width:30px;" alt="gopet"/></a>
+                            </li>
+                            ';
                 };
             }
           elseif($_SESSION['grup_id'] == 3)
@@ -76,7 +80,11 @@ session_start();
                                     <a class="nav-link" href="usuarios/cadastro_usuarios.php">
                                          <i class="fa fa-user-circle fa-2x"></i>&nbsp; Meus Dados
                                     </a>
-                            </li>';
+                            </li>                            
+                            <li class="nav-item active">
+                                <a class="btn" href="logaut.php" ><img src="static/icones/sair.png" style="width:30px;" alt="gopet"/></a>
+                            </li>
+                            ';
                };
             };
         }else
@@ -105,7 +113,7 @@ session_start();
             <div class="modal-content">
                 <div class="modal-header">
 
-                    <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+                    <h5 align="center" class="modal-title" id="exampleModalLabel">Login</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>

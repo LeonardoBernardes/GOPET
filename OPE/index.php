@@ -39,7 +39,7 @@ margin-top:8%;
       <link href="assets/css/flexslider.css" rel="stylesheet">
   <link href="assets/css/sequence.css" rel="stylesheet">
   <link href="assets/css/style.css" rel="stylesheet">
-  <link href="assets/color/default.css" rel="stylesheet">
+  <!-- <link href="assets/color/default.css" rel="stylesheet"> -->
     <title>Gopet</title>
     
 </head>
@@ -54,7 +54,7 @@ margin-top:8%;
 
   <section>
      <?php if(isset($_SESSION['loginErro'])){
- $result = '<p class="alert alert-danger">'.$_SESSION['loginErro'].'</p>';
+ $result = $_SESSION['loginErro'];
     echo $result;
     unset($_SESSION['loginErro']);
 }?> 
@@ -79,7 +79,7 @@ margin-top:8%;
                   <!-- Layer 1 -->
                   <li>
                     <div class="info animate-in">
-                      <h2>GoPet</h2>
+                      <h2 style="color:black;">GoPet</h2>
                       <br>
                       <p>
                          Sistema que Conecta pessoas e Animais
@@ -90,7 +90,7 @@ margin-top:8%;
                   <!-- Layer 2 -->
                   <li>
                     <div class="info">
-                      <h2>Negocios</h2>
+                      <h2 style="color:black;" >Negocios</h2>
                       <br>
                       <p>
                        Anuncie seus produtos & serviço conosco e ganhe cliente novos.
@@ -101,7 +101,7 @@ margin-top:8%;
                   <!-- Layer 3 -->
                   <li>
                     <div class="info">
-                      <h2>Lar</h2>
+                      <h2 style="color:black;">Lar</h2>
                       <br>
                       <p>
                        Encontre aqui seu novo animal de estimação, GRATUITO, lembre-se além de você entregar a ele um lar, você está tirando um vida do perigo.
@@ -134,7 +134,7 @@ margin-top:8%;
   <script src="assets/js/application.js"></script>
   <script src="assets/js/jquery.flexslider.js"></script>
   <script src="assets/js/hover/jquery-hover-effect.js"></script>
-  <script src="assets/js/hover/setting.js"></script>
+
 
   <!-- Template Custom JavaScript File -->
   <script src="assets/js/custom.js"></script>

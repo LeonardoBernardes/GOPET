@@ -38,7 +38,7 @@ include_once ROOT_PATH."menu_footer/menu_principal.php";
                     <label>Senha </label> 
                     <input class="input-group-text btn-lg btn-block" type="password" name="senha" id="senha"><br/>
 
-                    <input class="btn btn-success btn-lg btn-block" type="submit" value="Cadastrar">
+                    <input style="background:#4fdc6f; color:white;" class="btn btn-lg btn-block" type="submit" value="Cadastrar">
                     <hr>
                     <p>Deseja se Logar? <a href="<?php echo $server_static;?>index.php">clique aqui</a></p>
                 </fieldset>

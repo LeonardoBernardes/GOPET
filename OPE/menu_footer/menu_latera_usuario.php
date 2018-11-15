@@ -38,7 +38,7 @@ body {
     position: fixed;
     z-index: 1;
     top: 10px;
-    background: #eee;
+    background: #4fdc6f;
     overflow-x: hidden;
     padding: 8px 0;
 }
@@ -53,7 +53,12 @@ body {
 .sidenav a:hover {
     color: #064579;
 }
-
+#menu_lateral{
+    background: #4fdc6f;
+    box-shadow: 3px 0px white;
+    color:rgb(0, 0, 0) !important;
+    line-height: 4.5;
+}
 
 .sticky {
   position: fixed;
@@ -85,8 +90,8 @@ $menu = '';
 //var_dump($_SESSION);
 if ($_SESSION['grup_id'] == 3){
 
-    $menu .='   <li class="nav-item item-menu-usuario">
-                    <a class="nav-link" href="'. $server_static.'usuarios/cadastro_usuarios.php"><img src="'. $server_static.'static/icones/dados.png" style="width:20px;"/> Meus Dados </a>
+    $menu .='   <li  class="nav-item item-menu-usuario">
+                    <a class="nav-link" href="'. $server_static.'usuarios/cadastro_usuarios.php"><img src="'. $server_static.'static/icones/dados.png" style="width:20px;"/><span style="color:white;"> Meus Dados </span></a>
                 </li>
 
             ';
@@ -107,20 +112,20 @@ if ($_SESSION['grup_id'] == 3){
 
         if(!empty($row2)){
 */
-            $menu .='   <li class="nav-item item-menu-usuario">
-                            <a class="nav-link" href="'. $server_static.'animais/consulta_animais.php"><img src="'. $server_static.'static/icones/animais.png" style="width:20px;"/> Meus Animais </a>
+            $menu .='   <li  class="nav-item item-menu-usuario">
+                            <a class="nav-link" href="'. $server_static.'animais/consulta_animais.php"><img src="'. $server_static.'static/icones/animais.png" style="width:20px;"/> <span style="color:white;">Meus Animais</span> </a>
                         </li>
-                        <li class="nav-item item-menu-usuario">
-                        <a class="nav-link" href="'. $server_static.'usuarios/eventos/consultar_eventos.php"><img src="'. $server_static.'static/icones/eventos.png" style="width:20px;"/> Meus Eventos</a>
+                        <li  class="nav-item item-menu-usuario">
+                        <a class="nav-link" href="'. $server_static.'usuarios/eventos/consultar_eventos.php"><img src="'. $server_static.'static/icones/eventos.png" style="width:20px;"/> <span style="color:white;">Meus Eventos</span></a>
                         </li>
-                        <li class="nav-item item-menu-usuario">
-                        <a class="nav-link" href="'. $server_static.'usuarios/favoritos.php"><img src="'. $server_static.'static/icones/favoritos.png" style="width:20px;"/> Favoritos</a>
+                        <li  class="nav-item item-menu-usuario">
+                        <a class="nav-link" href="'. $server_static.'usuarios/favoritos.php"><img src="'. $server_static.'static/icones/favoritos.png" style="width:20px;"/> <span style="color:white;">Favoritos</span></a>
                         </li>
                         <!--li class="nav-item item-menu-usuario">
-                            <a class="nav-link" href="'. $server_static.'usuarios/favoritos_animais.php"><img src="'. $server_static.'static/icones/eventos.png" style="width:20px;"/> Animais Favoritos</a>
+                            <a class="nav-link" href="'. $server_static.'usuarios/favoritos_animais.php"><img src="'. $server_static.'static/icones/eventos.png" style="width:20px;"/> <span style="color:white;">Animais Favoritos</span></a>
                         </li-->
-                        <!--li class="nav-item item-menu-usuario">
-                        <a class="nav-link" href="'. $server_static.'usuarios/favoritos_empreendimentos.php"><img src="'. $server_static.'static/icones/eventos.png" style="width:20px;"/> Empreendimentos Favoritos</a>
+                        <!--li " class="nav-item item-menu-usuario">
+                        <a class="nav-link" href="'. $server_static.'usuarios/favoritos_empreendimentos.php"><img src="'. $server_static.'static/icones/eventos.png" style="width:20px;"/> <span style="color:white;">Empreendimentos Favoritos</span></a>
                         </li-->
                        
                       
@@ -135,11 +140,13 @@ if ($_SESSION['grup_id'] == 3){
 
 
 
-<nav class="position-fixed sidenav navbar navbar-light bg-light nav_bar_usuario">
-<ul class="navbar-nav mr-auto" style="margin-left:10px;">
+<nav id="menu_lateral" class="position-fixed sidenav navbar navbar-light nav_bar_empreendimento" >
+
+<ul class="navbar-nav nav-pills" style="margin-left:0px;">
 
     <?php echo $menu ?>
 </ul>
+
 </nav>
 
    

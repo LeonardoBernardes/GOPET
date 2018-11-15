@@ -110,7 +110,7 @@ if(!empty($row2)){
 
 <head>
 <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
-    
+
 </head>
     
 
@@ -125,7 +125,7 @@ include_once ROOT_PATH."menu_footer/menu_latera_empreendimento.php"
         <div class="container login-empreendimento">
             <form method="post" action="cadastrar_empreendimento.php" id="formlogin" name="formlogin" enctype="multipart/form-data">
                 <fieldset id="fie">
-                    <h2 class="btn btn-dark btn-sm btn-block">
+                    <h2 style="background:#4fdc6f; color:white;" class="btn btn-lg btn-block">
                         <legend>Dados Empreendimento</legend>
                     </h2><br>
                     <div class="card-group">
@@ -160,18 +160,20 @@ include_once ROOT_PATH."menu_footer/menu_latera_empreendimento.php"
 
                     <fieldset id="fie"><br>
 
-                        <h2 class="btn btn-secondary btn-sm btn-block">
+                        <h2 style="background:#4fdc6f; color:white;" class="btn btn-lg btn-block">
                             <legend>Endereço</legend>
                         </h2>
                         <br>
                         <div class="form-row">
-                           <div class="col-md-12">
                             <div class="col">
-                                <label>CEP  </label>
-                                <input class="form-control form-control-sm" required type="text" name="cep" id="cep" value='<?php echo $emen_cep ?>'>
-                                <input type="button" class="btn btn-success" value="Valida cep" onclick="valida_cep()">
+                                <label>CEP:</label>
+                                <input class="form-control-sm" required type="text" name="cep" id="cep" value='<?php echo $emen_cep ?>'>
+                               <label>&nbsp;</label>
+                                <input type="button" style="background:#4fdc6f; color:white;" class="btn" value="Valida cep" onclick="valida_cep()">
                             </div>
                             </div>
+                        <br>
+                        <div class="form-row">
                             <div class="col">
                                 <label>Cidade</label>
                                 <input class="form-control form-control-sm" readonly type="text" name="cidade" id="cidade" value='<?php echo $emen_cidade ?>'>
@@ -208,7 +210,7 @@ include_once ROOT_PATH."menu_footer/menu_latera_empreendimento.php"
                         </div>
                     </fieldset>
                     <br>
-                    <input class="btn btn-success btn-sm btn-block" type="submit" value="Salvar Dados">
+                    <input style="background:#4fdc6f; color:white;" class="btn" type="submit" value="Salvar Dados">
                 </fieldset>
 
             </form>

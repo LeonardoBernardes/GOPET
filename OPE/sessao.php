@@ -47,16 +47,16 @@ if(mysqli_num_rows($result) > 0)
         if($row->grup_id == 1){
             header('location: '.$server_static.'administradores/home_administradores.php');
         }elseif($row->grup_id == 2 || $row->grup_id == 4){
-            header('location: '.$server_static.'empreendimentos/home_empreendimento.php');
+            header('location: '.$server_static.'index.php');
         }elseif($row->grup_id == 3 ){
-            header('location: '.$server_static.'usuarios/home_usuarios.php');
+            header('location: '.$server_static.'index.php');
         }
     }
 
 }else{
   unset ($_SESSION['login']);
   unset ($_SESSION['senha']);
-  $_SESSION['loginErro'] = 'Sua senha ou login está errado.';
+  $_SESSION['loginErro'] = 'Sua senha ou login está errada!';
   header('location: '.$server_static.'index.php');
    
 }

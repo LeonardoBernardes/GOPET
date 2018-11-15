@@ -6,6 +6,7 @@
  * @Last Modified by: Leonardo.Bernardes
  * @Last Modified time: 2018-08-29 18:28:38
  */
+session_start();
 ?>
 
 <!doctype html>
@@ -14,7 +15,7 @@
 <head>
 
     <!-- Icone da Pagina & Titulo -->
-    <link rel="icon" href="<?php echo $server_static;?>static/imagens/icon_preto.png">
+    <link rel="icon" href="static/imagens/icon_preto.png">
     <title>GoPet</title>
 
     <!-- Required meta tags -->
@@ -54,9 +55,33 @@
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Search">
 
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
+                <button style="background:#4fdc6f; color:white;" class="btn" type="submit">Pesquisar</button>
             </form>
-         <ul class="navbar-nav justify-content-end">    
+         <ul class="navbar-nav justify-content-end">   
+        <?php if (!empty($_SESSION['grup_id'])){
+                if ($_SESSION['grup_id'] == 2 || $_SESSION['grup_id'] == 4)
+            { 
+                if (!empty($_SESSION['grup_id'])){
+                    echo '<li class="nav-item">
+                                <a class="nav-link" href="empreendimentos/cadastro_empreendimentos.php">
+                                     <i class="fa fa-user-circle fa-2x"></i>&nbsp; Meus Dados
+                                </a>
+                            </li>';
+                };
+            }
+          elseif($_SESSION['grup_id'] == 3)
+          {
+               if (!empty($_SESSION['grup_id'])){
+                    echo '<li class="nav-item">
+                                    <a class="nav-link" href="usuarios/cadastro_usuarios.php">
+                                         <i class="fa fa-user-circle fa-2x"></i>&nbsp; Meus Dados
+                                    </a>
+                            </li>';
+               };
+            };
+        }else
+            {
+                echo'
             <li class="nav-item">
                 <a class="nav-link" href="#" data-toggle="modal" data-target="#card_login">
                      <i class="fa fa-user-circle fa-2x"></i>&nbsp; Login
@@ -67,7 +92,10 @@
                     <i class="fa fa-user-plus fa-2x"></i>&nbsp; Cadastrar
                 </a>
             </li> 
-            </ul>
+            </ul>';
+                
+            }; 
+        ?>
         </div>
     </nav>
 
@@ -76,6 +104,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
+
                     <h5 class="modal-title" id="exampleModalLabel">Login</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -90,12 +119,9 @@
                             <input class="form-control" type="password" name="senha" id="senha" /><br/>
                         </fieldset>
                         <br>
-                        <input class="btn btn-outline-success btn-sm btn-block" type="submit" value="Login" />
+                        <input style="background:#4fdc6f; color:white;" class="btn btn-sm btn-block" type="submit" value="Login" />
                         <hr>
                         <p>Deseja se Cadastra-se? <a href="cadastro_login.php">clique aqui</a></p>
-                        <div class="modal-footer">
-
-                        </div>
                     </form>
                 </div>
             </div>

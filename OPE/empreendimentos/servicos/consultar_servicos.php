@@ -145,7 +145,7 @@ include_once ROOT_PATH."menu_footer/menu_latera_empreendimento.php"
     </div>
 
         <a class="btn btn-dark" href="../../empreendimentos/home_empreendimento.php"> Voltar</a>
-        <a class="btn btn-success" href="<?php echo $server_static?>empreendimentos/servicos/cadastro_servicos.php">Cadastrar Serviço</a>
+        <a style="background:#4fdc6f; color:white;"  class="btn" href="<?php echo $server_static?>empreendimentos/servicos/cadastro_servicos.php">Cadastrar Serviço</a>
         
     </div>
 </div>

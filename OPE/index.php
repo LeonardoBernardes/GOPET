@@ -8,7 +8,7 @@
 include_once 'config/server.php';
 //var_dump($_SESSION);
 //return;
-
+session_start();
 ?>
 
 <!doctype html>
@@ -32,39 +32,35 @@ margin-top:8%;
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="<?php echo $server_static;?>static/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="<?php echo $server_static;?>static/estilo.css">
-      <link href="https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600,700" rel="stylesheet">
   <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
   <link href="assets/css/docs.css" rel="stylesheet">
   <link href="assets/css/prettyPhoto.css" rel="stylesheet">
   <link href="assets/js/google-code-prettify/prettify.css" rel="stylesheet">
-  <link href="assets/css/flexslider.css" rel="stylesheet">
+      <link href="assets/css/flexslider.css" rel="stylesheet">
   <link href="assets/css/sequence.css" rel="stylesheet">
   <link href="assets/css/style.css" rel="stylesheet">
   <link href="assets/color/default.css" rel="stylesheet">
     <title>Gopet</title>
+    
 </head>
 
 <body >
-  
-<?php if(empty($_SESSION['loginErro'])){
 
-var_dump("TESTE");
- return;
-
- $result = '<p class="alert alert-danger">'.$_SESSION['loginErro'].'</p>';
-    echo $result;
-    unset($_SESSION['loginErro']);
-}?>
      
     
      <!-- MEIO -->
  <main role="main">
 
 
-  <section id="intro">
-      
+  <section>
+     <?php if(isset($_SESSION['loginErro'])){
+ $result = '<p class="alert alert-danger">'.$_SESSION['loginErro'].'</p>';
+    echo $result;
+    unset($_SESSION['loginErro']);
+}?> 
     <div class="jumbotron masthead">
       <div class="container">
+          
         <!-- slider navigation -->
         <div class="sequence-nav">
           <div class="prev">
@@ -122,53 +118,6 @@ var_dump("TESTE");
       </div>
     </div>
   </section>
-  <section id="maincontent">
-    <div class="container">
-      <div class="row">
-        <div class="span3 features">
-          <i class="icon-circled icon-32 icon-suitcase left active"></i>
-          <h4>Empresa</h4>
-          <div class="dotted_line">
-          </div>
-          <p class="left">
-            Nossa parceria pode ser seu melhor negocio, anunciamos seus produtos, seus serviços por um preço muito acessivel.
-          </p>
-        </div>
-        <div class="span3 features">
-          <i class="icon-circled icon-32 icon-cloud-upload left"></i>
-          <h4>Apoio</h4>
-          <div class="dotted_line">
-          </div>
-          <p class="left">
-            Utilize seu dia como um apoio para sociedade, facil e simples, com apenas um clique e uma foto você ja pode tirar um animal da rua.
-          </p>
-        </div>
-        <div class="span3 features">
-          <i class="icon-circled icon-32 icon-wrench left"></i>
-          <h4>Ferramenta</h4>
-          <div class="dotted_line">
-          </div>
-          <p class="left">
-            Sistema que Conecta pessoas e animais.
-          </p>
-        </div>
-      </div>
-      <div class="row">
-          <div class="tagline centered">
-            <div class="row">
-              <div class="span12">
-                <div class="tagline_text">
-                  <h2>Aplicativo</h2>
-                </div>
-                  <a  class="btn btn-large btn-color" href="#">
-							<img src="<?php echo $server_static;?>static/icones/download.png" style="width:20px;"/>  Download 
-                    </a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- end tagline -->
-        </div>
 
       
 

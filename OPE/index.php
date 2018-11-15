@@ -54,10 +54,11 @@ margin-top:8%;
 
   <section>
      <?php if(isset($_SESSION['loginErro'])){
- $result = $_SESSION['loginErro'];
-    echo $result;
-    unset($_SESSION['loginErro']);
-}?> 
+        $result = $_SESSION['loginErro'];
+        echo $result;
+        unset($_SESSION['loginErro']);
+    }?> 
+      
     <div class="jumbotron masthead">
       <div class="container">
           

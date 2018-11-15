@@ -23,7 +23,7 @@
     transition: 1.2s;
     border-radius: 0.2em;
     padding: 10px;
-    border-color: green;
+    border-color: white;
     margin-bottom: 5px;
 }
 .item-menu-usuario:hover{
@@ -31,7 +31,7 @@
     border:1px solid;
     transition: 1s;
     border-radius: 0em 2em 0em 0em;
-    border-color: green;
+    border-color: white;
     padding: 10px;
     box-shadow: 0px 0px 5px black;
 }
@@ -40,7 +40,7 @@
     transition: 1.2s;
     border-radius: 0.2em;
     padding: 10px;
-    border-color: green;
+    border-color: white;
     margin-bottom: 5px;
 }
 .item-menu-empreendimento:hover{
@@ -48,7 +48,7 @@
     border:1px solid;
     transition: 1s;
     border-radius: 0em 2em 0em 0em;
-    border-color: green;
+    border-color: white;
     padding: 10px;
     box-shadow: 0px 0px 5px black;
 }

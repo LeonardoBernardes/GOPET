@@ -9,14 +9,46 @@ include_once '../config/server.php';
     include_once ROOT_PATH .'mysql_conexao/conexao_mysql.php';
     session_start();
     
-        if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true))
-        {
-            unset($_SESSION['login']);
-            unset($_SESSION['senha']);
-            unset($_SESSION['grup_id']);
-            header('location:'.$server_static.'index.php');
+    if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true))
+    {
+        unset($_SESSION['login']);
+        unset($_SESSION['senha']);
+        unset($_SESSION['grup_id']);
+        header('location:'.$server_static.'index.php');
+    }
+    if(isset($_GET['tipo_filtro']) &&  isset($_GET['filtro_endereco']) ){
+
+      $tp_filtro = (!empty($_GET['tipo_filtro'])) ? $_GET['tipo_filtro'] : "";
+      
+      // configuração filtro endereco
+      $texto_filtro = (!empty($_GET['filtro_endereco'])) ? $_GET['filtro_endereco'] : "";
+      if(!empty($texto_filtro)){
+        $texto_filtro = rtrim($texto_filtro);
+        $texto_filtro = ltrim($texto_filtro);
+        if((substr_count($texto_filtro,"/")) == 1){
+    
+    
+          $arr = explode("/",$texto_filtro);
+          $cidade = $arr[0];
+          $bairro = $arr[1];
+    
+        }elseif((substr_count($texto_filtro,"/")) > 1){
+          $arr = explode("/",$texto_filtro);
+          $cidade = $arr[0];
+          $bairro = $arr[1];
+          $rua = $arr[2];
         }
-     
+        elseif((substr_count($texto_filtro,"/")) == 0 ){
+          // echo"teste";
+          // return;
+          $cidade = $texto_filtro;
+        }
+        
+        
+      //return;
+      }
+    }
+
     $logado = $_SESSION['login'];
     $logi_id = $_SESSION['logi_id'];
     $grup_id = $_SESSION['grup_id'];
@@ -24,31 +56,48 @@ include_once '../config/server.php';
     $results = "";
     $arr_empreendimentos = array();
 
-    $sql = "SELECT
-              empreendimentos_enderecos.emen_id as id,
-              empreendimentos.empr_nome as nome,
-              empreendimentos.empr_slogan as slogan,
-              empreendimentos_enderecos.emen_logradouro as endereco,
-              empreendimentos_enderecos.emen_numero as numero,
-              empreendimentos_enderecos.emen_estado as estado,
-              empreendimentos_enderecos.emen_cidade as cidade,
-              empreendimentos_enderecos.emen_bairro as bairro,
-              empreendimentos_enderecos.emen_cep as cep,
-              empreendimentos_enderecos.emen_longitude as latitude,
-              empreendimentos_enderecos.emen_latitude as longitude,
-              empreendimentos_imagens.emim_endereco as imagem
-            FROM 
-              empreendimentos_enderecos
-            INNER JOIN
-              empreendimentos
-            ON
-              (empreendimentos_enderecos.empr_id = empreendimentos.empr_id)
-            INNER JOIN
-              empreendimentos_imagens
-            ON
-              (empreendimentos_enderecos.empr_id = empreendimentos_imagens.empr_id)";
-//echo $sql;
-//return;
+    $sql = "SELECT 
+              empreendimentos_enderecos.emen_id AS id,
+              empreendimentos.empr_id AS empr_id,
+              empreendimentos.empr_nome AS nome,
+              empreendimentos.empr_slogan AS slogan,
+              empreendimentos_enderecos.emen_logradouro AS endereco,
+              empreendimentos_enderecos.emen_numero AS numero,
+              empreendimentos_enderecos.emen_estado AS estado,
+              empreendimentos_enderecos.emen_cidade AS cidade,
+              empreendimentos_enderecos.emen_bairro AS bairro,
+              empreendimentos_enderecos.emen_cep AS cep,
+              empreendimentos_enderecos.emen_longitude AS latitude,
+              empreendimentos_enderecos.emen_latitude AS longitude,
+              empreendimentos_imagens.emim_endereco AS imagem
+            FROM
+                login
+                    INNER JOIN
+                login_x_empreendimentos ON (login.logi_id = login_x_empreendimentos.logi_id)
+              INNER JOIN
+                empreendimentos ON (login_x_empreendimentos.empr_id = empreendimentos.empr_id)
+              INNER JOIN
+                empreendimentos_enderecos ON (empreendimentos_enderecos.empr_id = empreendimentos.empr_id)
+              INNER JOIN
+                empreendimentos_imagens ON (empreendimentos_enderecos.empr_id = empreendimentos_imagens.empr_id)
+            WHERE
+                login.logi_status = 1";
+
+    if(!empty($tp_filtro) && $tp_filtro == 'endereco'){
+      if(!empty($texto_filtro)){
+        if(isset($cidade)){
+          $sql .=" AND empreendimentos_enderecos.emen_cidade LIKE '%$cidade%' ";
+        }
+        if(isset($bairro)){
+          $sql .=" AND empreendimentos_enderecos.emen_bairro LIKE '%$bairro%' ";
+        }
+        if(isset($rua)){
+          $sql .=" AND empreendimentos_enderecos.emen_logradouro LIKE '%$rua%' ";
+        }
+      
+      
+      }
+    }
     $result = mysqli_query($conn, $sql);
     while($row = mysqli_fetch_object($result)){
 
@@ -71,7 +120,14 @@ include_once '../config/server.php';
           "imagem" => str_replace('\\', '/',$server_static.'empreendimentos/'.$endereco_img)
         ];
       }
-      if ($_SESSION['grup_id'] == 4){
+      
+    ?> 
+<!DOCTYPE html>
+<html>
+
+<head>
+<?php
+if ($_SESSION['grup_id'] == 4){
         include_once(ROOT_PATH."menu_footer/menu_empreendimento.php"); 
         include_once(ROOT_PATH."menu_footer/menu_latera_empreendimento.php");
         }
@@ -82,13 +138,8 @@ include_once '../config/server.php';
             include_once(ROOT_PATH."menu_footer/menu_usuario.php");
             include_once(ROOT_PATH."menu_footer/menu_latera_usuario.php");
         }
-    ?>
-<script src="<?php echo $server_static;?>static/jquery.js"></script>
-<script src="<?php echo $server_static;?>static/bootstrap/js/bootstrap.js"></script> 
-<!DOCTYPE html>
-<html>
 
-<head>
+?>
     <!-- Criador de objeto marker no google maps -->
     <script>
       var markers =
@@ -130,20 +181,41 @@ include_once '../config/server.php';
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1nkX5KVBXgDHas0sYoCXqws8MzKCWBcQ&callback=initMap"async defer></script>
 
 <!--script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1nkX5KVBXgDHas0sYoCXqws8MzKCWBcQ&libraries=places"></script-->
+
 <body>
-    <div id="map"></div>
+    
+    <div class="col-md-6 fixed-top" style="margin-left:40%; margin-top: 65px;">
+      <form name="form" method="get" action="<?php echo $_SERVER['PHP_SELF']; ?>" >
+        <div class="input-group input-group-sm"  style="margin-left:10%;">
+          <div class="input-group-prepend">
+            <span class="input-group-text bg-primary" style="color:white;">Filtrar por:</span>
+          </div>
+          <select  class="form-control col-md-3"  name="tipo_filtro" id="tipo_filtro">
+            <option value="endereco" <?php if(isset($tp_filtro) && $tp_filtro == 'endereco'){ echo 'Selected'; } ?>>ENDEREÇO</option>
+          </select> 
+            <input class="form-control col-md-10 hide" type="text" name="filtro_endereco" id="filtro_endereco"  placeholder="Digite o endereço. ( Cidade*/Bairro/Logradouro)" value="<?php if(isset($texto_filtro) && !empty($texto_filtro)){ echo $texto_filtro; } ?>">
+            <div class="input-group-append">
+              <button type="submit" class="btn btn-primary" id="btn_filtro" name="btn_filtro">
+                  Filtrar
+              </button>
+            </div>
+        </div> 
+      </form> 
+    </div>
    
-     
+    <div id="map" style="margin-left:13.5%; width:86%;"></div>
+   
+    
 
     <a class="btn btn-dark" href="..\empreendimentos\home_empreendimento.php"> Voltar</a>
 </body>
 <script>
       function initMap() {
       
-        var centro = {lat: -11.235, lng: -51.9253};
+        var centro = {lat: -23.533773, lng: -46.625290};
 
         var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 5,
+          zoom: 10,
           center: centro
         });
 
@@ -179,7 +251,8 @@ include_once '../config/server.php';
           var marker = new google.maps.Marker({
             position: new google.maps.LatLng( markers[o].latitude, markers[o].longitude),
             map: map,
-            title: markers[o].nome
+            title: markers[o].nome,
+            icon:'../static/icones/empresas.png'
           });
         
         /*
@@ -194,15 +267,15 @@ include_once '../config/server.php';
       }
     }
       
-      function setMessage(marker, contentString) {
-        var infowindow = new google.maps.InfoWindow({
-          content: contentString
-        });
+    function setMessage(marker, contentString) {
+      var infowindow = new google.maps.InfoWindow({
+        content: contentString
+      });
 
-        marker.addListener('click', function() {
-          infowindow.open(marker.get('map'), marker);
-        });
-      }
+      marker.addListener('click', function() {
+        infowindow.open(marker.get('map'), marker);
+      });
+    }
 
 </script>
 <footer>
@@ -212,5 +285,7 @@ include_once '../config/server.php';
     ?>
 
 </footer>
-
+<!-- Optional JavaScript -->    
+<script src="<?php echo $server_static?>static/jquery.js"></script> 
+<script src="<?php echo $server_static?>static/bootstrap/js/bootstrap.js"></script> 
 </html>

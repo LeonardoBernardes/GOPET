@@ -182,7 +182,7 @@ include_once ROOT_PATH."menu_footer/menu_latera_empreendimento.php"
                             </div>
                             <div class="col">
                                 <label>Pais:  </label> 
-                                <input class="form-control form-control-sm" readonly type="text" name="pais" id="pais" value='<?php echo $emen_pais ?>' maxlength="2">
+                                <input class="form-control form-control-sm" readonly type="text" name="pais" id="pais" value='BR' maxlength="2">
                             </div>
                         </div>
                         <div class="form-row">

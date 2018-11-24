@@ -53,8 +53,6 @@ if(isset($_GET['tipo_filtro']) && (isset($_GET['filtro_animal']) || isset($_GET[
     
   //return;
   }
-}else{
-  
 }
 
 

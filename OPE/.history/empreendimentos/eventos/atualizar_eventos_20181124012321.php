@@ -80,7 +80,7 @@ include_once ROOT_PATH."menu_footer/menu_empreendimento.php";
     
 </head>
 <body >
-<?php include_once ROOT_PATH."menu_footer/menu_latera_empreendimento.php"; ?>
+include_once ROOT_PATH."menu_footer/menu_latera_empreendimento.php";
     <div class="main" >
 
         <div class="container login-empreendimento">

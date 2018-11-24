@@ -144,7 +144,7 @@ if(!empty($row2)){
            <div class="container login-empreendimento">
             <form method="post" action="cadastrar_usuarios.php" id="formlogin" name="formlogin" enctype="multipart/form-data">
                 <fieldset id="fie">
-                    <h2 class="btn btn-dark btn-sm btn-block">
+                    <h2 style="background:#4fdc6f; color:white;" class="btn btn-sm btn-block">
                         <legend>Dados Usuario</legend>
                     </h2><br>
                     <div class="card-group">
@@ -175,17 +175,20 @@ if(!empty($row2)){
                     <fieldset id="fie"><br>
                         <hr>
 
-                        <h2 class="btn btn-dark btn-sm btn-block">
+                        <h2 style="background:#4fdc6f; color:white;" class="btn btn-sm btn-block">
                             <legend>Endereço</legend>
                         </h2>
-                        <div class="form-row">
-                           <div class="col-md-12">
+                        <br>
+                            <div class="form-row">
                             <div class="col">
-                                <label>CEP  </label>
-                                <input class="form-control form-control-sm" required type="text" name="cep" id="cep" value='<?php echo $usua_cep ?>'>
-                                <input type="button" class="btn btn-success" value="Valida cep" onclick="valida_cep()">
+                                <label>CEP:</label>
+                                <input class="form-control-sm" required type="text" name="cep" id="cep" value='<?php echo $emen_cep ?>'>
+                               <label>&nbsp;</label>
+                                <input type="button" style="background:#4fdc6f; color:white;" class="btn" value="Valida cep" onclick="valida_cep()">
                             </div>
                             </div>
+                        <br>
+                        <div class="form-row">
                             <div class="col">
                                 <label>Cidade</label>
                                 <input class="form-control form-control-sm" type="text" name="cidade" readonly id="cidade" value='<?php echo $usua_cidade ?>'>
@@ -199,6 +202,7 @@ if(!empty($row2)){
                                 <input class="form-control form-control-sm" type="text" name="pais" readonly id="pais" value='<?php echo $usua_pais ?>'>
                             </div>
                         </div>
+                        
                         <div class="form-row">
                            
                             <div class="col">
@@ -224,9 +228,7 @@ if(!empty($row2)){
                         </div>
                     </fieldset>
                     <hr>
-                    <input class="btn btn-success btn-sm btn-block" type="submit" value="Salvar Dados">
-                    <hr>
-                    <a class="btn btn-dark btn-sm btn-block" href="<?php echo $server_static;?>usuarios/home_usuarios.php"> Voltar</a>
+                    <input style="background:#4fdc6f; color:white;" class="btn" type="submit" value="Salvar Dados">
                 </fieldset>
 
             </form>

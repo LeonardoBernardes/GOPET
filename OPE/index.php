@@ -8,7 +8,7 @@
 include_once 'config/server.php';
 //var_dump($_SESSION);
 //return;
-
+session_start();
 ?>
 
 <!doctype html>
@@ -32,39 +32,36 @@ margin-top:8%;
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="<?php echo $server_static;?>static/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="<?php echo $server_static;?>static/estilo.css">
-      <link href="https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600,700" rel="stylesheet">
   <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
   <link href="assets/css/docs.css" rel="stylesheet">
   <link href="assets/css/prettyPhoto.css" rel="stylesheet">
   <link href="assets/js/google-code-prettify/prettify.css" rel="stylesheet">
-  <link href="assets/css/flexslider.css" rel="stylesheet">
+      <link href="assets/css/flexslider.css" rel="stylesheet">
   <link href="assets/css/sequence.css" rel="stylesheet">
   <link href="assets/css/style.css" rel="stylesheet">
-  <link href="assets/color/default.css" rel="stylesheet">
+  <!-- <link href="assets/color/default.css" rel="stylesheet"> -->
     <title>Gopet</title>
+    
 </head>
 
 <body >
-  
-<?php if(empty($_SESSION['loginErro'])){
 
-var_dump("TESTE");
- return;
-
- $result = '<p class="alert alert-danger">'.$_SESSION['loginErro'].'</p>';
-    echo $result;
-    unset($_SESSION['loginErro']);
-}?>
      
     
      <!-- MEIO -->
  <main role="main">
 
 
-  <section id="intro">
+  <section>
+     <?php if(isset($_SESSION['loginErro'])){
+        $result = $_SESSION['loginErro'];
+        echo $result;
+        unset($_SESSION['loginErro']);
+    }?> 
       
     <div class="jumbotron masthead">
       <div class="container">
+          
         <!-- slider navigation -->
         <div class="sequence-nav">
           <div class="prev">
@@ -83,7 +80,7 @@ var_dump("TESTE");
                   <!-- Layer 1 -->
                   <li>
                     <div class="info animate-in">
-                      <h2>GoPet</h2>
+                      <h2 style="color:black;">GoPet</h2>
                       <br>
                       <p>
                          Sistema que Conecta pessoas e Animais
@@ -94,7 +91,7 @@ var_dump("TESTE");
                   <!-- Layer 2 -->
                   <li>
                     <div class="info">
-                      <h2>Negocios</h2>
+                      <h2 style="color:black;" >Negocios</h2>
                       <br>
                       <p>
                        Anuncie seus produtos & serviço conosco e ganhe cliente novos.
@@ -105,7 +102,7 @@ var_dump("TESTE");
                   <!-- Layer 3 -->
                   <li>
                     <div class="info">
-                      <h2>Lar</h2>
+                      <h2 style="color:black;">Lar</h2>
                       <br>
                       <p>
                        Encontre aqui seu novo animal de estimação, GRATUITO, lembre-se além de você entregar a ele um lar, você está tirando um vida do perigo.
@@ -122,53 +119,6 @@ var_dump("TESTE");
       </div>
     </div>
   </section>
-  <section id="maincontent">
-    <div class="container">
-      <div class="row">
-        <div class="span3 features">
-          <i class="icon-circled icon-32 icon-suitcase left active"></i>
-          <h4>Empresa</h4>
-          <div class="dotted_line">
-          </div>
-          <p class="left">
-            Nossa parceria pode ser seu melhor negocio, anunciamos seus produtos, seus serviços por um preço muito acessivel.
-          </p>
-        </div>
-        <div class="span3 features">
-          <i class="icon-circled icon-32 icon-cloud-upload left"></i>
-          <h4>Apoio</h4>
-          <div class="dotted_line">
-          </div>
-          <p class="left">
-            Utilize seu dia como um apoio para sociedade, facil e simples, com apenas um clique e uma foto você ja pode tirar um animal da rua.
-          </p>
-        </div>
-        <div class="span3 features">
-          <i class="icon-circled icon-32 icon-wrench left"></i>
-          <h4>Ferramenta</h4>
-          <div class="dotted_line">
-          </div>
-          <p class="left">
-            Sistema que Conecta pessoas e animais.
-          </p>
-        </div>
-      </div>
-      <div class="row">
-          <div class="tagline centered">
-            <div class="row">
-              <div class="span12">
-                <div class="tagline_text">
-                  <h2>Aplicativo</h2>
-                </div>
-                  <a  class="btn btn-large btn-color" href="#">
-							<img src="<?php echo $server_static;?>static/icones/download.png" style="width:20px;"/>  Download 
-                    </a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- end tagline -->
-        </div>
 
       
 
@@ -185,7 +135,7 @@ var_dump("TESTE");
   <script src="assets/js/application.js"></script>
   <script src="assets/js/jquery.flexslider.js"></script>
   <script src="assets/js/hover/jquery-hover-effect.js"></script>
-  <script src="assets/js/hover/setting.js"></script>
+
 
   <!-- Template Custom JavaScript File -->
   <script src="assets/js/custom.js"></script>

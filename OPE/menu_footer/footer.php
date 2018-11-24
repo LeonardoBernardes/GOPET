@@ -12,28 +12,24 @@
                 <div class="mb-2 flex-center">
 
                     <!-- Facebook -->
-                    <a class="fb-ic">
-              <i class="fab fa-facebook fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                    <a class="fb-ic" href="">
+              <i style="color:#7c7c7d;"  class="fab fa-facebook fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
             </a>
                     <!-- Twitter -->
-                    <a class="tw-ic">
-              <i class="fab fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                    <a class="tw-ic" href="">
+              <i style="color:#7c7c7d;"  class="fab fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
             </a>
                     <!-- Google +-->
-                    <a class="gplus-ic">
-              <i class="fab fa-google-plus fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                    <a class="gplus-ic" href="">
+            <i style="color:#7c7c7d;"  class="fab fa-google-plus fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
             </a>
                     <!--Linkedin -->
-                    <a class="li-ic">
-              <i class="fab fa-linkedin fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                    <a class="li-ic" href="">
+              <i style="color:#7c7c7d;"  class="fab fa-linkedin fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
             </a>
                     <!--Instagram-->
-                    <a class="ins-ic">
-              <i  class="fab fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
-            </a>
-                    <!--Pinterest-->
-                    <a class="pin-ic">
-              <i class="fab fa-pinterest fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                    <a class="ins-ic" href="">
+              <i  style="color:#7c7c7d;" class="fab fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
             </a>
                 </div>
             </div>
@@ -48,7 +44,7 @@
     <!-- Copyright -->
     <div class="footer-copyright text-center py-2">©
         <?php echo date("Y")?> Copyright:<br>
-        <hr>
+        <hr style="color:black">
         <p class="text-muted">GoPet</p>
 
     </div>

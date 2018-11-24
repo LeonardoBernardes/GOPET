@@ -209,22 +209,22 @@ if ($_SESSION['grup_id'] == 3){
 ?>
     <div>   
     <div class="main">
-        <h2><label style="margin-top:5%; margin-left:5%;" >Consulta Animais</label></h2>
+    <h2 align="center"><label style="margin-top:5%; margin-left:5%; " >Consulta Animais</label></h2>
     <div class="table-responsive">
     <table class="table table-hover" style="width:100%">
         <thead >
             <tr style="background:#4fdc6f">
-                <th scope="col">ID</th>
-                <th scope="col">imagem</th>
-                <th scope="col">Nome</th>
-                <th scope="col">RA</th>
-                <th scope="col">Idade</th>
-                <th scope="col">Porte</th>
-                <th scope="col">Genero</th>
-                <th scope="col">Categoria</th>
-                <th scope="col">Restrição de adoção</th>
-                <th scope="col">Castração</th>
-                <th scope="col">Editar</th>
+                <th style="color:white;" scope="col">ID</th>
+                <th style="color:white;" scope="col">imagem</th>
+                <th style="color:white;" scope="col">Nome</th>
+                <th style="color:white;" scope="col">RA</th>
+                <th style="color:white;" scope="col">Idade</th>
+                <th style="color:white;" scope="col">Porte</th>
+                <th style="color:white;" scope="col">Genero</th>
+                <th style="color:white;" scope="col">Categoria</th>
+                <th style="color:white;" scope="col">Restrição de adoção</th>
+                <th style="color:white;" scope="col">Castração</th>
+                <th style="color:white;" scope="col">Editar</th>
             </tr>
         </thead>
         <?php echo $results ?>
@@ -233,14 +233,14 @@ if ($_SESSION['grup_id'] == 3){
     if ($_SESSION['grup_id'] == 4){
         ?>
         <a class="btn btn-dark" href="<?php echo $server_static;?>empreendimentos/home_empreendimento.php"> Voltar</a>
-        <a class="btn btn-success" href="<?php echo $server_static;?>animais/cadastro_animais.php">Cadastrar Animais</a>
+        <a style="background:#4fdc6f; color:white;"  class="btn" href="<?php echo $server_static;?>animais/cadastro_animais.php">Cadastrar Animais</a>
     <?php
     }
     if ($_SESSION['grup_id'] == 3){    
     ?>
         
        <a class="btn btn-dark" href="<?php echo $server_static;?>animais/home_usuarios.php"> Voltar</a>
-       <a class="btn btn-success" href="<?php echo $server_static;?>animais/cadastro_animais.php">Cadastrar Animais</a>
+       <a style="background:#4fdc6f; color:white;" class="btn" href="<?php echo $server_static;?>animais/cadastro_animais.php">Cadastrar Animais</a>
     <?php
     }
     ?>

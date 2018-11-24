@@ -134,23 +134,23 @@ include_once ROOT_PATH."menu_footer/menu_latera_empreendimento.php"
 <body>
 <div >   
     <div class="main">
-        <h2><label style="margin-top:5%; margin-left:5%;" >Consulta Produtos</label></h2>
+        <h2 align="center"><label style="margin-top:5%; margin-left:5%;" >Consulta Produtos</label></h2>
 
     <div class="table-responsive">
     <table id="produtos" class="table table-hover" style="width:100%">
         <thead>
             <tr style="background:#4fdc6f">
-                <th >ID</th>
-                <th >imagem</th>
-                <th >Nome</th>
-                <th >Marca</th>
-                <th >Qtde Estoque</th>
-                <th >Descrição</th>
-                <th >Valor Total</th>
-                <!--th >Possuí Promoção ?</th>
-                <th >Valor Promoção</th-->
-                <th >Status</th>
-                <th >Editar</th>
+                <th style="color:white;">ID</th>
+                <th style="color:white;">imagem</th>
+                <th style="color:white;">Nome</th>
+                <th style="color:white;">Marca</th>
+                <th style="color:white;">Qtde Estoque</th>
+                <th style="color:white;">Descrição</th>
+                <th style="color:white;">Valor Total</th>
+                <!--style="color:white;"th >Possuí Promoção ?</th>
+                <th style="color:white;">Valor Promoção</th-->
+                <th style="color:white;">Status</th>
+                <th style="color:white;">Editar</th>
             </tr>
         </thead>
         <?php echo $results ?>
@@ -158,7 +158,7 @@ include_once ROOT_PATH."menu_footer/menu_latera_empreendimento.php"
     </div>
 
         <a class="btn btn-dark" href="../../empreendimentos/home_empreendimento.php"> Voltar</a>
-        <a class="btn btn-success" href="<?php echo $server_static?>empreendimentos/produtos/cadastro_produtos.php">Cadastrar Produto</a>
+        <a style="background:#4fdc6f; color:white;"  class="btn" href="<?php echo $server_static?>empreendimentos/produtos/cadastro_produtos.php">Cadastrar Produto</a>
         
     </div>
 </div>

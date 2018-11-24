@@ -123,21 +123,21 @@ include_once ROOT_PATH."menu_footer/menu_latera_empreendimento.php"
 ?>
 <div>   
     <div class="main">
-        <h2><label style="margin-top:5%; margin-left:5%;" >Consulta Serviços</label></h2>
+        <h2 align="center"><label style="margin-top:5%; margin-left:5%;" >Consulta Serviços</label></h2>
 
     <div class="table-responsive">
     <table class="table table-hover" style="width:100%">
         <thead >
             <tr style="background:#4fdc6f">
-                 <th scope="col">ID</th>
-                <th scope="col" style="width:100%">imagem</th>
-                <th scope="col">Nome</th>
-                <th scope="col">Descrição</th>
-                <th scope="col">Valor Total</th>
-                <!--th scope="col">Possuí Promoção ?</th>
-                <th scope="col">Valor Promoção</th-->
-                <th scope="col">Status</th>
-                <th scope="col">Editar</th>
+                 <th style="color:white;" scope="col">ID</th>
+                <th style="color:white;" scope="col" style="width:100%">imagem</th>
+                <th style="color:white;" scope="col">Nome</th>
+                <th style="color:white;" scope="col">Descrição</th>
+                <th style="color:white;" scope="col">Valor Total</th>
+                <!--style="color:white;" th scope="col">Possuí Promoção ?</th>
+                <th style="color:white;" scope="col">Valor Promoção</th-->
+                <th style="color:white;" scope="col">Status</th>
+                <th style="color:white;" scope="col">Editar</th>
             </tr>
         </thead>
         <?php echo $results ?>
@@ -145,7 +145,7 @@ include_once ROOT_PATH."menu_footer/menu_latera_empreendimento.php"
     </div>
 
         <a class="btn btn-dark" href="../../empreendimentos/home_empreendimento.php"> Voltar</a>
-        <a class="btn btn-success" href="<?php echo $server_static?>empreendimentos/servicos/cadastro_servicos.php">Cadastrar Serviço</a>
+        <a style="background:#4fdc6f; color:white;"  class="btn" href="<?php echo $server_static?>empreendimentos/servicos/cadastro_servicos.php">Cadastrar Serviço</a>
         
     </div>
 </div>

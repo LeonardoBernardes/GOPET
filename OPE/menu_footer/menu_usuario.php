@@ -40,12 +40,15 @@ include_once ROOT_PATH .'mysql_conexao/conexao_mysql.php';
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-        <a class="navbar-brand logo" href="<?php echo $server_static;?>usuarios/home_usuarios.php"><img src="<?php echo $server_static;?>static/imagens/gopet.png" alt="gopet"></a>
+        <a class="navbar-brand logo" href="<?php echo $server_static;?>index.php"><img src="<?php echo $server_static;?>static/imagens/gopet.png" alt="gopet"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
+                 <li class="nav-item active">
+                    <a class="nav-link" href="<?php echo $server_static;?>index.php">Home</a>
+                </li>
                 <div class="dropdown">
                   <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Buscar Animais

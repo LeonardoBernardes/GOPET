@@ -80,7 +80,7 @@ $logi_id = $_SESSION['logi_id'];
 
         <div class="container login-empreendimento">
             <form method="post" action="cadastrar_animais.php" id="formlogin" name="formlogin" enctype="multipart/form-data">
-                    <h2 class="btn btn-dark btn-sm btn-block">
+                    <h2 style="background:#4fdc6f; color:white;" class="btn btn-sm btn-block">
                         <legend>Cadastrar Animal</legend>
                     </h2><br>
                     <form method="post" action="cadastrar_animais.php?logi_id=<?php echo $logi_id ?>&grupo=<?php echo $grup_id ?>" id="formlogin" name="formlogin">
@@ -156,21 +156,22 @@ $logi_id = $_SESSION['logi_id'];
                                     </select>
                                 </div>
                             </div>
-                            <hr/>
+                            <br>
                             <fieldset id="fie">
-                                <h2 class="btn btn-dark btn-sm btn-block">
+                                <h2 style="background:#4fdc6f; color:white;" class="btn btn-sm btn-block">
                                     <legend>Endereço</legend>
                                 </h2>
+                                <br>
                                 <div class="form-row">
-                                   <div class="col-md-12 text-center">
-                                   <div class="col">
-                                    <label>CEP  </label>
-                                        <input class="form-control form-control-sm" type="text" name="cep" id="cep"><br/>
-                                    </div>
                                     <div class="col">
-                                        <input class="btn btn-success btn-lg" type="button" onclick="valida_cep()" value="Validar CEP" name="valida-cep"><br/>
+                                        <label>CEP:</label>
+                                        <input class="form-control-sm" required type="text" name="cep" id="cep" value='<?php echo $emen_cep ?>'>
+                                       <label>&nbsp;</label>
+                                        <input type="button" style="background:#4fdc6f; color:white;" class="btn" value="Valida cep" onclick="valida_cep()">
                                     </div>
                                     </div>
+                                <br>
+                                <div class="form-row">
                                     <div class="col">
                                         <label>Pais  </label>
                                         <input class="form-control form-control-sm" value="BR" readonly type="text" name="pais" id="pais" maxlength="2"><br/>
@@ -207,7 +208,7 @@ $logi_id = $_SESSION['logi_id'];
                                     
                                 </div>
                             </fieldset>
-                            <input class="btn btn-success btn-sm btn-block" type="submit" value="Cadastrar">
+                            <input style="background:#4fdc6f; color:white;" class="btn" type="submit" value="Cadastrar">
                        </fieldset>
                     </form>
             </form>

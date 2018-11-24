@@ -91,7 +91,7 @@ if ($_SESSION['grup_id'] == 4){
 
     $menu .='    <nav aria-label="Page navigation example" style="margin-top:10%;">
                     <li class="nav-item item-menu-empreendimento">
-                    <a class="nav-link" href="'. $server_static.'empreendimentos/cadastro_empreendimentos.php"><img src="'. $server_static.'static/icones/dados.png" style="width:20px;"/> Meus Dados</a>
+                    <a class="nav-link" href="'. $server_static.'empreendimentos/cadastro_empreendimentos.php"><img src="'. $server_static.'static/icones/dados.png" style="width:20px;"/> <span style="color:white;">Meus Dados</span></a>
                 </li>
             ';
     
@@ -101,22 +101,22 @@ if($_SESSION['logi_status'] == 1){
     $menu .='   
     
                 <li class="nav-item item-menu-empreendimento">
-                    <a class="nav-link" href="'. $server_static.'animais/consulta_animais.php"><img src="'. $server_static.'static/icones/animais.png" style="width:20px;"/> Meus Animais </a>
+                    <a class="nav-link" href="'. $server_static.'animais/consulta_animais.php"><img src="'. $server_static.'static/icones/animais.png" style="width:20px;"/> <span style="color:white;">Meus Animais</span> </a>
                 </li>
                 <li class="nav-item item-menu-empreendimento">
-                    <a class="nav-link" href="'. $server_static.'empreendimentos/produtos/consultar_produtos.php"><img src="'. $server_static.'static/icones/produtos.png" style="width:20px;"/> Meus Produtos </a>
+                    <a class="nav-link" href="'. $server_static.'empreendimentos/produtos/consultar_produtos.php"><img src="'. $server_static.'static/icones/produtos.png" style="width:20px;"/> <span style="color:white;">Meus Produtos </span></a>
                 </li>
                 <li class="nav-item item-menu-empreendimento">
-                    <a class="nav-link" href="'. $server_static.'empreendimentos/servicos/consultar_servicos.php"><img src="'. $server_static.'static/icones/servicos.png" style="width:20px;"/> Meus Serviços </a>
+                    <a class="nav-link" href="'. $server_static.'empreendimentos/servicos/consultar_servicos.php"><img src="'. $server_static.'static/icones/servicos.png" style="width:20px;"/> <span style="color:white;">Meus Serviços </span></a>
                 </li>
                 <li class="nav-item item-menu-empreendimento">
-                <a class="nav-link" href="'. $server_static.'empreendimentos/eventos/consultar_eventos.php"><img src="'. $server_static.'static/icones/eventos.png" style="width:20px;"/> Meus Eventos</a>
+                <a class="nav-link" href="'. $server_static.'empreendimentos/eventos/consultar_eventos.php"><img src="'. $server_static.'static/icones/eventos.png" style="width:20px;"/> <span style="color:white;">Meus Eventos</span></a>
                 </li>
                 <!--li class="nav-item item-menu-empreendimento">
-                    <a class="nav-link" href="#">Minhas Doações</a>
+                    <a class="nav-link" href="#"><span style="color:white;">Minhas Doações</span></a>
                 </li>
                 <li class="nav-item item-menu-empreendimento">
-                    <a class="nav-link" href="#">Favoritos</a>
+                    <a class="nav-link" href="#"><span style="color:white;">Favoritos</span></a>
                 </li-->
             </nav>
     ';

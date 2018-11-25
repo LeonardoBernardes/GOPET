@@ -8,28 +8,17 @@
         <div class="row">
 
             <!-- Grid column -->
-            <div class="col-md-12 pt-3">
-                <div class="mb-2 flex-center">
+            <div class="col-md-12 pt-2">
+                <div class="mb-6 flex-center">
 
                     <!-- Facebook -->
-                    <a class="fb-ic" href="">
-              <i style="color:#7c7c7d;"  class="fab fa-facebook fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                    <a class="fb-ic" href="https://www.facebook.com/gopet.adote.1">
+              <i style="color:black;"  class="fab fa-facebook fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
             </a>
-                    <!-- Twitter -->
-                    <a class="tw-ic" href="">
-              <i style="color:#7c7c7d;"  class="fab fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
-            </a>
-                    <!-- Google +-->
-                    <a class="gplus-ic" href="">
-            <i style="color:#7c7c7d;"  class="fab fa-google-plus fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
-            </a>
-                    <!--Linkedin -->
-                    <a class="li-ic" href="">
-              <i style="color:#7c7c7d;"  class="fab fa-linkedin fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
-            </a>
+                
                     <!--Instagram-->
-                    <a class="ins-ic" href="">
-              <i  style="color:#7c7c7d;" class="fab fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                    <a class="ins-ic" href="https://www.instagram.com/gopet.oficial/?hl=pt-br">
+              <i  style="color:black;" class="fab fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
             </a>
                 </div>
             </div>
@@ -42,10 +31,10 @@
     <!-- Footer Elements -->
 
     <!-- Copyright -->
-    <div class="footer-copyright text-center py-2">©
+    <div style="color:black;"  class="footer-copyright text-center py-2">©
         <?php echo date("Y")?> Copyright:<br>
         <hr style="color:black">
-        <p class="text-muted">GoPet</p>
+        <div style="color:black;"><p >GoPet</p></div>
 
     </div>
 

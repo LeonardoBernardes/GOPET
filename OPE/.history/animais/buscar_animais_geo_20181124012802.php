@@ -53,8 +53,6 @@ if(isset($_GET['tipo_filtro']) && (isset($_GET['filtro_animal']) || isset($_GET[
     
   //return;
   }
-}else{
-  
 }
 
 
@@ -177,13 +175,14 @@ $arr_animais = array();
 
       if ($_SESSION['grup_id'] == 4){
         include_once(ROOT_PATH."menu_footer/menu_empreendimento.php"); 
-       
+        include_once(ROOT_PATH."menu_footer/menu_latera_empreendimento.php");
         }
         if ($_SESSION['grup_id'] == 1){    
             include_once(ROOT_PATH."menu_footer/menu_administrador.php");
         }
         if ($_SESSION['grup_id'] == 3){    
             include_once(ROOT_PATH."menu_footer/menu_usuario.php");
+            include_once(ROOT_PATH."menu_footer/menu_latera_usuario.php");
         }
       
     ?>

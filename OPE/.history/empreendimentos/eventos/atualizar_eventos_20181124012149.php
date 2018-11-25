@@ -64,7 +64,7 @@ $endereco_img = str_replace('\\', '/',$server_static.'empreendimentos/eventos/'.
 }
 
     
-
+include_once ROOT_PATH."menu_footer/menu_latera_empreendimento.php";
 include_once ROOT_PATH."menu_footer/menu_empreendimento.php";
 
 ?>
@@ -79,12 +79,12 @@ include_once ROOT_PATH."menu_footer/menu_empreendimento.php";
     
     
 </head>
-<body >
-<?php include_once ROOT_PATH."menu_footer/menu_latera_empreendimento.php"; ?>
-    <div class="main" >
+<body id="formulario_empreendimento">
+
+    <div class="main" style="max-width:1000px;">
 
         <div class="container login-empreendimento">
-                     <h2 style="background:#4fdc6f; color:white;" class="btn btn-sm btn-block">
+                    <h2 class="btn btn-dark btn-sm btn-block">
                         <legend>Atualizar Evento</legend>
                     </h2><br>
 <form method="post" action="update_eventos.php?id=<?= $even_id ?>" id="formlogin" name="formlogin" enctype="multipart/form-data">
@@ -116,7 +116,7 @@ include_once ROOT_PATH."menu_footer/menu_empreendimento.php";
         </div>
         <label>Descrição : </label> 
         <input class="form-control form-control-sm" type="text" name="descricao" id="descricao" value="<?php echo ($row->even_descricao) ? $row->even_descricao : "" ?>"><br/>
-        <input style="background:#4fdc6f; color:white;" class="btn " type="submit" value="Atualizar Evento">
+        <input class="btn btn-dark btn-lg btn-block" type="submit" value="Atualizar Evento">
         
     </fieldset>
     </div>

@@ -35,7 +35,7 @@ include_once ROOT_PATH."menu_footer/menu_latera_empreendimento.php" ;
       <p class="lead">Trabalhamos com alguns modelos para você!</p>
     </div>
 
-    <div class="container">
+    <!--div class="container">
       <div class="card-deck mb-3 text-center">
         <div class="card mb-4 box-shadow">
           <div class="card-header">
@@ -85,7 +85,7 @@ include_once ROOT_PATH."menu_footer/menu_latera_empreendimento.php" ;
       </div>
 
 
-    </div>
+    </div-->
 
 
     <!-- Bootstrap core JavaScript

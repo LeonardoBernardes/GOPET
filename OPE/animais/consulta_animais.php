@@ -217,7 +217,7 @@ if ($_SESSION['grup_id'] == 3){
                 <th style="color:white;" scope="col">ID</th>
                 <th style="color:white;" scope="col">imagem</th>
                 <th style="color:white;" scope="col">Nome</th>
-                <th style="color:white;" scope="col">RA</th>
+                <th style="color:white;" scope="col">RGA</th>
                 <th style="color:white;" scope="col">Idade</th>
                 <th style="color:white;" scope="col">Porte</th>
                 <th style="color:white;" scope="col">Genero</th>

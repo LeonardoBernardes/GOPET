@@ -126,7 +126,7 @@ include_once ROOT_PATH."menu_footer/menu_latera_empreendimento.php"
             <form method="post" action="cadastrar_empreendimento.php" id="formlogin" name="formlogin" enctype="multipart/form-data">
                 <fieldset id="fie">
                     <h2 style="background:#4fdc6f; color:white;" class="btn btn-lg btn-block">
-                        <legend>Dados Empreendimento</legend>
+                        <legend>Dados Estabelecimento</legend>
                     </h2><br>
                     <div class="card-group">
                         <div id="cadastro_animal_card" class="card">

@@ -8,7 +8,7 @@
 include_once 'config/server.php';
 //var_dump($_SESSION);
 //return;
-session_start();
+//session_start();
 ?>
 
 <!doctype html>

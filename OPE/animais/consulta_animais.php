@@ -239,7 +239,7 @@ if ($_SESSION['grup_id'] == 3){
     if ($_SESSION['grup_id'] == 3){    
     ?>
         
-       <a class="btn btn-dark" href="<?php echo $server_static;?>animais/home_usuarios.php"> Voltar</a>
+       <a class="btn btn-dark" href="<?php echo $server_static;?>usuarios/home_usuarios.php"> Voltar</a>
        <a style="background:#4fdc6f; color:white;" class="btn" href="<?php echo $server_static;?>animais/cadastro_animais.php">Cadastrar Animais</a>
     <?php
     }

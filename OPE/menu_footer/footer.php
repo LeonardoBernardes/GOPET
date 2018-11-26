@@ -42,7 +42,7 @@
     <div style="color:black;"  class="footer-copyright text-center py-2">©
         <?php echo date("Y")?> Copyright:<br>
         <hr style="color:black">
-        <div style="color:black;"><p >GoPet</p></div>
+        <div style="color:black;"><p>GOPET</p></div>
 
     </div>
 

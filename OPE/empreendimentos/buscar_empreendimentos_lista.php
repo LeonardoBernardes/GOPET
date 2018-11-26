@@ -24,24 +24,85 @@ include_once '../config/server.php';
     $castracao = '';
     $results = "";
     $arr_empreendimentos = array();
+    if(isset($_GET['tipo_filtro']) &&  isset($_GET['filtro_endereco']) ){
 
+      $tp_filtro = (!empty($_GET['tipo_filtro'])) ? $_GET['tipo_filtro'] : "";
+      
+      // configuração filtro endereco
+      $texto_filtro = (!empty($_GET['filtro_endereco'])) ? $_GET['filtro_endereco'] : "";
+      if(!empty($texto_filtro)){
+        $texto_filtro = rtrim($texto_filtro);
+        $texto_filtro = ltrim($texto_filtro);
+        if((substr_count($texto_filtro,"/")) == 1){
+    
+    
+          $arr = explode("/",$texto_filtro);
+          $cidade = $arr[0];
+          $bairro = $arr[1];
+    
+        }elseif((substr_count($texto_filtro,"/")) > 1){
+          $arr = explode("/",$texto_filtro);
+          $cidade = $arr[0];
+          $bairro = $arr[1];
+          $rua = $arr[2];
+        }
+        elseif((substr_count($texto_filtro,"/")) == 0 ){
+          // echo"teste";
+          // return;
+          $cidade = $texto_filtro;
+        }
+        
+        
+      //return;
+      }
+    }
     $sql = "SELECT 
-              empr.empr_id as empr_id,
-              empr.empr_nome as nome,
-              emen.emen_logradouro as logradouro, 
-              emen.emen_numero as numero, 
-              emen.emen_complemento as complemento,
-              emen.emen_estado as estado, 
-              emen.emen_cidade as cidade,
-              emen.emen_bairro as bairro, 
-              emen.emen_cep as cep, 
-              emen.emen_pais as pais,
-              img.emim_endereco as imagem
-            FROM 
-              empreendimentos empr 
-              LEFT JOIN empreendimentos_enderecos emen ON emen.empr_id = empr.empr_id
-              LEFT JOIN empreendimentos_imagens img ON img.empr_id = empr.empr_id";
+              empreendimentos_enderecos.emen_id AS id,
+              empreendimentos.empr_id AS empr_id,
+              empreendimentos.empr_nome AS nome,
+              empreendimentos.empr_slogan AS slogan,
+              empreendimentos_enderecos.emen_logradouro AS logradouro,
+              empreendimentos_enderecos.emen_numero AS numero,
+              empreendimentos_enderecos.emen_complemento as complemento,
+              empreendimentos_enderecos.emen_estado AS estado,
+              empreendimentos_enderecos.emen_cidade AS cidade,
+              empreendimentos_enderecos.emen_bairro AS bairro,
+              empreendimentos_enderecos.emen_pais AS pais,
+              empreendimentos_enderecos.emen_cep AS cep,
+              empreendimentos_enderecos.emen_longitude AS latitude,
+              empreendimentos_enderecos.emen_latitude AS longitude,
+              empreendimentos_imagens.emim_endereco AS imagem
+            FROM
+                login
+                    INNER JOIN
+                login_x_empreendimentos ON (login.logi_id = login_x_empreendimentos.logi_id)
+              INNER JOIN
+                empreendimentos ON (login_x_empreendimentos.empr_id = empreendimentos.empr_id)
+              INNER JOIN
+                empreendimentos_enderecos ON (empreendimentos_enderecos.empr_id = empreendimentos.empr_id)
+              INNER JOIN
+                empreendimentos_imagens ON (empreendimentos_enderecos.empr_id = empreendimentos_imagens.empr_id)
+            WHERE
+                login.logi_status = 1
+    ";
  //echo $sql;
+    if(!empty($tp_filtro) && $tp_filtro == 'endereco'){
+      if(!empty($texto_filtro)){
+        if(isset($cidade)){
+          $sql .=" AND empreendimentos_enderecos.emen_cidade LIKE '%$cidade%' ";
+        }
+        if(isset($bairro)){
+          $sql .=" AND empreendimentos_enderecos.emen_bairro LIKE '%$bairro%' ";
+        }
+        if(isset($rua)){
+          $sql .=" AND empreendimentos_enderecos.emen_logradouro LIKE '%$rua%' ";
+        }
+      
+      
+      }
+    }
+//echo $sql;
+//return;
     $result = mysqli_query($conn, $sql);
     while($row = mysqli_fetch_object($result)){
 
@@ -62,7 +123,7 @@ include_once '../config/server.php';
         $endereco_img = str_replace('\\', '/',$server_static.'empreendimentos/'.$endereco_img);
       }
       $results .='
-      <div class="main">
+      <div class="main"  style="margin-top:-10%;">
       <div class="container login-empreendimento">
               <fieldset id="fie">
                     <img style="width:150px;" src="'.$endereco_img.'" style="width:100% class="img-thumbnail""/>
@@ -160,7 +221,28 @@ if ($_SESSION['grup_id'] == 4){
   }
 
 ?>
-    <div id="formulario_empreendimento">
+    <div id="formulario_empreendimento" style="margin-top:13%; ">
+      <div class="col-md-6 fixed-top" style="margin-left:40%; margin-top: 65px;">
+        <form name="form" method="get" action="<?php echo $_SERVER['PHP_SELF']; ?>" >
+          <div class="input-group input-group-sm"  style="margin-left:10%;">
+            <div class="input-group-prepend">
+              <span class="input-group-text bg-primary" style="color:white;">Filtrar por:</span>
+            </div>
+            <select  class="form-control col-md-3"  name="tipo_filtro" id="tipo_filtro">
+              <option value="endereco" <?php if(isset($tp_filtro) && $tp_filtro == 'endereco'){ echo 'Selected'; } ?>>ENDEREÇO</option>
+            </select> 
+              <input class="form-control col-md-10 hide" type="text" name="filtro_endereco" id="filtro_endereco"  placeholder="Digite o endereço. ( Cidade*/Bairro/Logradouro)" value="<?php if(isset($texto_filtro) && !empty($texto_filtro)){ echo $texto_filtro; } ?>">
+              <div class="input-group-append">
+                <button type="submit" class="btn btn-primary" id="btn_filtro" name="btn_filtro">
+                    Filtrar
+                </button>
+              </div>
+          </div> 
+        </form> 
+      </div>
+
+
+
         <?php echo $results ?>
  
      <?php

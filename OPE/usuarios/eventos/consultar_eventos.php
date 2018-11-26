@@ -155,7 +155,7 @@ include_once ROOT_PATH."menu_footer/menu_latera_usuario.php"
 <div class="table-responsive">
 <table class="table table-hover" style="width:100%">
     <thead>
-    <tr class="bg-success">
+    <tr class="bg" style="background:#4fdc6f; color:white;">
         <th style="color:white;" scope="col">ID</th>
         <th style="color:white;" scope="col">Imagem</th>
         <th style="color:white;" scope="col">Nome</th>

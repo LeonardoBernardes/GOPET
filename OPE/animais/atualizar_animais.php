@@ -1,4 +1,3 @@
-
 <?php 
 include_once '../config/server.php';
 /*
@@ -183,7 +182,7 @@ if(!empty($anim_id)){
 
         <div class="container login-empreendimento">
             <form method="post" action="update_animais.php?anim_id=<?php echo $anim_id ?>" id="formlogin" name="formlogin" enctype="multipart/form-data">
-                    <h2 class="btn btn-dark btn-sm btn-block">
+                    <h2 style="background:#4fdc6f; color:white;" class="btn btn-sm btn-block">
                         <legend>Atualizar Animal</legend>
                     </h2><br>
                     <form method="post" action="update_animais.php" id="formlogin" name="formlogin">
@@ -259,7 +258,7 @@ if(!empty($anim_id)){
                             </div>
                             <hr/>
                             <fieldset id="fie">
-                                <h2 class="btn btn-dark btn-sm btn-block">
+                                <h2 style="background:#4fdc6f; color:white;" class="btn btn-sm btn-block">
                                     <legend>Endereço</legend>
                                 </h2>
                                 <br>
@@ -308,10 +307,9 @@ if(!empty($anim_id)){
                                   
                                 </div>
                             </fieldset>
-                            <input class="btn btn-success btn-sm btn-block" type="submit" value="Cadastrar">
-                        <hr>
-                        <a class="btn btn-dark btn-sm btn-block" href="consulta_animais.php"> Voltar</a>
-                       </fieldset>
+                    <hr>
+                    <input style="background:#4fdc6f; color:white;" class="btn" type="submit" value="Salvar Dados">
+                </fieldset>
                     </form>
             </form>
         </div>

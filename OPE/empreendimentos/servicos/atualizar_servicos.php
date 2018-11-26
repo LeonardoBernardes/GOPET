@@ -85,7 +85,7 @@ include_once ROOT_PATH."menu_footer/menu_empreendimento.php" ;
     <div class="main">
 
         <div class="container login-empreendimento">
-                    <h2 class="btn btn-dark btn-sm btn-block">
+                    <h2 style="background:#4fdc6f; color:white;" class="btn btn-sm btn-block">
                         <legend>Atualizar Serviços</legend>
                     </h2><br>
     <form method="post" action="update_servicos.php?id=<?= $serv_id ?>" id="formlogin" name="formlogin" enctype="multipart/form-data">
@@ -129,7 +129,7 @@ include_once ROOT_PATH."menu_footer/menu_empreendimento.php" ;
         </div>
         <label>Descrição : </label> 
         <input class="form-control form-control-sm" type="text" name="descricao" id="descricao" value="<?php echo ($row->serv_descricao) ? $row->serv_descricao : "" ?>"><br/>
-        <input class="btn btn-success btn-lg btn-block" type="submit" value="Atualizar Serviço">
+        <input style="background:#4fdc6f; color:white;" class="btn " type="submit" value="Atualizar Serviço">
     </fieldset>
     </div>
 </div>

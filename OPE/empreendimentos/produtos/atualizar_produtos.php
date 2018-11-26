@@ -88,7 +88,7 @@ include_once ROOT_PATH."menu_footer/menu_empreendimento.php" ;
 <?php include_once ROOT_PATH."menu_footer/menu_latera_empreendimento.php"; ?>
 <div class="main">
     <div class="container atualizarProduto">
-        <h2 class="btn btn-dark btn-sm btn-block" ><legend>Atualizar Produto</legend></h2>
+        <h2 style="background:#4fdc6f; color:white;" class="btn btn-sm btn-block" ><legend>Atualizar Produto</legend></h2>
 <form method="post" action="update_produtos.php?id=<?= $prod_id ?>" id="formlogin" name="formlogin" enctype="multipart/form-data">
     <fieldset id="fie">
         <label>Imagem : </label> 
@@ -134,7 +134,7 @@ include_once ROOT_PATH."menu_footer/menu_empreendimento.php" ;
         </div>
         <label>Descrição : </label> 
          <input class="input-group-text btn-lg btn-block" type="text" name="descricao" id="descricao" value="<?php echo ($row->prod_descricao) ? $row->prod_descricao : "" ?>"><br/>
-        <input class="btn btn-dark btn-lg btn-block" type="submit" value="Atualizar Produto">
+        <input style="background:#4fdc6f; color:white;" class="btn " type="submit" value="Atualizar Produto">
     </fieldset>
     </div>
 </div>

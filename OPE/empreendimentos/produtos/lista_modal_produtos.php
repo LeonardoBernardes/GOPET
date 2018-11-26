@@ -56,13 +56,16 @@ while($row = mysqli_fetch_object($result)){
 
   
   $results .='
-                <div class="col-md-12">
-                    <img src="'.$endereco_img.'" style="width:100%"/>
-                    <span class="input-group-text" for="inputGroupSelect01">Nome: '.$row->nome.'</span><br>
-                    <span class="input-group-text" for="inputGroupSelect01">Marca: '.$row->marca.'</span><br>
-                    <span class="input-group-text" for="inputGroupSelect01">Descrição: '.$row->descricao.'</span><br>
-                    <span class="input-group-text" for="inputGroupSelect01">Valor: '.$row->valor.'</span><br>
-                </div>';
+                <div class="card-group">
+                    <div class="card">
+                    <img class="card-img-top" src="'.$endereco_img.'" style="width:30%"/>
+                    <div class="card-body">
+                    <span for="inputGroupSelect01"><b>Nome:</b> '.$row->nome.'</span><br>
+                    <span for="inputGroupSelect01"><b>Marca:</b> '.$row->marca.'</span><br>
+                    <span for="inputGroupSelect01"><b>Descrição:</b> '.$row->descricao.'</span><br>
+                    <span for="inputGroupSelect01"><b>Valor:</b> '.$row->valor.'</span><br>
+                </div>
+              </div>';
 
 }
 if(empty($results)){

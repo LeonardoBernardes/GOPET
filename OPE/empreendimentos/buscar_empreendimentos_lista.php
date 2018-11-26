@@ -4,7 +4,7 @@ include_once '../config/server.php';
  * @Author: Rafael Yuiti Haga
  * @Date: 2018-09-12 19:55:28 
  * @Last Modified by: Leonardo.Bernardes
- * @Last Modified time: 2018-11-08 20:23:38
+ * @Last Modified time: 2018-11-26 18:31:22
  */
     include_once ROOT_PATH .'mysql_conexao/conexao_mysql.php';
     session_start();
@@ -101,8 +101,7 @@ include_once '../config/server.php';
       
       }
     }
-//echo $sql;
-//return;
+
     $result = mysqli_query($conn, $sql);
     while($row = mysqli_fetch_object($result)){
 
@@ -123,8 +122,33 @@ include_once '../config/server.php';
         $endereco_img = str_replace('\\', '/',$server_static.'empreendimentos/'.$endereco_img);
       }
       if($_SESSION['grup_id'] == 3){
-        $favoritar ="<button onclick='favoritar()' class='btn btn-success btn-sm' style='margin-left:10%;'>Favoritar</button>";
-    }
+        //Pega o id do empreendimento que esse usuário está atrelado
+        $sql33 = "SELECT
+                  usua_id
+              FROM
+                  login_x_usuarios
+              WHERE
+                  logi_id  = $logi_id   
+              ";
+
+        $result2 = mysqli_query($conn, $sql33);
+        $rowus = mysqli_fetch_object($result2);
+       
+        //Pega todos os eventos  daquele empreendimento
+        $sql_favoritos="SELECT empr_id FROM favoritos_empreendimentos WHERE empr_id=$row->empr_id AND usua_id = $rowus->usua_id AND faem_status = 1";
+        $result3 = mysqli_query($conn, $sql_favoritos);
+        $fav = mysqli_fetch_object($result3);
+        
+        if(!empty($fav)){
+          $favoritar ='<button id="favoritar/'.$row->empr_id.'" onclick="favoritar(this)" class="btn btn-danger btn-sm" style="margin-left:10%;">Desfavoritar</button>';
+        }else{
+         
+          $favoritar ='<button id="favoritar/'.$row->empr_id.'" onclick="favoritar(this)" class="btn btn-success btn-sm" style="margin-left:10%;">Favoritar</button>';
+        }
+
+      }else{
+        $favoritar = "";
+      }
       $results .='
       <div class="main"  style="margin-top:-10%;">
       <div class="container login-empreendimento">
@@ -360,9 +384,28 @@ if ($_SESSION['grup_id'] == 4){
           modal.find('.modal-body input').val(recipient)
           
         })
-        function favoritar(){
-    window.location.href="<?php echo $server_static?>usuarios/favoritos_empreendimentos.php";
-}
+        function favoritar(el){
+          //alert(el);
+          var id_button = el.id;
+          var str = id_button.split("/",1);
+          var str2 = id_button.substring(id_button.indexOf("/") + 1);
+          //alert(str2);
+           $.ajax({
+                  type: 'GET',
+                  url: '../usuarios/favorita_empreendimento_ajax.php?empr_id='+str2,
+                  success: function (data) {
+                      //$('#popup').html(data);
+                      //$('#popup').show();
+                      //$('.modal-body').html(data)
+                    window.location.href="<?php echo $server_static?>empreendimentos/buscar_empreendimentos_lista.php";
+                    //alert(data);
+                  }
+              });
+        }
+
+
+          //window.location.href="<?php echo $server_static?>usuarios/favoritos_empreendimentos.php";
+
 </script>
 
 <footer>

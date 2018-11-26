@@ -3,7 +3,7 @@
  * @Author: Leonardo.Bernardes 
  * @Date: 2018-11-08 19:55:13 
  * @Last Modified by: Leonardo.Bernardes
- * @Last Modified time: 2018-11-08 20:02:07
+ * @Last Modified time: 2018-11-26 18:11:05
  */
 include_once '../config/server.php';
 include_once ROOT_PATH.'mysql_conexao/conexao_mysql.php';
@@ -68,7 +68,7 @@ include_once ROOT_PATH.'mysql_conexao/conexao_mysql.php';
     $result = mysqli_query($conn, $sql);
     $row2 = mysqli_fetch_object($result);
     //Pega todos os eventos  daquele empreendimento
-    $sql_favoritos="SELECT * FROM favoritos_animais WHERE usua_id = $row2->usua_id";
+    $sql_favoritos="SELECT empr_id FROM favoritos_empreendimentos WHERE usua_id = $row2->usua_id AND faem_status = 1";
     $result = mysqli_query($conn, $sql_favoritos);
     while($row2 = mysqli_fetch_object($result)){
 
@@ -78,7 +78,6 @@ include_once ROOT_PATH.'mysql_conexao/conexao_mysql.php';
         $ids = $ids.",".$row2->empr_id;
 
     }
-//var_dump($ids);
 if(isset($ids)){
     $sql = "SELECT 
               empreendimentos_enderecos.emen_id AS id,
@@ -108,6 +107,7 @@ if(isset($ids)){
                 empreendimentos_imagens ON (empreendimentos_enderecos.empr_id = empreendimentos_imagens.empr_id)
             WHERE
                 login.logi_status = 1
+                AND empreendimentos.empr_id in ($ids)
     ";
  //echo $sql;
     if(!empty($tp_filtro) && $tp_filtro == 'endereco'){
@@ -125,8 +125,7 @@ if(isset($ids)){
       
       }
     }
-//echo $sql;
-//return;
+
     $result = mysqli_query($conn, $sql);
     while($row = mysqli_fetch_object($result)){
 
@@ -148,7 +147,7 @@ if(isset($ids)){
       }
 
     if($_SESSION['grup_id'] == 3){
-        $favoritar ="<button onclick='favoritar()' class='btn btn-danger btn-sm' style='margin-left:10%;'>Desfavoritar</button>";
+        $favoritar ='<button id="favoritar/'.$row->empr_id.'" onclick="favoritar(this)" class="btn btn-danger btn-sm" style="margin-left:10%;">Desfavoritar</button>';
     }
 
       $results .='
@@ -383,7 +382,24 @@ function getId(el){
           modal.find('.modal-body input').val(recipient)
           
         })
-
+        function favoritar(el){
+          //alert(el);
+          var id_button = el.id;
+          var str = id_button.split("/",1);
+          var str2 = id_button.substring(id_button.indexOf("/") + 1);
+          //alert(str2);
+           $.ajax({
+                  type: 'GET',
+                  url: 'favorita_empreendimento_ajax.php?empr_id='+str2,
+                  success: function (data) {
+                      //$('#popup').html(data);
+                      //$('#popup').show();
+                      //$('.modal-body').html(data)
+                      window.location.href="<?php echo $server_static?>empreendimentos/buscar_empreendimentos_lista.php";
+                   // alert(data);
+                  }
+              });
+        }
 
 </script>
 </html>

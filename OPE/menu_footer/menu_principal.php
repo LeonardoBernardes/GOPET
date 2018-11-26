@@ -6,7 +6,7 @@
  * @Last Modified by: Leonardo.Bernardes
  * @Last Modified time: 2018-08-29 18:28:38
  */
-session_start();
+//session_start();
 ?>
 
 <!doctype html>

@@ -262,10 +262,20 @@ if(!empty($anim_id)){
                                 <h2 class="btn btn-dark btn-sm btn-block">
                                     <legend>Endereço</legend>
                                 </h2>
+                                <br>
+                                <div class="form-row">
+                                    <div class="col">
+                                        <label>CEP:</label>
+                                        <input class="form-control-sm" required type="text" name="cep" id="cep" value="<?php echo $anen_cep ?>">
+                                        <label>&nbsp;</label>
+                                        <input type="button" style="background:#4fdc6f; color:white;" class="btn" value="Valida cep" onclick="valida_cep()">
+                                    </div>
+                                </div>
+                                <br>
                                 <div class="form-row">
                                     <div class="col">
                                         <label>Pais  </label>
-                                        <input class="form-control form-control-sm" type="text" name="pais" id="pais" value="<?php echo $anen_pais ?>" maxlength="2"><br/>
+                                        <input class="form-control form-control-sm" type="text" name="pais" id="pais" value="BR" readonly  maxlength="2"><br/>
                                     </div>
                                     <div class="col">
                                         <label>Estado  </label>
@@ -295,10 +305,7 @@ if(!empty($anim_id)){
                                         <label>Complemento  </label>
                                         <input class="form-control form-control-sm" type="text" name="complemento" id="complemento" value="<?php echo $anen_complemento ?>"><br/>
                                     </div>
-                                    <div class="col">
-                                        <label>CEP  </label>
-                                        <input class="form-control form-control-sm" type="text" name="cep" id="cep" value="<?php echo $anen_cep ?>"><br/>
-                                    </div>
+                                  
                                 </div>
                             </fieldset>
                             <input class="btn btn-success btn-sm btn-block" type="submit" value="Cadastrar">
@@ -310,6 +317,24 @@ if(!empty($anim_id)){
         </div>
     </div>
 </body>
+<script>
+    //$(document).ready(function() {
+        function valida_cep() {
+            var cep = $('#cep').val();
+            var ender = $.getJSON("https://viacep.com.br/ws/" + cep + "/json/", function(data) {
+                var logradouro = ender["responseJSON"].logradouro;
+                var localidade = ender["responseJSON"].localidade;
+                var bairro = ender["responseJSON"].bairro;
+                var uf = ender["responseJSON"].uf;
+                $('#cidade').val(localidade);
+                $('#estado').val(uf);
+                $('#bairro').val(bairro);
+                $('#logradouro').val(logradouro);
+                console.log(ender['responseJSON']);
+            });
+        };
+    //});
+</script>
 <footer>
 
     <?php 

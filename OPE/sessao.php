@@ -44,7 +44,7 @@ if(mysqli_num_rows($result) > 0)
        
 
        //var_dump($row);
-        if($row->grup_id == 1){
+       /* if($row->grup_id == 1){
             header('location: '.$server_static.'administradores/home_administradores.php');
             $_SESSION['loginErro'] = '<p class="alert alert-success">Seja Bem vindo</p>';
         }elseif($row->grup_id == 2 || $row->grup_id == 4){
@@ -54,6 +54,16 @@ if(mysqli_num_rows($result) > 0)
             header('location: '.$server_static.'index.php');
             $_SESSION['loginErro'] = '<p class="alert alert-success">Seja Bem vindo</p>';
         }
+        */
+        if($row->grup_id == 1){
+            header('location: '.$server_static.'administradores/home_administradores.php');
+        }elseif($row->grup_id == 2 || $row->grup_id == 4){
+            header('location: '.$server_static.'empreendimentos/home_empreendimento.php');
+        }elseif($row->grup_id == 3 ){
+            header('location: '.$server_static.'usuarios/home_usuarios.php');
+        }
+
+
     }
 
 }else{

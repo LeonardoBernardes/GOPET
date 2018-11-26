@@ -165,11 +165,11 @@ $logi_id = $_SESSION['logi_id'];
                                 <div class="form-row">
                                     <div class="col">
                                         <label>CEP:</label>
-                                        <input class="form-control-sm" required type="text" name="cep" id="cep" value='<?php echo $emen_cep ?>'>
+                                        <input class="form-control-sm" required type="text" name="cep" id="cep">
                                        <label>&nbsp;</label>
                                         <input type="button" style="background:#4fdc6f; color:white;" class="btn" value="Valida cep" onclick="valida_cep()">
                                     </div>
-                                    </div>
+                                </div>
                                 <br>
                                 <div class="form-row">
                                     <div class="col">

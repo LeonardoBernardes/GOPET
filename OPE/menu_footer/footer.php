@@ -12,25 +12,22 @@
                 <div class="mb-2 flex-center">
 
                     <!-- Facebook -->
-                    <a class="fb-ic" href="">
-              <i style="color:#7c7c7d;"  class="fab fa-facebook fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
-            </a>
+                    <a class="fb-ic" href="https://www.facebook.com/gopet.oficial">
+                        <i style="color:#7c7c7d;"  class="fab fa-facebook fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                    </a>
                     <!-- Twitter -->
-                    <a class="tw-ic" href="">
-              <i style="color:#7c7c7d;"  class="fab fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
-            </a>
+                    <!--a class="tw-ic" href="">
+                        <i style="color:#7c7c7d;"  class="fab fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                    </a-->
                     <!-- Google +-->
-                    <a class="gplus-ic" href="">
-            <i style="color:#7c7c7d;"  class="fab fa-google-plus fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
-            </a>
-                    <!--Linkedin -->
-                    <a class="li-ic" href="">
-              <i style="color:#7c7c7d;"  class="fab fa-linkedin fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
-            </a>
+                    <!--a class="gplus-ic" href="">
+                        <i style="color:#7c7c7d;"  class="fab fa-google-plus fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                    </a-->
+                
                     <!--Instagram-->
-                    <a class="ins-ic" href="">
-              <i  style="color:#7c7c7d;" class="fab fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
-            </a>
+                    <a class="ins-ic" href="https://www.instagram.com/gopet.oficial/">
+                        <i  style="color:#7c7c7d;" class="fab fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                    </a>
                 </div>
             </div>
             <!-- Grid column -->

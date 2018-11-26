@@ -113,7 +113,7 @@ if(!empty($row2)){
 
     <!-- Icone da Pagina & Titulo -->
     <link rel="icon" href="<?php echo $server_static;?>static/imagens/icon_preto.png">
-    <title>GoPet</title>
+    <title>GOPET</title>
 
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -182,7 +182,7 @@ if(!empty($row2)){
                             <div class="form-row">
                             <div class="col">
                                 <label>CEP:</label>
-                                <input class="form-control-sm" required type="text" name="cep" id="cep" value='<?php echo $emen_cep ?>'>
+                                <input class="form-control-sm" required type="text" name="cep" id="cep" value='<?php echo $usua_cep ?>'>
                                <label>&nbsp;</label>
                                 <input type="button" style="background:#4fdc6f; color:white;" class="btn" value="Valida cep" onclick="valida_cep()">
                             </div>
@@ -199,7 +199,7 @@ if(!empty($row2)){
                             </div>
                             <div class="col">
                                 <label>Pais:  </label>
-                                <input class="form-control form-control-sm" type="text" name="pais" readonly id="pais" value='<?php echo $usua_pais ?>'>
+                                <input class="form-control form-control-sm" type="text" name="pais" value='BR' readonly id="pais" value='<?php echo $usua_pais ?>'>
                             </div>
                         </div>
                         

@@ -2,7 +2,7 @@
     min-height: 100vh;
 }
 .home{
-    background-image: url("../static/imagens/desfoque.jpg");
+    background-image: url("../static/imagens/home_usuarios.jpg");
     background-position: top;
     background-size: cover;
 }

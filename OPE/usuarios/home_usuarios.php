@@ -22,7 +22,7 @@ include_once '../config/server.php';
 
     <!-- Icone da Pagina & Titulo -->
     <link rel="icon" href="<?php echo $server_static;?>static/imagens/icon_preto.png">
-    <title>GoPet</title>
+    <title>GOPET</title>
 
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -43,14 +43,15 @@ include_once '../config/server.php';
 
 </head>
     <body>
-    <?php include_once(ROOT_PATH."menu_footer/menu_latera_usuario.php"); 
+    <?php 
+        include_once(ROOT_PATH."menu_footer/menu_latera_usuario.php"); 
         include_once(ROOT_PATH."menu_footer/menu_usuario.php"); 
         
     ?>
        <div class="main">
         <div class="one_page home">
             <h1><img class="logo_index" src="static/imagens/icon_preto.png" alt="" /></h1>
-            <h2 class="frase_index">pagina de usuario</h2>
+            <p class="alert alert-success">Seja Bem-vindo ao GOPET</p>
         </div>
         </div>
         

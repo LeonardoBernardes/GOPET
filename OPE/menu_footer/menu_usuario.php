@@ -60,7 +60,7 @@ include_once ROOT_PATH .'mysql_conexao/conexao_mysql.php';
                 </div>
                 <div class="dropdown">
                   <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Buscar Empreendimentos
+                    Buscar Estabelecimentos
                   </button>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <a class="dropdown-item" href="<?php echo $server_static;?>empreendimentos/buscar_empreendimentos_geo.php"><img src="<?php echo $server_static;?>static/icones/localizacao.png" style="width:20px;"/> Exibir no Mapa</a>

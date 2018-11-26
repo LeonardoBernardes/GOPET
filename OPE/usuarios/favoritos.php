@@ -42,7 +42,7 @@ include_once ROOT_PATH."menu_footer/menu_latera_usuario.php"
 ?>
 <div class='main' style="margin-top:7%;">
     <button onclick="animaisFavoritos()" class="btn btn-dark"  style="background:black; color:white; width:100%; height:30%; text-align:center; font-size:24px;">Meus Animais Favoritos</button><br><br>
-    <button onclick="empreendimentosFavoritos()" class="btn btn"  style="background:#4fdc6f; color:white; width:100%; height:30%; text-align:center; font-size:24px;">Meus Empreendimentos Favoritos</button>
+    <button onclick="empreendimentosFavoritos()" class="btn btn"  style="background:#4fdc6f; color:white; width:100%; height:30%; text-align:center; font-size:24px;">Meus Estabelecimentos Favoritos</button>
 </div>
 </body>
 <script>

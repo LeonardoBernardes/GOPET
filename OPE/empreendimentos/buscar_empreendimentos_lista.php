@@ -122,13 +122,16 @@ include_once '../config/server.php';
         //Criar Funcao para trazer local host como variavel
         $endereco_img = str_replace('\\', '/',$server_static.'empreendimentos/'.$endereco_img);
       }
+      if($_SESSION['grup_id'] == 3){
+        $favoritar ="<button onclick='favoritar()' class='btn btn-success btn-sm' style='margin-left:10%;'>Favoritar</button>";
+    }
       $results .='
       <div class="main"  style="margin-top:-10%;">
       <div class="container login-empreendimento">
               <fieldset id="fie">
                     <img style="width:150px;" src="'.$endereco_img.'" style="width:100% class="img-thumbnail""/>
                     <span for="inputGroupSelect01"><b>Nome</b>: '.$row->nome.'</span>
-                   
+                    '.$favoritar.'
                     <div class="form-row">
                           <div class="col">    
                     <span  for="inputGroupSelect01"><b>Logradouro</b>: '.$row->logradouro.'</span>
@@ -172,22 +175,23 @@ include_once '../config/server.php';
 
     }
     json_encode($arr_empreendimentos_JSON);
-   /* 
+    
 
    if ($_SESSION['grup_id'] == 4){
     include_once(ROOT_PATH."menu_footer/menu_empreendimento.php"); 
-    include_once(ROOT_PATH."menu_footer/menu_latera_empreendimento.php");
+    //include_once(ROOT_PATH."menu_footer/menu_latera_empreendimento.php");
     }
     if ($_SESSION['grup_id'] == 1){    
     include_once(ROOT_PATH."menu_footer/menu_administrador.php");
     }
     if ($_SESSION['grup_id'] == 3){    
     include_once(ROOT_PATH."menu_footer/menu_usuario.php");
-    include_once(ROOT_PATH."menu_footer/menu_latera_usuario.php");
+    //include_once(ROOT_PATH."menu_footer/menu_latera_usuario.php");
     }
- */
+ 
     ?>
-    
+    <script src="<?php echo $server_static;?>static/jquery.js"></script>
+    <script src="<?php echo $server_static;?>static/bootstrap/js/bootstrap.js"></script>
 <!DOCTYPE html>
 <html>
 
@@ -209,14 +213,12 @@ include_once '../config/server.php';
 <?php
 
 if ($_SESSION['grup_id'] == 4){
-  include_once(ROOT_PATH."menu_footer/menu_empreendimento.php"); 
+ // include_once(ROOT_PATH."menu_footer/menu_empreendimento.php"); 
   include_once(ROOT_PATH."menu_footer/menu_latera_empreendimento.php");
   }
-  if ($_SESSION['grup_id'] == 1){    
-  include_once(ROOT_PATH."menu_footer/menu_administrador.php");
-  }
+  
   if ($_SESSION['grup_id'] == 3){    
-  include_once(ROOT_PATH."menu_footer/menu_usuario.php");
+  //include_once(ROOT_PATH."menu_footer/menu_usuario.php");
   include_once(ROOT_PATH."menu_footer/menu_latera_usuario.php");
   }
 
@@ -245,19 +247,8 @@ if ($_SESSION['grup_id'] == 4){
 
         <?php echo $results ?>
  
-     <?php
-        if ($_SESSION['grup_id'] == 4){
-            ?>
-            <a class="btn btn-dark" href="..\empreendimentos\home_empreendimento.php"> Voltar</a>
-        <?php
-        }
-        if ($_SESSION['grup_id'] == 3){    
-        ?>
-           <a class="btn btn-dark" href="..\usuarios\home_usuarios.php"> Voltar</a>
-    <?php
-    }
-    ?>
-        </div>
+ 
+    </div>
     
 </body>
  <!-- The Modal -->
@@ -369,9 +360,11 @@ if ($_SESSION['grup_id'] == 4){
           modal.find('.modal-body input').val(recipient)
           
         })
+        function favoritar(){
+    window.location.href="<?php echo $server_static?>usuarios/favoritos_empreendimentos.php";
+}
 </script>
-    <script src="<?php echo $server_static;?>static/jquery.js"></script>
-    <script src="<?php echo $server_static;?>static/bootstrap/js/bootstrap.js"></script>
+
 <footer>
 
     <?php 

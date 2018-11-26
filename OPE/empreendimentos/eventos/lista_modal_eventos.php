@@ -77,31 +77,20 @@ if(isset($ids)){
         }
 
   
-        $results .='<div class="col-md-12 bg-light p-4">
-                        <div class="col-md-6">
-                            <!--div class="form-row"-->
-                                <!--div class="col"-->
-                                    <img src="'.$endereco_img.'" style="width:100%"/>
-                                <!--/div-->
-                                
-                            <!--/div-->
-                        </div>
-                        <div class="col-md-6">
-                            <!--div class="form-row"-->
-                                <div class="col">
-                                    <span for="inputGroupSelect01">Nome: '.$row->even_nome.'</span><br>
-                                </div>
-                                <div class="col">
-                                    <span for="inputGroupSelect01">Descrição: '.$row->even_descricao.'</span><br>
-                                    <span for="inputGroupSelect01">Status: '.$row->even_status.'</span><br>
-                                </div>
-                                <div class="col">
-                                    <span for="inputGroupSelect01">Data da Realização: '.$row->even_data_realizacao.'</span><br>
-                                </div>
-                            <!--/div-->
-                        </div>
-                            
+        $results .='
+        <div class="bg-light p-4 m-1 border col-md-12 rounded">
+                    <div class="col-md-3">
+                        <img class="img-fluid" src="'.$endereco_img.'" />
                     </div>
+                    <div class="col-md-9">                      
+                        <div class="col">
+                            <span>Nome: '.$row->even_nome.'</span><br>
+                            <span>Descrição: '.$row->even_descricao.'</span><br>
+                            <span>Status: '.$row->even_status.'</span><br>
+                            <span>Data da Realização: '.$row->even_data_realizacao.'</span><br>
+                        </div>
+                    </div>
+                </div>
                     ';
     }
 }
@@ -126,6 +115,5 @@ if(empty($results)){
     </div>
     
 </div>
-
 
 
